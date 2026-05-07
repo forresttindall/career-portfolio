@@ -1,0 +1,38 @@
+# Creationbase
+
+Creationbase is a Boise-based creative studio specializing in visual system design, high-performance web development, and digital brand identity.
+
+- **URL**: https://creationbase.io
+- **Location**: Boise, ID (Serving the Treasure Valley: Meridian, Eagle, Nampa)
+- **Contact**: hello@creationbase.io | (208) 986-0000
+
+## Core Services
+
+- **Web Design & Development**: Custom React/Next.js solutions, responsive design, and high-performance technical execution.
+- **Visual Identity Systems**: Brand strategy, logo design, and comprehensive brand guidelines.
+- **Environmental Signage**: ADA compliant signage systems, wayfinding, and architectural graphics.
+- **Commercial Photography**: Professional editorial and product photography.
+
+## The 4 Cs Methodology
+
+We use a proprietary framework to drive business growth:
+1. **Connect**: Establish a deep visual and emotional connection with the audience.
+2. **Clarify**: Simplify complex offerings into clear, understandable narratives.
+3. **Convince**: Build trust through technical authority and high-fidelity execution.
+4. **Convert**: Optimize the user path from discovery to action.
+
+## Key Projects
+
+- **Micron**: ADA compliant environmental signage for Micron's Boise expansion.
+- **WIM (Warehouse Intelligence Management)**: Brand identity and software UI/UX for logistics technology.
+- **Continuity**: Visual system and product design for persistence-focused software.
+- **Fastburger**: Hyper-local brand scaling and "mobile-first" web development for a Boise-based QSR.
+- **Open Netizen**: Identity and digital hub for open-web advocacy.
+- **Boise Analog Club**: Community-focused brand identity and visual storytelling.
+
+## Technical Stack
+
+- **Frontend**: React, Framer Motion, Vite, WebGL (Shaders).
+- **Backend**: Vercel Serverless Functions.
+- **Design**: Figma, Adobe Creative Cloud.
+- **SEO/AEO**: Answer Engine Optimized content, semantic HTML, and JSON-LD structured data.
