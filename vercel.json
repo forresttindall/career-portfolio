@@ -1,7 +1,18 @@
 {
   "rewrites": [
-    { "source": "/blog/:slug", "destination": "/api/blog-ssr?slug=:slug" },
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/blog/:slug",
+      "has": [
+        {
+          "type": "header",
+          "key": "user-agent",
+          "value": ".*(Twitterbot|facebookexternalhit|linkedinbot|embedly|quora link preview|outbrain|pinterest|slackbot|vkShare|W3C_Validator|whatsapp|TelegramBot|Discordbot).*"
+        }
+      ],
+      "destination": "/api/blog-ssr?slug=:slug"
+    },
+    { "source": "/blog/(.*)", "destination": "/index.html" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
 
