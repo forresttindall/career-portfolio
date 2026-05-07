@@ -162,8 +162,16 @@ const WimProject = () => {
             <div className="small-text" style={{ marginTop: 8 }}>BRAND + IDENTITY DESIGN</div>
             <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
             <div className="small-text" style={{ marginTop: 8 }}>IDENTITY SYSTEM, SOFTWARE APP UI/UX DESIGN</div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT</div>
-            <div className="small-text" style={{ marginTop: 8 }}>
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
+            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
+              The Warehouse Intelligence Management (WIM) system required a visual identity that felt as precise and efficient as the software it represents. Our approach centered on the concept of 'Clarity in Chaos'—developing a bold, geometric system that remains legible in high-intensity warehouse environments.
+              <br /><br />
+              We re-engineered the core brand assets to prioritize immediate recognition, specifically for field use and apparel application. The software UI/UX was designed with a focus on high-contrast interaction patterns, ensuring ease of use on rugged mobile devices under varied lighting conditions.
+              <br /><br />
+              The resulting system is a cohesive blend of utility and identity, providing a unified visual language that scales from microscopic digital icons to large-scale fleet graphics. Every element—from the custom typeface weight to the high-visibility safety shirt suite—was meticulously crafted to support WIM's position as a leader in logistics technology.
+            </div>
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
+            <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
               WAREHOUSE INTELLIGENCE BRAND SYSTEM AND UNIFORM SUITE—BUILT FOR CLARITY, RECOGNITION, AND APPLICATION ACROSS APPAREL AND FIELD USE.
             </div>
           </motion.div>

@@ -158,8 +158,16 @@ const OpenNetizenProject = () => {
             <div className="small-text" style={{ marginTop: 8 }}>Brand + Web Designer + Developer</div>
             <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
             <div className="small-text" style={{ marginTop: 8 }}>Identity system, website design and development, applications</div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT</div>
-            <div className="small-text" style={{ marginTop: 8 }}>
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
+            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
+              Open Netizen was born from a desire to champion the principles of the open web. Our mission was to build a brand identity that felt both authoritative and grassroots—bridging the gap between high-level digital advocacy and accessible community action.
+              <br /><br />
+              We crafted a visual system that utilizes a structured, grid-based layout paired with an unapologetically direct typographic approach. This reflects the 'Netizen' spirit: informed, active, and fundamentally connected. The logo suite and color palette were optimized for digital clarity, ensuring a strong presence across a variety of web-based applications and mobile interfaces.
+              <br /><br />
+              The project extended into a full-scale website design and development phase, where we prioritized data transparency and user autonomy. By implementing a clean, modular design language, we created a digital hub that serves as both a resource for information and a platform for advocacy, all while maintaining a premium aesthetic that signals trust and longevity.
+            </div>
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
+            <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
               Civic non-profit identity system and website—built to feel independent, principled, and accessible while staying grounded in the visual language of the open web.
             </div>
           </motion.div>

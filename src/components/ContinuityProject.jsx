@@ -158,8 +158,16 @@ const ContinuityProject = () => {
             <div className="small-text" style={{ marginTop: 8 }}>BRAND + IDENTITY DESIGN</div>
             <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
             <div className="small-text" style={{ marginTop: 8 }}>IDENTITY SYSTEM, APP UI/UX DESIGN</div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT</div>
-            <div className="small-text" style={{ marginTop: 8 }}>
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
+            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
+              Continuity was built on the principle of seamless persistence. In a digital landscape of fragmented experiences, our goal was to create an identity that felt like a single, unbreakable thread across every touchpoint.
+              <br /><br />
+              We developed a minimalist but expressive visual system that utilizes fluid motion and structural grids to convey stability and growth. The app UI/UX prioritizes frictionless workflows, reducing cognitive load for users while maintaining a premium, high-fidelity aesthetic.
+              <br /><br />
+              The project involved a comprehensive suite of digital assets and physical merchandise, all unified by a consistent typographic and color strategy. The resulting brand is a testament to the power of design to create order and continuity in a rapidly evolving tech environment.
+            </div>
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
+            <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
               CONTINUITY BRAND SYSTEM AND PRODUCT SUITE—DESIGNED FOR CONSISTENCY ACROSS DIGITAL INTERFACES AND PHYSICAL MERCH.
             </div>
           </motion.div>

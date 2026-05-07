@@ -166,8 +166,16 @@ const FastburgerProject = () => {
             <div className="small-text" style={{ marginTop: 8 }}>Brand + Web Designer + Developer</div>
             <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
             <div className="small-text" style={{ marginTop: 8 }}>Identity system, packaging, signage, merch, website design and development</div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT</div>
-            <div className="small-text" style={{ marginTop: 8 }}>
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
+            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
+              Fastburger represents a modern take on the classic quick-service restaurant. Our challenge was to create an identity that communicated speed and accessibility without sacrificing the perception of quality.
+              <br /><br />
+              We developed a visual system rooted in bold typography and a vibrant, appetite-stimulating color palette. The logo suite was designed to be versatile, functioning equally well on a digital menu board as it does embossed on recycled burger packaging.
+              <br /><br />
+              The website development focused on a 'mobile-first' approach, ensuring that hungry customers could navigate the menu and find locations with zero friction. By combining custom iconography with high-fidelity mockups, we built a brand that feels both established and energetic.
+            </div>
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
+            <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
               Comprehensive brand identity system with packaging assets and website design and development—logo suite, packaging and signage applications, merchandise, and responsive web interface.
             </div>
             <a

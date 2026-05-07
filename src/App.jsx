@@ -14,7 +14,9 @@ import WimProject from './components/WimProject';
 import ContinuityProject from './components/ContinuityProject';
 import DecryptText from './components/DecryptText';
 import Tools from './components/Tools';
+import Schema from './components/Schema';
 import { Analytics } from '@vercel/analytics/react';
+import { blogPosts } from './blog/posts';
 
 const UI_LIGHT = '#111111';
 const UI_DARK = '#FFFFFF';
@@ -109,6 +111,7 @@ const SiteFooter = ({
           <div className="footer-links-column">
             <p className="small-text" style={{ marginBottom: 'var(--spacing-md)', fontWeight: 'var(--font-mono-weight-bold)' }}>LINKS</p>
             <ul className="small-text footer-links-list">
+              <li><a href="/blog" onClick={(ev) => { ev.preventDefault(); openBlog(); }}>BLOG</a></li>
               <li><a href="/contact" onClick={(ev) => { ev.preventDefault(); onContactClick(); }}>CONTACT</a></li>
               <li><a href="https://instagram.com/creationbase.io" target="_blank" rel="noreferrer">INSTAGRAM</a></li>
               <li><a href="https://www.linkedin.com/company/creationbaseio/" target="_blank" rel="noreferrer">LINKEDIN</a></li>
@@ -711,6 +714,19 @@ function App() {
     else if (id === 'blog') navigate('/blog');
   };
 
+  const openBlog = () => {
+    setMobileNavOpen(false);
+    if (location.pathname === '/') {
+      const y = window.scrollY || 0;
+      homeScrollYRef.current = y;
+      sessionStorage.setItem('homeScrollY', String(y));
+      pendingHomeScrollRestoreRef.current = true;
+    } else {
+      pendingHomeScrollRestoreRef.current = false;
+    }
+    navigate('/blog');
+  };
+
   const openContact = () => {
     setMobileNavOpen(false);
     if (location.pathname === '/') {
@@ -895,15 +911,35 @@ function App() {
     setMobileNavOpen((value) => !value);
   };
 
+  const blogPostData = useMemo(() => {
+    if (activeCaseStudy !== 'blog') return null;
+    const slug = location.pathname.startsWith('/blog/') ? decodeURIComponent(location.pathname.slice('/blog/'.length)) : null;
+    if (!slug) return null;
+    return blogPosts.find(p => p.slug === slug);
+  }, [activeCaseStudy, location.pathname]);
+
   return (
     <div className="app">
-      {cursorEnabled && (
-        <motion.div
-          aria-hidden="true"
-          className="cursor-follower"
-          style={{ x: cursorXSpring, y: cursorYSpring }}
+      <Schema type="Organization" />
+      {blogPostData && (
+         <Schema 
+          type="BlogPosting" 
+          data={{
+            title: blogPostData.title,
+            date: blogPostData.date,
+            slug: blogPostData.slug,
+            image: blogPostData.image,
+            description: Array.isArray(blogPostData.body) ? blogPostData.body[0].slice(0, 160) : ''
+          }} 
         />
-      )}
+       )}
+       {cursorEnabled && (
+         <motion.div
+           aria-hidden="true"
+           className="cursor-follower"
+           style={{ x: cursorXSpring, y: cursorYSpring }}
+         />
+       )}
       <motion.header 
         className="site-header"
         data-mobile-nav-open={mobileNavOpen ? 'true' : 'false'}
@@ -986,6 +1022,9 @@ function App() {
                 </button>
                 <button type="button" className="mobile-nav-link" onClick={openMaterialLab}>
                   Material Lab
+                </button>
+                <button type="button" className="mobile-nav-link" onClick={openBlog}>
+                  Blog
                 </button>
                 <button type="button" className="mobile-nav-link" onClick={openContact}>
                   Contact
