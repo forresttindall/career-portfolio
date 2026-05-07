@@ -132,9 +132,10 @@ const WimProject = () => {
             WebkitBackdropFilter: 'blur(26px)',
             zIndex: 390,
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
-            overflow: 'hidden'
+            overflowY: 'auto',
+            padding: '60px 20px'
           }}
         >
           <motion.div
@@ -152,7 +153,9 @@ const WimProject = () => {
               WebkitBackdropFilter: 'blur(22px)',
               border: 'none',
               padding: 'var(--spacing-xl) var(--spacing-lg)',
-              color: '#111111'
+              color: '#111111',
+              marginTop: 'auto',
+              marginBottom: 'auto'
             }}
           >
             <div className="small-text" style={{ marginBottom: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>

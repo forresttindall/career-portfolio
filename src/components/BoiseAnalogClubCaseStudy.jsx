@@ -327,9 +327,38 @@ const BoiseAnalogClubCaseStudy = () => {
               }}>
                 Boise Analog Club
               </h1>
-              <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: BRAND_WHITE, lineHeight: 1.8, marginTop: 14, maxWidth: 720 }}>
-                Visual identity and flyer system for a community film photography club—built for repeatable event promotion and print consistency.
-              </p>
+              <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '48px', alignItems: 'flex-start' }}>
+                <div style={{ flex: 1 }}>
+                  <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: BRAND_WHITE, lineHeight: 1.8, marginTop: 14, maxWidth: 720 }}>
+                    Visual identity and flyer system for a community film photography club—built for repeatable event promotion and print consistency.
+                  </p>
+
+                  <div style={{ marginTop: '24px' }}>
+                    <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: BRAND_WHITE, opacity: 0.6, letterSpacing: 2, margin: "0 0 12px", textTransform: "uppercase" }}>STRATEGY & DESIGN</p>
+                    <div style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: BRAND_WHITE, opacity: 0.8, lineHeight: 1.6, maxWidth: 640 }}>
+                      The Boise Analog Club (BAC) required an identity that felt as tactile and authentic as the medium it celebrates. Our approach focused on 'The Digital-Analog Bridge'—creating a flexible visual system that works seamlessly across social media promotions and physical street-flyers.
+                      <br /><br />
+                      We developed a typographic-heavy system that pays homage to darkroom aesthetics while maintaining a modern, high-contrast edge. This system was designed specifically for the Boise community, utilizing a local street-photography aesthetic that resonates with Treasure Valley creators.
+                      <br /><br />
+                      The resulting identity has become a staple of the local creative scene, providing the club with a consistent, recognizable voice that scales from microscopic Instagram thumbnails to large-format wheatpaste posters across Downtown Boise.
+                    </div>
+                  </div>
+                </div>
+
+                <div style={{ flex: '0 0 auto', minWidth: isMobile ? '100%' : '240px' }}>
+                  <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: BRAND_WHITE, opacity: 0.6, letterSpacing: 2, margin: "0 0 12px", textTransform: "uppercase" }}>PROJECT INFO</p>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: 24, rowGap: 12 }}>
+                    <span style={{ fontSize: 11, color: BRAND_WHITE, opacity: 0.4 }}>CLIENT</span>
+                    <span style={{ fontSize: 11, color: BRAND_WHITE }}>BOISE ANALOG CLUB</span>
+                    <span style={{ fontSize: 11, color: BRAND_WHITE, opacity: 0.4 }}>SCOPE</span>
+                    <span style={{ fontSize: 11, color: BRAND_WHITE }}>IDENTITY + PRINT SYSTEM</span>
+                    <span style={{ fontSize: 11, color: BRAND_WHITE, opacity: 0.4 }}>LOCATION</span>
+                    <span style={{ fontSize: 11, color: BRAND_WHITE }}>BOISE, ID</span>
+                    <span style={{ fontSize: 11, color: BRAND_WHITE, opacity: 0.4 }}>TECH</span>
+                    <span style={{ fontSize: 11, color: BRAND_WHITE }}>ADOBE CC + FIGMA</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

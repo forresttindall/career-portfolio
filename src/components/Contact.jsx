@@ -94,9 +94,14 @@ const Contact = () => {
                   <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>
                     CREATIONBASE •
                   </div>
-                  <address className="small-text" style={{ marginTop: 6, fontStyle: 'normal' }}>
-                    BOISE IDAHO + REMOTE
+                  <address className="small-text" style={{ marginTop: 6, fontStyle: 'normal', lineHeight: 1.5 }}>
+                    BOISE, ID<br />
+                    SERVING THE TREASURE VALLEY<br />
+                    (MERIDIAN, EAGLE, NAMPA)
                   </address>
+                  <div className="small-text" style={{ marginTop: 'var(--spacing-md)', color: GRAY1 }}>
+                    208.986.0000 (LOCAL SIGNAL)
+                  </div>
                 </div>
               </article>
             </div>

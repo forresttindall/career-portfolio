@@ -69,6 +69,16 @@ const INDEX01_PROJECTS = [
     secondaryAlt: 'Open Netizen website mockup',
     sideOffset: 'clamp(3rem, 8vw, 6rem)',
   },
+  {
+    id: 'micron',
+    titleLines: ['Micron'],
+    scope: 'Scope(Environmental Signage, ADA Systems)',
+    primaryImage: '/images/bathroom.webp',
+    primaryAlt: 'Micron bathroom ADA signage',
+    secondaryImage: '/images/lobby.webp',
+    secondaryAlt: 'Micron lobby environmental signage',
+    sideOffset: 'clamp(2rem, 7vw, 5rem)',
+  },
 ];
 
 const SiteFooter = ({
@@ -207,7 +217,10 @@ const SiteFooter = ({
 
         <div style={{ marginTop: '0', borderTop: HOME_SECTION_DIVIDER, paddingTop: '10px' }} className="flex">
           <p className="small-text" style={{ flex: 1 }}>© 2026 CREATIONBASE</p>
-          <p className="small-text">DESIGNED & CODED IN BOISE, ID</p>
+          <p className="small-text" style={{ textAlign: 'right' }}>
+            DESIGNED & CODED IN BOISE, ID • SERVING THE TREASURE VALLEY<br />
+            (208) 986-0000
+          </p>
         </div>
       </div>
     </motion.section>
@@ -709,7 +722,7 @@ function App() {
     else if (id === 'on') navigate('/open-netizen');
     else if (id === 'bac') navigate('/boise-analog-club');
     else if (id === 'ricochet') navigate('/ricochet');
-    else if (id === 'micron') navigate('/work-sharp-drill-doctor');
+    else if (id === 'micron') navigate('/micron');
     else if (id === 'playground') navigate('/playground');
     else if (id === 'blog') navigate('/blog');
   };
@@ -793,7 +806,7 @@ function App() {
     else if (pathname === '/open-netizen') setActiveCaseStudy('on');
     else if (pathname === '/boise-analog-club') setActiveCaseStudy('bac');
     else if (pathname === '/ricochet') setActiveCaseStudy('ricochet');
-    else if (pathname === '/work-sharp-drill-doctor') setActiveCaseStudy('micron');
+    else if (pathname === '/micron') setActiveCaseStudy('micron');
     else if (pathname === '/playground') setActiveCaseStudy('playground');
     else if (pathname === '/blog' || pathname.startsWith('/blog/')) setActiveCaseStudy('blog');
     else if (pathname === '/contact') setActiveCaseStudy('contact');
@@ -932,7 +945,7 @@ function App() {
           }} 
         />
       ) : (
-        <Schema type="Organization" />
+        <Schema type="LocalBusiness" />
       )}
       {cursorEnabled && (
          <motion.div
@@ -1092,7 +1105,7 @@ function App() {
                     <DecryptText as="span" text="visual system design" trigger="mount" delay={200} duration={900} />
                   </div>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em', marginTop: '-0.2em' }}>
-                    <DecryptText as="span" text="and development" trigger="mount" delay={440} duration={900} />
+                    <DecryptText as="span" text="+ development" trigger="mount" delay={440} duration={900} />
                   </div>
                 </h1>
                 <motion.div 
@@ -1121,8 +1134,9 @@ function App() {
                   <div className="small-text home-hero__services" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '12px', alignItems: 'start' }}>
                     <div>WE HELP YOU:</div>
                     <div>
-                      <div>— Visual System Design</div>
-                      <div>— Web Development</div>
+                      <div>— Boise Web Design & Development</div>
+                      <div>— Serving Downtown, North End, & Treasure Valley</div>
+                      <div>— Visual Identity Systems</div>
                     </div>
                   </div>
                   <div className="small-text home-hero__availability" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, justifySelf: 'end', textAlign: 'right' }}>

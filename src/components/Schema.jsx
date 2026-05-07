@@ -19,16 +19,96 @@ const Schema = ({ type = 'Organization', data = {} }) => {
       }
     };
 
-    if (type === 'Organization') {
+    if (type === 'Organization' || type === 'LocalBusiness') {
       return {
         ...base,
-        "description": "Creationbase is a creative studio specializing in visual system design, high-performance web development, and digital brand identity.",
+        "@type": "LocalBusiness",
+        "description": "Creationbase is a Boise-based creative studio specializing in visual system design, high-performance web development, and digital brand identity for Idaho startups and teams.",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Boise",
           "addressLocality": "Boise",
           "addressRegion": "ID",
+          "postalCode": "83702",
           "addressCountry": "US"
-        }
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "43.6150",
+          "longitude": "-116.2023"
+        },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Creative Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Boise Web Design",
+                "description": "Custom, responsive website design for Boise businesses and startups."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Full-Stack Web Development",
+                "description": "High-performance React and Next.js development based in Idaho."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brand Identity Systems",
+                "description": "Comprehensive visual identity and logo design for Treasure Valley brands."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "UI/UX Design",
+                "description": "User-centric interface and experience design for apps and platforms."
+              }
+            }
+          ]
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Boise" },
+          { "@type": "City", "name": "Meridian" },
+          { "@type": "City", "name": "Eagle" },
+          { "@type": "City", "name": "Nampa" },
+          { "@type": "City", "name": "Garden City" },
+          { "@type": "City", "name": "Kuna" },
+          { "@type": "State", "name": "Idaho" }
+        ],
+        "priceRange": "$$"
+      };
+    }
+
+    if (type === 'Service') {
+      return {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": data.name || "Web Design and Development",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Creationbase",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Boise",
+            "addressRegion": "ID"
+          }
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Boise" },
+          { "@type": "City", "name": "Meridian" },
+          { "@type": "City", "name": "Eagle" },
+          { "@type": "City", "name": "Nampa" }
+        ],
+        "description": data.description || "Custom web design, UI/UX, and high-performance development in Boise, ID."
       };
     }
 
@@ -87,19 +167,19 @@ const Schema = ({ type = 'Organization', data = {} }) => {
           document.head.appendChild(newMeta);
         }
       });
-    } else if (type === 'Organization') {
-      // Reset to defaults
-      document.title = 'Creationbase - Design & Development Studio';
+    } else if (type === 'Organization' || type === 'LocalBusiness') {
+      // Reset to defaults with Boise localization
+      document.title = 'Creationbase - Boise Web Design & Development Studio';
       
       const defaults = [
-        { name: 'description', content: 'Creationbase — design and development studio in Boise, ID. UI/UX design, graphic design, development, and brand identity for brands and teams.' },
-        { property: 'og:title', content: 'Creationbase - Design & Development Studio' },
-        { property: 'og:description', content: 'Creationbase — design and development studio in Boise, ID. UI/UX design, graphic design, development, and brand identity for brands and teams.' },
+        { name: 'description', content: 'Creationbase — design and development studio in Boise, ID. Custom web design, branding, and high-performance development for Idaho startups and teams.' },
+        { property: 'og:title', content: 'Creationbase - Boise Web Design & Development Studio' },
+        { property: 'og:description', content: 'Creationbase — design and development studio in Boise, ID. Custom web design, branding, and high-performance development for Idaho startups and teams.' },
         { property: 'og:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:image:secure_url', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:url', content: 'https://www.creationbase.io/' },
-        { name: 'twitter:title', content: 'Creationbase - Design & Development Studio' },
-        { name: 'twitter:description', content: 'Creationbase — design and development studio in Boise, ID. UI/UX design, graphic design, development, and brand identity for brands and teams.' },
+        { name: 'twitter:title', content: 'Creationbase - Boise Web Design & Development Studio' },
+        { name: 'twitter:description', content: 'Creationbase — design and development studio in Boise, ID. Custom web design, branding, and high-performance development for Idaho startups and teams.' },
         { name: 'twitter:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' }
       ];
 

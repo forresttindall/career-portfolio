@@ -26,12 +26,12 @@ const RicochetProject = () => {
               RICOCHET
             </h1>
             <div className="small-text" style={{ color: GRAY1 }}>
-              UI/UX DESIGN
+              UI/UX DESIGN & SYSTEM ARCHITECTURE
             </div>
           </div>
           <div style={{ height: 1, background: GRAY2, marginTop: 'var(--spacing-sm)' }} />
-          <div className="small-text" style={{ marginTop: 'var(--spacing-md)', maxWidth: 760, opacity: 0.9, textTransform: 'none' }}>
-            Website redesign + rebrand post-acquisition—moving away from the startup SaaS look into a more contemporary aesthetic, built in collaboration with the Superbase team.
+          <div className="small-text" style={{ marginTop: 'var(--spacing-md)', maxWidth: 760, opacity: 0.9, textTransform: 'none', lineHeight: 1.6 }}>
+            A comprehensive website redesign and visual system rebrand for Ricochet, a high-growth platform in the resale tech space. Post-acquisition, the focus shifted from a generic "startup SaaS" look to a sophisticated, high-fidelity aesthetic that reflects the scale and reliability of the product. This project involved deep collaboration with the Superbase team to define a new contemporary standard for their interface.
           </div>
         </div>
       </section>
@@ -50,19 +50,28 @@ const RicochetProject = () => {
             <div>
               <div style={{ borderTop: `1px solid ${GRAY2}`, paddingTop: 'var(--spacing-md)' }}>
                 <div className="small-text" style={{ color: GRAY1, letterSpacing: 2 }}>
-                  ROLE
+                  LOCATION
                 </div>
                 <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
-                  UI/UX Designer
+                  Boise, ID / Remote
                 </div>
               </div>
 
               <div style={{ borderTop: `1px solid ${GRAY2}`, paddingTop: 'var(--spacing-md)', marginTop: 'var(--spacing-lg)' }}>
                 <div className="small-text" style={{ color: GRAY1, letterSpacing: 2 }}>
-                  COLLABORATION
+                  TECH STACK
                 </div>
                 <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
-                  Worked with the Superbase team.
+                  Figma, React, Tailwind CSS, Framer Motion
+                </div>
+              </div>
+
+              <div style={{ borderTop: `1px solid ${GRAY2}`, paddingTop: 'var(--spacing-md)', marginTop: 'var(--spacing-lg)' }}>
+                <div className="small-text" style={{ color: GRAY1, letterSpacing: 2 }}>
+                  ROLE
+                </div>
+                <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
+                  UI/UX Lead Designer
                 </div>
               </div>
 
@@ -71,18 +80,18 @@ const RicochetProject = () => {
                   TEAM
                 </div>
                 <div className="small-text" style={{ marginTop: 8, textTransform: 'none', display: 'grid', gap: 6 }}>
-                  <div>Mickey Martin</div>
-                  <div>Tyler Crabb</div>
-                  <div>Madi Cleave</div>
+                  <div>Mickey Martin (Product)</div>
+                  <div>Tyler Crabb (Strategy)</div>
+                  <div>Madi Cleave (Design)</div>
                 </div>
               </div>
 
               <div style={{ borderTop: `1px solid ${GRAY2}`, paddingTop: 'var(--spacing-md)', marginTop: 'var(--spacing-lg)' }}>
                 <div className="small-text" style={{ color: GRAY1, letterSpacing: 2 }}>
-                  PROJECT
+                  STRATEGY
                 </div>
-                <div className="small-text" style={{ marginTop: 8, textTransform: 'none', opacity: 0.9 }}>
-                  Website redesign and rebrand direction focused on modernizing the visual language, reducing the “startup SaaS” feel, and creating a more contemporary, product-forward interface.
+                <div className="small-text" style={{ marginTop: 8, textTransform: 'none', opacity: 0.9, lineHeight: 1.5 }}>
+                  The goal was to eliminate visual noise and focus on data density. We moved from rounded, bubbly elements to a more architectural, grid-based layout. This improved scannability for power users who spend hours in the dashboard daily.
                 </div>
               </div>
             </div>

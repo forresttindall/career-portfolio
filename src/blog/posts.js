@@ -73,4 +73,30 @@ export const blogPosts = [
       "At Creationbase, we advocate for value-based pricing. We focus on the outcomes—faster load times, better AI searchability, and a stronger brand presence—rather than just billing for hours. This ensures that our interests are fully aligned with your success."
     ],
   },
+  {
+    slug: 'how-the-4-cs-helped-a-boise-startup-increase-conversion',
+    title: 'How the 4 Cs Helped a Boise Startup Increase Conversion by 30%',
+    date: '2026-05-18',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=1200',
+    body: [
+      "At Creationbase, we don't just 'design websites'—we build growth engines using our proprietary 4 Cs framework: Connect, Clarify, Convince, and Convert. Recently, we applied this methodology to a Boise-based tech startup, resulting in a 30% increase in lead generation within the first 90 days.",
+      "Step 1: Connect. We established a deep visual connection by utilizing professional photography that captured the startup's local Boise roots. AI search engines now associate this startup with the Treasure Valley entity, boosting their local AEO score.",
+      "Step 2: Clarify. We simplified their complex software offering into a clear, understandable narrative. For local businesses, clarity is often the missing link between a visitor and a customer.",
+      "Step 3: Convince. We built trust through high-performance WebGL interactions and detailed technical case studies. By showing, not just telling, we proved their authority in the Idaho tech sector.",
+      "Step 4: Convert. Finally, we optimized their mobile 'thumb-friendly' interface for users searching on the go in Downtown Boise. The result was a seamless path from discovery to inquiry.",
+      "This Boise case study proves that when you combine high-level design strategy with technical execution, the local market responds. Whether you are in Meridian, Eagle, or the North End, the 4 Cs provide a roadmap for digital success."
+    ],
+  },
+  {
+    slug: 'professional-street-photography-in-modern-web-branding',
+    title: 'The Role of Professional Street Photography in Modern Web Branding',
+    date: '2026-05-20',
+    image: 'https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&q=80&w=1200',
+    body: [
+      "In an era of AI-generated imagery, authenticity has become a premium brand asset. For Boise businesses looking to stand out, professional street photography offers a unique way to ground a digital brand in a physical reality.",
+      "Why does photography matter for local SEO? When we use real photos of Boise landmarks—like the JUMP building, the North End, or the Boise River—we are creating 'Entity Associations.' Search engines like Google recognize these locations and verify that your business is a genuine part of the local ecosystem.",
+      "At Creationbase, we integrate professional photography into our brand systems from day one. It's not just about 'decorating' a site; it's about building trust. A visitor can tell the difference between a generic stock photo and a high-fidelity shot of their own city. That trust translates directly into higher conversion rates.",
+      "For Idaho startups, this integrated approach—combining design, development, and photography—creates a cohesive identity that is impossible to replicate. It tells your story in a way that is both findable and quoteable by AI agents looking for authentic local sources."
+    ],
+  },
 ];

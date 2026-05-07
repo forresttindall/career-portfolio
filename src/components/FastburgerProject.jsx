@@ -136,9 +136,10 @@ const FastburgerProject = () => {
             WebkitBackdropFilter: 'blur(26px)',
             zIndex: 390,
             display: 'flex',
-            alignItems: 'center',
+            alignItems: 'flex-start',
             justifyContent: 'center',
-            overflow: 'hidden'
+            overflowY: 'auto',
+            padding: '60px 20px'
           }}
         >
           <motion.div
@@ -156,27 +157,35 @@ const FastburgerProject = () => {
               WebkitBackdropFilter: 'blur(22px)',
               border: 'none',
               padding: 'var(--spacing-xl) var(--spacing-lg)',
-              color: '#111111'
+              color: '#111111',
+              marginTop: 'auto',
+              marginBottom: 'auto'
             }}
           >
             <div className="small-text" style={{ marginBottom: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
               FASTBURGER •
             </div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)' }}>ROLE</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Brand + Web Designer + Developer</div>
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)' }}>LOCATION</div>
+            <div className="small-text" style={{ marginTop: 8 }}>Boise, ID</div>
+
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>ROLE</div>
+            <div className="small-text" style={{ marginTop: 8 }}>Lead Brand Strategist, UI/UX Designer & Full-Stack Developer</div>
+            
+            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>TECH</div>
+            <div className="small-text" style={{ marginTop: 8 }}>Figma, Adobe CC, React, Vite, Framer Motion</div>
+            
             <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Identity system, packaging, signage, merch, website design and development</div>
+            <div className="small-text" style={{ marginTop: 8 }}>Full brand identity system, packaging, signage, merchandise, and a high-performance responsive website.</div>
+            
             <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
             <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
-              Fastburger represents a modern take on the classic quick-service restaurant. Our challenge was to create an identity that communicated speed and accessibility without sacrificing the perception of quality.
+              Fastburger is a case study in "Hyper-Local Brand Scaling." We developed an identity for this Boise-based concept that balances the speed of a global QSR with the craft of a local favorite. 
               <br /><br />
-              We developed a visual system rooted in bold typography and a vibrant, appetite-stimulating color palette. The logo suite was designed to be versatile, functioning equally well on a digital menu board as it does embossed on recycled burger packaging.
-              <br /><br />
-              The website development focused on a 'mobile-first' approach, ensuring that hungry customers could navigate the menu and find locations with zero friction. By combining custom iconography with high-fidelity mockups, we built a brand that feels both established and energetic.
+              Using the 4 Cs framework, we first **Connected** with the Boise market's preference for authentic, transparent branding. We **Clarified** the menu offering through custom iconography and a high-contrast visual hierarchy. We **Convinced** the customer of quality through tactile packaging design and high-fidelity digital mockups. Finally, we **Converted** users via a "thumb-friendly" mobile site optimized for local Treasure Valley searches.
             </div>
             <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
-            <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
-              Comprehensive brand identity system with packaging assets and website design and development—logo suite, packaging and signage applications, merchandise, and responsive web interface.
+            <div className="small-text" style={{ marginTop: 8, textTransform: 'none', lineHeight: 1.5 }}>
+              Comprehensive visual system development and technical execution—built for a Boise audience that values performance and authenticity. From printed menus to the React-powered frontend, every touchpoint is designed to load fast and look sharp.
             </div>
             <a
               href="https://fastburger.vercel.app/"
