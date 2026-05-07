@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Static Pages -->
   <url>
     <loc>https://creationbase.io/</loc>
     <lastmod>2026-05-10</lastmod>
@@ -24,6 +25,57 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://creationbase.io/playground</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Case Studies -->
+  <url>
+    <loc>https://creationbase.io/fastburger</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://creationbase.io/wim</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://creationbase.io/continuity</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://creationbase.io/open-netizen</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://creationbase.io/boise-analog-club</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://creationbase.io/ricochet</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://creationbase.io/micron</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Blog Posts -->
   <url>
     <loc>https://creationbase.io/blog/motion-in-modern-branding</loc>
@@ -58,6 +110,18 @@
   <url>
     <loc>https://creationbase.io/blog/the-cost-of-hiring-a-design-studio</loc>
     <lastmod>2026-05-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://creationbase.io/blog/how-the-4-cs-helped-a-boise-startup-increase-conversion</loc>
+    <lastmod>2026-05-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://creationbase.io/blog/professional-street-photography-in-modern-web-branding</loc>
+    <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
