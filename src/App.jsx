@@ -920,9 +920,8 @@ function App() {
 
   return (
     <div className="app">
-      <Schema type="Organization" />
-      {blogPostData && (
-         <Schema 
+      {blogPostData ? (
+        <Schema 
           type="BlogPosting" 
           data={{
             title: blogPostData.title,
@@ -932,8 +931,10 @@ function App() {
             description: Array.isArray(blogPostData.body) ? blogPostData.body[0].slice(0, 160) : ''
           }} 
         />
-       )}
-       {cursorEnabled && (
+      ) : (
+        <Schema type="Organization" />
+      )}
+      {cursorEnabled && (
          <motion.div
            aria-hidden="true"
            className="cursor-follower"

@@ -65,6 +65,7 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         { property: 'og:title', content: data.title },
         { property: 'og:description', content: data.description },
         { property: 'og:image', content: data.image },
+        { property: 'og:image:secure_url', content: data.image },
         { property: 'og:url', content: `https://creationbase.io/blog/${data.slug}` },
         { name: 'twitter:title', content: data.title },
         { name: 'twitter:description', content: data.description },
@@ -87,8 +88,27 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         }
       });
     } else if (type === 'Organization') {
-      // Reset to defaults if needed
+      // Reset to defaults
       document.title = 'Creationbase - Design & Development Studio';
+      
+      const defaults = [
+        { name: 'description', content: 'Creationbase — design and development studio in Boise, ID. UI/UX design, graphic design, development, and brand identity for brands and teams.' },
+        { property: 'og:title', content: 'Creationbase - Design & Development Studio' },
+        { property: 'og:description', content: 'Creationbase — design and development studio in Boise, ID. UI/UX design, graphic design, development, and brand identity for brands and teams.' },
+        { property: 'og:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
+        { property: 'og:image:secure_url', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
+        { property: 'og:url', content: 'https://www.creationbase.io/' },
+        { name: 'twitter:title', content: 'Creationbase - Design & Development Studio' },
+        { name: 'twitter:description', content: 'Creationbase — design and development studio in Boise, ID. UI/UX design, graphic design, development, and brand identity for brands and teams.' },
+        { name: 'twitter:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' }
+      ];
+
+      defaults.forEach(update => {
+        let el = update.name 
+          ? document.querySelector(`meta[name="${update.name}"]`)
+          : document.querySelector(`meta[property="${update.property}"]`);
+        if (el) el.setAttribute('content', update.content);
+      });
     }
   }, [type, data]);
 
