@@ -70,6 +70,7 @@ const INDEX01_PROJECTS = [
 ];
 
 const SiteFooter = ({
+  isMobile,
   onContactClick,
   reserveRightRail = false,
   newsletterName,
@@ -144,6 +145,9 @@ const SiteFooter = ({
               <form
                 onSubmit={onSubmitNewsletter}
                 className="newsletter-form"
+                style={{
+                  gridTemplateColumns: isMobile ? '1fr' : 'minmax(140px, 200px) 1fr auto'
+                }}
               >
                 <input
                   type="text"
@@ -498,7 +502,16 @@ function App() {
     return 'light';
   });
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [navLogoSpinTick, setNavLogoSpinTick] = useState(0);
+
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 700px)');
+    setIsMobile(mql.matches);
+    const handler = (e) => setIsMobile(e.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
   
   const location = useLocation();
   const navigate = useNavigate();
@@ -1001,13 +1014,7 @@ function App() {
         {activeCaseStudy === 'blog' ? (
           <Blog key="blog" />
         ) : activeCaseStudy === 'contact' ? (
-          <Contact
-            key="contact"
-            newsletterEmail={newsletterEmail}
-            newsletterStatus={newsletterStatus}
-            onNewsletterEmailChange={(ev) => setNewsletterEmail(ev.target.value)}
-            onSubmitNewsletter={submitNewsletter}
-          />
+          <Contact key="contact" />
         ) : activeCaseStudy === 'fastburger' ? (
           <FastburgerProject key="fastburger" />
         ) : activeCaseStudy === 'wim' ? (
@@ -1657,6 +1664,7 @@ function App() {
         )}
       </AnimatePresence>
       <SiteFooter
+        isMobile={isMobile}
         onContactClick={openContact}
         reserveRightRail={activeCaseStudy === 'bac' || activeCaseStudy === 'on'}
         newsletterName={newsletterName}
