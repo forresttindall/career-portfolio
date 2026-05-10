@@ -9,6 +9,116 @@ const GRAY1 = 'rgba(17, 17, 17, 0.56)';
 const GRAY2 = '#C9C9C9';
 const WHITE = '#111111';
 
+const renderPostBody = (body) => {
+  if (!Array.isArray(body)) return null;
+
+  const nodes = [];
+  let i = 0;
+
+  const paragraphStyle = {
+    fontFamily: 'var(--font-mono)',
+    fontSize: 15,
+    lineHeight: 1.8,
+    margin: '0 0 var(--spacing-lg)',
+    color: '#333',
+  };
+
+  const headingStyle = {
+    fontFamily: 'var(--font-display)',
+    color: WHITE,
+    letterSpacing: '-0.04em',
+    lineHeight: 1.05,
+    textTransform: 'uppercase',
+    margin: '0 0 var(--spacing-md)',
+  };
+
+  const listStyle = {
+    ...paragraphStyle,
+    margin: '0 0 var(--spacing-lg)',
+    paddingLeft: 18,
+  };
+
+  while (i < body.length) {
+    const raw = body[i];
+    const text = typeof raw === 'string' ? raw : String(raw ?? '');
+    const trimmed = text.trim();
+
+    if (!trimmed) {
+      i += 1;
+      continue;
+    }
+
+    if (trimmed.startsWith('## ')) {
+      nodes.push(
+        <h2 key={`h2-${i}`} style={{ ...headingStyle, fontSize: 22, marginTop: 'var(--spacing-lg)' }}>
+          {trimmed.slice(3)}
+        </h2>
+      );
+      i += 1;
+      continue;
+    }
+
+    if (trimmed.startsWith('### ')) {
+      nodes.push(
+        <h3 key={`h3-${i}`} style={{ ...headingStyle, fontSize: 18, marginTop: 'var(--spacing-md)' }}>
+          {trimmed.slice(4)}
+        </h3>
+      );
+      i += 1;
+      continue;
+    }
+
+    if (/^[-*]\s+/.test(trimmed)) {
+      const items = [];
+      while (i < body.length) {
+        const candidate = typeof body[i] === 'string' ? body[i].trim() : String(body[i] ?? '').trim();
+        if (!/^[-*]\s+/.test(candidate)) break;
+        items.push(candidate.replace(/^[-*]\s+/, ''));
+        i += 1;
+      }
+      nodes.push(
+        <ul key={`ul-${i}`} style={listStyle}>
+          {items.map((item, idx) => (
+            <li key={idx} style={{ marginBottom: 10 }}>
+              {item}
+            </li>
+          ))}
+        </ul>
+      );
+      continue;
+    }
+
+    if (/^\d+\.\s+/.test(trimmed)) {
+      const items = [];
+      while (i < body.length) {
+        const candidate = typeof body[i] === 'string' ? body[i].trim() : String(body[i] ?? '').trim();
+        if (!/^\d+\.\s+/.test(candidate)) break;
+        items.push(candidate.replace(/^\d+\.\s+/, ''));
+        i += 1;
+      }
+      nodes.push(
+        <ol key={`ol-${i}`} style={listStyle}>
+          {items.map((item, idx) => (
+            <li key={idx} style={{ marginBottom: 10 }}>
+              {item}
+            </li>
+          ))}
+        </ol>
+      );
+      continue;
+    }
+
+    nodes.push(
+      <p key={`p-${i}`} style={paragraphStyle}>
+        {text}
+      </p>
+    );
+    i += 1;
+  }
+
+  return nodes;
+};
+
 const Blog = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -163,17 +273,7 @@ const Blog = () => {
               </div>
 
               <div style={{ borderTop: `1px solid ${GRAY2}`, paddingTop: 'var(--spacing-xl)' }}>
-                {post.body.map((paragraph, idx) => (
-                  <p key={idx} style={{ 
-                    fontFamily: 'var(--font-mono)', 
-                    fontSize: 15, 
-                    lineHeight: 1.8, 
-                    margin: '0 0 var(--spacing-lg)',
-                    color: '#333'
-                  }}>
-                    {paragraph}
-                  </p>
-                ))}
+                {renderPostBody(post.body)}
               </div>
             </article>
           ) : (
