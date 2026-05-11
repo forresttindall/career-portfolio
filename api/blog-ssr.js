@@ -4,7 +4,7 @@ import { blogPosts } from '../src/blog/posts.js';
 
 export default function handler(req, res) {
   const { slug } = req.query;
-  const post = blogPosts.find(p => p.slug === slug);
+  const post = blogPosts.find((p) => p.slug === slug && !p.hidden);
 
   // Use process.cwd() to find index.html in the root
   const indexPath = join(process.cwd(), 'index.html');

@@ -928,7 +928,7 @@ function App() {
     if (activeCaseStudy !== 'blog') return null;
     const slug = location.pathname.startsWith('/blog/') ? decodeURIComponent(location.pathname.slice('/blog/'.length)) : null;
     if (!slug) return null;
-    return blogPosts.find(p => p.slug === slug);
+    return blogPosts.find((p) => p.slug === slug && !p.hidden);
   }, [activeCaseStudy, location.pathname]);
 
   return (

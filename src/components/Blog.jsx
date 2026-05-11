@@ -123,6 +123,8 @@ const Blog = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const visiblePosts = useMemo(() => blogPosts.filter((p) => !p.hidden), []);
+
   const route = useMemo(() => {
     const pathname = location.pathname || '/blog';
     const isList = pathname === '/blog' || pathname === '/blog/';
@@ -132,7 +134,7 @@ const Blog = () => {
 
   const post = useMemo(() => {
     if (!route.slug) return null;
-    return blogPosts.find((p) => p.slug === route.slug) || null;
+    return blogPosts.find((p) => p.slug === route.slug && !p.hidden) || null;
   }, [route.slug]);
 
   useEffect(() => {
@@ -165,7 +167,7 @@ const Blog = () => {
         <div className="container" style={{ maxWidth: 1200 }}>
           {route.isList ? (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 360px), 1fr))', gap: 'var(--spacing-lg)' }}>
-              {blogPosts.map((p, idx) => (
+              {visiblePosts.map((p, idx) => (
                 <article key={p.slug}>
                   <motion.div
                     onClick={() => navigate(`/blog/${p.slug}`)}
