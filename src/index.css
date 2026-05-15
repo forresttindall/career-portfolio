@@ -54,6 +54,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Ark es';
+  src: url('/Fonts/ark es/ARK-ES-DenseRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   --font-display: 'Tiposka', monospace;
   --font-display-weight: 900;
