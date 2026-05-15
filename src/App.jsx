@@ -218,8 +218,7 @@ const SiteFooter = ({
         <div style={{ marginTop: '0', borderTop: HOME_SECTION_DIVIDER, paddingTop: '10px' }} className="flex">
           <p className="small-text" style={{ flex: 1 }}>© 2026 CREATIONBASE</p>
           <p className="small-text" style={{ textAlign: 'right' }}>
-            DESIGNED & CODED IN BOISE, ID • SERVING THE TREASURE VALLEY<br />
-            (208) 986-0000
+            DESIGNED & CODED IN BOISE, ID
           </p>
         </div>
       </div>
