@@ -1078,6 +1078,7 @@ function App() {
                 </button>
                 <button type="button" className="mobile-nav-link" onClick={openStrategyCall}>
                   Strategy Call
+                  <ArrowUpRight size={14} weight="thin" />
                 </button>
                 <button type="button" className="mobile-nav-link" onClick={openContact}>
                   Contact Form
