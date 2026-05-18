@@ -8,6 +8,7 @@ import Blog from './components/Blog';
 import Contact from './components/Contact';
 import RicochetProject from './components/RicochetProject';
 import MicronProject from './components/MicronProject';
+import Services from './components/Services';
 import Playground from './components/Playground';
 import FastburgerProject from './components/FastburgerProject';
 import WimProject from './components/WimProject';
@@ -218,8 +219,7 @@ const SiteFooter = ({
         <div style={{ marginTop: '0', borderTop: HOME_SECTION_DIVIDER, paddingTop: '10px' }} className="flex">
           <p className="small-text" style={{ flex: 1 }}>© 2026 CREATIONBASE</p>
           <p className="small-text" style={{ textAlign: 'right' }}>
-            DESIGNED & CODED IN BOISE, ID • SERVING THE TREASURE VALLEY<br />
-            (208) 986-0000
+            DESIGNED & CODED IN BOISE, ID
           </p>
         </div>
       </div>
@@ -766,6 +766,19 @@ function App() {
     navigate('/material-lab');
   };
 
+  const openServices = () => {
+    setMobileNavOpen(false);
+    if (location.pathname === '/') {
+      const y = window.scrollY || 0;
+      homeScrollYRef.current = y;
+      sessionStorage.setItem('homeScrollY', String(y));
+      pendingHomeScrollRestoreRef.current = true;
+    } else {
+      pendingHomeScrollRestoreRef.current = false;
+    }
+    navigate('/services');
+  };
+
   const goToSection = (id) => {
     setMobileNavOpen(false);
     pendingHomeScrollRestoreRef.current = false;
@@ -808,6 +821,7 @@ function App() {
     else if (pathname === '/ricochet') setActiveCaseStudy('ricochet');
     else if (pathname === '/micron') setActiveCaseStudy('micron');
     else if (pathname === '/playground') setActiveCaseStudy('playground');
+    else if (pathname === '/services') setActiveCaseStudy('services');
     else if (pathname === '/blog' || pathname.startsWith('/blog/')) setActiveCaseStudy('blog');
     else if (pathname === '/contact') setActiveCaseStudy('contact');
     else if (pathname === '/material-lab' || pathname.startsWith('/material-lab/')) setActiveCaseStudy('material-lab');
@@ -1034,6 +1048,9 @@ function App() {
                 <button type="button" className="mobile-nav-link" onClick={() => goToSection('dev')}>
                   Dev
                 </button>
+                <button type="button" className="mobile-nav-link" onClick={openServices}>
+                  Services
+                </button>
                 <button type="button" className="mobile-nav-link" onClick={openMaterialLab}>
                   Material Lab
                 </button>
@@ -1066,6 +1083,8 @@ function App() {
       >
         {activeCaseStudy === 'blog' ? (
           <Blog key="blog" />
+        ) : activeCaseStudy === 'services' ? (
+          <Services key="services" />
         ) : activeCaseStudy === 'contact' ? (
           <Contact key="contact" />
         ) : activeCaseStudy === 'fastburger' ? (
@@ -1134,9 +1153,9 @@ function App() {
                   <div className="small-text home-hero__services" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '12px', alignItems: 'start' }}>
                     <div>WE HELP YOU:</div>
                     <div>
-                      <div>— Boise Web Design & Development</div>
-                      <div>— Serving Downtown, North End, & Treasure Valley</div>
-                      <div>— Visual Identity Systems</div>
+                      <div>— Build a memorable brand system</div>
+                      <div>— Design clear UI/UX that feels obvious</div>
+                      <div>— Develop fast, conversion-ready websites</div>
                     </div>
                   </div>
                   <div className="small-text home-hero__availability" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, justifySelf: 'end', textAlign: 'right' }}>
@@ -1145,7 +1164,7 @@ function App() {
                       <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: HERO_AVAILABILITY.color, display: 'inline-block' }} />
                       <span>{HERO_AVAILABILITY.label}</span>
                     </div>
-                    <div>Boise + Remote</div>
+                    <div>Remote / Worldwide</div>
                   </div>
                 </motion.div>
               </div>
@@ -1235,6 +1254,172 @@ function App() {
               </div>
             </motion.section>
 
+            {/* Overview / What We Build */}
+            <section
+              data-header-theme="light"
+              className="home-overview"
+              style={{
+                padding: 'var(--spacing-xxl) var(--spacing-md)',
+                background: UI_DARK,
+                color: UI_LIGHT,
+                minHeight: 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
+                <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
+                  <DecryptText as="span" text="OVERVIEW" trigger="inView" duration={800} />
+                </h2>
+                <span className="small-text">Index (02)</span>
+              </div>
+
+              <div
+                className="home-overview__grid"
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(12, 1fr)',
+                  gap: 'var(--spacing-xl)',
+                  alignItems: 'start',
+                }}
+              >
+                <div className="home-overview__aside" style={{ gridColumn: 'span 4' }}>
+                  <div style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}>
+                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>
+                      WHAT WE BUILD •
+                    </div>
+                    <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35, maxWidth: 420 }}>
+                      WE DESIGN MEMORABLE BRAND SYSTEMS AND SHIP HIGH-PERFORMANCE WEBSITES THAT LOOK INTENTIONAL, LOAD FAST, AND CONVERT.
+                    </div>
+                  </div>
+
+                  <div style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)', marginTop: 'var(--spacing-lg)' }}>
+                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>
+                      WHO IT FITS •
+                    </div>
+                    <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35 }}>
+                      AMBITIOUS TEAMS LAUNCHING, SCALING, OR REPOSITIONING — TYPICALLY TECH, SAAS, TOOLS, AND FINANCE.
+                    </div>
+                  </div>
+
+                  <div style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)', marginTop: 'var(--spacing-lg)' }}>
+                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>
+                      PRICING MODEL •
+                    </div>
+                    <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35 }}>
+                      FIXED SCOPE. FIXED PRICE. CLEAR OUTCOME. NO HOURLY BILLING.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="home-overview__main" style={{ gridColumn: 'span 8' }}>
+                  <div className="home-overview__cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
+                    {[
+                      {
+                        id: 'S01',
+                        title: 'BRAND SYSTEMS',
+                        copy: 'LOGO / TYPE / COLOR / RULES THAT SCALE ACROSS PRODUCTS, DECKS, AND INTERFACES.',
+                        help: 'DIFFERENTIATE FAST + IMPROVE RECALL.',
+                        img: '/images/continuity/TSHIRT MOCKUP.webp',
+                      },
+                      {
+                        id: 'S02',
+                        title: 'UI/UX DESIGN',
+                        copy: 'HIERARCHY, FLOWS, AND INTERACTION RULES THAT REDUCE FRICTION AND INCREASE CONFIDENCE.',
+                        help: 'REDUCE CONFUSION + INCREASE CONVERSION.',
+                        img: '/images/wim software.webp',
+                      },
+                      {
+                        id: 'S03',
+                        title: 'WEB DEVELOPMENT',
+                        copy: 'CLEAN FRONTEND BUILDS WITH PERFORMANCE, ACCESSIBILITY, AND POLISH BUILT IN.',
+                        help: 'FASTER LOADS + STRONGER TRUST SIGNALS.',
+                        img: '/images/cb website.png',
+                      },
+                      {
+                        id: 'S04',
+                        title: 'LAUNCH + ITERATION',
+                        copy: 'QA, HANDOFF, AND REFINEMENT BASED ON REAL BEHAVIOR — NOT GUESSES.',
+                        help: 'LESS REWORK + BETTER OUTCOMES.',
+                        img: '/images/the guide mockup.webp',
+                      },
+                    ].map((item, idx) => (
+                      <motion.article
+                        key={item.id}
+                        initial={{ opacity: 0, y: 14 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: '-10% 0px -10% 0px' }}
+                        transition={{ duration: 0.5, delay: idx * 0.06 }}
+                        className="home-overview__card"
+                        style={{
+                          borderTop: HOME_SECTION_DIVIDER,
+                          borderLeft: HOME_SECTION_DIVIDER,
+                          borderRight: HOME_SECTION_DIVIDER,
+                          borderBottom: HOME_SECTION_DIVIDER,
+                          borderRadius: 12,
+                          overflow: 'hidden',
+                          background: 'rgba(255,255,255,0.75)',
+                          backdropFilter: 'blur(8px)',
+                        }}
+                      >
+                        <div className="home-overview__card-inner" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 180px', gap: 0 }}>
+                          <div className="home-overview__card-content" style={{ padding: 'var(--spacing-md)' }}>
+                            <div className="small-text" style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
+                              <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>{item.title}</span>
+                              <span>{item.id}</span>
+                            </div>
+                            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35 }}>
+                              {item.copy}
+                            </div>
+                            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35, fontWeight: 'var(--font-mono-weight-bold)' }}>
+                              {item.help}
+                            </div>
+                          </div>
+                          <motion.div
+                            className="home-overview__card-media"
+                            whileHover={{ scale: 1.02 }}
+                            transition={{ duration: 0.35 }}
+                            style={{
+                              borderLeft: HOME_SECTION_DIVIDER,
+                              position: 'relative',
+                              minHeight: 190,
+                              overflow: 'hidden',
+                              background: '#FFFFFF',
+                            }}
+                          >
+                            <motion.img
+                              src={item.img}
+                              alt=""
+                              aria-hidden="true"
+                              style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover',
+                                display: 'block',
+                                filter: 'contrast(1.05) saturate(1.05)',
+                              }}
+                              initial={{ scale: 1.05 }}
+                              whileHover={{ scale: 1.12, rotate: idx % 2 === 0 ? -1.2 : 1.2 }}
+                              transition={{ duration: 0.5 }}
+                            />
+                            <div
+                              aria-hidden="true"
+                              style={{
+                                position: 'absolute',
+                                inset: 0,
+                                background: 'linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.15) 45%, rgba(255,255,255,0.6) 100%)',
+                                mixBlendMode: 'multiply',
+                              }}
+                            />
+                          </motion.div>
+                        </div>
+                      </motion.article>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Selected Clients & Testimonials */}
             <section style={{ 
               padding: '0',
@@ -1252,7 +1437,7 @@ function App() {
                   <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
                     <DecryptText as="span" text="CLIENTS" trigger="inView" duration={800} />
                   </h2>
-                  <span className="small-text">Index (02)</span>
+                  <span className="small-text">Index (03)</span>
                 </div>
 
                 <div className="studio-client-grid">
@@ -1280,7 +1465,6 @@ function App() {
                             width: 'auto',
                             maxWidth: 220,
                             display: 'block',
-                            filter: 'invert(1)',
                             opacity: 0.95,
                           }}
                         />
@@ -1423,70 +1607,12 @@ function App() {
               </div>
             </section>
 
-            <section
-              data-header-theme="light"
-              style={{
-                padding: 'var(--spacing-xxl) var(--spacing-md)',
-                backgroundColor: UI_DARK,
-                color: UI_LIGHT,
-              }}
-            >
-              <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-lg)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
-                <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
-                  <DecryptText as="span" text="SERVICES" trigger="inView" duration={800} />
-                </h2>
-                <span className="small-text" style={{ color: UI_LIGHT }}>Index (04)</span>
-              </div>
-              <div
-                className="grid"
-                style={{
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                  gap: 'var(--spacing-xl)',
-                  alignItems: 'start',
-                }}
-              >
-                <div style={{ maxWidth: '520px' }}>
-                  <p
-                    className="small-text"
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      color: UI_LIGHT,
-                      lineHeight: 1.6,
-                      textTransform: 'uppercase',
-                      maxWidth: '90%',
-                    }}
-                  >
-                    Design and development studio for brands + teams. We design visual systems and build fast websites that support the story.
-                  </p>
-                  <div className="small-text" style={{ marginTop: 'var(--spacing-md)', color: UI_LIGHT }}>
-                    Available contract, project-based, or retainer.
-                  </div>
-                </div>
-                <div>
-                  <ul className="small-text" style={{ listStyle: 'none', display: 'grid', gap: 0, color: UI_LIGHT }}>
-                    <li className="flex" style={{ justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderTop: '1px solid #000000' }}>
-                      <span>DESIGN</span>
-                      <span style={{ color: UI_LIGHT }}>01</span>
-                    </li>
-                    <li className="flex" style={{ justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderTop: '1px solid #000000' }}>
-                      <span>DEVELOPMENT</span>
-                      <span style={{ color: UI_LIGHT }}>02</span>
-                    </li>
-                    <li className="flex" style={{ justifyContent: 'space-between', alignItems: 'baseline', padding: '10px 0', borderTop: '1px solid #000000' }}>
-                      <span>VISUAL SYSTEMS</span>
-                      <span style={{ color: UI_LIGHT }}>03</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-
             <section id="dev" style={{ padding: 'var(--spacing-xxl) var(--spacing-md)', background: UI_DARK, color: UI_LIGHT }}>
               <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
                 <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
                   <DecryptText as="span" text="UI/UX DESIGN + DEV" trigger="inView" duration={800} />
                 </h2>
-                <span className="small-text">Index (05)</span>
+                <span className="small-text">Index (04)</span>
               </div>
               
               <div className="uiux-rows">
@@ -1535,7 +1661,7 @@ function App() {
                 <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
                   <DecryptText as="span" text="GRAPHIC DESIGN" trigger="inView" duration={800} />
                 </h2>
-                <span className="small-text">Index (06)</span>
+                <span className="small-text">Index (05)</span>
               </div>
 
               <div className="uiux-rows">
@@ -1586,7 +1712,7 @@ function App() {
                     <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0 }}>
                       <DecryptText as="span" text="STUDIO PRACTICE" trigger="inView" duration={800} />
                     </h2>
-                    <span className="small-text">Index (07)</span>
+                    <span className="small-text">Index (06)</span>
                   </div>
                 </div>
 
@@ -1632,7 +1758,7 @@ function App() {
                         <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0 }}>
                           <DecryptText as="span" text="PASSION PROJECTS" trigger="inView" duration={800} />
                         </h2>
-                        <span className="small-text">Index (07.1)</span>
+                        <span className="small-text">Index (06.1)</span>
                       </div>
 
                       <div className="passion-projects-block">

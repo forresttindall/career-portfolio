@@ -69,13 +69,13 @@ const Contact = () => {
             <h1 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: WHITE }}>
               CONTACT
             </h1>
-            <div className="small-text" style={{ color: GRAY1 }}>
+            <div className="small-text" style={{ color: WHITE }}>
               INDEX (08)
             </div>
           </header>
           <div style={{ height: 1, background: 'var(--color-border)', marginTop: 'var(--spacing-sm)' }} aria-hidden="true" />
-          <div className="small-text" style={{ marginTop: 'var(--spacing-md)', maxWidth: 680, opacity: 0.85, textTransform: 'none' }}>
-            For project inquiries, collaborations, or availability.
+          <div className="small-text" style={{ marginTop: 'var(--spacing-md)', maxWidth: 680, opacity: 0.85, color: WHITE }}>
+            FOR BRAND SYSTEMS, UI/UX DESIGN, AND HIGH-PERFORMANCE WEB DEVELOPMENT INQUIRIES.
           </div>
         </div>
       </section>
@@ -86,7 +86,7 @@ const Contact = () => {
             <div>
               <article>
                 <header>
-                  <h2 className="small-text" style={{ color: GRAY1, letterSpacing: 2 }}>
+                  <h2 className="small-text" style={{ color: WHITE, letterSpacing: 2 }}>
                     CONTACT INFO
                   </h2>
                 </header>
@@ -95,12 +95,12 @@ const Contact = () => {
                     CREATIONBASE •
                   </div>
                   <address className="small-text" style={{ marginTop: 6, fontStyle: 'normal', lineHeight: 1.5 }}>
-                    BOISE, ID<br />
-                    SERVING THE TREASURE VALLEY<br />
-                    (MERIDIAN, EAGLE, NAMPA)
+                    REMOTE STUDIO<br />
+                    WORKING WITH STARTUPS + TEAMS<br />
+                    BRAND SYSTEMS • UI/UX • WEB
                   </address>
-                  <div className="small-text" style={{ marginTop: 'var(--spacing-md)', color: GRAY1 }}>
-                    208.986.0000 (LOCAL SIGNAL)
+                  <div className="small-text" style={{ marginTop: 'var(--spacing-md)', color: WHITE }}>
+                    FORREST@CREATIONBASE.IO<br />
                   </div>
                 </div>
               </article>
@@ -109,7 +109,7 @@ const Contact = () => {
             <div>
               <article>
                 <header>
-                  <h2 className="small-text" style={{ color: GRAY1, letterSpacing: 2, marginBottom: 'var(--spacing-md)' }}>
+                  <h2 className="small-text" style={{ color: WHITE, letterSpacing: 2, marginBottom: 'var(--spacing-md)' }}>
                     INQUIRY FORM
                   </h2>
                 </header>
@@ -119,7 +119,7 @@ const Contact = () => {
                   type="text"
                   value={name}
                   onChange={(ev) => setName(ev.target.value)}
-                  placeholder="Name"
+                  placeholder="NAME"
                   required
                 />
                 <input
@@ -127,14 +127,14 @@ const Contact = () => {
                   type="email"
                   value={email}
                   onChange={(ev) => setEmail(ev.target.value)}
-                  placeholder="Email"
+                  placeholder="EMAIL"
                   required
                 />
                 <textarea
                   className="newsletter-input contact-textarea"
                   value={message}
                   onChange={(ev) => setMessage(ev.target.value)}
-                  placeholder="Message"
+                  placeholder="MESSAGE"
                   required
                 />
                 <div className="contact-actions">
@@ -147,17 +147,17 @@ const Contact = () => {
                       opacity: status === 'loading' ? 0.6 : 1,
                     }}
                   >
-                    {status === 'loading' ? '...' : 'Send'}
+                    {status === 'loading' ? '...' : 'SEND'}
                   </button>
 
                   {status === 'success' && (
-                    <div className="small-text" style={{ opacity: 0.85, textTransform: 'none' }}>
-                      Sent.
+                    <div className="small-text" style={{ opacity: 0.85, color: WHITE }}>
+                      SENT.
                     </div>
                   )}
                   {status === 'error' && (
-                    <div className="small-text" style={{ opacity: 0.85, textTransform: 'none' }}>
-                      Error. Try again.
+                    <div className="small-text" style={{ opacity: 0.85, color: WHITE }}>
+                      ERROR. TRY AGAIN.
                     </div>
                   )}
                 </div>

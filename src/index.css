@@ -54,8 +54,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Ark es';
+  src: url('/Fonts/ark es/ARK-ES-DenseRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
-  --font-display: 'Tiposka', monospace;
+  --font-display: 'Ark es', 'Tiposka', Doto, monospace;
   --font-display-weight: 900;
   --font-display-weight-bold: 800;
   --font-mono: 'SF Mono', monospace;
@@ -1676,5 +1683,53 @@ body.wim-info-open .site-nav__menu-label::after {
   }
   .wim-img {
     height: auto;
+  }
+}
+
+.home-overview__card-inner {
+  grid-template-areas: "content media";
+}
+
+.home-overview__card-content {
+  grid-area: content;
+}
+
+.home-overview__card-media {
+  grid-area: media;
+}
+
+@media (max-width: 900px) {
+  .home-overview__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-overview__aside,
+  .home-overview__main {
+    grid-column: 1 / -1 !important;
+  }
+
+  .home-overview__cards {
+    grid-template-columns: 1fr !important;
+  }
+
+  .home-overview__card-inner {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "media"
+      "content";
+  }
+
+  .home-overview__card-media {
+    border-left: none !important;
+    border-bottom: 1px solid #000000 !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9;
+  }
+
+  .home-overview__card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
 }

@@ -15,28 +15,15 @@ const Schema = ({ type = 'Organization', data = {} }) => {
       "contactPoint": {
         "@type": "ContactPoint",
         "contactType": "customer support",
-        "email": "hello@creationbase.io"
+        "email": "forrest@creationbase.io"
       }
     };
 
     if (type === 'Organization' || type === 'LocalBusiness') {
       return {
         ...base,
-        "@type": "LocalBusiness",
-        "description": "Creationbase is a Boise-based creative studio specializing in visual system design, high-performance web development, and digital brand identity for Idaho startups and teams.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Boise",
-          "addressLocality": "Boise",
-          "addressRegion": "ID",
-          "postalCode": "83702",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "43.6150",
-          "longitude": "-116.2023"
-        },
+        "@type": "ProfessionalService",
+        "description": "Creationbase is a design and development studio specializing in visual system design, UI/UX, and high-performance websites—built for memorability, clarity, and conversion.",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Creative Services",
@@ -45,8 +32,8 @@ const Schema = ({ type = 'Organization', data = {} }) => {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Boise Web Design",
-                "description": "Custom, responsive website design for Boise businesses and startups."
+                "name": "Web Design",
+                "description": "Modern website design that clarifies your offer and makes conversion feel effortless."
               }
             },
             {
@@ -54,7 +41,7 @@ const Schema = ({ type = 'Organization', data = {} }) => {
               "itemOffered": {
                 "@type": "Service",
                 "name": "Full-Stack Web Development",
-                "description": "High-performance React and Next.js development based in Idaho."
+                "description": "High-performance frontend development with durable, scalable implementation."
               }
             },
             {
@@ -62,7 +49,7 @@ const Schema = ({ type = 'Organization', data = {} }) => {
               "itemOffered": {
                 "@type": "Service",
                 "name": "Brand Identity Systems",
-                "description": "Comprehensive visual identity and logo design for Treasure Valley brands."
+                "description": "Logo, typography, and color systems designed to be distinct, repeatable, and memorable."
               }
             },
             {
@@ -75,15 +62,6 @@ const Schema = ({ type = 'Organization', data = {} }) => {
             }
           ]
         },
-        "areaServed": [
-          { "@type": "City", "name": "Boise" },
-          { "@type": "City", "name": "Meridian" },
-          { "@type": "City", "name": "Eagle" },
-          { "@type": "City", "name": "Nampa" },
-          { "@type": "City", "name": "Garden City" },
-          { "@type": "City", "name": "Kuna" },
-          { "@type": "State", "name": "Idaho" }
-        ],
         "priceRange": "$$"
       };
     }
@@ -94,21 +72,11 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         "@type": "Service",
         "serviceType": data.name || "Web Design and Development",
         "provider": {
-          "@type": "LocalBusiness",
+          "@type": "Organization",
           "name": "Creationbase",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Boise",
-            "addressRegion": "ID"
-          }
+          "url": "https://creationbase.io"
         },
-        "areaServed": [
-          { "@type": "City", "name": "Boise" },
-          { "@type": "City", "name": "Meridian" },
-          { "@type": "City", "name": "Eagle" },
-          { "@type": "City", "name": "Nampa" }
-        ],
-        "description": data.description || "Custom web design, UI/UX, and high-performance development in Boise, ID."
+        "description": data.description || "Web design, UI/UX, and high-performance development focused on clarity, memorability, and conversion."
       };
     }
 
@@ -168,18 +136,17 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         }
       });
     } else if (type === 'Organization' || type === 'LocalBusiness') {
-      // Reset to defaults with Boise localization
-      document.title = 'Creationbase - Boise Web Design & Development Studio';
+      document.title = 'Creationbase — Visual Systems, UI/UX & Web Development';
       
       const defaults = [
-        { name: 'description', content: 'Creationbase — design and development studio in Boise, ID. Custom web design, branding, and high-performance development for Idaho startups and teams.' },
-        { property: 'og:title', content: 'Creationbase - Boise Web Design & Development Studio' },
-        { property: 'og:description', content: 'Creationbase — design and development studio in Boise, ID. Custom web design, branding, and high-performance development for Idaho startups and teams.' },
+        { name: 'description', content: 'Creationbase builds memorable brand systems, clear UI/UX, and high-performance websites for startups, founders, and modern teams.' },
+        { property: 'og:title', content: 'Creationbase — Visual Systems, UI/UX & Web Development' },
+        { property: 'og:description', content: 'Creationbase builds memorable brand systems, clear UI/UX, and high-performance websites for startups, founders, and modern teams.' },
         { property: 'og:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:image:secure_url', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:url', content: 'https://www.creationbase.io/' },
-        { name: 'twitter:title', content: 'Creationbase - Boise Web Design & Development Studio' },
-        { name: 'twitter:description', content: 'Creationbase — design and development studio in Boise, ID. Custom web design, branding, and high-performance development for Idaho startups and teams.' },
+        { name: 'twitter:title', content: 'Creationbase — Visual Systems, UI/UX & Web Development' },
+        { name: 'twitter:description', content: 'Creationbase builds memorable brand systems, clear UI/UX, and high-performance websites for startups, founders, and modern teams.' },
         { name: 'twitter:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' }
       ];
 
