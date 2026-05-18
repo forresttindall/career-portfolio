@@ -1250,7 +1250,7 @@ function App() {
               <div style={{ padding: 'var(--spacing-xxl) var(--spacing-md)' }}>
                 <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
                   <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
-                    <DecryptText as="span" text="CLIENTS & PARTNERS" trigger="inView" duration={800} />
+                    <DecryptText as="span" text="CLIENTS" trigger="inView" duration={800} />
                   </h2>
                   <span className="small-text">Index (02)</span>
                 </div>
@@ -1272,7 +1272,18 @@ function App() {
                         fontWeight: 'var(--font-mono-weight-bold)',
                         letterSpacing: '0.02em'
                       }}>
-                        Micron Technology •
+                        <img
+                          src="/images/micron.png"
+                          alt="Micron"
+                          style={{
+                            height: 18,
+                            width: 'auto',
+                            maxWidth: 220,
+                            display: 'block',
+                            filter: 'invert(1)',
+                            opacity: 0.95,
+                          }}
+                        />
                       </h4>
                       <div className="small-text" style={{ color: UI_LIGHT }}>
                         A01
@@ -1302,7 +1313,17 @@ function App() {
                         fontWeight: 'var(--font-mono-weight-bold)',
                         letterSpacing: '0.02em'
                       }}>
-                        Ramboll •
+                        <img
+                          src="/images/ramboll.png"
+                          alt="Ramboll"
+                          style={{
+                            height: 22,
+                            width: 'auto',
+                            maxWidth: 240,
+                            display: 'block',
+                            opacity: 0.98,
+                          }}
+                        />
                       </h4>
                       <div className="small-text" style={{ color: UI_LIGHT }}>
                         A02
@@ -1313,68 +1334,6 @@ function App() {
                     </p>
                     <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
                       [FULL STACK] [SYSTEM ADMIN] [DATA MIGRATION]
-                    </div>
-                  </motion.div>
-
-                  {/* Superbase */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
-                    style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--spacing-sm)' }}>
-                      <h4 style={{ 
-                        fontSize: 'var(--fs-sm)', 
-                        margin: 0,
-                        textTransform: 'uppercase',
-                        fontFamily: 'var(--font-mono)',
-                        fontWeight: 'var(--font-mono-weight-bold)',
-                        letterSpacing: '0.02em'
-                      }}>
-                        Superbase •
-                      </h4>
-                      <div className="small-text" style={{ color: UI_LIGHT }}>
-                        A03
-                      </div>
-                    </div>
-                    <p className="small-text" style={{ maxWidth: '90%' }}>
-                      Collaborated on high-level UI/UX and design.  Building a scalable digital website and design systems with a leading design agency.
-                    </p>
-                    <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
-                      [UI/UX DESIGN] [DEVELOPMENT] [AGENCY PARTNER]
-                    </div>
-                  </motion.div>
-
-                  {/* CMYK Graffix */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6 }}
-                    style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--spacing-sm)' }}>
-                      <h4 style={{ 
-                        fontSize: 'var(--fs-sm)', 
-                        margin: 0,
-                        textTransform: 'uppercase',
-                        fontFamily: 'var(--font-mono)',
-                        fontWeight: 'var(--font-mono-weight-bold)',
-                        letterSpacing: '0.02em'
-                      }}>
-                        CMYK Graffix •
-                      </h4>
-                      <div className="small-text" style={{ color: UI_LIGHT }}>
-                        A04
-                      </div>
-                    </div>
-                    <p className="small-text" style={{ maxWidth: '90%' }}>
-                      Partner for large-format print and branding projects. Delivering print-ready assets and visual identities for a premier design and print agency.
-                    </p>
-                    <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
-                      [GRAPHIC DESIGN] [PRINT] [AGENCY PARTNER]
                     </div>
                   </motion.div>
                 </div>
