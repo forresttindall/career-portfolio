@@ -22,6 +22,7 @@ import { blogPosts } from './blog/posts';
 const UI_LIGHT = '#111111';
 const UI_DARK = '#FFFFFF';
 const HOME_SECTION_DIVIDER = '1px solid #000000';
+const STRATEGY_CALL_URL = 'https://calendly.com/forrest-creationbase/30min';
 const HERO_AVAILABILITY = {
   label: 'Available',
   color: '#5FE37C',
@@ -117,13 +118,25 @@ const SiteFooter = ({
       <div className={`footer-shell${reserveRightRail ? ' footer-shell--tracker' : ''}`} style={{ padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-xxl)', minHeight: '80vh', position: 'relative', zIndex: 1 }}>
         <div className="footer-top">
           <div className="footer-cta">
-            <h2 className="section-title" style={{ fontWeight: 400, marginBottom: 0, fontSize: 'clamp(22px, 9vw, 72px)' }}>Let&apos;s Work<br />Together</h2>
+            <div>
+              <h2 className="section-title" style={{ fontWeight: 400, marginBottom: 0, fontSize: 'clamp(22px, 9vw, 72px)' }}>Let&apos;s Work<br />Together</h2>
+              <div className="footer-cta__actions">
+                <a href={STRATEGY_CALL_URL} target="_blank" rel="noreferrer" className="newsletter-button footer-cta__primary" style={{ textDecoration: 'none' }}>
+                  Book Strategy Call
+                  <ArrowUpRight size={14} weight="thin" />
+                </a>
+                <button type="button" className="newsletter-button newsletter-button--outline footer-cta__secondary" onClick={onContactClick}>
+                  Contact Form
+                </button>
+              </div>
+            </div>
           </div>
           <div className="footer-links-column">
             <p className="small-text" style={{ marginBottom: 'var(--spacing-md)', fontWeight: 'var(--font-mono-weight-bold)' }}>LINKS</p>
             <ul className="small-text footer-links-list">
+              <li><a href="https://calendly.com/forrest-creationbase/30min" target="_blank" rel="noreferrer">STRATEGY CALL</a></li>
+              <li><a href="/contact" onClick={(ev) => { ev.preventDefault(); onContactClick(); }}>CONTACT FORM</a></li>
               <li><a href="/blog" onClick={(ev) => { ev.preventDefault(); openBlog(); }}>BLOG</a></li>
-              <li><a href="/contact" onClick={(ev) => { ev.preventDefault(); onContactClick(); }}>CONTACT</a></li>
               <li><a href="https://instagram.com/creationbase.io" target="_blank" rel="noreferrer">INSTAGRAM</a></li>
               <li><a href="https://www.linkedin.com/company/creationbaseio/" target="_blank" rel="noreferrer">LINKEDIN</a></li>
             </ul>
@@ -753,6 +766,12 @@ function App() {
     navigate('/contact');
   };
 
+  const openStrategyCall = () => {
+    setMobileNavOpen(false);
+    const win = window.open(STRATEGY_CALL_URL, '_blank', 'noopener,noreferrer');
+    if (win) win.opener = null;
+  };
+
   const openMaterialLab = () => {
     setMobileNavOpen(false);
     if (location.pathname === '/') {
@@ -1057,8 +1076,11 @@ function App() {
                 <button type="button" className="mobile-nav-link" onClick={openBlog}>
                   Blog
                 </button>
+                <button type="button" className="mobile-nav-link" onClick={openStrategyCall}>
+                  Strategy Call
+                </button>
                 <button type="button" className="mobile-nav-link" onClick={openContact}>
-                  Contact
+                  Contact Form
                 </button>
               </div>
             </motion.div>

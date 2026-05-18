@@ -7,6 +7,7 @@ const BLACK = '#FFFFFF';
 const GRAY1 = 'rgba(17, 17, 17, 0.56)';
 const GRAY2 = '#C9C9C9';
 const WHITE = '#111111';
+const STRATEGY_CALL_URL = 'https://calendly.com/forrest-creationbase/30min';
 
 const Services = () => {
   const navigate = useNavigate();
@@ -35,6 +36,11 @@ const Services = () => {
     } else {
       window.location.hash = id;
     }
+  };
+
+  const openStrategyCall = () => {
+    const win = window.open(STRATEGY_CALL_URL, '_blank', 'noopener,noreferrer');
+    if (win) win.opener = null;
   };
 
   return (
@@ -102,25 +108,11 @@ const Services = () => {
               <div style={{ marginTop: 'var(--spacing-lg)' }}>
                 <button
                   type="button"
-                  onClick={() => navigate('/contact')}
-                  className="small-text"
-                  style={{
-                    width: '100%',
-                    background: WHITE,
-                    color: BLACK,
-                    border: `1px solid ${GRAY2}`,
-                    borderRadius: 10,
-                    padding: '14px 12px',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    gap: 8,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.06em',
-                  }}
+                  onClick={openStrategyCall}
+                  className="newsletter-button"
+                  style={{ width: '100%' }}
                 >
-                  Start a Project
+                  Book Strategy Call
                   <ArrowUpRight size={14} weight="thin" />
                 </button>
               </div>
@@ -279,24 +271,18 @@ const Services = () => {
                   <div style={{ marginTop: 'var(--spacing-lg)', display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                     <button
                       type="button"
-                      onClick={() => navigate('/contact')}
-                      className="small-text"
-                      style={{
-                        background: WHITE,
-                        color: BLACK,
-                        border: `1px solid ${GRAY2}`,
-                        borderRadius: 10,
-                        padding: '14px 16px',
-                        cursor: 'pointer',
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: 8,
-                        textTransform: 'uppercase',
-                        letterSpacing: '0.06em',
-                      }}
+                      onClick={openStrategyCall}
+                      className="newsletter-button"
                     >
-                      Contact
+                      Book Strategy Call
                       <ArrowUpRight size={14} weight="thin" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => navigate('/contact')}
+                      className="newsletter-button newsletter-button--outline"
+                    >
+                      Contact Form
                     </button>
                     <button
                       type="button"
