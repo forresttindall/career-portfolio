@@ -85,6 +85,7 @@ const INDEX01_PROJECTS = [
 
 const SiteFooter = ({
   isMobile,
+  onBlogClick,
   onContactClick,
   reserveRightRail = false,
   newsletterName,
@@ -136,7 +137,7 @@ const SiteFooter = ({
             <ul className="small-text footer-links-list">
               <li><a href="https://calendly.com/forrest-creationbase/30min" target="_blank" rel="noreferrer">STRATEGY CALL</a></li>
               <li><a href="/contact" onClick={(ev) => { ev.preventDefault(); onContactClick(); }}>CONTACT FORM</a></li>
-              <li><a href="/blog" onClick={(ev) => { ev.preventDefault(); openBlog(); }}>BLOG</a></li>
+              <li><a href="/blog" onClick={(ev) => { ev.preventDefault(); onBlogClick(); }}>BLOG</a></li>
               <li><a href="https://instagram.com/creationbase.io" target="_blank" rel="noreferrer">INSTAGRAM</a></li>
               <li><a href="https://www.linkedin.com/company/creationbaseio/" target="_blank" rel="noreferrer">LINKEDIN</a></li>
             </ul>
@@ -1483,7 +1484,7 @@ function App() {
                           src="/images/micron.png"
                           alt="Micron"
                           style={{
-                            height: 18,
+                            height: 26,
                             width: 'auto',
                             maxWidth: 220,
                             display: 'block',
@@ -1523,7 +1524,7 @@ function App() {
                           src="/images/ramboll.png"
                           alt="Ramboll"
                           style={{
-                            height: 22,
+                            height: 26,
                             width: 'auto',
                             maxWidth: 240,
                             display: 'block',
@@ -1540,6 +1541,86 @@ function App() {
                     </p>
                     <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
                       [FULL STACK] [SYSTEM ADMIN] [DATA MIGRATION]
+                    </div>
+                  </motion.div>
+                  {/* Superbase */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4 }}
+                    style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--spacing-sm)' }}>
+                      <h4 style={{
+                        fontSize: 'var(--fs-sm)',
+                        margin: 0,
+                        textTransform: 'uppercase',
+                        fontFamily: 'var(--font-mono)',
+                        fontWeight: 'var(--font-mono-weight-bold)',
+                        letterSpacing: '0.02em'
+                      }}>
+                        <img
+                          src="/images/superbasewhite.jpg"
+                          alt="Superbase"
+                          style={{
+                            height: 54,
+                            width: 'auto',
+                            maxWidth: 240,
+                            display: 'block',
+                            opacity: 0.98,
+                          }}
+                        />
+                      </h4>
+                      <div className="small-text" style={{ color: UI_LIGHT }}>
+                        A03
+                      </div>
+                    </div>
+                    <p className="small-text" style={{ maxWidth: '90%' }}>
+                      Partnered with the Superbase team to redesign Ricochet&apos;s website, updating the visual system and UI to match the product&apos;s scale and direction.
+                    </p>
+                    <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
+                      [VISUAL SYSTEM] [UI/UX] [WEB]
+                    </div>
+                  </motion.div>
+                  {/* CMYK Graffixs */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.6 }}
+                    style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}
+                  >
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--spacing-sm)' }}>
+                      <h4 style={{
+                        fontSize: 'var(--fs-sm)',
+                        margin: 0,
+                        textTransform: 'uppercase',
+                        fontFamily: 'var(--font-mono)',
+                        fontWeight: 'var(--font-mono-weight-bold)',
+                        letterSpacing: '0.02em'
+                      }}>
+                        <img
+                          src="/images/cmyk.jpg"
+                          alt="CMYK Graffixs"
+                          style={{
+                            height: 48,
+                            width: 'auto',
+                            maxWidth: 240,
+                            display: 'block',
+                            opacity: 0.98,
+                          }}
+                        />
+                      </h4>
+                      <div className="small-text" style={{ color: UI_LIGHT }}>
+                        A04
+                      </div>
+                    </div>
+                    <p className="small-text" style={{ maxWidth: '90%' }}>
+                      Partnered with CMYK Graffixs to deliver environmental signage for Micron, producing consistent, print-ready assets built for real-world deployment.
+                    </p>
+                    <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
+                      [BRAND] [PRINT] [ASSETS]
                     </div>
                   </motion.div>
                 </div>
@@ -1826,6 +1907,7 @@ function App() {
       </AnimatePresence>
       <SiteFooter
         isMobile={isMobile}
+        onBlogClick={openBlog}
         onContactClick={openContact}
         reserveRightRail={activeCaseStudy === 'bac' || activeCaseStudy === 'on'}
         newsletterName={newsletterName}
