@@ -1,6 +1,6 @@
 # Creationbase
 
-Creationbase is a Boise-based creative studio specializing in visual system design, high-performance web development, and digital brand identity.
+Creationbase is a Boise-based creation studio specializing in design, development, and commercial + event photography.
 
 - **URL**: https://creationbase.io
 - **Location**: Boise, ID (Serving the Treasure Valley: Meridian, Eagle, Nampa)
@@ -8,10 +8,10 @@ Creationbase is a Boise-based creative studio specializing in visual system desi
 
 ## Core Services
 
-- **Web Design & Development**: Custom React/Next.js solutions, responsive design, and high-performance technical execution.
-- **Visual Identity Systems**: Brand strategy, logo design, and comprehensive brand guidelines.
+- **Design**: Brand systems, UI/UX design, and visual direction that stays consistent across web + campaigns.
+- **Development**: High-performance React builds with accessible, maintainable implementation.
+- **Photography**: Commercial and event photography for campaigns, web, and social—on-brand and cohesive.
 - **Environmental Signage**: ADA compliant signage systems, wayfinding, and architectural graphics.
-- **Commercial Photography**: Professional editorial and product photography.
 
 ## The 4 Cs Methodology
 
