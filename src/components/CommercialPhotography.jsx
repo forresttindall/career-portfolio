@@ -24,7 +24,7 @@ const commercialPhotographyImages = [
   '/images/_DSC2016.jpg',
 ];
 
-const CommercialPhotography = ({ images = commercialPhotographyImages }) => {
+const CommercialPhotography = ({ images = commercialPhotographyImages, masonryClassName = 'mosaic-masonry' }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -43,7 +43,7 @@ const CommercialPhotography = ({ images = commercialPhotographyImages }) => {
       }}
     >
       <div className="full-bleed">
-        <div className="mosaic-masonry">
+        <div className={masonryClassName}>
           {images.map((src) => (
             <div className="mosaic-tile" key={src}>
               <img src={src} alt="" loading="lazy" />

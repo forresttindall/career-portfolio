@@ -1531,6 +1531,20 @@ ul {
   object-fit: cover;
 }
 
+.mosaic-masonry--spaced {
+  padding: 10px;
+  column-gap: 10px;
+}
+
+.mosaic-masonry--spaced .mosaic-tile {
+  margin: 0 0 10px 0;
+  border-radius: 12px;
+}
+
+.mosaic-masonry--spaced .mosaic-tile img {
+  border-radius: 12px;
+}
+
 .mosaic-masonry--bw img {
   filter: grayscale(100%) contrast(1.1);
 }

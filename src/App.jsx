@@ -29,6 +29,43 @@ const HERO_AVAILABILITY = {
   label: 'Available',
   color: '#5FE37C',
 };
+const GALLERY_IMAGES = [
+  '/images/gallery/_DSC9182.webp',
+  '/images/gallery/_DSC6969.webp',
+ 
+  
+  '/images/gallery/_DSC2447.webp',
+  '/images/gallery/_DSC2444.webp',
+  '/images/gallery/_DSC2583%202.webp',
+
+  
+  
+  '/images/gallery/_DSC2439.webp',
+
+  '/images/gallery/_DSC2350.webp',
+  
+  '/images/gallery/_DSC2406.webp',
+
+
+  '/images/gallery/_DSC2349.webp',
+  '/images/gallery/_DSC2560.webp',
+  
+  '/images/gallery/_DSC2193-2.webp',
+  '/images/gallery/_DSC7999-4.webp',
+  '/images/gallery/_DSC4899.webp',
+  '/images/gallery/_DSC3168-2.webp',
+  '/images/gallery/_DSC1613-3.webp',
+  '/images/gallery/_DSC3991.webp',
+  '/images/gallery/_DSC2842.webp',
+  
+  '/images/gallery/_DSC6942.webp',
+  
+  '/images/gallery/_DSC1954-2.webp',
+  '/images/gallery/_DSC6814.webp',
+  '/images/gallery/_DSC3525.webp',
+  '/images/gallery/_DSC4685-2.webp',
+  '/images/gallery/_DSC2016.webp',
+];
 const INDEX01_PROJECTS = [
   {
     id: 'wim',
@@ -803,6 +840,7 @@ function App() {
     else if (id === 'playground') navigate('/playground');
     else if (id === 'photography') navigate('/photography');
     else if (id === 'worksharp') navigate('/worksharp');
+    else if (id === 'gallery') navigate('/gallery');
     else if (id === 'blog') navigate('/blog');
   };
 
@@ -908,6 +946,7 @@ function App() {
     else if (pathname === '/playground') setActiveCaseStudy('playground');
     else if (pathname === '/photography') setActiveCaseStudy('photography');
     else if (pathname === '/worksharp') setActiveCaseStudy('worksharp');
+    else if (pathname === '/gallery') setActiveCaseStudy('gallery');
     else if (pathname === '/services') setActiveCaseStudy('services');
     else if (pathname === '/blog' || pathname.startsWith('/blog/')) setActiveCaseStudy('blog');
     else if (pathname === '/contact') setActiveCaseStudy('contact');
@@ -1182,6 +1221,8 @@ function App() {
           <Contact key="contact" />
         ) : activeCaseStudy === 'photography' ? (
           <CommercialPhotography key="photography" />
+        ) : activeCaseStudy === 'gallery' ? (
+          <CommercialPhotography key="gallery" images={GALLERY_IMAGES} masonryClassName="mosaic-masonry mosaic-masonry--spaced" />
         ) : activeCaseStudy === 'worksharp' ? (
           <WorksharpProject key="worksharp" />
         ) : activeCaseStudy === 'fastburger' ? (
@@ -1865,6 +1906,18 @@ function App() {
                     </div>
                   );
                 })}
+              </div>
+              <div style={{ marginTop: 10, display: 'flex', justifyContent: 'center' }}>
+                <motion.button
+                  type="button"
+                  onClick={() => openCaseStudy('gallery')}
+                  whileHover={{ opacity: 0.75 }}
+                  className="newsletter-button"
+                  style={{ minWidth: 180 }}
+                >
+                  View More
+                  <ArrowUpRight size={14} weight="thin" />
+                </motion.button>
               </div>
             </section>
 
