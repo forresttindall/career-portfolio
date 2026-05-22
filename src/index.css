@@ -1534,6 +1534,8 @@ ul {
 .mosaic-masonry--spaced {
   padding: 10px;
   column-gap: 10px;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .mosaic-masonry--spaced .mosaic-tile {
