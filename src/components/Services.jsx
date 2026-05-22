@@ -18,6 +18,7 @@ const Services = () => {
       { id: 'four-cs', label: '4 Cs' },
       { id: 'uiux', label: 'UI/UX' },
       { id: 'dev', label: 'Development' },
+      { id: 'photo', label: 'Photography' },
       { id: 'logos', label: 'Logo Psychology' },
       { id: 'color', label: 'Color Memory' },
     ],
@@ -60,7 +61,7 @@ const Services = () => {
           </header>
           <div style={{ height: 1, background: 'var(--color-border)', marginTop: 'var(--spacing-sm)' }} aria-hidden="true" />
           <div className="small-text" style={{ marginTop: 'var(--spacing-md)', maxWidth: 760, opacity: 0.85 }}>
-            Strategy-first UI/UX design, high-performance web development, and brand systems that feel inevitable—built to be understood fast and remembered longer.
+            Strategy-first UI/UX design, high-performance web development, brand systems, and photography—built to be understood fast and remembered longer.
           </div>
         </div>
       </section>
@@ -124,13 +125,14 @@ const Services = () => {
                   What We Do
                 </h2>
                 <p className="small-text" style={{ lineHeight: 1.6, margin: '0 0 var(--spacing-lg)', color: WHITE, maxWidth: 860 }}>
-                  Creationbase is a design and development studio focused on visual systems—how your brand looks, behaves, and converts across the web. We build experiences that are minimal but not generic: clear messaging, deliberate typography, precise interaction, and code that stays fast as you scale.
+                  Creationbase is a design, development, and photography studio focused on visual systems—how your brand looks, behaves, and earns trust across the web. We build experiences that are minimal but not generic: clear messaging, deliberate typography, strong imagery, precise interaction, and code that stays fast as you scale.
                 </p>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 12 }}>
                   {[
                     { k: 'UI/UX Design', v: 'Flows, IA, product thinking, and interfaces that reduce friction.' },
                     { k: 'Web Development', v: 'React/Vite builds with performance, accessibility, and polish.' },
                     { k: 'Brand Systems', v: 'Logo, type, color, and motion rules that stay consistent.' },
+                    { k: 'Photography', v: 'Commercial and event photography that matches the brand system.' },
                     { k: 'Launch Support', v: 'QA, handoff, and iteration after launch based on real behavior.' },
                   ].map((item) => (
                     <div key={item.k} style={{ border: `1px solid ${GRAY2}`, borderRadius: 10, padding: 14 }}>
@@ -217,6 +219,24 @@ const Services = () => {
                       </div>
                     </div>
                   ))}
+                </div>
+              </section>
+
+              <section id="photo" style={{ paddingBottom: 'var(--spacing-xxl)' }}>
+                <h2 style={{ fontFamily: 'var(--font-display)', textTransform: 'uppercase', letterSpacing: '-0.04em', lineHeight: 1.02, margin: '0 0 var(--spacing-md)' }}>
+                  Photography
+                </h2>
+                <p className="small-text" style={{ lineHeight: 1.6, margin: '0 0 var(--spacing-lg)', color: WHITE, maxWidth: 860 }}>
+                  Photography is part of the system. We shoot commercial and event photography that feels cohesive with the brand—so your site, socials, and campaigns read as one studio, not a collage.
+                </p>
+                <div style={{ border: `1px solid ${GRAY2}`, borderRadius: 10, padding: 14 }}>
+                  <div className="small-text" style={{ letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 10 }}>What you get</div>
+                  <ul className="small-text" style={{ margin: 0, paddingLeft: 18, lineHeight: 1.6, color: WHITE }}>
+                    <li style={{ marginBottom: 10 }}>Creative direction, shot list, and location planning</li>
+                    <li style={{ marginBottom: 10 }}>Commercial and event coverage</li>
+                    <li style={{ marginBottom: 10 }}>Editing and color that matches the brand system</li>
+                    <li>Delivery formats for web, social, and print</li>
+                  </ul>
                 </div>
               </section>
 

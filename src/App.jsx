@@ -16,6 +16,8 @@ import ContinuityProject from './components/ContinuityProject';
 import DecryptText from './components/DecryptText';
 import Tools from './components/Tools';
 import Schema from './components/Schema';
+import CommercialPhotography from './components/CommercialPhotography';
+import WorksharpProject from './components/WorksharpProject';
 import { Analytics } from '@vercel/analytics/react';
 import { blogPosts } from './blog/posts';
 
@@ -79,6 +81,17 @@ const INDEX01_PROJECTS = [
     primaryAlt: 'Micron bathroom ADA signage',
     secondaryImage: '/images/lobby.webp',
     secondaryAlt: 'Micron lobby environmental signage',
+    sideOffset: 'clamp(2rem, 7vw, 5rem)',
+  },
+  {
+    id: 'worksharp',
+    titleLines: ['Worksharp + Drill Doctor'],
+    scope: 'Scope(Photography, Commercial Editorial, Popular Mechanics)',
+    primaryImage: '/images/worksharp/_DSC6969.jpg',
+    primaryAlt: 'Worksharp + Drill Doctor commercial editorial photography',
+    secondaryImage: '/images/worksharp/_DSC7142.jpg',
+    secondaryAlt: 'Worksharp + Drill Doctor photography',
+    secondaryFallbackImage: '/images/worksharp/_DSC6814.webp',
     sideOffset: 'clamp(2rem, 7vw, 5rem)',
   },
 ];
@@ -346,6 +359,56 @@ const graphicDesign = [
     image: "/images/continuity/TSHIRT MOCKUP.webp",
     description: "Promotional Poster Design",
     year: "2025"
+  }
+];
+
+const photographyProjects = [
+    {
+    title: "Worksharp + Drill Doctor",
+    category: "Popular Mechanics Magazine",
+    image: "/images/worksharp/_DSC6969.jpg",
+    description: "Shoot for Popular Mechanics magazine",
+    year: "2026"
+  },
+  {
+    title: "Worksharp + Drill Doctor",
+    category: "Popular Mechanics Magazine",
+    image: "/images/worksharp/_DSC7142.jpg",
+    description: "Shoot for Popular Mechanics magazine",
+    year: "2026"
+  },
+
+  {
+    title: "Editorial",
+    category: "Commercial / Editorial / Event Photography",
+    image: "/images/event/5.webp",
+    description: "Editorial photography",
+    year: "2026"
+  },
+
+  {
+    title: "Editorial",
+    category: "Commercial / Editorial / Event Photography",
+    image: "/images/event/6.webp",
+    description: "Editorial photography",
+    year: "2026"
+  },
+  {
+    title: "Editorial",
+    category: "Commercial / Editorial / Event Photography",
+    image: "/images/_DSC4390.jpg",
+    description: "Editorial photography",
+    year: "2026"
+  },
+
+
+ 
+  {
+    title: "Lifestyle",
+    category: "Commercial / Editorial / Event Photography",
+    image: "/images/_DSC3168-2.jpg",
+    description: "Lifestyle photography",
+    year: "2026"
   }
 ];
 
@@ -738,6 +801,8 @@ function App() {
     else if (id === 'ricochet') navigate('/ricochet');
     else if (id === 'micron') navigate('/micron');
     else if (id === 'playground') navigate('/playground');
+    else if (id === 'photography') navigate('/photography');
+    else if (id === 'worksharp') navigate('/worksharp');
     else if (id === 'blog') navigate('/blog');
   };
 
@@ -841,6 +906,8 @@ function App() {
     else if (pathname === '/ricochet') setActiveCaseStudy('ricochet');
     else if (pathname === '/micron') setActiveCaseStudy('micron');
     else if (pathname === '/playground') setActiveCaseStudy('playground');
+    else if (pathname === '/photography') setActiveCaseStudy('photography');
+    else if (pathname === '/worksharp') setActiveCaseStudy('worksharp');
     else if (pathname === '/services') setActiveCaseStudy('services');
     else if (pathname === '/blog' || pathname.startsWith('/blog/')) setActiveCaseStudy('blog');
     else if (pathname === '/contact') setActiveCaseStudy('contact');
@@ -1068,6 +1135,9 @@ function App() {
                 <button type="button" className="mobile-nav-link" onClick={() => goToSection('dev')}>
                   Dev
                 </button>
+                <button type="button" className="mobile-nav-link" onClick={() => goToSection('photography')}>
+                  Photography
+                </button>
                 <button type="button" className="mobile-nav-link" onClick={openServices}>
                   Services
                 </button>
@@ -1110,6 +1180,10 @@ function App() {
           <Services key="services" />
         ) : activeCaseStudy === 'contact' ? (
           <Contact key="contact" />
+        ) : activeCaseStudy === 'photography' ? (
+          <CommercialPhotography key="photography" />
+        ) : activeCaseStudy === 'worksharp' ? (
+          <WorksharpProject key="worksharp" />
         ) : activeCaseStudy === 'fastburger' ? (
           <FastburgerProject key="fastburger" />
         ) : activeCaseStudy === 'wim' ? (
@@ -1144,10 +1218,7 @@ function App() {
                   marginBottom: 'auto'
                 }}>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                    <DecryptText as="span" text="visual system design" trigger="mount" delay={200} duration={900} />
-                  </div>
-                  <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em', marginTop: '-0.2em' }}>
-                    <DecryptText as="span" text="+ development" trigger="mount" delay={440} duration={900} />
+                    <DecryptText as="span" text="Your Creation Studio" trigger="mount" delay={200} duration={900} />
                   </div>
                 </h1>
                 <motion.div 
@@ -1173,13 +1244,8 @@ function App() {
                       <div>(CREATIVE STUDIO AND DIGITAL PARTNER)</div>
                     </div>
                   </div>
-                  <div className="small-text home-hero__services" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, display: 'grid', gridTemplateColumns: 'auto 1fr', columnGap: '12px', alignItems: 'start' }}>
-                    <div>WE HELP YOU:</div>
-                    <div>
-                      <div>— Build a memorable brand system</div>
-                      <div>— Design clear UI/UX that feels obvious</div>
-                      <div>— Develop fast, conversion-ready websites</div>
-                    </div>
+                  <div className="small-text home-hero__services" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, textAlign: 'center', fontWeight: 'var(--font-mono-weight-bold)', marginTop: '1.2em' }}>
+                    Design + Dev + Photo
                   </div>
                   <div className="small-text home-hero__availability" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, justifySelf: 'end', textAlign: 'right' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
@@ -1301,71 +1367,49 @@ function App() {
                 className="home-overview__grid"
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(12, 1fr)',
-                  gap: 'var(--spacing-xl)',
+                  gridTemplateColumns: 'minmax(240px, 0.85fr) minmax(0, 1.15fr)',
+                  gap: 'var(--spacing-lg)',
                   alignItems: 'start',
                 }}
               >
-                <div className="home-overview__aside" style={{ gridColumn: 'span 4' }}>
+                <div className="home-overview__aside" style={{ paddingRight: 'var(--spacing-lg)', borderRight: HOME_SECTION_DIVIDER }}>
                   <div style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}>
-                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>
-                      WHAT WE BUILD •
+                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                      OVERVIEW •
                     </div>
                     <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35, maxWidth: 420 }}>
-                      WE DESIGN MEMORABLE BRAND SYSTEMS AND SHIP HIGH-PERFORMANCE WEBSITES THAT LOOK INTENTIONAL, LOAD FAST, AND CONVERT.
+                      A single studio for design, development, and commercial editorial + event photography—built as one cohesive system.
                     </div>
                   </div>
 
                   <div style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)', marginTop: 'var(--spacing-lg)' }}>
-                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>
-                      WHO IT FITS •
+                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                      SERVICES •
                     </div>
                     <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35 }}>
-                      AMBITIOUS TEAMS LAUNCHING, SCALING, OR REPOSITIONING — TYPICALLY TECH, SAAS, TOOLS, AND FINANCE.
+                      DESIGN / DEV / PHOTO
+                    </div>
+                    <div className="small-text" style={{ marginTop: 10, lineHeight: 1.35, opacity: 0.85 }}>
+                      Brand + UI/UX • Web builds • Commercial editorial + event coverage
                     </div>
                   </div>
 
                   <div style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)', marginTop: 'var(--spacing-lg)' }}>
-                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>
-                      PRICING MODEL •
+                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                      PRICING •
                     </div>
                     <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35 }}>
-                      FIXED SCOPE. FIXED PRICE. CLEAR OUTCOME. NO HOURLY BILLING.
+                      Fixed scope. Fixed price. Clear outcome.
                     </div>
                   </div>
                 </div>
 
-                <div className="home-overview__main" style={{ gridColumn: 'span 8' }}>
-                  <div className="home-overview__cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 10 }}>
+                <div className="home-overview__main" style={{ paddingLeft: 'var(--spacing-lg)' }}>
+                  <div style={{ borderTop: HOME_SECTION_DIVIDER }}>
                     {[
-                      {
-                        id: 'S01',
-                        title: 'BRAND SYSTEMS',
-                        copy: 'LOGO / TYPE / COLOR / RULES THAT SCALE ACROSS PRODUCTS, DECKS, AND INTERFACES.',
-                        help: 'DIFFERENTIATE FAST + IMPROVE RECALL.',
-                        img: '/images/continuity/TSHIRT MOCKUP.webp',
-                      },
-                      {
-                        id: 'S02',
-                        title: 'UI/UX DESIGN',
-                        copy: 'HIERARCHY, FLOWS, AND INTERACTION RULES THAT REDUCE FRICTION AND INCREASE CONFIDENCE.',
-                        help: 'REDUCE CONFUSION + INCREASE CONVERSION.',
-                        img: '/images/wim software.webp',
-                      },
-                      {
-                        id: 'S03',
-                        title: 'WEB DEVELOPMENT',
-                        copy: 'CLEAN FRONTEND BUILDS WITH PERFORMANCE, ACCESSIBILITY, AND POLISH BUILT IN.',
-                        help: 'FASTER LOADS + STRONGER TRUST SIGNALS.',
-                        img: '/images/cb website.png',
-                      },
-                      {
-                        id: 'S04',
-                        title: 'LAUNCH + ITERATION',
-                        copy: 'QA, HANDOFF, AND REFINEMENT BASED ON REAL BEHAVIOR — NOT GUESSES.',
-                        help: 'LESS REWORK + BETTER OUTCOMES.',
-                        img: '/images/the guide mockup.webp',
-                      },
+                      { id: '01', title: 'Design', copy: 'Brand systems + UI/UX that feel intentional and clear.' },
+                      { id: '02', title: 'Development', copy: 'Fast, accessible builds with clean structure and polish.' },
+                      { id: '03', title: 'Photography', copy: 'Commercial editorial + event coverage that matches the brand.' },
                     ].map((item, idx) => (
                       <motion.article
                         key={item.id}
@@ -1373,68 +1417,35 @@ function App() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: '-10% 0px -10% 0px' }}
                         transition={{ duration: 0.5, delay: idx * 0.06 }}
-                        className="home-overview__card"
                         style={{
-                          borderTop: HOME_SECTION_DIVIDER,
-                          borderLeft: HOME_SECTION_DIVIDER,
-                          borderRight: HOME_SECTION_DIVIDER,
                           borderBottom: HOME_SECTION_DIVIDER,
-                          borderRadius: 12,
-                          overflow: 'hidden',
-                          background: 'rgba(255,255,255,0.75)',
-                          backdropFilter: 'blur(8px)',
+                          padding: 'var(--spacing-md) 0',
                         }}
                       >
-                        <div className="home-overview__card-inner" style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) 180px', gap: 0 }}>
-                          <div className="home-overview__card-content" style={{ padding: 'var(--spacing-md)' }}>
-                            <div className="small-text" style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}>
-                              <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>{item.title}</span>
-                              <span>{item.id}</span>
-                            </div>
-                            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35 }}>
-                              {item.copy}
-                            </div>
-                            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35, fontWeight: 'var(--font-mono-weight-bold)' }}>
-                              {item.help}
-                            </div>
-                          </div>
-                          <motion.div
-                            className="home-overview__card-media"
-                            whileHover={{ scale: 1.02 }}
-                            transition={{ duration: 0.35 }}
+                        <div
+                          style={{
+                            display: 'grid',
+                            gridTemplateColumns: '56px minmax(160px, 0.9fr) minmax(0, 1.4fr)',
+                            gap: 'var(--spacing-md)',
+                            alignItems: 'baseline',
+                          }}
+                        >
+                          <div className="small-text" style={{ opacity: 0.7, letterSpacing: '0.08em' }}>{item.id}</div>
+                          <div
                             style={{
-                              borderLeft: HOME_SECTION_DIVIDER,
-                              position: 'relative',
-                              minHeight: 190,
-                              overflow: 'hidden',
-                              background: '#FFFFFF',
+                              fontFamily: 'var(--font-display)',
+                              fontWeight: 400,
+                              letterSpacing: '-0.03em',
+                              textTransform: 'uppercase',
+                              lineHeight: 1.02,
+                              fontSize: 'clamp(18px, 2.2vw, 26px)',
                             }}
                           >
-                            <motion.img
-                              src={item.img}
-                              alt=""
-                              aria-hidden="true"
-                              style={{
-                                width: '100%',
-                                height: '100%',
-                                objectFit: 'cover',
-                                display: 'block',
-                                filter: 'contrast(1.05) saturate(1.05)',
-                              }}
-                              initial={{ scale: 1.05 }}
-                              whileHover={{ scale: 1.12, rotate: idx % 2 === 0 ? -1.2 : 1.2 }}
-                              transition={{ duration: 0.5 }}
-                            />
-                            <div
-                              aria-hidden="true"
-                              style={{
-                                position: 'absolute',
-                                inset: 0,
-                                background: 'linear-gradient(180deg, rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.15) 45%, rgba(255,255,255,0.6) 100%)',
-                                mixBlendMode: 'multiply',
-                              }}
-                            />
-                          </motion.div>
+                            {item.title}
+                          </div>
+                          <div className="small-text" style={{ lineHeight: 1.45, maxWidth: 560, opacity: 0.9 }}>
+                            {item.copy}
+                          </div>
                         </div>
                       </motion.article>
                     ))}
@@ -1808,6 +1819,55 @@ function App() {
               </div>
             </section>
 
+            <section id="photography" style={{ padding: 'var(--spacing-xxl) var(--spacing-md)', background: UI_DARK, color: UI_LIGHT }}>
+              <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
+                <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
+                  <DecryptText as="span" text="PHOTOGRAPHY" trigger="inView" duration={800} />
+                </h2>
+                <span className="small-text">Index (06)</span>
+              </div>
+
+              <div className="uiux-rows">
+                {photographyProjects.reduce((rows, project, idx) => {
+                  const rowIndex = Math.floor(idx / 2);
+                  if (!rows[rowIndex]) rows[rowIndex] = [];
+                  rows[rowIndex].push(project);
+                  return rows;
+                }, []).map((row, rIdx) => {
+                  const single = row.length === 1;
+                  const rowClass = single ? 'uiux-row uiux-row--single' : (rIdx % 2 === 0 ? 'uiux-row uiux-row--left' : 'uiux-row uiux-row--right');
+                  return (
+                    <div key={`photo-row-${rIdx}`} className={rowClass}>
+                      {row.map((project) => (
+                        <motion.div
+                          key={project.title + project.image}
+                          className="uiux-card"
+                          initial={{ opacity: 0, y: 50 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, margin: "-10%" }}
+                          transition={{ duration: 0.6, ease: "easeOut" }}
+                          onClick={() => setSelectedProject(project)}
+                        >
+                          <div className="uiux-frame">
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              loading="lazy"
+                              decoding="async"
+                              onError={(ev) => {
+                                const card = ev.currentTarget.closest('.uiux-card');
+                                if (card) card.style.display = 'none';
+                              }}
+                            />
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
             <section style={{ padding: '0', background: UI_DARK, color: UI_LIGHT, minHeight: 'auto', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
               <div className="studio-practice">
                 <div className="studio-practice__header">
@@ -1815,7 +1875,7 @@ function App() {
                     <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0 }}>
                       <DecryptText as="span" text="STUDIO PRACTICE" trigger="inView" duration={800} />
                     </h2>
-                    <span className="small-text">Index (06)</span>
+                    <span className="small-text">Index (07)</span>
                   </div>
                 </div>
 
@@ -1824,7 +1884,7 @@ function App() {
                     <div className="studio-practice__top">
                       <div className="studio-practice__copy">
                         <div className="small-text" style={{ maxWidth: '520px' }}>
-                          Creationbase is an independent design and development studio based in Boise, Idaho. Founded in 2023, we partner with brands and teams to shape clear visual systems, design UI/UX, and build fast, durable websites. We’re currently leading the environmental signage design for the Micron expansion building in Boise—creating a cohesive wayfinding system designed for clarity, scale, and daily use.
+                          Creationbase is an independent creation studio based in Boise, Idaho—design, development, and photography. Founded in 2023, we partner with brands and teams to shape clear visual systems, design UI/UX, build fast, durable websites, and create photo content that matches the brand. We’re currently leading the environmental signage design for the Micron expansion building in Boise—creating a cohesive wayfinding system designed for clarity, scale, and daily use.
                         </div>
                         <div className="small-text" style={{ maxWidth: '520px', marginTop: 'var(--spacing-md)' }}>
                           We’re building an inclusive team and a studio culture grounded in craft, clarity, and respect. Our values show up in the details: collaborative process, accessible design decisions, maintainable code, and transparent partnerships built for the long term.
@@ -1839,7 +1899,7 @@ function App() {
                             </div>
                             <div className="studio-practice__team-meta">
                               <div className="studio-practice__team-name">Forrest Tindall</div>
-                              <div className="studio-practice__team-role">Founder / Creative Director</div>
+                              <div className="studio-practice__team-role">Founder / Creative Director / Senior Designer / Fullstack Developer / Photographer</div>
                             </div>
                           </div>
 
@@ -1849,7 +1909,7 @@ function App() {
                             </div>
                             <div className="studio-practice__team-meta">
                               <div className="studio-practice__team-name">Sarah Houser</div>
-                              <div className="studio-practice__team-role">CMO</div>
+                              <div className="studio-practice__team-role">CMO / Art Director / Photographer</div>
                             </div>
                           </div>
                         </div>
@@ -1861,7 +1921,7 @@ function App() {
                         <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0 }}>
                           <DecryptText as="span" text="PASSION PROJECTS" trigger="inView" duration={800} />
                         </h2>
-                        <span className="small-text">Index (06.1)</span>
+                    <span className="small-text">Index (07.1)</span>
                       </div>
 
                       <div className="passion-projects-block">

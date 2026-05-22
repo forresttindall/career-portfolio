@@ -62,7 +62,7 @@
 }
 
 :root {
-  --font-display: 'Ark es', 'Tiposka', Doto, monospace;
+  --font-display:  Doto, 'Tiposka', Doto, monospace;
   --font-display-weight: 900;
   --font-display-weight-bold: 800;
   --font-mono: 'SF Mono', monospace;
