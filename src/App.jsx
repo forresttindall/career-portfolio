@@ -413,7 +413,7 @@ const photographyProjects = [
   {
     title: "Editorial",
     category: "Commercial / Editorial / Event Photography",
-    image: "/images/event/5.webp",
+    image: "/images/event/7.webp",
     description: "Editorial photography",
     year: "2026"
   },
@@ -421,7 +421,7 @@ const photographyProjects = [
   {
     title: "Editorial",
     category: "Commercial / Editorial / Event Photography",
-    image: "/images/event/6.webp",
+    image: "/images/event/8.webp",
     description: "Editorial photography",
     year: "2026"
   },
