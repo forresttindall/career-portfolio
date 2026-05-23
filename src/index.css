@@ -678,6 +678,7 @@ ul {
   background: rgba(120, 120, 120, 0.34);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
+  overflow: hidden;
 }
 
 .mobile-nav-panel__inner {
@@ -738,15 +739,21 @@ ul {
   }
 
   .mobile-nav-panel__inner {
-    display: flex;
+    min-height: 100dvh;
+    height: 100dvh;
+    padding: clamp(56px, 12vh, 86px) 0 calc(128px + env(safe-area-inset-bottom));
+    align-items: flex-end;
   }
 
   .mobile-nav-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 8px;
   }
 
   .mobile-nav-link {
-    min-height: 88px;
+    min-height: 56px;
+    padding: 12px;
   }
 }
 
