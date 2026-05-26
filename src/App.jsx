@@ -18,6 +18,9 @@ import Tools from './components/Tools';
 import Schema from './components/Schema';
 import CommercialPhotography from './components/CommercialPhotography';
 import WorksharpProject from './components/WorksharpProject';
+import Merch from './components/Merch';
+import MerchCheckout from './components/MerchCheckout';
+import MerchCart from './components/MerchCart';
 import { Analytics } from '@vercel/analytics/react';
 import { blogPosts } from './blog/posts';
 
@@ -132,6 +135,7 @@ const SiteFooter = ({
   isMobile,
   onBlogClick,
   onContactClick,
+  onMerchClick,
   reserveRightRail = false,
   newsletterName,
   newsletterEmail,
@@ -183,6 +187,7 @@ const SiteFooter = ({
               <li><a href="https://calendly.com/forrest-creationbase/30min" target="_blank" rel="noreferrer">STRATEGY CALL</a></li>
               <li><a href="/contact" onClick={(ev) => { ev.preventDefault(); onContactClick(); }}>CONTACT FORM</a></li>
               <li><a href="/blog" onClick={(ev) => { ev.preventDefault(); onBlogClick(); }}>BLOG</a></li>
+              <li><a href="/merch" onClick={(ev) => { ev.preventDefault(); onMerchClick?.(); }}>MERCH</a></li>
               <li><a href="https://instagram.com/creationbase.io" target="_blank" rel="noreferrer">INSTAGRAM</a></li>
               <li><a href="https://www.linkedin.com/company/creationbaseio/" target="_blank" rel="noreferrer">LINKEDIN</a></li>
             </ul>
@@ -897,6 +902,19 @@ function App() {
     navigate('/services');
   };
 
+  const openMerch = () => {
+    setMobileNavOpen(false);
+    if (location.pathname === '/') {
+      const y = window.scrollY || 0;
+      homeScrollYRef.current = y;
+      sessionStorage.setItem('homeScrollY', String(y));
+      pendingHomeScrollRestoreRef.current = true;
+    } else {
+      pendingHomeScrollRestoreRef.current = false;
+    }
+    navigate('/merch');
+  };
+
   const goToSection = (id) => {
     setMobileNavOpen(false);
     pendingHomeScrollRestoreRef.current = false;
@@ -943,6 +961,9 @@ function App() {
     else if (pathname === '/worksharp') setActiveCaseStudy('worksharp');
     else if (pathname === '/gallery') setActiveCaseStudy('gallery');
     else if (pathname === '/services') setActiveCaseStudy('services');
+    else if (pathname === '/merch') setActiveCaseStudy('merch');
+    else if (pathname === '/merch/cart') setActiveCaseStudy('merch-cart');
+    else if (pathname === '/merch/checkout') setActiveCaseStudy('merch-checkout');
     else if (pathname === '/blog' || pathname.startsWith('/blog/')) setActiveCaseStudy('blog');
     else if (pathname === '/contact') setActiveCaseStudy('contact');
     else if (pathname === '/material-lab' || pathname.startsWith('/material-lab/')) setActiveCaseStudy('material-lab');
@@ -1175,6 +1196,9 @@ function App() {
                 <button type="button" className="mobile-nav-link" onClick={openServices}>
                   Services
                 </button>
+                <button type="button" className="mobile-nav-link" onClick={openMerch}>
+                  Merch
+                </button>
                 <button type="button" className="mobile-nav-link" onClick={openMaterialLab}>
                   Material Lab
                 </button>
@@ -1210,6 +1234,12 @@ function App() {
       >
         {activeCaseStudy === 'blog' ? (
           <Blog key="blog" />
+        ) : activeCaseStudy === 'merch-cart' ? (
+          <MerchCart key="merch-cart" />
+        ) : activeCaseStudy === 'merch-checkout' ? (
+          <MerchCheckout key="merch-checkout" />
+        ) : activeCaseStudy === 'merch' ? (
+          <Merch key="merch" />
         ) : activeCaseStudy === 'services' ? (
           <Services key="services" />
         ) : activeCaseStudy === 'contact' ? (
@@ -2017,6 +2047,7 @@ function App() {
         isMobile={isMobile}
         onBlogClick={openBlog}
         onContactClick={openContact}
+        onMerchClick={openMerch}
         reserveRightRail={activeCaseStudy === 'bac' || activeCaseStudy === 'on'}
         newsletterName={newsletterName}
         newsletterEmail={newsletterEmail}

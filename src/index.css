@@ -245,6 +245,219 @@ ul {
   max-width: 100%;
 }
 
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.merch-card {
+  appearance: none;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  background: #FFFFFF;
+  cursor: pointer;
+  text-align: left;
+  overflow: hidden;
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.merch-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.08);
+}
+
+.merch-card__media {
+  aspect-ratio: 4 / 3;
+  background: rgba(17, 17, 17, 0.04);
+}
+
+.merch-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.merch-card__media-empty {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.merch-card__meta {
+  padding: 12px 12px 14px;
+  display: grid;
+  gap: 8px;
+}
+
+.merch-card__title {
+  font-family: var(--font-mono);
+  font-weight: var(--font-mono-weight-bold);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: #111111;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.merch-card__price {
+  color: rgba(17, 17, 17, 0.56);
+}
+
+.merch-cart-button {
+  position: relative;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: transparent;
+  padding: 10px 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #111111;
+}
+
+.merch-cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #111111;
+  color: #FFFFFF;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #FFFFFF;
+}
+
+.merch-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.merch-modal__panel {
+  width: min(980px, 100%);
+  max-height: min(86vh, var(--vh-stable));
+  overflow: auto;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 18px;
+}
+
+.merch-modal__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.merch-modal__title {
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  font-size: clamp(18px, 2.2vw, 26px);
+}
+
+.merch-modal__close {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: transparent;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #111111;
+}
+
+.merch-modal__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+.merch-modal__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+}
+
+.merch-modal__thumbs {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.merch-modal__thumb {
+  border: 1px solid var(--color-border);
+  background: transparent;
+  border-radius: 10px;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.merch-modal__thumb img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+.merch-modal__controls {
+  display: grid;
+  gap: 12px;
+}
+
+.merch-modal__row {
+  display: grid;
+  gap: 8px;
+}
+
+.merch-input {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 12px 12px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: #111111;
+  background: #FFFFFF;
+}
+
+@media (max-width: 860px) {
+  .merch-modal__body {
+    grid-template-columns: 1fr;
+  }
+  .merch-modal__thumbs {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
 .newsletter-input {
   width: 100%;
   background: transparent;
