@@ -197,8 +197,8 @@ const MerchCheckout = () => {
               Your cart is empty.
             </div>
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', gap: 16, alignItems: 'start' }}>
-              <div style={{ border: `1px solid ${GRAY2}`, borderRadius: 16, padding: 14, display: 'grid', gap: 10 }}>
+            <div className="merch-layout">
+              <div className="merch-panel" style={{ gap: 10 }}>
                 <div className="small-text" style={{ color: GRAY1 }}>Items</div>
                 {rows.map((r) => (
                   <div key={r.key} style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'baseline' }}>
@@ -217,7 +217,7 @@ const MerchCheckout = () => {
                 ))}
               </div>
 
-              <div style={{ border: `1px solid ${GRAY2}`, borderRadius: 16, padding: 14, display: 'grid', gap: 12 }}>
+              <div className="merch-panel">
                 <div className="small-text" style={{ color: GRAY1 }}>Summary</div>
                 <div className="small-text" style={{ color: GRAY1 }}>
                   Subtotal: {subtotal !== null ? formatMoney(subtotal, rows[0]?.currency) : '—'}

@@ -205,15 +205,15 @@ const MerchCart = () => {
           ) : rows.length === 0 ? (
             <div className="small-text" style={{ color: GRAY1 }}>Your cart is empty.</div>
           ) : (
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 0.8fr)', gap: 16, alignItems: 'start' }}>
-              <div style={{ display: 'grid', gap: 12 }}>
+            <div className="merch-layout">
+              <div className="merch-cart-list">
                 {rows.map((r) => (
-                  <div key={r.key} style={{ border: `1px solid ${GRAY2}`, borderRadius: 16, padding: 12, display: 'grid', gridTemplateColumns: '96px minmax(0, 1fr)', gap: 12, alignItems: 'start' }}>
-                    <div style={{ width: 96, height: 96, borderRadius: 12, overflow: 'hidden', background: 'rgba(17,17,17,0.04)', border: `1px solid ${GRAY2}` }}>
-                      {r.image ? <img src={r.image} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} /> : null}
+                  <div key={r.key} className="merch-cart-item">
+                    <div className="merch-cart-item__media">
+                      {r.image ? <img src={r.image} alt="" /> : null}
                     </div>
-                    <div style={{ display: 'grid', gap: 8 }}>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 10, alignItems: 'baseline' }}>
+                    <div className="merch-cart-item__content">
+                      <div className="merch-cart-item__top">
                         <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight-bold)', letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1.2 }}>
                           {r.title}
                         </div>
@@ -224,7 +224,7 @@ const MerchCart = () => {
                       <div className="small-text" style={{ color: GRAY1 }}>
                         {r.variantTitle}
                       </div>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'center', flexWrap: 'wrap' }}>
+                      <div className="merch-cart-item__bottom">
                         <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
                           <div className="small-text" style={{ color: GRAY1 }}>Qty</div>
                           <input
@@ -247,7 +247,7 @@ const MerchCart = () => {
                 ))}
               </div>
 
-              <div style={{ border: `1px solid ${GRAY2}`, borderRadius: 16, padding: 14, display: 'grid', gap: 12 }}>
+              <div className="merch-panel">
                 <div className="small-text" style={{ color: GRAY1 }}>Summary</div>
                 <div className="small-text" style={{ color: GRAY1 }}>
                   Subtotal: {subtotal !== null ? formatMoney(subtotal, rows[0]?.currency) : '—'}
