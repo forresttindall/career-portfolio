@@ -23,7 +23,7 @@ const Schema = ({ type = 'Organization', data = {} }) => {
       return {
         ...base,
         "@type": "ProfessionalService",
-        "description": "Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and commercial + event photography—built as one cohesive system.",
+        "description": "Creationbase is a creation studio for brand + UI/UX design and high-performance web development—built as one cohesive system.",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Creative Services",
@@ -59,14 +59,6 @@ const Schema = ({ type = 'Organization', data = {} }) => {
                 "name": "UI/UX Design",
                 "description": "User-centric interface and experience design for apps and platforms."
               }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Commercial & Event Photography",
-                "description": "Commercial and event photography that matches the brand system for web, social, and campaigns."
-              }
             }
           ]
         },
@@ -78,13 +70,13 @@ const Schema = ({ type = 'Organization', data = {} }) => {
       return {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": data.name || "Design, Development, and Photography",
+        "serviceType": data.name || "Design and Development",
         "provider": {
           "@type": "Organization",
           "name": "Creationbase",
           "url": "https://creationbase.io"
         },
-        "description": data.description || "Brand + UI/UX design, high-performance web development, and commercial + event photography focused on clarity, memorability, and trust."
+        "description": data.description || "Brand + UI/UX design and high-performance web development focused on clarity, memorability, and trust."
       };
     }
 
@@ -144,17 +136,17 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         }
       });
     } else if (type === 'Organization' || type === 'LocalBusiness') {
-      document.title = 'Creationbase — Design, Development & Photography';
+      document.title = 'Creationbase — Design & Development';
       
       const defaults = [
-        { name: 'description', content: 'Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and commercial + event photography.' },
-        { property: 'og:title', content: 'Creationbase — Design, Development & Photography' },
-        { property: 'og:description', content: 'Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and commercial + event photography.' },
+        { name: 'description', content: 'Creationbase is a creation studio for brand + UI/UX design and high-performance web development.' },
+        { property: 'og:title', content: 'Creationbase — Design & Development' },
+        { property: 'og:description', content: 'Creationbase is a creation studio for brand + UI/UX design and high-performance web development.' },
         { property: 'og:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:image:secure_url', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:url', content: 'https://www.creationbase.io/' },
-        { name: 'twitter:title', content: 'Creationbase — Design, Development & Photography' },
-        { name: 'twitter:description', content: 'Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and commercial + event photography.' },
+        { name: 'twitter:title', content: 'Creationbase — Design & Development' },
+        { name: 'twitter:description', content: 'Creationbase is a creation studio for brand + UI/UX design and high-performance web development.' },
         { name: 'twitter:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' }
       ];
 

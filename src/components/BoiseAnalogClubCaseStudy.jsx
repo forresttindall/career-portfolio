@@ -8,7 +8,7 @@ const sections = [
   "3.0 COLOR PALETTE",
   "4.0 TYPOGRAPHY",
   "5.0 GRAPHIC ELEMENTS",
-  "6.0 PHOTOGRAPHY DIRECTION",
+  "6.0 IMAGERY DIRECTION",
   "7.0 LAYOUTS",
   "8.0 APPLICATIONS",
 ];
@@ -330,15 +330,15 @@ const BoiseAnalogClubCaseStudy = () => {
               <div style={{ display: 'flex', flexDirection: isMobile ? 'column' : 'row', gap: '48px', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1 }}>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: BRAND_WHITE, lineHeight: 1.8, marginTop: 14, maxWidth: 720 }}>
-                    Visual identity and flyer system for a community film photography club—built for repeatable event promotion and print consistency.
+                    Visual identity and flyer system for a community film club—built for repeatable event promotion and print consistency.
                   </p>
 
                   <div style={{ marginTop: '24px' }}>
                     <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: BRAND_WHITE, opacity: 0.6, letterSpacing: 2, margin: "0 0 12px", textTransform: "uppercase" }}>STRATEGY & DESIGN</p>
                     <div style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: BRAND_WHITE, opacity: 0.8, lineHeight: 1.6, maxWidth: 640 }}>
-                      The Boise Analog Club (BAC) required an identity that felt as tactile and authentic as the medium it celebrates. Our approach focused on 'The Digital-Analog Bridge'—creating a flexible visual system that works seamlessly across social media promotions and physical street-flyers.
+                      The Boise Analog Club (BAC) required an identity that felt as tactile and authentic as the medium it celebrates. Our approach focused on “The Digital-Analog Bridge”—creating a flexible visual system that works seamlessly across social media promotions and physical street-flyers.
                       <br /><br />
-                      We developed a typographic-heavy system that pays homage to darkroom aesthetics while maintaining a modern, high-contrast edge. This system was designed specifically for the Boise community, utilizing a local street-photography aesthetic that resonates with Treasure Valley creators.
+                      We developed a typographic-heavy system that pays homage to darkroom aesthetics while maintaining a modern, high-contrast edge. This system was designed specifically for the Boise community, utilizing a local street/documentary aesthetic that resonates with Treasure Valley creators.
                       <br /><br />
                       The resulting identity has become a staple of the local creative scene, providing the club with a consistent, recognizable voice that scales from microscopic Instagram thumbnails to large-format wheatpaste posters across Downtown Boise.
                     </div>
@@ -397,7 +397,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 <div style={{ background: PAGE_BG, padding: "clamp(16px, 2.5vw, 24px)" }}>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 10, letterSpacing: 2, color: GRAY1, margin: "0 0 10px", textTransform: "uppercase" }}>What Is The Problem?</p>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: UI_LIGHT, lineHeight: 1.8, margin: 0 }}>
-                    A growing film photography community needed consistent event promotion that could scale across flyers, social assets, and recurring meetups.
+                    A growing film community needed consistent event promotion that could scale across flyers, social assets, and recurring meetups.
                   </p>
                 </div>
                 <div style={{ background: PAGE_BG, padding: "clamp(16px, 2.5vw, 24px)" }}>
@@ -409,7 +409,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 <div style={{ background: PAGE_BG, padding: "clamp(16px, 2.5vw, 24px)" }}>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 10, letterSpacing: 2, color: GRAY1, margin: "0 0 10px", textTransform: "uppercase" }}>Decisions & Why</p>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: UI_LIGHT, lineHeight: 1.8, margin: 0 }}>
-                    A strict grid, high-contrast black/white photography, and a single red accent to keep the system bold, fast, and unmistakable across formats.
+                    A strict grid, high-contrast black/white imagery, and a single red accent to keep the system bold, fast, and unmistakable across formats.
                   </p>
                 </div>
                 <div style={{ background: PAGE_BG, padding: "clamp(16px, 2.5vw, 24px)" }}>
@@ -467,19 +467,19 @@ const BoiseAnalogClubCaseStudy = () => {
                 <div>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: GRAY1, letterSpacing: 2, marginBottom: 12 }}>ABOUT</p>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 13, color: UI_LIGHT, lineHeight: 1.8 }}>
-                    BOISE ANALOG CLUB is a community for film photography enthusiasts—meetups, photo walks, events, and shared practice.
+                    BOISE ANALOG CLUB is a community for film enthusiasts—meetups, walks, events, and shared practice.
                   </p>
                 </div>
                 <div>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: GRAY1, letterSpacing: 2, marginBottom: 12 }}>1.1 MISSION</p>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 13, color: UI_LIGHT, lineHeight: 1.8 }}>
-                    Keep analog photography alive through community, education, and consistent event programming.
+                    Keep analog film alive through community, education, and consistent event programming.
                   </p>
                 </div>
                 <div>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: GRAY1, letterSpacing: 2, marginBottom: 12 }}>1.2 POSITIONING</p>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 13, color: UI_LIGHT, lineHeight: 1.8 }}>
-                    A local culture club for film photography: community-led, approachable, and built around real meetups and shared practice. The visual system stays bold and poster-forward while keeping event details clear and consistent.
+                    A local culture club for film culture: community-led, approachable, and built around real meetups and shared practice. The visual system stays bold and poster-forward while keeping event details clear and consistent.
                   </p>
                 </div>
               </div>
@@ -492,7 +492,7 @@ const BoiseAnalogClubCaseStudy = () => {
                   { n: "1", label: "BOLD", subs: ["Poster First", "High Contrast", "Immediate"] },
                   { n: "2", label: "NOSTALGIC", subs: ["Analog Culture", "Tactile", "Timeless"] },
                   { n: "3", label: "COMMUNITY", subs: ["Welcoming", "Local", "Inclusive"] },
-                  { n: "4", label: "RAW", subs: ["Real Photos", "Grain", "Truthful"] },
+                  { n: "4", label: "RAW", subs: ["Real Images", "Grain", "Truthful"] },
                 ].map((p) => (
                   <div key={p.n} style={{ background: PAGE_BG, padding: isMobile ? "18px 14px" : "24px 20px" }}>
                     <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 12 }}>
@@ -612,7 +612,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 <div style={{ background: PAGE_BG, padding: "clamp(14px, 2vh, 18px)" }}>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 10, letterSpacing: 2, color: GRAY1, margin: "0 0 10px", textTransform: "uppercase" }}>Clearspace</p>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: UI_LIGHT, lineHeight: 1.7, margin: 0 }}>
-                    Maintain clearspace equal to the mark&apos;s inner ring thickness. Keep it off the trim and off the photo subject.
+                    Maintain clearspace equal to the mark&apos;s inner ring thickness. Keep it off the trim and off the image subject.
                   </p>
                 </div>
                 <div style={{ background: PAGE_BG, padding: "clamp(14px, 2vh, 18px)" }}>
@@ -635,7 +635,7 @@ const BoiseAnalogClubCaseStudy = () => {
             <PageHeader number="3.0" title="COLOR PALETTE" isMobile={isMobile} />
             <div style={{ marginBottom: "clamp(12px, 2vh, 20px)", maxWidth: 820 }}>
               <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 13, color: UI_LIGHT, lineHeight: 1.8, margin: 0 }}>
-                A minimal black-and-white foundation keeps photography honest and legible; a single red accent (#ED1C23) brings poster energy and instant recognition.
+                A minimal black-and-white foundation keeps imagery honest and legible; a single red accent (#ED1C23) brings poster energy and instant recognition.
               </p>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -712,7 +712,7 @@ const BoiseAnalogClubCaseStudy = () => {
                   />
                 </div>
                 <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: GRAY1, lineHeight: 1.8, marginTop: 24 }}>
-                  Grain is intentional—both film grain and digital grain. It keeps the work tactile, imperfect, and consistent across photography, flyers, and social posts.
+                  Grain is intentional—both film grain and digital grain. It keeps the work tactile, imperfect, and consistent across imagery, flyers, and social posts.
                 </p>
               </div>
               <div style={{ background: PAGE_BG, padding: isMobile ? 16 : 40 }}>
@@ -732,11 +732,11 @@ const BoiseAnalogClubCaseStudy = () => {
           </ScrollSection>
 
           <ScrollSection index={5} setActive={setActive} isMobile={isMobile}>
-            <PageHeader number="6.0" title="PHOTOGRAPHY DIRECTION" isMobile={isMobile} />
+            <PageHeader number="6.0" title="IMAGERY DIRECTION" isMobile={isMobile} />
             <div style={{ marginBottom: 16, maxWidth: 820 }}>
               <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: GRAY1, letterSpacing: 2, marginBottom: 12 }}>DIRECTION</p>
               <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 13, color: UI_LIGHT, lineHeight: 1.8 }}>
-                Photography centers on black and white group photos and candid event moments—members laughing, shooting, and socializing. The goal is human and documentary: real people, real film culture, and a sense of community you can feel at a glance.
+                Imagery centers on black and white group images and candid event moments—members laughing, shooting, and socializing. The goal is human and documentary: real people, real film culture, and a sense of community you can feel at a glance.
               </p>
             </div>
 
@@ -750,7 +750,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 { src: "/images/IMG_1679.JPG", label: "05" },
               ].map((img) => (
                 <div key={img.src} style={{ background: PAGE_BG, position: "relative", overflow: "hidden", aspectRatio: "1 / 1" }}>
-                  <img src={img.src} alt={`Boise Analog Club photography ${img.label}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "grayscale(100%) contrast(1.1)" }} />
+                  <img src={img.src} alt={`Boise Analog Club imagery ${img.label}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "grayscale(100%) contrast(1.1)" }} />
                 </div>
               ))}
             </div>
@@ -807,7 +807,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 <div style={{ background: PAGE_BG, padding: "clamp(16px, 2.5vw, 24px)" }}>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 10, letterSpacing: 2, color: GRAY1, margin: "0 0 10px", textTransform: "uppercase" }}>Meetup Flyers</p>
                   <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: UI_LIGHT, lineHeight: 1.8, margin: 0 }}>
-                    The flyer system evolves month to month while keeping the same structure: event name first, then date/time/location, then supporting details. Photography and headline treatments change to match each meetup, while type stays locked to consistent margins and a repeatable hierarchy.
+                    The flyer system evolves month to month while keeping the same structure: event name first, then date/time/location, then supporting details. Imagery and headline treatments change to match each meetup, while type stays locked to consistent margins and a repeatable hierarchy.
                   </p>
                 </div>
                 <div style={{ background: PAGE_BG, padding: "clamp(16px, 2.5vw, 24px)" }}>
@@ -885,7 +885,7 @@ const BoiseAnalogClubCaseStudy = () => {
           --bac-brand-logo-size: 120px;
           --bac-layout-row-h: clamp(260px, 24vh, 340px);
           --bac-layout-media-ar: 4 / 5;
-          --bac-photo-tile-ar: 1 / 1;
+          --bac-image-tile-ar: 1 / 1;
           --bac-logomark-ar: 1 / 1;
           --bac-logomark-pad: clamp(16px, 3vh, 32px);
           --bac-typemark-h: clamp(60px, 9vh, 120px);
@@ -939,7 +939,7 @@ const BoiseAnalogClubCaseStudy = () => {
 
         @media (min-width: 1800px) and (min-aspect-ratio: 16/9) {
           :root {
-            --bac-photo-tile-ar: 3 / 2;
+            --bac-image-tile-ar: 3 / 2;
             --bac-app-media-fit: contain;
             --bac-applications-grid-h: 62vh;
             --bac-applications-grid-offset: 320px;

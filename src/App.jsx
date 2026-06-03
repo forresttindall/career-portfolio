@@ -16,8 +16,6 @@ import ContinuityProject from './components/ContinuityProject';
 import DecryptText from './components/DecryptText';
 import Tools from './components/Tools';
 import Schema from './components/Schema';
-import CommercialPhotography from './components/CommercialPhotography';
-import WorksharpProject from './components/WorksharpProject';
 import Merch from './components/Merch';
 import MerchCheckout from './components/MerchCheckout';
 import MerchCart from './components/MerchCart';
@@ -32,38 +30,6 @@ const HERO_AVAILABILITY = {
   label: 'Available',
   color: '#5FE37C',
 };
-const GALLERY_IMAGES = [
-  '/images/gallery/_DSC9182.webp',
-  '/images/gallery/_DSC6969.webp',
-  '/images/gallery/_DSC2741-2.webp',
-  '/images/gallery/_DSC2447.webp',
-  '/images/gallery/_DSC2444.webp',
-  '/images/gallery/_DSC2583%202.webp',
-  '/images/gallery/_DSC2680-2.webp',
-  '/images/gallery/_DSC2350.webp',
-  '/images/gallery/_DSC2439.webp',
-  '/images/gallery/_DSC2406.webp',
-  '/images/gallery/_DSC2349.webp',
-  '/images/gallery/_DSC2702-2.webp',
-  '/images/gallery/_DSC2560.webp',
-  '/images/gallery/_DSC2193-2.webp',
-  '/images/gallery/_DSC7999-4.webp',
-  '/images/gallery/_DSC2744-2.webp',
-  '/images/gallery/_DSC4899.webp',
-  '/images/gallery/_DSC3168-2.webp',
-  '/images/gallery/_DSC2733-2.webp',
-  '/images/gallery/_DSC1613-3.webp',
-  '/images/gallery/_DSC3991.webp',
-  '/images/gallery/_DSC2842.webp',
-  '/images/gallery/_DSC2674-2.webp',
-  '/images/gallery/_DSC6942.webp',
-  '/images/gallery/_DSC1954-2.webp',
-  '/images/gallery/_DSC6814.webp',
-  '/images/gallery/_DSC2823-2.webp',
-  '/images/gallery/_DSC3525.webp',
-  '/images/gallery/_DSC4685-2.webp',
-  '/images/gallery/_DSC2016.webp',
-];
 const INDEX01_PROJECTS = [
   {
     id: 'wim',
@@ -116,17 +82,6 @@ const INDEX01_PROJECTS = [
     primaryAlt: 'Micron bathroom ADA signage',
     secondaryImage: '/images/lobby.webp',
     secondaryAlt: 'Micron lobby environmental signage',
-    sideOffset: 'clamp(2rem, 7vw, 5rem)',
-  },
-  {
-    id: 'worksharp',
-    titleLines: ['Worksharp + Drill Doctor'],
-    scope: 'Scope(Photography, Commercial Editorial, Popular Mechanics)',
-    primaryImage: '/images/worksharp/_DSC6969.jpg',
-    primaryAlt: 'Worksharp + Drill Doctor commercial editorial photography',
-    secondaryImage: '/images/worksharp/_DSC7142.jpg',
-    secondaryAlt: 'Worksharp + Drill Doctor photography',
-    secondaryFallbackImage: '/images/worksharp/_DSC6814.webp',
     sideOffset: 'clamp(2rem, 7vw, 5rem)',
   },
 ];
@@ -396,56 +351,6 @@ const graphicDesign = [
     image: "/images/continuity/TSHIRT MOCKUP.webp",
     description: "Promotional Poster Design",
     year: "2025"
-  }
-];
-
-const photographyProjects = [
-    {
-    title: "Worksharp + Drill Doctor",
-    category: "Popular Mechanics Magazine",
-    image: "/images/worksharp/_DSC6969.jpg",
-    description: "Shoot for Popular Mechanics magazine",
-    year: "2026"
-  },
-  {
-    title: "Worksharp + Drill Doctor",
-    category: "Popular Mechanics Magazine",
-    image: "/images/worksharp/_DSC7142.jpg",
-    description: "Shoot for Popular Mechanics magazine",
-    year: "2026"
-  },
-
-  {
-    title: "Editorial",
-    category: "Commercial / Editorial / Event Photography",
-    image: "/images/event/7.webp",
-    description: "Editorial photography",
-    year: "2026"
-  },
-
-  {
-    title: "Editorial",
-    category: "Commercial / Editorial / Event Photography",
-    image: "/images/event/8.webp",
-    description: "Editorial photography",
-    year: "2026"
-  },
-  {
-    title: "Editorial",
-    category: "Commercial / Editorial / Event Photography",
-    image: "/images/_DSC4390.jpg",
-    description: "Editorial photography",
-    year: "2026"
-  },
-
-
- 
-  {
-    title: "Lifestyle",
-    category: "Commercial / Editorial / Event Photography",
-    image: "/images/_DSC3168-2.jpg",
-    description: "Lifestyle photography",
-    year: "2026"
   }
 ];
 
@@ -838,9 +743,6 @@ function App() {
     else if (id === 'ricochet') navigate('/ricochet');
     else if (id === 'micron') navigate('/micron');
     else if (id === 'playground') navigate('/playground');
-    else if (id === 'photography') navigate('/photography');
-    else if (id === 'worksharp') navigate('/worksharp');
-    else if (id === 'gallery') navigate('/gallery');
     else if (id === 'blog') navigate('/blog');
   };
 
@@ -957,9 +859,6 @@ function App() {
     else if (pathname === '/ricochet') setActiveCaseStudy('ricochet');
     else if (pathname === '/micron') setActiveCaseStudy('micron');
     else if (pathname === '/playground') setActiveCaseStudy('playground');
-    else if (pathname === '/photography') setActiveCaseStudy('photography');
-    else if (pathname === '/worksharp') setActiveCaseStudy('worksharp');
-    else if (pathname === '/gallery') setActiveCaseStudy('gallery');
     else if (pathname === '/services') setActiveCaseStudy('services');
     else if (pathname === '/merch') setActiveCaseStudy('merch');
     else if (pathname === '/merch/cart') setActiveCaseStudy('merch-cart');
@@ -970,6 +869,10 @@ function App() {
     else if (pathname === '/tools' || pathname.startsWith('/tools/')) {
       setActiveCaseStudy('material-lab');
       navigate('/material-lab', { replace: true });
+    }
+    else if (pathname === '/photography' || pathname === '/gallery' || pathname === '/worksharp') {
+      setActiveCaseStudy(null);
+      navigate('/', { replace: true });
     }
     else setActiveCaseStudy(null);
   }, [location.pathname, navigate]);
@@ -1190,9 +1093,6 @@ function App() {
                 <button type="button" className="mobile-nav-link" onClick={() => goToSection('dev')}>
                   Dev
                 </button>
-                <button type="button" className="mobile-nav-link" onClick={() => goToSection('photography')}>
-                  Photography
-                </button>
                 <button type="button" className="mobile-nav-link" onClick={openServices}>
                   Services
                 </button>
@@ -1244,12 +1144,6 @@ function App() {
           <Services key="services" />
         ) : activeCaseStudy === 'contact' ? (
           <Contact key="contact" />
-        ) : activeCaseStudy === 'photography' ? (
-          <CommercialPhotography key="photography" />
-        ) : activeCaseStudy === 'gallery' ? (
-          <CommercialPhotography key="gallery" images={GALLERY_IMAGES} masonryClassName="mosaic-masonry mosaic-masonry--spaced" />
-        ) : activeCaseStudy === 'worksharp' ? (
-          <WorksharpProject key="worksharp" />
         ) : activeCaseStudy === 'fastburger' ? (
           <FastburgerProject key="fastburger" />
         ) : activeCaseStudy === 'wim' ? (
@@ -1311,7 +1205,7 @@ function App() {
                     </div>
                   </div>
                   <div className="small-text home-hero__services" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, textAlign: 'center', fontWeight: 'var(--font-mono-weight-bold)', marginTop: '1.2em' }}>
-                    Design + Dev + Photo
+                    Design + Development + Visual Systems
                   </div>
                   <div className="small-text home-hero__availability" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, justifySelf: 'end', textAlign: 'right' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
@@ -1444,7 +1338,7 @@ function App() {
                       OVERVIEW •
                     </div>
                     <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35, maxWidth: 420 }}>
-                      A single studio for design, development, and commercial editorial + event photography—built as one cohesive system.
+                      A single studio for design, development, and visual systems—built as one cohesive system.
                     </div>
                   </div>
 
@@ -1453,10 +1347,10 @@ function App() {
                       SERVICES •
                     </div>
                     <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35 }}>
-                      DESIGN / DEV / PHOTO
+                      Design + Development + Visual Systems
                     </div>
                     <div className="small-text" style={{ marginTop: 10, lineHeight: 1.35, opacity: 0.85 }}>
-                      Brand + UI/UX • Web builds • Commercial editorial + event coverage
+                      Brand + UI/UX • Web builds • Launch support
                     </div>
                   </div>
 
@@ -1475,7 +1369,7 @@ function App() {
                     {[
                       { id: '01', title: 'Design', copy: 'Brand systems + UI/UX that feel intentional and clear.' },
                       { id: '02', title: 'Development', copy: 'Fast, accessible builds with clean structure and polish.' },
-                      { id: '03', title: 'Photography', copy: 'Commercial editorial + event coverage that matches the brand.' },
+                      { id: '03', title: 'Visual Systems', copy: 'Typography, layout, and interaction rules that stay consistent as you scale.' },
                     ].map((item, idx) => (
                       <motion.article
                         key={item.id}
@@ -1885,67 +1779,6 @@ function App() {
               </div>
             </section>
 
-            <section id="photography" style={{ padding: 'var(--spacing-xxl) var(--spacing-md)', background: UI_DARK, color: UI_LIGHT }}>
-              <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
-                <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
-                  <DecryptText as="span" text="PHOTOGRAPHY" trigger="inView" duration={800} />
-                </h2>
-                <span className="small-text">Index (06)</span>
-              </div>
-
-              <div className="uiux-rows">
-                {photographyProjects.reduce((rows, project, idx) => {
-                  const rowIndex = Math.floor(idx / 2);
-                  if (!rows[rowIndex]) rows[rowIndex] = [];
-                  rows[rowIndex].push(project);
-                  return rows;
-                }, []).map((row, rIdx) => {
-                  const single = row.length === 1;
-                  const rowClass = single ? 'uiux-row uiux-row--single' : (rIdx % 2 === 0 ? 'uiux-row uiux-row--left' : 'uiux-row uiux-row--right');
-                  return (
-                    <div key={`photo-row-${rIdx}`} className={rowClass}>
-                      {row.map((project) => (
-                        <motion.div
-                          key={project.title + project.image}
-                          className="uiux-card"
-                          initial={{ opacity: 0, y: 50 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true, margin: "-10%" }}
-                          transition={{ duration: 0.6, ease: "easeOut" }}
-                          onClick={() => setSelectedProject(project)}
-                        >
-                          <div className="uiux-frame">
-                            <img
-                              src={project.image}
-                              alt={project.title}
-                              loading="lazy"
-                              decoding="async"
-                              onError={(ev) => {
-                                const card = ev.currentTarget.closest('.uiux-card');
-                                if (card) card.style.display = 'none';
-                              }}
-                            />
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  );
-                })}
-              </div>
-              <div style={{ marginTop: 10, display: 'flex', justifyContent: 'center' }}>
-                <motion.button
-                  type="button"
-                  onClick={() => openCaseStudy('gallery')}
-                  whileHover={{ opacity: 0.75 }}
-                  className="newsletter-button"
-                  style={{ minWidth: 180 }}
-                >
-                  View More
-                  <ArrowUpRight size={14} weight="thin" />
-                </motion.button>
-              </div>
-            </section>
-
             <section style={{ padding: '0', background: UI_DARK, color: UI_LIGHT, minHeight: 'auto', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
               <div className="studio-practice">
                 <div className="studio-practice__header">
@@ -1953,7 +1786,7 @@ function App() {
                     <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0 }}>
                       <DecryptText as="span" text="STUDIO PRACTICE" trigger="inView" duration={800} />
                     </h2>
-                    <span className="small-text">Index (07)</span>
+                    <span className="small-text">Index (06)</span>
                   </div>
                 </div>
 
@@ -1962,7 +1795,7 @@ function App() {
                     <div className="studio-practice__top">
                       <div className="studio-practice__copy">
                         <div className="small-text" style={{ maxWidth: '520px' }}>
-                          Creationbase is an independent creation studio based in Boise, Idaho—design, development, and photography. Founded in 2023, we partner with brands and teams to shape clear visual systems, design UI/UX, build fast, durable websites, and create photo content that matches the brand. We’re currently leading the environmental signage design for the Micron expansion building in Boise—creating a cohesive wayfinding system designed for clarity, scale, and daily use.
+                          Creationbase is an independent creation studio based in Boise, Idaho—design and development. Founded in 2023, we partner with brands and teams to shape clear visual systems, design UI/UX, and build fast, durable websites. We’re currently leading the environmental signage design for the Micron expansion building in Boise—creating a cohesive wayfinding system designed for clarity, scale, and daily use.
                         </div>
                         <div className="small-text" style={{ maxWidth: '520px', marginTop: 'var(--spacing-md)' }}>
                           We’re building an inclusive team and a studio culture grounded in craft, clarity, and respect. Our values show up in the details: collaborative process, accessible design decisions, maintainable code, and transparent partnerships built for the long term.
@@ -1977,7 +1810,7 @@ function App() {
                             </div>
                             <div className="studio-practice__team-meta">
                               <div className="studio-practice__team-name">Forrest Tindall</div>
-                              <div className="studio-practice__team-role">Founder / Creative Director / Senior Designer / Fullstack Developer / Photographer</div>
+                              <div className="studio-practice__team-role">Founder / Creative Director / Senior Designer / Fullstack Developer</div>
                             </div>
                           </div>
 
@@ -1987,7 +1820,7 @@ function App() {
                             </div>
                             <div className="studio-practice__team-meta">
                               <div className="studio-practice__team-name">Sarah Houser</div>
-                              <div className="studio-practice__team-role">CMO / Art Director / Photographer</div>
+                              <div className="studio-practice__team-role">CMO / Art Director</div>
                             </div>
                           </div>
                         </div>
@@ -1999,7 +1832,7 @@ function App() {
                         <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0 }}>
                           <DecryptText as="span" text="PASSION PROJECTS" trigger="inView" duration={800} />
                         </h2>
-                    <span className="small-text">Index (07.1)</span>
+                    <span className="small-text">Index (06.1)</span>
                       </div>
 
                       <div className="passion-projects-block">
