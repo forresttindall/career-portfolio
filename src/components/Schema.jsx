@@ -23,7 +23,7 @@ const Schema = ({ type = 'Organization', data = {} }) => {
       return {
         ...base,
         "@type": "ProfessionalService",
-        "description": "Creationbase is a creation studio for brand + UI/UX design and high-performance web development—built as one cohesive system.",
+        "description": "Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and visual systems—built as one cohesive system.",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Creative Services",
@@ -48,8 +48,8 @@ const Schema = ({ type = 'Organization', data = {} }) => {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Brand Identity Systems",
-                "description": "Logo, typography, and color systems designed to be distinct, repeatable, and memorable."
+                "name": "Visual Systems",
+                "description": "Typography, layout, and interaction rules designed to be distinct, repeatable, and consistent across pages and products."
               }
             },
             {
@@ -70,13 +70,13 @@ const Schema = ({ type = 'Organization', data = {} }) => {
       return {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": data.name || "Design and Development",
+        "serviceType": data.name || "Design, Development, and Visual Systems",
         "provider": {
           "@type": "Organization",
           "name": "Creationbase",
           "url": "https://creationbase.io"
         },
-        "description": data.description || "Brand + UI/UX design and high-performance web development focused on clarity, memorability, and trust."
+        "description": data.description || "Brand + UI/UX design, high-performance web development, and visual systems focused on clarity, memorability, and trust."
       };
     }
 
@@ -136,17 +136,17 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         }
       });
     } else if (type === 'Organization' || type === 'LocalBusiness') {
-      document.title = 'Creationbase — Design & Development';
+      document.title = 'Creationbase — Design, Development & Visual Systems';
       
       const defaults = [
-        { name: 'description', content: 'Creationbase is a creation studio for brand + UI/UX design and high-performance web development.' },
-        { property: 'og:title', content: 'Creationbase — Design & Development' },
-        { property: 'og:description', content: 'Creationbase is a creation studio for brand + UI/UX design and high-performance web development.' },
+        { name: 'description', content: 'Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and visual systems.' },
+        { property: 'og:title', content: 'Creationbase — Design, Development & Visual Systems' },
+        { property: 'og:description', content: 'Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and visual systems.' },
         { property: 'og:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:image:secure_url', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:url', content: 'https://www.creationbase.io/' },
-        { name: 'twitter:title', content: 'Creationbase — Design & Development' },
-        { name: 'twitter:description', content: 'Creationbase is a creation studio for brand + UI/UX design and high-performance web development.' },
+        { name: 'twitter:title', content: 'Creationbase — Design, Development & Visual Systems' },
+        { name: 'twitter:description', content: 'Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and visual systems.' },
         { name: 'twitter:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' }
       ];
 

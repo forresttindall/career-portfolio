@@ -10,7 +10,7 @@ const sections = [
   "3.0 COLOR PALETTE",
   "4.0 TYPOGRAPHY",
   "5.0 GRAPHIC ELEMENTS",
-  "6.0 PHOTOGRAPHY DIRECTION",
+  "6.0 IMAGERY DIRECTION",
   "7.0 LAYOUTS",
   "8.0 APPLICATIONS",
 ];
@@ -419,7 +419,7 @@ const OpenNetizenCaseStudy = () => {
                   </div>
                   <div style={{ background: PAGE_BG, padding: 14 }}>
                     <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 10, letterSpacing: 2, color: GRAY1, margin: "0 0 8px", textTransform: "uppercase" }}>Scope</p>
-                    <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: UI_LIGHT, lineHeight: 1.6, margin: 0 }}>Logo, type, color, layout rules, icon + illustration direction, photography direction.</p>
+                    <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 12, color: UI_LIGHT, lineHeight: 1.6, margin: 0 }}>Logo, type, color, layout rules, icon + illustration direction, imagery direction.</p>
                   </div>
                   <div style={{ background: PAGE_BG, padding: 14 }}>
                     <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 10, letterSpacing: 2, color: GRAY1, margin: "0 0 8px", textTransform: "uppercase" }}>Deliverables</p>
@@ -710,11 +710,11 @@ const OpenNetizenCaseStudy = () => {
 
           {/* Placeholder Sections */}
           <ScrollSection index={5} setActive={setActive} isMobile={isMobile}>
-            <PageHeader number="6.0" title="PHOTOGRAPHY DIRECTION" isMobile={isMobile} />
+            <PageHeader number="6.0" title="IMAGERY DIRECTION" isMobile={isMobile} />
             <div style={{ marginBottom: 16, maxWidth: 820 }}>
               <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: GRAY1, letterSpacing: 2, marginBottom: 12 }}>DIRECTION</p>
               <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 13, color: UI_LIGHT, lineHeight: 1.8 }}>
-                Photography should balance cybercore infrastructure with humanist presence. Use high-contrast, low-light environments, screen glow, and hard edges—then anchor it with candid, real people and tactile moments. The result feels technical, civic, and alive.
+                Imagery should balance cybercore infrastructure with humanist presence. Use high-contrast, low-light environments, screen glow, and hard edges—then anchor it with candid, real people and tactile moments. The result feels technical, civic, and alive.
               </p>
             </div>
 
@@ -728,7 +728,7 @@ const OpenNetizenCaseStudy = () => {
                 { src: "/images/photo5.jpg", label: "05" },
               ].map((img) => (
                 <div key={img.src} style={{ background: PAGE_BG, position: "relative", overflow: "hidden", aspectRatio: "1 / 1" }}>
-                  <img src={img.src} alt={`Open Netizen photography ${img.label}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <img src={img.src} alt={`Open Netizen imagery ${img.label}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                 </div>
               ))}
             </div>
@@ -954,7 +954,7 @@ const OpenNetizenCaseStudy = () => {
           --on-logo-size: clamp(50px, 7vh, 120px);
           --on-brand-logo-size: 120px;
           --on-layout-row-h: clamp(260px, 24vh, 340px);
-          --on-photo-tile-ar: 1 / 1;
+          --on-image-tile-ar: 1 / 1;
           --on-logomark-ar: 1 / 1;
           --on-logomark-pad: clamp(16px, 3vh, 32px);
           --on-typemark-h: clamp(60px, 9vh, 120px);
