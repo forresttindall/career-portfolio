@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight } from '@phosphor-icons/react';
 import { blastConfetti } from '../utils/confetti';
 
-const BLACK = '#FFFFFF';
-const GRAY1 = 'rgba(17, 17, 17, 0.56)';
-const WHITE = '#111111';
-const STRATEGY_CALL_URL = 'https://calendly.com/forrest-creationbase/30min';
+const BLACK = 'var(--color-bg)';
+const GRAY1 = 'var(--color-text-dim)';
+const WHITE = 'var(--color-text)';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -39,7 +37,7 @@ const Contact = () => {
             from_name: name,
             reply_to: email,
             user_email: email,
-            subject: 'Creationbase Inquiry',
+            subject: 'Portfolio Inquiry',
             message,
           },
         }),
@@ -94,12 +92,11 @@ const Contact = () => {
                 </header>
                 <div style={{ marginTop: 'var(--spacing-md)' }}>
                   <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>
-                    CREATIONBASE •
+                    FORREST TINDALL •
                   </div>
                   <address className="small-text" style={{ marginTop: 6, fontStyle: 'normal', lineHeight: 1.5 }}>
-                    REMOTE STUDIO<br />
-                    WORKING WITH STARTUPS + TEAMS<br />
-                    BRAND SYSTEMS • UI/UX • WEB
+                    BOISE, ID / REMOTE<br />
+                    UI/UX • BRAND • FRONTEND DEVELOPMENT
                   </address>
                   <div className="small-text" style={{ marginTop: 'var(--spacing-md)', color: WHITE }}>
                     FORREST@CREATIONBASE.IO<br />
@@ -115,18 +112,6 @@ const Contact = () => {
                     INQUIRY FORM
                   </h2>
                 </header>
-                <a
-                  href={STRATEGY_CALL_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="newsletter-button contact-primary-cta"
-                >
-                  BOOK STRATEGY CALL
-                  <ArrowUpRight size={14} weight="thin" />
-                </a>
-                <div className="small-text" style={{ color: WHITE, marginBottom: 'var(--spacing-md)', opacity: 0.9 }}>
-                  OR SEND A MESSAGE
-                </div>
                 <form onSubmit={submit} className="contact-form">
                 <input
                   className="newsletter-input"

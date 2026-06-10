@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import DecryptText from './DecryptText';
 
-const BLACK = '#FFFFFF';
-const WHITE = '#111111';
+const BLACK = 'var(--color-bg)';
+const WHITE = 'var(--color-text)';
 
 const MICRON_IMAGES = [
   { src: '/images/lobby.webp', alt: 'Micron lobby environmental signage' },
@@ -122,7 +122,7 @@ const MicronProject = () => {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(150,150,150,0.32)',
+            background: 'rgba(0,0,0,0.55)',
             backdropFilter: 'blur(26px)',
             WebkitBackdropFilter: 'blur(26px)',
             zIndex: 390,
@@ -143,12 +143,12 @@ const MicronProject = () => {
               position: 'relative',
               width: 'min(820px, calc(100% - 40px))',
               borderRadius: 16,
-              background: 'rgba(255,255,255,0.85)',
+              background: 'rgba(17, 17, 17, 0.92)',
               backdropFilter: 'blur(22px)',
               WebkitBackdropFilter: 'blur(22px)',
-              border: 'none',
+              border: '1px solid var(--color-border)',
               padding: 'var(--spacing-xl) var(--spacing-lg)',
-              color: '#111111',
+              color: 'var(--color-text)',
               marginTop: 'auto',
               marginBottom: 'auto'
             }}
@@ -156,25 +156,25 @@ const MicronProject = () => {
             <div className="small-text" style={{ marginBottom: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
               MICRON •
             </div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)' }}>LOCATION</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)' }}>LOCATION</div>
             <div className="small-text" style={{ marginTop: 8 }}>Boise, ID</div>
             
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>ROLE</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>ROLE</div>
             <div className="small-text" style={{ marginTop: 8 }}>Lead Environmental Graphic Designer</div>
             
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>TECH</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>TECH</div>
             <div className="small-text" style={{ marginTop: 8 }}>Adobe Illustrator, CAD, Industrial Production Standards</div>
             
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
             <div className="small-text" style={{ marginTop: 8 }}>Environmental Graphics, ADA Compliance, Signage Systems, Wayfinding.</div>
             
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
             <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
               The Micron expansion in Boise required a signage system that balanced strict ADA compliance with the high-tech, minimalist aesthetic of the new facility. We designed a comprehensive wayfinding strategy that guides thousands of employees through complex industrial and office environments.
               <br /><br />
               Every sign—from lobby identification to stairwell level indicators—was engineered for clarity, durability, and perfect integration with the building's physical materials.
             </div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
             <div className="small-text" style={{ marginTop: 8, textTransform: 'none', lineHeight: 1.5 }}>
               A unified environmental signage system for Micron's Boise headquarters, prioritizing accessibility and technical precision.
             </div>
@@ -183,7 +183,7 @@ const MicronProject = () => {
       )}
 
       <section style={{ padding: 'var(--spacing-md) 10px var(--spacing-xxl)' }}>
-        <div style={{ height: 1, background: '#000000', marginLeft: -10, marginRight: -10 }} />
+        <div style={{ height: 1, background: 'var(--color-border)', marginLeft: -10, marginRight: -10 }} />
         <div>
           <div className="small-text" style={{ marginTop: 'var(--spacing-sm)', marginBottom: 20 }}>
             <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>MICRON</span>

@@ -5,7 +5,7 @@ const Schema = ({ type = 'Organization', data = {} }) => {
     const base = {
       "@context": "https://schema.org",
       "@type": type,
-      "name": "Creationbase",
+      "name": "Forrest Tindall",
       "url": "https://creationbase.io",
       "logo": "https://creationbase.io/logo.png",
       "sameAs": [
@@ -22,42 +22,35 @@ const Schema = ({ type = 'Organization', data = {} }) => {
     if (type === 'Organization' || type === 'LocalBusiness') {
       return {
         ...base,
-        "@type": "ProfessionalService",
-        "description": "Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and visual systems—built as one cohesive system.",
+        "@type": "Person",
+        "jobTitle": "UI/UX Designer",
+        "description": "Forrest Tindall is a UI/UX designer and fullstack creative focused on clean digital experiences, brand-aligned interfaces, and modern frontend development.",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
-          "name": "Creative Services",
+          "name": "Design Services",
           "itemListElement": [
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Web Design",
-                "description": "Modern website design that clarifies your offer and makes conversion feel effortless."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Full-Stack Web Development",
-                "description": "High-performance frontend development with durable, scalable implementation."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
-                "name": "Visual Systems",
-                "description": "Typography, layout, and interaction rules designed to be distinct, repeatable, and consistent across pages and products."
-              }
-            },
-            {
-              "@type": "Offer",
-              "itemOffered": {
-                "@type": "Service",
                 "name": "UI/UX Design",
-                "description": "User-centric interface and experience design for apps and platforms."
+                "description": "User-centered interface and experience design for websites, apps, and digital products."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Frontend Development",
+                "description": "Modern frontend implementation for fast, polished, brand-aligned digital experiences."
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Brand and Visual Design",
+                "description": "Brand-aligned visual systems spanning UI, graphic design, layout, and digital presentation."
               }
             }
           ]
@@ -70,13 +63,13 @@ const Schema = ({ type = 'Organization', data = {} }) => {
       return {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": data.name || "Design, Development, and Visual Systems",
+        "serviceType": data.name || "UI/UX Design and Frontend Development",
         "provider": {
-          "@type": "Organization",
-          "name": "Creationbase",
+          "@type": "Person",
+          "name": "Forrest Tindall",
           "url": "https://creationbase.io"
         },
-        "description": data.description || "Brand + UI/UX design, high-performance web development, and visual systems focused on clarity, memorability, and trust."
+        "description": data.description || "UI/UX design, frontend development, and digital visual design focused on clarity, usability, and modern execution."
       };
     }
 
@@ -87,8 +80,8 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         "headline": data.title,
         "datePublished": data.date,
         "author": {
-          "@type": "Organization",
-          "name": "Creationbase"
+          "@type": "Person",
+          "name": "Forrest Tindall"
         },
         "image": data.image,
         "description": data.description,
@@ -105,7 +98,7 @@ const Schema = ({ type = 'Organization', data = {} }) => {
   useEffect(() => {
     if (type === 'BlogPosting' && data.title) {
       // Update Title
-      document.title = `${data.title} | Creationbase`;
+      document.title = `${data.title} | Forrest Tindall`;
       
       // Update Meta Tags
       const metaUpdates = [
@@ -136,17 +129,17 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         }
       });
     } else if (type === 'Organization' || type === 'LocalBusiness') {
-      document.title = 'Creationbase — Design, Development & Visual Systems';
+      document.title = 'Forrest Tindall — UI/UX Designer';
       
       const defaults = [
-        { name: 'description', content: 'Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and visual systems.' },
-        { property: 'og:title', content: 'Creationbase — Design, Development & Visual Systems' },
-        { property: 'og:description', content: 'Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and visual systems.' },
+        { name: 'description', content: 'Forrest Tindall is a UI/UX designer and fullstack creative focused on clean digital experiences, brand-aligned interfaces, and modern frontend development.' },
+        { property: 'og:title', content: 'Forrest Tindall — UI/UX Designer' },
+        { property: 'og:description', content: 'Forrest Tindall is a UI/UX designer and fullstack creative focused on clean digital experiences, brand-aligned interfaces, and modern frontend development.' },
         { property: 'og:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:image:secure_url', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
         { property: 'og:url', content: 'https://www.creationbase.io/' },
-        { name: 'twitter:title', content: 'Creationbase — Design, Development & Visual Systems' },
-        { name: 'twitter:description', content: 'Creationbase is a creation studio for brand + UI/UX design, high-performance web development, and visual systems.' },
+        { name: 'twitter:title', content: 'Forrest Tindall — UI/UX Designer' },
+        { name: 'twitter:description', content: 'Forrest Tindall is a UI/UX designer and fullstack creative focused on clean digital experiences, brand-aligned interfaces, and modern frontend development.' },
         { name: 'twitter:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' }
       ];
 

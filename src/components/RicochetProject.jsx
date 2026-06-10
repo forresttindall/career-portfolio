@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const BLACK = '#FFFFFF';
-const WHITE = '#111111';
-const GRAY1 = 'rgba(17, 17, 17, 0.56)';
-const GRAY2 = '#C9C9C9';
+const BLACK = 'var(--color-bg)';
+const WHITE = 'var(--color-text)';
+const GRAY1 = 'var(--color-text-dim)';
+const GRAY2 = 'var(--color-border)';
 
 const RicochetProject = () => {
   useEffect(() => {

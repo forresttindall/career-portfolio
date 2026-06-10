@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import DecryptText from './DecryptText';
 
-const BLACK = '#FFFFFF';
-const WHITE = '#111111';
+const BLACK = 'var(--color-bg)';
+const WHITE = 'var(--color-text)';
 
 const WIM_IMAGES = 
 [{ src: '/images/wim software.webp', alt: 'WIM software mockup' },
@@ -127,7 +127,7 @@ const WimProject = () => {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(150,150,150,0.32)',
+            background: 'rgba(0,0,0,0.55)',
             backdropFilter: 'blur(26px)',
             WebkitBackdropFilter: 'blur(26px)',
             zIndex: 390,
@@ -148,12 +148,12 @@ const WimProject = () => {
               position: 'relative',
               width: 'min(820px, calc(100% - 40px))',
               borderRadius: 16,
-              background: 'rgba(255,255,255,0.85)',
+              background: 'rgba(17, 17, 17, 0.92)',
               backdropFilter: 'blur(22px)',
               WebkitBackdropFilter: 'blur(22px)',
-              border: 'none',
+              border: '1px solid var(--color-border)',
               padding: 'var(--spacing-xl) var(--spacing-lg)',
-              color: '#111111',
+              color: 'var(--color-text)',
               marginTop: 'auto',
               marginBottom: 'auto'
             }}
@@ -161,11 +161,11 @@ const WimProject = () => {
             <div className="small-text" style={{ marginBottom: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
               WAREHOUSE INTELLIGENCE •
             </div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)' }}>ROLE</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)' }}>ROLE</div>
             <div className="small-text" style={{ marginTop: 8 }}>BRAND + IDENTITY DESIGN</div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
             <div className="small-text" style={{ marginTop: 8 }}>IDENTITY SYSTEM, SOFTWARE APP UI/UX DESIGN</div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
             <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
               The Warehouse Intelligence Management (WIM) system required a visual identity that felt as precise and efficient as the software it represents. Our approach centered on the concept of 'Clarity in Chaos'—developing a bold, geometric system that remains legible in high-intensity warehouse environments.
               <br /><br />
@@ -173,7 +173,7 @@ const WimProject = () => {
               <br /><br />
               The resulting system is a cohesive blend of utility and identity, providing a unified visual language that scales from microscopic digital icons to large-scale fleet graphics. Every element—from the custom typeface weight to the high-visibility safety shirt suite—was meticulously crafted to support WIM's position as a leader in logistics technology.
             </div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
             <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
               WAREHOUSE INTELLIGENCE BRAND SYSTEM AND UNIFORM SUITE—BUILT FOR CLARITY, RECOGNITION, AND APPLICATION ACROSS APPAREL AND FIELD USE.
             </div>
@@ -182,7 +182,7 @@ const WimProject = () => {
       )}
 
       <section style={{ padding: 'var(--spacing-md) 10px var(--spacing-xxl)' }}>
-        <div style={{ height: 1, background: '#000000', marginLeft: -10, marginRight: -10 }} />
+        <div style={{ height: 1, background: 'var(--color-border)', marginLeft: -10, marginRight: -10 }} />
         <div>
           <div className="small-text" style={{ marginTop: 'var(--spacing-sm)', marginBottom: 20 }}>
             <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>WIM</span>

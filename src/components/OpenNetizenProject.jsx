@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import DecryptText from './DecryptText';
 
-const BLACK = '#FFFFFF';
-const WHITE = '#111111';
+const BLACK = 'var(--color-bg)';
+const WHITE = 'var(--color-text)';
 
 const OPEN_NETIZEN_IMAGES = [
   { src: '/images/OPEN NETIZEN CARD.jpg', alt: 'Open Netizen card mockup' },
@@ -123,7 +123,7 @@ const OpenNetizenProject = () => {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(150,150,150,0.32)',
+            background: 'rgba(0,0,0,0.55)',
             backdropFilter: 'blur(26px)',
             WebkitBackdropFilter: 'blur(26px)',
             zIndex: 390,
@@ -144,12 +144,12 @@ const OpenNetizenProject = () => {
               position: 'relative',
               width: 'min(820px, calc(100% - 40px))',
               borderRadius: 16,
-              background: 'rgba(255,255,255,0.85)',
+              background: 'rgba(17, 17, 17, 0.92)',
               backdropFilter: 'blur(22px)',
               WebkitBackdropFilter: 'blur(22px)',
-              border: 'none',
+              border: '1px solid var(--color-border)',
               padding: 'var(--spacing-xl) var(--spacing-lg)',
-              color: '#111111',
+              color: 'var(--color-text)',
               marginTop: 'auto',
               marginBottom: 'auto'
             }}
@@ -157,25 +157,25 @@ const OpenNetizenProject = () => {
             <div className="small-text" style={{ marginBottom: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
               OPEN NETIZEN •
             </div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)' }}>LOCATION</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)' }}>LOCATION</div>
             <div className="small-text" style={{ marginTop: 8 }}>Boise, ID / Remote</div>
 
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>ROLE</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>ROLE</div>
             <div className="small-text" style={{ marginTop: 8 }}>Lead Brand Strategist, UI/UX Designer & Full-Stack Developer</div>
             
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>TECH</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>TECH</div>
             <div className="small-text" style={{ marginTop: 8 }}>Figma, Adobe CC, React, Vite, Framer Motion</div>
             
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
             <div className="small-text" style={{ marginTop: 8 }}>Identity system, application UI/UX design, motion systems, and digital brand guidelines.</div>
             
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
             <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
               Open Netizen was a mission-driven project aimed at championing the principles of the open web. For this Boise-based initiative, we needed a brand that felt both authoritative and grassroots—bridging the gap between high-level digital advocacy and accessible community action.
               <br /><br />
               We utilized the 4 Cs framework to build trust and authority. By **Connecting** the visual language to the history of the open web, we **Clarified** their complex mission into a digestible narrative. We **Convinced** the audience through a high-performance, accessible digital platform and **Converted** them into active netizens through intuitive, "thumb-friendly" interface design.
             </div>
-            <div className="small-text" style={{ color: '#111111', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
+            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
             <div className="small-text" style={{ marginTop: 8, textTransform: 'none', lineHeight: 1.5 }}>
               A civic-minded identity system and digital hub—built to stand as a source of truth in the evolving landscape of web advocacy.
             </div>
@@ -184,7 +184,7 @@ const OpenNetizenProject = () => {
       )}
 
       <section style={{ padding: 'var(--spacing-md) 10px var(--spacing-xxl)' }}>
-        <div style={{ height: 1, background: '#000000', marginLeft: -10, marginRight: -10 }} />
+        <div style={{ height: 1, background: 'var(--color-border)', marginLeft: -10, marginRight: -10 }} />
         <div>
           <div className="small-text" style={{ marginTop: 'var(--spacing-sm)', marginBottom: 20 }}>
             <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>OPEN NETIZEN</span>
@@ -298,7 +298,7 @@ const OpenNetizenProject = () => {
           display: inline-flex;
           align-items: center;
           justify-content: center;
-          color: #111111;
+          color: var(--color-text);
           pointer-events: none;
         }
 

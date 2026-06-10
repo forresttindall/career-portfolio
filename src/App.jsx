@@ -1,31 +1,22 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence, useAnimationFrame, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
-import { ArrowUpRight } from '@phosphor-icons/react';
+import { ArrowUpRight, CopySimple } from '@phosphor-icons/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import BoiseAnalogClubCaseStudy from './components/BoiseAnalogClubCaseStudy';
 import OpenNetizenProject from './components/OpenNetizenProject';
-import Blog from './components/Blog';
 import Contact from './components/Contact';
 import RicochetProject from './components/RicochetProject';
 import MicronProject from './components/MicronProject';
-import Services from './components/Services';
 import Playground from './components/Playground';
-import FastburgerProject from './components/FastburgerProject';
 import WimProject from './components/WimProject';
 import ContinuityProject from './components/ContinuityProject';
 import DecryptText from './components/DecryptText';
-import Tools from './components/Tools';
 import Schema from './components/Schema';
-import Merch from './components/Merch';
-import MerchCheckout from './components/MerchCheckout';
-import MerchCart from './components/MerchCart';
 import { Analytics } from '@vercel/analytics/react';
-import { blogPosts } from './blog/posts';
 
-const UI_LIGHT = '#111111';
-const UI_DARK = '#FFFFFF';
-const HOME_SECTION_DIVIDER = '1px solid #000000';
-const STRATEGY_CALL_URL = 'https://calendly.com/forrest-creationbase/30min';
+const UI_LIGHT = 'var(--color-text)';
+const UI_DARK = 'var(--color-bg)';
+const HOME_SECTION_DIVIDER = '1px solid var(--color-border)';
 const HERO_AVAILABILITY = {
   label: 'Available',
   color: '#5FE37C',
@@ -54,17 +45,6 @@ const INDEX01_PROJECTS = [
     sideOffset: 'clamp(2rem, 7vw, 5rem)',
   },
   {
-    id: 'fastburger',
-    titleLines: ['Fastburger'],
-    scope: 'Scope(Full Brand Identity System, Website)',
-    primaryImage: '/images/fastburger box.webp',
-    primaryAlt: 'Fastburger packaging mockup',
-    secondaryImage: '/images/fastburger website mockup 1.webp',
-    secondaryAlt: 'Fastburger website mockup',
-    secondaryFallbackImage: '/images/fastburger box.webp',
-    sideOffset: 'clamp(2rem, 7vw, 5rem)',
-  },
-  {
     id: 'on',
     titleLines: ['Open Netizen'],
     scope: 'Scope(Identity, Visual System)',
@@ -87,18 +67,10 @@ const INDEX01_PROJECTS = [
 ];
 
 const SiteFooter = ({
-  isMobile,
-  onBlogClick,
   onContactClick,
-  onMerchClick,
   reserveRightRail = false,
-  newsletterName,
-  newsletterEmail,
-  newsletterStatus,
-  onNewsletterNameChange,
-  onNewsletterEmailChange,
-  onSubmitNewsletter,
 }) => {
+  const [emailCopied, setEmailCopied] = useState(false);
   const shuffledFooterImages = useMemo(() => {
     const arr = [...FOOTER_CAROUSEL_IMAGES];
     for (let i = arr.length - 1; i > 0; i--) {
@@ -111,6 +83,16 @@ const SiteFooter = ({
     const seconds = Math.max(34, shuffledFooterImages.length * 2);
     return `${seconds}s`;
   }, [shuffledFooterImages.length]);
+  const copyEmailAddress = async () => {
+    const email = 'Forrest@creationbase.io';
+    try {
+      await navigator.clipboard.writeText(email);
+      setEmailCopied(true);
+      window.setTimeout(() => setEmailCopied(false), 2000);
+    } catch {
+      window.location.href = `mailto:${email}`;
+    }
+  };
   return (
     <motion.section
       data-header-theme="light"
@@ -126,12 +108,12 @@ const SiteFooter = ({
             <div>
               <h2 className="section-title" style={{ fontWeight: 400, marginBottom: 0, fontSize: 'clamp(22px, 9vw, 72px)' }}>Let&apos;s Work<br />Together</h2>
               <div className="footer-cta__actions">
-                <a href={STRATEGY_CALL_URL} target="_blank" rel="noreferrer" className="newsletter-button footer-cta__primary" style={{ textDecoration: 'none' }}>
-                  Book Strategy Call
-                  <ArrowUpRight size={14} weight="thin" />
-                </a>
-                <button type="button" className="newsletter-button newsletter-button--outline footer-cta__secondary" onClick={onContactClick}>
+                <button type="button" className="newsletter-button footer-cta__primary" onClick={onContactClick}>
                   Contact Form
+                </button>
+                <button type="button" className="newsletter-button newsletter-button--outline footer-cta__secondary" onClick={copyEmailAddress}>
+                  <CopySimple size={14} weight="regular" aria-hidden="true" />
+                  {emailCopied ? 'Email Copied' : 'Copy Email Address'}
                 </button>
               </div>
             </div>
@@ -139,10 +121,7 @@ const SiteFooter = ({
           <div className="footer-links-column">
             <p className="small-text" style={{ marginBottom: 'var(--spacing-md)', fontWeight: 'var(--font-mono-weight-bold)' }}>LINKS</p>
             <ul className="small-text footer-links-list">
-              <li><a href="https://calendly.com/forrest-creationbase/30min" target="_blank" rel="noreferrer">STRATEGY CALL</a></li>
               <li><a href="/contact" onClick={(ev) => { ev.preventDefault(); onContactClick(); }}>CONTACT FORM</a></li>
-              <li><a href="/blog" onClick={(ev) => { ev.preventDefault(); onBlogClick(); }}>BLOG</a></li>
-              <li><a href="/merch" onClick={(ev) => { ev.preventDefault(); onMerchClick?.(); }}>MERCH</a></li>
               <li><a href="https://instagram.com/creationbase.io" target="_blank" rel="noreferrer">INSTAGRAM</a></li>
               <li><a href="https://www.linkedin.com/company/creationbaseio/" target="_blank" rel="noreferrer">LINKEDIN</a></li>
             </ul>
@@ -153,7 +132,7 @@ const SiteFooter = ({
           <div className="footer-marquee__track footer-marquee__track--reverse">
             {[...Array(20)].map((_, index) => (
               <span key={index} className="footer-marquee__text-item small-text">
-                CREATIONBASE •
+                FORREST TINDALL •
               </span>
             ))}
           </div>
@@ -169,74 +148,8 @@ const SiteFooter = ({
           </div>
         </div>
 
-        <div className="newsletter-block footer-newsletter">
-          <div className="footer-newsletter__grid">
-            <div className="footer-newsletter__content">
-              <h1 className="section-title" style={{ marginBottom: 14, fontWeight: 400, fontSize: 'clamp(22px, 4vw, 40px)' }}>
-                get our free brand and website guide
-              </h1>
-              <form
-                onSubmit={onSubmitNewsletter}
-                className="newsletter-form"
-                style={{
-                  gridTemplateColumns: isMobile ? '1fr' : 'minmax(140px, 200px) 1fr auto'
-                }}
-              >
-                <input
-                  type="text"
-                  value={newsletterName}
-                  onChange={onNewsletterNameChange}
-                  placeholder="Name"
-                  required
-                  className="newsletter-input"
-                  aria-label="Name"
-                />
-                <input
-                  type="email"
-                  value={newsletterEmail}
-                  onChange={onNewsletterEmailChange}
-                  placeholder="Email"
-                  required
-                  className="newsletter-input"
-                  aria-label="Email"
-                />
-                <button
-                  type="submit"
-                  disabled={newsletterStatus === 'loading'}
-                  className="newsletter-button"
-                  style={{
-                    cursor: newsletterStatus === 'loading' ? 'default' : 'pointer',
-                    opacity: newsletterStatus === 'loading' ? 0.6 : 1,
-                    minWidth: 140,
-                  }}
-                >
-                  {newsletterStatus === 'loading' ? '...' : 'Sign Up'}
-                </button>
-              </form>
-              {newsletterStatus === 'success' && (
-                <div className="small-text" style={{ marginTop: 10, opacity: 0.85, textTransform: 'none' }}>
-                  Submitted.
-                </div>
-              )}
-              {newsletterStatus === 'error' && (
-                <div className="small-text" style={{ marginTop: 10, opacity: 0.85, textTransform: 'none' }}>
-                  Error. Try again.
-                </div>
-              )}
-            </div>
-            <div className="footer-newsletter__media" aria-hidden="true">
-              <img
-                src="/images/the%20guide%20mockup.webp"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
-        </div>
-
         <div style={{ marginTop: '0', borderTop: HOME_SECTION_DIVIDER, paddingTop: '10px' }} className="flex">
-          <p className="small-text" style={{ flex: 1 }}>© 2026 CREATIONBASE</p>
+          <p className="small-text" style={{ flex: 1 }}>© 2026 FORREST TINDALL</p>
           <p className="small-text" style={{ textAlign: 'right' }}>
             DESIGNED & CODED IN BOISE, ID
           </p>
@@ -262,13 +175,6 @@ const projects = [
     year: "2025"
   },
   {
-    title: "Fastburger",
-    category: "Brand & UI/UX Design",
-    image: "/images/fastburger website mockup 1.webp",
-    description: "Restaurant website design in figma and dev in REACT",
-    year: "2025"
-  },
-  {
     title: "Clearfeed",
     category: "UI/UX Design & Dev",
     image: "/images/clearfeed.png",
@@ -282,14 +188,6 @@ const projects = [
     description: "Website design in figma and dev in REACT",
     year: "2024"
   },
-    {
-    title: "Fastburger",
-    category: "Brand & UI/UX Design",
-    image: "/images/fastburger website mockup 2.webp",
-    description: "Restaurant website design in figma and dev in REACT",
-    year: "2025"
-  },
-
 ];
 
 const graphicDesign = [
@@ -318,15 +216,15 @@ const graphicDesign = [
     year: "2026"
   },
  
-  /*
+  
   {
     title: "Creationbase",
     category: "Asset Design",
-    image: "/images/launch art.png",
+    image: "/images/FUTURE SOUNDS MOCKUP.png",
     description: "Digital assets for launch campaign.",
     year: "2025"
   },
-  */
+
 
   
 
@@ -336,13 +234,6 @@ const graphicDesign = [
     category: "Design",
     image: "/images/wim truck mockup.webp",
     description: "Label illustration and design",
-    year: "2025"
-  },
-  {
-    title: "Conway The Machine",
-    category: "Album Art Design",
-    image: "/images/fastburger box.webp",
-    description: "Concept album artwork design.",
     year: "2025"
   },
   {
@@ -378,6 +269,13 @@ const testimonials = [
   }
 ];
 
+const WORK_HISTORY = [
+  { year: '2026', company: 'Electric Fun', role: 'UI/UX Designer', current: true },
+  { year: '2026', company: 'CMYK Graphics', role: 'Graphic Designer' },
+  { year: '2025', company: 'Superbase', role: 'UI/UX Designer' },
+  { year: '2019', company: 'Ramboll', role: 'Junior System Administrator' },
+];
+
 const FOOTER_CAROUSEL_IMAGES = [
   { src: '/images/ricochet mockup.webp', alt: 'Ricochet footer carousel image' },
   { src: '/images/amore mockup.png', alt: 'Amore footer carousel image' },
@@ -389,13 +287,6 @@ const FOOTER_CAROUSEL_IMAGES = [
   { src: '/images/OPEN NETIZEN CARD.jpg', alt: 'Open Netizen footer carousel image' },
   { src: '/images/OPEN NETIZEN WEBSITE MOCKUP.jpg', alt: 'Open Netizen footer carousel image' },
   { src: '/images/OPEN NETIZEN.jpg', alt: 'Open Netizen footer carousel image' },
-  { src: '/images/FASTBURGER MENU MOCKUP.webp', alt: 'Fastburger menu mockup footer carousel image' },
-  { src: '/images/FASTBURGER MENU.webp', alt: 'Fastburger printed menu footer carousel image' },
-  { src: '/images/fastburger box.webp', alt: 'Fastburger box footer carousel image' },
-  { src: '/images/fastburger a board.webp', alt: 'Fastburger signage footer carousel image' },
-  { src: '/images/fastburger typemark.webp', alt: 'Fastburger typemark footer carousel image' },
-  { src: '/images/fastburger website mockup 1.webp', alt: 'Fastburger website mockup footer carousel image' },
-  { src: '/images/fastburger website mockup 2.webp', alt: 'Fastburger website mockup footer carousel image' },
   { src: '/images/continuity/screens.webp', alt: 'Continuity screens footer carousel image' },
   { src: '/images/continuity/app.webp', alt: 'Continuity app footer carousel image' },
   { src: '/images/continuity/continuity%20logo.webp', alt: 'Continuity logo footer carousel image' },
@@ -424,7 +315,7 @@ const ProjectModal = ({ project, onClose }) => {
         left: 0,
         right: 0,
         bottom: 0,
-        backgroundColor: 'rgba(191, 191, 191, 0.45)',
+        backgroundColor: 'rgba(0, 0, 0, 0.72)',
         backdropFilter: 'blur(30px)',
         WebkitBackdropFilter: 'blur(30px)',
         zIndex: 1000,
@@ -457,7 +348,7 @@ const ProjectModal = ({ project, onClose }) => {
             top: '-46px',
             right: 0,
             padding: 4,
-            background: 'rgba(191, 191, 191, 0.45)',
+            background: 'rgba(0, 0, 0, 0.55)',
             borderRadius: 12,
             backdropFilter: 'blur(30px)',
             WebkitBackdropFilter: 'blur(30px)',
@@ -466,8 +357,8 @@ const ProjectModal = ({ project, onClose }) => {
           <button 
             onClick={onClose}
             style={{
-              background: 'rgba(255, 255, 255, 0.85)',
-              border: 'none',
+              background: 'rgba(255, 255, 255, 0.06)',
+              border: '1px solid var(--color-border)',
               borderRadius: 10,
               padding: '10px 16px',
               color: UI_LIGHT,
@@ -527,9 +418,6 @@ const ProjectModal = ({ project, onClose }) => {
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
-  const [newsletterName, setNewsletterName] = useState('');
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterStatus, setNewsletterStatus] = useState('idle');
   const [, setHeaderTheme] = useState(() => {
     if (typeof window === 'undefined' || !window.location) return 'light';
     const p = window.location.pathname;
@@ -735,28 +623,13 @@ function App() {
     homeScrollYRef.current = y;
     sessionStorage.setItem('homeScrollY', String(y));
     pendingHomeScrollRestoreRef.current = true;
-    if (id === 'fastburger') navigate('/fastburger');
-    else if (id === 'wim') navigate('/wim');
+    if (id === 'wim') navigate('/wim');
     else if (id === 'continuity') navigate('/continuity');
     else if (id === 'on') navigate('/open-netizen');
     else if (id === 'bac') navigate('/boise-analog-club');
     else if (id === 'ricochet') navigate('/ricochet');
     else if (id === 'micron') navigate('/micron');
     else if (id === 'playground') navigate('/playground');
-    else if (id === 'blog') navigate('/blog');
-  };
-
-  const openBlog = () => {
-    setMobileNavOpen(false);
-    if (location.pathname === '/') {
-      const y = window.scrollY || 0;
-      homeScrollYRef.current = y;
-      sessionStorage.setItem('homeScrollY', String(y));
-      pendingHomeScrollRestoreRef.current = true;
-    } else {
-      pendingHomeScrollRestoreRef.current = false;
-    }
-    navigate('/blog');
   };
 
   const openContact = () => {
@@ -770,51 +643,6 @@ function App() {
       pendingHomeScrollRestoreRef.current = false;
     }
     navigate('/contact');
-  };
-
-  const openStrategyCall = () => {
-    setMobileNavOpen(false);
-    const win = window.open(STRATEGY_CALL_URL, '_blank', 'noopener,noreferrer');
-    if (win) win.opener = null;
-  };
-
-  const openMaterialLab = () => {
-    setMobileNavOpen(false);
-    if (location.pathname === '/') {
-      const y = window.scrollY || 0;
-      homeScrollYRef.current = y;
-      sessionStorage.setItem('homeScrollY', String(y));
-      pendingHomeScrollRestoreRef.current = true;
-    } else {
-      pendingHomeScrollRestoreRef.current = false;
-    }
-    navigate('/material-lab');
-  };
-
-  const openServices = () => {
-    setMobileNavOpen(false);
-    if (location.pathname === '/') {
-      const y = window.scrollY || 0;
-      homeScrollYRef.current = y;
-      sessionStorage.setItem('homeScrollY', String(y));
-      pendingHomeScrollRestoreRef.current = true;
-    } else {
-      pendingHomeScrollRestoreRef.current = false;
-    }
-    navigate('/services');
-  };
-
-  const openMerch = () => {
-    setMobileNavOpen(false);
-    if (location.pathname === '/') {
-      const y = window.scrollY || 0;
-      homeScrollYRef.current = y;
-      sessionStorage.setItem('homeScrollY', String(y));
-      pendingHomeScrollRestoreRef.current = true;
-    } else {
-      pendingHomeScrollRestoreRef.current = false;
-    }
-    navigate('/merch');
   };
 
   const goToSection = (id) => {
@@ -851,26 +679,33 @@ function App() {
 
   useEffect(() => {
     const pathname = location.pathname;
-    if (pathname === '/fastburger') setActiveCaseStudy('fastburger');
-    else if (pathname === '/wim') setActiveCaseStudy('wim');
+    if (pathname === '/wim') setActiveCaseStudy('wim');
+    else if (pathname === '/fastburger') {
+      setActiveCaseStudy(null);
+      navigate('/', { replace: true });
+    }
     else if (pathname === '/continuity') setActiveCaseStudy('continuity');
     else if (pathname === '/open-netizen') setActiveCaseStudy('on');
     else if (pathname === '/boise-analog-club') setActiveCaseStudy('bac');
     else if (pathname === '/ricochet') setActiveCaseStudy('ricochet');
     else if (pathname === '/micron') setActiveCaseStudy('micron');
     else if (pathname === '/playground') setActiveCaseStudy('playground');
-    else if (pathname === '/services') setActiveCaseStudy('services');
-    else if (pathname === '/merch') setActiveCaseStudy('merch');
-    else if (pathname === '/merch/cart') setActiveCaseStudy('merch-cart');
-    else if (pathname === '/merch/checkout') setActiveCaseStudy('merch-checkout');
-    else if (pathname === '/blog' || pathname.startsWith('/blog/')) setActiveCaseStudy('blog');
     else if (pathname === '/contact') setActiveCaseStudy('contact');
-    else if (pathname === '/material-lab' || pathname.startsWith('/material-lab/')) setActiveCaseStudy('material-lab');
-    else if (pathname === '/tools' || pathname.startsWith('/tools/')) {
-      setActiveCaseStudy('material-lab');
-      navigate('/material-lab', { replace: true });
-    }
-    else if (pathname === '/photography' || pathname === '/gallery' || pathname === '/worksharp') {
+    else if (
+      pathname === '/services' ||
+      pathname === '/merch' ||
+      pathname === '/merch/cart' ||
+      pathname === '/merch/checkout' ||
+      pathname === '/blog' ||
+      pathname.startsWith('/blog/') ||
+      pathname === '/material-lab' ||
+      pathname.startsWith('/material-lab/') ||
+      pathname === '/tools' ||
+      pathname.startsWith('/tools/') ||
+      pathname === '/photography' ||
+      pathname === '/gallery' ||
+      pathname === '/worksharp'
+    ) {
       setActiveCaseStudy(null);
       navigate('/', { replace: true });
     }
@@ -879,7 +714,7 @@ function App() {
 
   const headerColor = UI_LIGHT;
   const headerLogoSrc = '/images/new logo.png';
-  const mobileNavBg = 'rgba(150,150,150,0.32)';
+  const mobileNavBg = 'rgba(0, 0, 0, 0.62)';
   const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -959,53 +794,14 @@ function App() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   };
 
-  const submitNewsletter = async (e) => {
-    e.preventDefault();
-    if (newsletterStatus === 'loading') return;
-    setNewsletterStatus('loading');
-    try {
-      const resp = await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: newsletterEmail, name: newsletterName }),
-      });
-      if (!resp.ok) throw new Error('Subscribe failed');
-      setNewsletterStatus('success');
-      setNewsletterEmail('');
-      setNewsletterName('');
-    } catch {
-      setNewsletterStatus('error');
-    }
-  };
-
   const toggleMobileNav = () => {
     setNavLogoSpinTick((value) => value + 1);
     setMobileNavOpen((value) => !value);
   };
 
-  const blogPostData = useMemo(() => {
-    if (activeCaseStudy !== 'blog') return null;
-    const slug = location.pathname.startsWith('/blog/') ? decodeURIComponent(location.pathname.slice('/blog/'.length)) : null;
-    if (!slug) return null;
-    return blogPosts.find((p) => p.slug === slug && !p.hidden);
-  }, [activeCaseStudy, location.pathname]);
-
   return (
     <div className="app">
-      {blogPostData ? (
-        <Schema 
-          type="BlogPosting" 
-          data={{
-            title: blogPostData.title,
-            date: blogPostData.date,
-            slug: blogPostData.slug,
-            image: blogPostData.image,
-            description: Array.isArray(blogPostData.body) ? blogPostData.body[0].slice(0, 160) : ''
-          }} 
-        />
-      ) : (
-        <Schema type="LocalBusiness" />
-      )}
+      <Schema type="LocalBusiness" />
       {cursorEnabled && (
          <motion.div
            aria-hidden="true"
@@ -1093,20 +889,11 @@ function App() {
                 <button type="button" className="mobile-nav-link" onClick={() => goToSection('dev')}>
                   Dev
                 </button>
-                <button type="button" className="mobile-nav-link" onClick={openServices}>
-                  Services
+                <button type="button" className="mobile-nav-link" onClick={() => goToSection('resume')}>
+                  Resume
                 </button>
-                <button type="button" className="mobile-nav-link" onClick={openMerch}>
-                  Merch
-                </button>
-                <button type="button" className="mobile-nav-link" onClick={openMaterialLab}>
-                  Material Lab
-                </button>
-                <button type="button" className="mobile-nav-link" onClick={openBlog}>
-                  Blog
-                </button>
-                <button type="button" className="mobile-nav-link" onClick={openStrategyCall}>
-                  Strategy Call
+                <button type="button" className="mobile-nav-link" onClick={() => goToSection('about')}>
+                  About
                 </button>
                 <button type="button" className="mobile-nav-link" onClick={openContact}>
                   Contact Form
@@ -1132,20 +919,8 @@ function App() {
           }
         }}
       >
-        {activeCaseStudy === 'blog' ? (
-          <Blog key="blog" />
-        ) : activeCaseStudy === 'merch-cart' ? (
-          <MerchCart key="merch-cart" />
-        ) : activeCaseStudy === 'merch-checkout' ? (
-          <MerchCheckout key="merch-checkout" />
-        ) : activeCaseStudy === 'merch' ? (
-          <Merch key="merch" />
-        ) : activeCaseStudy === 'services' ? (
-          <Services key="services" />
-        ) : activeCaseStudy === 'contact' ? (
+        {activeCaseStudy === 'contact' ? (
           <Contact key="contact" />
-        ) : activeCaseStudy === 'fastburger' ? (
-          <FastburgerProject key="fastburger" />
         ) : activeCaseStudy === 'wim' ? (
           <WimProject key="wim" />
         ) : activeCaseStudy === 'continuity' ? (
@@ -1160,8 +935,6 @@ function App() {
           <MicronProject key="micron" />
         ) : activeCaseStudy === 'playground' ? (
           <Playground key="playground" />
-        ) : activeCaseStudy === 'material-lab' ? (
-          <Tools key="material-lab" />
         ) : (
           <motion.div
             key="homepage"
@@ -1178,7 +951,10 @@ function App() {
                   marginBottom: 'auto'
                 }}>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                    <DecryptText as="span" text="Your Creation Studio" trigger="mount" delay={200} duration={900} />
+                    <DecryptText as="span" text="Forrest Tindall" trigger="mount" delay={200} duration={900} />
+                  </div>
+                  <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
+                    <DecryptText as="span" text="UI/UX Designer" trigger="mount" delay={320} duration={900} />
                   </div>
                 </h1>
                 <motion.div 
@@ -1195,13 +971,13 @@ function App() {
                 >
                   <div className="small-text home-hero__identity" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
                     <div className="home-hero__identity-desktop" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                      <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Creationbase</span>
-                      <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: '#111111', display: 'inline-block', flex: '0 0 auto' }} />
-                      <span>(CREATIVE STUDIO AND DIGITAL PARTNER)</span>
+                      <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall</span>
+                      <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: 'var(--color-text)', display: 'inline-block', flex: '0 0 auto' }} />
+                      <span>(UI/UX DESIGNER + FULLSTACK CREATIVE)</span>
                     </div>
                     <div className="home-hero__identity-mobile">
-                      <div style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Creationbase •</div>
-                      <div>(CREATIVE STUDIO AND DIGITAL PARTNER)</div>
+                      <div style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall •</div>
+                      <div>(UI/UX DESIGNER + FULLSTACK CREATIVE)</div>
                     </div>
                   </div>
                   <div className="small-text home-hero__services" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, textAlign: 'center', fontWeight: 'var(--font-mono-weight-bold)', marginTop: '1.2em' }}>
@@ -1303,390 +1079,12 @@ function App() {
               </div>
             </motion.section>
 
-            {/* Overview / What We Build */}
-            <section
-              data-header-theme="light"
-              className="home-overview"
-              style={{
-                padding: 'var(--spacing-xxl) var(--spacing-md)',
-                background: UI_DARK,
-                color: UI_LIGHT,
-                minHeight: 'auto',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
-                <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
-                  <DecryptText as="span" text="OVERVIEW" trigger="inView" duration={800} />
-                </h2>
-                <span className="small-text">Index (02)</span>
-              </div>
-
-              <div
-                className="home-overview__grid"
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: 'minmax(240px, 0.85fr) minmax(0, 1.15fr)',
-                  gap: 'var(--spacing-lg)',
-                  alignItems: 'start',
-                }}
-              >
-                <div className="home-overview__aside" style={{ paddingRight: 'var(--spacing-lg)', borderRight: HOME_SECTION_DIVIDER }}>
-                  <div style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}>
-                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                      OVERVIEW •
-                    </div>
-                    <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35, maxWidth: 420 }}>
-                      A single studio for design, development, and visual systems—built as one cohesive system.
-                    </div>
-                  </div>
-
-                  <div style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)', marginTop: 'var(--spacing-lg)' }}>
-                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                      SERVICES •
-                    </div>
-                    <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35 }}>
-                      Design + Development + Visual Systems
-                    </div>
-                    <div className="small-text" style={{ marginTop: 10, lineHeight: 1.35, opacity: 0.85 }}>
-                      Brand + UI/UX • Web builds • Launch support
-                    </div>
-                  </div>
-
-                  <div style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)', marginTop: 'var(--spacing-lg)' }}>
-                    <div className="small-text" style={{ fontWeight: 'var(--font-mono-weight-bold)', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
-                      PRICING •
-                    </div>
-                    <div className="small-text" style={{ marginTop: 12, lineHeight: 1.35 }}>
-                      Fixed scope. Fixed price. Clear outcome.
-                    </div>
-                  </div>
-                </div>
-
-                <div className="home-overview__main" style={{ paddingLeft: 'var(--spacing-lg)' }}>
-                  <div style={{ borderTop: HOME_SECTION_DIVIDER }}>
-                    {[
-                      { id: '01', title: 'Design', copy: 'Brand systems + UI/UX that feel intentional and clear.' },
-                      { id: '02', title: 'Development', copy: 'Fast, accessible builds with clean structure and polish.' },
-                      { id: '03', title: 'Visual Systems', copy: 'Typography, layout, and interaction rules that stay consistent as you scale.' },
-                    ].map((item, idx) => (
-                      <motion.article
-                        key={item.id}
-                        initial={{ opacity: 0, y: 14 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: '-10% 0px -10% 0px' }}
-                        transition={{ duration: 0.5, delay: idx * 0.06 }}
-                        style={{
-                          borderBottom: HOME_SECTION_DIVIDER,
-                          padding: 'var(--spacing-md) 0',
-                        }}
-                      >
-                        <div
-                          style={{
-                            display: 'grid',
-                            gridTemplateColumns: '56px minmax(160px, 0.9fr) minmax(0, 1.4fr)',
-                            gap: 'var(--spacing-md)',
-                            alignItems: 'baseline',
-                          }}
-                        >
-                          <div className="small-text" style={{ opacity: 0.7, letterSpacing: '0.08em' }}>{item.id}</div>
-                          <div
-                            style={{
-                              fontFamily: 'var(--font-display)',
-                              fontWeight: 400,
-                              letterSpacing: '-0.03em',
-                              textTransform: 'uppercase',
-                              lineHeight: 1.02,
-                              fontSize: 'clamp(18px, 2.2vw, 26px)',
-                            }}
-                          >
-                            {item.title}
-                          </div>
-                          <div className="small-text" style={{ lineHeight: 1.45, maxWidth: 560, opacity: 0.9 }}>
-                            {item.copy}
-                          </div>
-                        </div>
-                      </motion.article>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* Selected Clients & Testimonials */}
-            <section style={{ 
-              padding: '0',
-              background: UI_DARK,
-              color: UI_LIGHT,
-              minHeight: 'auto',
-              display: 'flex',
-              flexDirection: 'column',
-              position: 'relative',
-              overflow: 'hidden'
-            }}>
-              {/* Selected Clients Marquee/Grid */}
-              <div style={{ padding: 'var(--spacing-xxl) var(--spacing-md)' }}>
-                <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
-                  <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
-                    <DecryptText as="span" text="CLIENTS" trigger="inView" duration={800} />
-                  </h2>
-                  <span className="small-text">Index (03)</span>
-                </div>
-
-                <div className="studio-client-grid">
-                  {/* Micron */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--spacing-sm)' }}>
-                      <h4 style={{ 
-                        fontSize: 'var(--fs-sm)', 
-                        margin: 0,
-                        textTransform: 'uppercase',
-                        fontFamily: 'var(--font-mono)',
-                        fontWeight: 'var(--font-mono-weight-bold)',
-                        letterSpacing: '0.02em'
-                      }}>
-                        <img
-                          src="/images/micron.png"
-                          alt="Micron"
-                          style={{
-                            height: 26,
-                            width: 'auto',
-                            maxWidth: 220,
-                            display: 'block',
-                            opacity: 0.95,
-                          }}
-                        />
-                      </h4>
-                      <div className="small-text" style={{ color: UI_LIGHT }}>
-                        A01
-                      </div>
-                    </div>
-                    <p className="small-text" style={{ maxWidth: '90%' }}>
-                      Designed over 1000 ADA-compliant signs for the massive 2026 Boise expansion. Creating a cohesive wayfinding system that merges strict regulatory standards with architectural harmony.
-                    </p>
-                    <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
-                      [WAYFINDING] [ENVIRONMENTAL] [ADA]
-                    </div>
-                  </motion.div>
-                  {/* Ramboll */}
-                  <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--spacing-sm)' }}>
-                      <h4 style={{ 
-                        fontSize: 'var(--fs-sm)', 
-                        margin: 0,
-                        textTransform: 'uppercase',
-                        fontFamily: 'var(--font-mono)',
-                        fontWeight: 'var(--font-mono-weight-bold)',
-                        letterSpacing: '0.02em'
-                      }}>
-                        <img
-                          src="/images/ramboll.png"
-                          alt="Ramboll"
-                          style={{
-                            height: 26,
-                            width: 'auto',
-                            maxWidth: 240,
-                            display: 'block',
-                            opacity: 0.98,
-                          }}
-                        />
-                      </h4>
-                      <div className="small-text" style={{ color: UI_LIGHT }}>
-                        A02
-                      </div>
-                    </div>
-                    <p className="small-text" style={{ maxWidth: '90%' }}>
-                      Built a custom data migration system for Ramboll North America&apos;s Air Quality division and provide ongoing system administration for data migration servers. Delivering a robust full-stack solution to ensure data integrity and streamline complex environmental reporting workflows.
-                    </p>
-                    <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
-                      [FULL STACK] [SYSTEM ADMIN] [DATA MIGRATION]
-                    </div>
-                  </motion.div>
-                  {/* Superbase */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.4 }}
-                    style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--spacing-sm)' }}>
-                      <h4 style={{
-                        fontSize: 'var(--fs-sm)',
-                        margin: 0,
-                        textTransform: 'uppercase',
-                        fontFamily: 'var(--font-mono)',
-                        fontWeight: 'var(--font-mono-weight-bold)',
-                        letterSpacing: '0.02em'
-                      }}>
-                        <img
-                          src="/images/superbasewhite.jpg"
-                          alt="Superbase"
-                          style={{
-                            height: 54,
-                            width: 'auto',
-                            maxWidth: 240,
-                            display: 'block',
-                            opacity: 0.98,
-                          }}
-                        />
-                      </h4>
-                      <div className="small-text" style={{ color: UI_LIGHT }}>
-                        A03
-                      </div>
-                    </div>
-                    <p className="small-text" style={{ maxWidth: '90%' }}>
-                      Partnered with the Superbase team to redesign Ricochet&apos;s website, updating the visual system and UI to match the product&apos;s scale and direction.
-                    </p>
-                    <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
-                      [VISUAL SYSTEM] [UI/UX] [WEB]
-                    </div>
-                  </motion.div>
-                  {/* CMYK Graffixs */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.6 }}
-                    style={{ borderTop: HOME_SECTION_DIVIDER, paddingTop: 'var(--spacing-md)' }}
-                  >
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 'var(--spacing-sm)' }}>
-                      <h4 style={{
-                        fontSize: 'var(--fs-sm)',
-                        margin: 0,
-                        textTransform: 'uppercase',
-                        fontFamily: 'var(--font-mono)',
-                        fontWeight: 'var(--font-mono-weight-bold)',
-                        letterSpacing: '0.02em'
-                      }}>
-                        <img
-                          src="/images/cmyk.jpg"
-                          alt="CMYK Graffixs"
-                          style={{
-                            height: 48,
-                            width: 'auto',
-                            maxWidth: 240,
-                            display: 'block',
-                            opacity: 0.98,
-                          }}
-                        />
-                      </h4>
-                      <div className="small-text" style={{ color: UI_LIGHT }}>
-                        A04
-                      </div>
-                    </div>
-                    <p className="small-text" style={{ maxWidth: '90%' }}>
-                      Partnered with CMYK Graffixs to deliver environmental signage for Micron, producing consistent, print-ready assets built for real-world deployment.
-                    </p>
-                    <div style={{ marginTop: 'var(--spacing-md)', fontFamily: 'var(--font-mono)', fontWeight: 'var(--font-mono-weight)', fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
-                      [BRAND] [PRINT] [ASSETS]
-                    </div>
-                  </motion.div>
-                </div>
-                <div style={{
-                  display: 'grid', 
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-                  gap: 'var(--spacing-lg)',
-                  alignItems: 'start',
-                  marginTop: 'var(--spacing-xl)',
-                }}>
-                  {testimonials.map((testimonial, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.1 }}
-                      style={{ 
-                        display: 'flex',
-                        flexDirection: 'column',
-                        borderTop: HOME_SECTION_DIVIDER,
-                        paddingTop: 'var(--spacing-md)'
-                      }}
-                    >
-                      {/* Header: User Info + Index Number */}
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-md)' }}>
-                        {/* Left: Image + Name */}
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)' }}>
-                            <div style={{
-                              width: '40px',
-                              height: '40px',
-                              borderRadius: '50%',
-                              overflow: 'hidden',
-                              border: `1px solid ${UI_LIGHT}`
-                            }}>
-                              <img 
-                                src={testimonial.image} 
-                                alt={testimonial.name}
-                                style={{
-                                  width: '100%',
-                                  height: '100%',
-                                  objectFit: 'cover'
-                                }}
-                              />
-                            </div>
-                            <div style={{
-                              fontFamily: 'var(--font-mono)',
-                              fontWeight: 'var(--font-mono-weight)',
-                              fontSize: 'var(--fs-sm)',
-                              textTransform: 'uppercase'
-                            }}>
-                              [{testimonial.name}]
-                            </div>
-                        </div>
-
-                        {/* Right: Index Number */}
-                        <div className="small-text" style={{ color: UI_LIGHT }}>
-                          {`A${String(i + 5).padStart(2, '0')}`}
-                        </div>
-                      </div>
-
-                      {/* Body Content */}
-                      <div>
-                        <h4 style={{ 
-                            fontFamily: 'var(--font-mono)', 
-                            fontWeight: 'var(--font-mono-weight-bold)',
-                            fontSize: 'var(--fs-sm)', 
-                            textTransform: 'uppercase',
-                            marginBottom: 'var(--spacing-sm)',
-                            lineHeight: 1,
-                            letterSpacing: '0.02em'
-                        }}>
-                            {testimonial.headline}
-                        </h4>
-                        <p className="small-text" style={{ 
-                            lineHeight: 1.6,
-                            marginBottom: 'var(--spacing-md)',
-                            textTransform: 'uppercase',
-                            maxWidth: '90%'
-                        }}>
-                            “{testimonial.text}”
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </section>
-
             <section id="dev" style={{ padding: 'var(--spacing-xxl) var(--spacing-md)', background: UI_DARK, color: UI_LIGHT }}>
               <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
                 <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
                   <DecryptText as="span" text="UI/UX DESIGN + DEV" trigger="inView" duration={800} />
                 </h2>
-                <span className="small-text">Index (04)</span>
+                <span className="small-text">Index (03)</span>
               </div>
               
               <div className="uiux-rows">
@@ -1735,7 +1133,7 @@ function App() {
                 <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
                   <DecryptText as="span" text="GRAPHIC DESIGN" trigger="inView" duration={800} />
                 </h2>
-                <span className="small-text">Index (05)</span>
+                <span className="small-text">Index (04)</span>
               </div>
 
               <div className="uiux-rows">
@@ -1779,12 +1177,130 @@ function App() {
               </div>
             </section>
 
-            <section style={{ padding: '0', background: UI_DARK, color: UI_LIGHT, minHeight: 'auto', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
+            <section id="resume" style={{ padding: 'var(--spacing-xxl) var(--spacing-md)', background: UI_DARK, color: UI_LIGHT }}>
+              <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
+                <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
+                  <DecryptText as="span" text="RESUME" trigger="inView" duration={800} />
+                </h2>
+                <span className="small-text">Index (05)</span>
+              </div>
+
+              <div className="resume-timeline" role="list">
+                {WORK_HISTORY.map((item) => (
+                  <div key={`${item.year}-${item.company}-${item.role}`} className="resume-item" role="listitem">
+                    <div className="resume-rail" aria-hidden="true">
+                      <div className={`resume-dot${item.current ? ' is-current' : ''}`} />
+                    </div>
+                    <div className="resume-content">
+                      <div className="resume-top">
+                        <div className="resume-company">{item.company}</div>
+                        <div className="resume-year">
+                          {item.current ? 'CURRENT' : item.year}
+                        </div>
+                      </div>
+                      <div className="resume-role small-text">
+                        {item.role}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div style={{ marginTop: 'var(--spacing-xl)' }}>
+                <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
+                  <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
+                    <DecryptText as="span" text="TESTIMONIALS" trigger="inView" duration={800} />
+                  </h2>
+                  <span className="small-text">Index (05.1)</span>
+                </div>
+
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                  gap: 'var(--spacing-lg)',
+                  alignItems: 'start',
+                }}>
+                  {testimonials.map((testimonial, i) => (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: i * 0.1 }}
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        borderTop: HOME_SECTION_DIVIDER,
+                        paddingTop: 'var(--spacing-md)'
+                      }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 'var(--spacing-md)' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-sm)' }}>
+                          <div style={{
+                            width: '40px',
+                            height: '40px',
+                            borderRadius: '50%',
+                            overflow: 'hidden',
+                            border: `1px solid ${UI_LIGHT}`
+                          }}>
+                            <img
+                              src={testimonial.image}
+                              alt={testimonial.name}
+                              style={{
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover'
+                              }}
+                            />
+                          </div>
+                          <div style={{
+                            fontFamily: 'var(--font-mono)',
+                            fontWeight: 'var(--font-mono-weight)',
+                            fontSize: 'var(--fs-sm)',
+                            textTransform: 'uppercase'
+                          }}>
+                            [{testimonial.name}]
+                          </div>
+                        </div>
+
+                        <div className="small-text" style={{ color: UI_LIGHT }}>
+                          {`T${String(i + 1).padStart(2, '0')}`}
+                        </div>
+                      </div>
+
+                      <div>
+                        <h4 style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontWeight: 'var(--font-mono-weight-bold)',
+                          fontSize: 'var(--fs-sm)',
+                          textTransform: 'uppercase',
+                          marginBottom: 'var(--spacing-sm)',
+                          lineHeight: 1,
+                          letterSpacing: '0.02em'
+                        }}>
+                          {testimonial.headline}
+                        </h4>
+                        <p className="small-text" style={{
+                          lineHeight: 1.6,
+                          marginBottom: 'var(--spacing-md)',
+                          textTransform: 'uppercase',
+                          maxWidth: '90%'
+                        }}>
+                          “{testimonial.text}”
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            <section id="about" style={{ padding: '0', background: UI_DARK, color: UI_LIGHT, minHeight: 'auto', display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden' }}>
               <div className="studio-practice">
                 <div className="studio-practice__header">
                   <div className="flex" style={{ justifyContent: 'space-between', alignItems: 'baseline', borderBottom: HOME_SECTION_DIVIDER, paddingBottom: 'var(--spacing-sm)' }}>
                     <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0 }}>
-                      <DecryptText as="span" text="STUDIO PRACTICE" trigger="inView" duration={800} />
+                      <DecryptText as="span" text="ABOUT" trigger="inView" duration={800} />
                     </h2>
                     <span className="small-text">Index (06)</span>
                   </div>
@@ -1794,11 +1310,18 @@ function App() {
                   <div className="studio-practice__content">
                     <div className="studio-practice__top">
                       <div className="studio-practice__copy">
-                        <div className="small-text" style={{ maxWidth: '520px' }}>
-                          Creationbase is an independent creation studio based in Boise, Idaho—design and development. Founded in 2023, we partner with brands and teams to shape clear visual systems, design UI/UX, and build fast, durable websites. We’re currently leading the environmental signage design for the Micron expansion building in Boise—creating a cohesive wayfinding system designed for clarity, scale, and daily use.
+                        <div className="studio-practice__team-meta" style={{ marginBottom: 'var(--spacing-md)', alignSelf: 'start', justifySelf: 'start', textAlign: 'left' }}>
+                          <div className="studio-practice__team-name">Forrest Tindall</div>
+                          <div className="studio-practice__team-role">UI/UX Designer / Fullstack Creative</div>
                         </div>
-                        <div className="small-text" style={{ maxWidth: '520px', marginTop: 'var(--spacing-md)' }}>
-                          We’re building an inclusive team and a studio culture grounded in craft, clarity, and respect. Our values show up in the details: collaborative process, accessible design decisions, maintainable code, and transparent partnerships built for the long term.
+                        <div className="small-text" style={{ maxWidth: '640px', textTransform: 'uppercase', lineHeight: 1.55 }}>
+                          I’m a design-first fullstack creative focused on building clean, thoughtful digital experiences. My work spans UI/UX, graphic design, photography, and modern frontend development, combining visual design with technical execution. I currently design on a freelance basis with a retainer contract with Electric Fun and others, creating website layouts, UI systems, and brand-aligned digital experiences in Figma, Affinity and Adobe Creative Suite.
+                        </div>
+                        <div className="small-text" style={{ maxWidth: '640px', marginTop: 'var(--spacing-md)', textTransform: 'uppercase', lineHeight: 1.55 }}>
+                          My path started with building products from scratch, beginning with Tindall Knives, a global ecommerce brand I created in 2012. From design and photography to marketing and operations, I learned how to build cohesive visual systems and user experiences that support real business outcomes. Since then, I have launched and led multiple creative and technical ventures, refining a multidisciplinary approach that blends design, UX thinking, frontend development, and product strategy. My toolkit includes UI/UX design, Figma, Affinity, Adobe Creative Suite, JavaScript, Typescript, React, Node.js, Vite, Bun, Python, SQL, and modern design systems. I bring an end-to-end perspective that begins with intentional design and continues through clear and efficient execution.
+                        </div>
+                        <div className="small-text" style={{ maxWidth: '640px', marginTop: 'var(--spacing-md)', textTransform: 'uppercase', lineHeight: 1.55 }}>
+                          If you’re creating something new or elevating your digital presence, I’d love to connect.
                         </div>
                       </div>
 
@@ -1806,21 +1329,7 @@ function App() {
                         <div className="studio-practice__team-grid">
                           <div className="studio-practice__team-card">
                             <div className="studio-practice__team-image">
-                              <img src="/images/me2.jpg" alt="Forrest Tindall" loading="lazy" decoding="async" />
-                            </div>
-                            <div className="studio-practice__team-meta">
-                              <div className="studio-practice__team-name">Forrest Tindall</div>
-                              <div className="studio-practice__team-role">Founder / Creative Director / Senior Designer / Fullstack Developer</div>
-                            </div>
-                          </div>
-
-                          <div className="studio-practice__team-card">
-                            <div className="studio-practice__team-image">
-                              <img src="/images/sarah.webp" alt="Sarah Houser" loading="lazy" decoding="async" />
-                            </div>
-                            <div className="studio-practice__team-meta">
-                              <div className="studio-practice__team-name">Sarah Houser</div>
-                              <div className="studio-practice__team-role">CMO / Art Director</div>
+                              <img src="/images/newphotome.JPG" alt="Forrest Tindall" loading="lazy" decoding="async" />
                             </div>
                           </div>
                         </div>
@@ -1877,17 +1386,8 @@ function App() {
         )}
       </AnimatePresence>
       <SiteFooter
-        isMobile={isMobile}
-        onBlogClick={openBlog}
         onContactClick={openContact}
-        onMerchClick={openMerch}
         reserveRightRail={activeCaseStudy === 'bac' || activeCaseStudy === 'on'}
-        newsletterName={newsletterName}
-        newsletterEmail={newsletterEmail}
-        newsletterStatus={newsletterStatus}
-        onNewsletterNameChange={(ev) => setNewsletterName(ev.target.value)}
-        onNewsletterEmailChange={(ev) => setNewsletterEmail(ev.target.value)}
-        onSubmitNewsletter={submitNewsletter}
       />
       <Analytics />
     </div>
