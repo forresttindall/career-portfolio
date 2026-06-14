@@ -952,10 +952,10 @@ function App() {
                   marginBottom: 'auto'
                 }}>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                    <DecryptText as="span" text="Forrest Tindall" trigger="mount" delay={200} duration={900} />
+                    <DecryptText as="span" text="Strategic UI/UX design" trigger="mount" delay={200} duration={900} />
                   </div>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                    <DecryptText as="span" text="UI/UX Designer" trigger="mount" delay={320} duration={900} />
+                    <DecryptText as="span" text="for brands that need clarity." trigger="mount" delay={320} duration={900} />
                   </div>
                 </h1>
                 <motion.div 
@@ -1025,13 +1025,6 @@ function App() {
                         <motion.div className="home-project-layer__media" whileHover="hover">
                           <div className="home-project-layer__media-main">
                             <img
-                              src={project.primaryImage}
-                              alt={project.primaryAlt}
-                              className="home-project-layer__image"
-                            />
-                          </div>
-                          <div className="home-project-layer__media-side">
-                            <img
                               src={project.secondaryImage}
                               alt={project.secondaryAlt}
                               className="home-project-layer__image"
@@ -1039,6 +1032,13 @@ function App() {
                                 ev.currentTarget.onerror = null;
                                 ev.currentTarget.src = project.secondaryFallbackImage || project.primaryImage;
                               }}
+                            />
+                          </div>
+                          <div className="home-project-layer__media-side">
+                            <img
+                              src={project.primaryImage}
+                              alt={project.primaryAlt}
+                              className="home-project-layer__image"
                             />
                           </div>
                           <motion.div
