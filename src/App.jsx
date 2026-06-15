@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo } from 'react';
+import { useState, useEffect, useRef, useMemo, useLayoutEffect } from 'react';
 import { motion, AnimatePresence, useAnimationFrame, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
 import { ArrowUpRight, CopySimple } from '@phosphor-icons/react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -17,6 +17,10 @@ import { Analytics } from '@vercel/analytics/react';
 const UI_LIGHT = 'var(--color-text)';
 const UI_DARK = 'var(--color-bg)';
 const HOME_SECTION_DIVIDER = '1px solid var(--color-border)';
+const HOME_HERO_TITLE_LINES = [
+  'Designing products that ship.',
+  'Clear UX. Real business impact.',
+];
 const HERO_AVAILABILITY = {
   label: 'Available',
   color: '#5FE37C',
@@ -419,6 +423,8 @@ const ProjectModal = ({ project, onClose }) => {
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const heroTitleRef = useRef(null);
+  const [heroTitleFontSizePx, setHeroTitleFontSizePx] = useState(null);
   const [, setHeaderTheme] = useState(() => {
     if (typeof window === 'undefined' || !window.location) return 'light';
     const p = window.location.pathname;
@@ -439,6 +445,100 @@ function App() {
   
   const location = useLocation();
   const navigate = useNavigate();
+
+  useLayoutEffect(() => {
+    if (location.pathname !== '/') {
+      setHeroTitleFontSizePx(null);
+      return;
+    }
+
+    const el = heroTitleRef.current;
+    if (!el) return;
+
+    let raf = 0;
+    let ro = null;
+
+    const compute = () => {
+      const node = heroTitleRef.current;
+      if (!node) return;
+
+      const prevInlineSize = node.style.fontSize;
+      node.style.fontSize = '';
+      const computed = window.getComputedStyle(node);
+      const baseSize = Number.parseFloat(computed.fontSize || '0');
+      const fontFamily = computed.fontFamily || '';
+      const fontWeight = computed.fontWeight || '400';
+      const fontStyle = computed.fontStyle || 'normal';
+      const fontVariant = computed.fontVariant || 'normal';
+      const letterSpacingValue = computed.letterSpacing || '0px';
+      const textTransform = computed.textTransform || 'none';
+      node.style.fontSize = prevInlineSize;
+
+      const availableWidth = node.clientWidth;
+      if (!Number.isFinite(baseSize) || baseSize <= 0 || !availableWidth) return;
+
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      ctx.font = `${fontStyle} ${fontVariant} ${fontWeight} ${baseSize}px ${fontFamily}`;
+
+      const letterSpacingNum = Number.parseFloat(letterSpacingValue);
+      const letterSpacingPx =
+        Number.isFinite(letterSpacingNum) && letterSpacingValue.endsWith('em')
+          ? letterSpacingNum * baseSize
+          : (Number.isFinite(letterSpacingNum) ? letterSpacingNum : 0);
+
+      const lineWidths = HOME_HERO_TITLE_LINES.map((line) => {
+        const t =
+          textTransform === 'uppercase'
+            ? String(line).toUpperCase()
+            : String(line);
+        const measured = ctx.measureText(t).width;
+        const extra = Math.max(0, t.length - 1) * letterSpacingPx;
+        return measured + extra;
+      });
+
+      const maxLineWidth = Math.max(...lineWidths);
+      if (!Number.isFinite(maxLineWidth) || maxLineWidth <= 0) return;
+
+      const safety = 0.92;
+      const scale = (availableWidth / maxLineWidth) * safety;
+      if (scale >= 1) {
+        setHeroTitleFontSizePx(null);
+        return;
+      }
+
+      const minPx = 22;
+      const targetPx = Math.floor(baseSize * scale);
+      const next = Math.max(minPx, Math.min(baseSize, targetPx));
+      setHeroTitleFontSizePx((prev) => (prev === next ? prev : next));
+    };
+
+    const schedule = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        compute();
+      });
+    };
+
+    schedule();
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(schedule).catch(() => {});
+    }
+
+    ro = new ResizeObserver(schedule);
+    ro.observe(el);
+    window.addEventListener('resize', schedule);
+
+    return () => {
+      if (raf) cancelAnimationFrame(raf);
+      window.removeEventListener('resize', schedule);
+      if (ro) ro.disconnect();
+    };
+  }, [location.pathname]);
 
   useEffect(() => {
     setMobileNavOpen(false);
@@ -946,16 +1046,17 @@ function App() {
             {/* Hero */}
             <section data-header-theme="light" style={{ position: 'relative', overflow: 'hidden', background: UI_DARK, color: UI_LIGHT, borderBottom: HOME_SECTION_DIVIDER }}>
               <div style={{ minHeight: 'var(--home-hero-min-h)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: 'var(--spacing-lg)', padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-sm)', position: 'relative', zIndex: 1 }}>
-                <h1 className="home-hero__title" style={{ 
+                <h1 className="home-hero__title" ref={heroTitleRef} style={{ 
                   fontFamily: 'var(--font-display)', fontWeight: 'var(--font-display-weight)', 
                   fontSynthesis: 'weight',
-                  marginBottom: 'auto'
+                  marginBottom: 'auto',
+                  fontSize: heroTitleFontSizePx ? `${heroTitleFontSizePx}px` : undefined,
                 }}>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                    <DecryptText as="span" text="Designing products that ship." trigger="mount" delay={200} duration={900} />
+                    <DecryptText as="span" text={HOME_HERO_TITLE_LINES[0]} trigger="mount" delay={200} duration={900} />
                   </div>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                    <DecryptText as="span" text="Clear UX. Real business impact." trigger="mount" delay={320} duration={900} />
+                    <DecryptText as="span" text={HOME_HERO_TITLE_LINES[1]} trigger="mount" delay={320} duration={900} />
                   </div>
                 </h1>
                 <motion.div 

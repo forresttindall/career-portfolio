@@ -1215,9 +1215,11 @@ ul {
   }
 }
 
-@media (orientation: portrait) and (min-height: 1100px) {
+@media (orientation: portrait) {
   .home-hero__title {
-    font-size: 64px;
+    font-size: clamp(28px, 3.3vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 0.92;
   }
 }
 
