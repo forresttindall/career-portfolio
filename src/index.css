@@ -1112,16 +1112,47 @@ ul {
   font-family: var(--font-display);
   font-weight: var(--font-display-weight) !important;
   font-synthesis: weight;
-  font-size: clamp(32px, 7vw, 140px);
-  line-height: 1;
+  font-size: 104px;
+  line-height: 0.95;
   text-transform: uppercase;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.05em;
   white-space: normal;
-  text-wrap: balance;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  hyphens: none;
 }
 
-/* removed nowrap on title line to allow wrapping */
+.home-hero__title-line {
+  white-space: normal;
+}
+
+.home-hero__meta-col {
+  display: grid;
+  grid-template-rows: 1.2em auto;
+  row-gap: 4px;
+  align-content: start;
+}
+
+.home-hero__meta-top {
+  min-height: 1.2em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-hero__services .home-hero__meta-top,
+.home-hero__services .home-hero__meta-bottom {
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.home-hero__availability .home-hero__meta-top,
+.home-hero__availability .home-hero__meta-bottom {
+  justify-content: flex-end;
+  text-align: right;
+  width: 100%;
+}
 
 .small-text {
   font-family: var(--font-mono);
@@ -1138,19 +1169,55 @@ ul {
   }
 
   .home-hero__title {
-    font-size: clamp(32px, 6.6vw, 132px);
+    font-size: 112px;
   }
 }
 
-@media (max-width: 1600px) and (orientation: landscape) {
+@media (max-width: 1600px) {
   .home-hero__title {
-    font-size: clamp(30px, 6.2vw, 110px);
+    font-size: 90px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .home-hero__title {
+    font-size: 78px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .home-hero__title {
+    font-size: 74px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .home-hero__title {
+    font-size: 64px;
+  }
+}
+
+@media (max-width: 860px) {
+  .home-hero__title {
+    font-size: 54px;
+  }
+}
+
+@media (max-width: 639px) {
+  .home-hero__title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-hero__title {
+    font-size: 34px;
   }
 }
 
 @media (orientation: portrait) and (min-height: 1100px) {
   .home-hero__title {
-    font-size: clamp(28px, 3.4vw, 64px);
+    font-size: 64px;
   }
 }
 
@@ -1708,12 +1775,6 @@ ul {
 }
 
 @media (max-width: 900px) {
-  .home-hero__title {
-    font-size: clamp(32px, 9vw, 58px);
-    white-space: normal;
-    overflow-wrap: break-word;
-  }
-
   .home-hero__meta {
     display: grid !important;
     grid-template-columns: 1fr !important;

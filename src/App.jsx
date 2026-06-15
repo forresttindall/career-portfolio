@@ -952,10 +952,10 @@ function App() {
                   marginBottom: 'auto'
                 }}>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                    <DecryptText as="span" text="Strategic UI/UX design" trigger="mount" delay={200} duration={900} />
+                    <DecryptText as="span" text="Designing products that ship." trigger="mount" delay={200} duration={900} />
                   </div>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-                    <DecryptText as="span" text="for brands that need clarity." trigger="mount" delay={320} duration={900} />
+                    <DecryptText as="span" text="Clear UX. Real business impact." trigger="mount" delay={320} duration={900} />
                   </div>
                 </h1>
                 <motion.div 
@@ -971,26 +971,29 @@ function App() {
                   }}
                 >
                   <div className="small-text home-hero__identity" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
-                    <div className="home-hero__identity-desktop" style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-                      <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall</span>
-                      <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: 'var(--color-text)', display: 'inline-block', flex: '0 0 auto' }} />
-                      <span>(UI/UX DESIGNER + FULLSTACK CREATIVE)</span>
+                    <div className="home-hero__identity-desktop home-hero__meta-col">
+                      <div className="home-hero__meta-top">
+                        <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall</span>
+                        <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: 'var(--color-text)', display: 'inline-block', flex: '0 0 auto' }} />
+                      </div>
+                      <div className="home-hero__meta-bottom">(PRODUCT DESIGNER + UI/UX DESIGNER)</div>
                     </div>
                     <div className="home-hero__identity-mobile">
                       <div style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall •</div>
-                      <div>(UI/UX DESIGNER + FULLSTACK CREATIVE)</div>
+                      <div>(PRODUCT DESIGNER + UI/UX DESIGNER)</div>
                     </div>
                   </div>
-                  <div className="small-text home-hero__services" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, textAlign: 'center', fontWeight: 'var(--font-mono-weight-bold)', marginTop: '1.2em' }}>
-                    UI/UX + Product + Brand + Visual Systems
+                  <div className="small-text home-hero__services home-hero__meta-col" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, textAlign: 'center', fontWeight: 'var(--font-mono-weight-bold)' }}>
+                    <div className="home-hero__meta-top" style={{ visibility: 'hidden' }}>Spacer</div>
+                    <div className="home-hero__meta-bottom">UI/UX + Product + Brand + Visual Systems</div>
                   </div>
-                  <div className="small-text home-hero__availability" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, justifySelf: 'end', textAlign: 'right' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
+                  <div className="small-text home-hero__availability home-hero__meta-col" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, justifySelf: 'end', textAlign: 'right' }}>
+                    <div className="home-hero__meta-top" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>
                       <span>currently:</span>
                       <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: HERO_AVAILABILITY.color, display: 'inline-block' }} />
                       <span>{HERO_AVAILABILITY.label}</span>
                     </div>
-                    <div>Remote / Worldwide</div>
+                    <div className="home-hero__meta-bottom">Remote / Worldwide</div>
                   </div>
                 </motion.div>
               </div>
