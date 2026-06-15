@@ -885,10 +885,10 @@ function App() {
             >
               <div className="mobile-nav-grid">
                 <button type="button" className="mobile-nav-link" onClick={() => goToSection('design')}>
-                  Design
+                  Graphic Design
                 </button>
                 <button type="button" className="mobile-nav-link" onClick={() => goToSection('dev')}>
-                  Dev
+                  UI/UX Design
                 </button>
                 <button type="button" className="mobile-nav-link" onClick={() => goToSection('resume')}>
                   Resume
@@ -982,7 +982,7 @@ function App() {
                     </div>
                   </div>
                   <div className="small-text home-hero__services" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, textAlign: 'center', fontWeight: 'var(--font-mono-weight-bold)', marginTop: '1.2em' }}>
-                    Design + Development + Visual Systems
+                    UI/UX + Product + Brand + Visual Systems
                   </div>
                   <div className="small-text home-hero__availability" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, justifySelf: 'end', textAlign: 'right' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', gap: '6px' }}>

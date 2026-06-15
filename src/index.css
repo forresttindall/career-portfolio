@@ -36,13 +36,20 @@
 }
 
 @font-face {
-    font-family: "Mark W1G";
-    src: url("https://db.onlinewebfonts.com/t/2d5ddebe9739a037dea229634e3dab4f.eot");
-    src: url("https://db.onlinewebfonts.com/t/2d5ddebe9739a037dea229634e3dab4f.eot?#iefix")format("embedded-opentype"),
+  font-family: "Mark W1G";
+  src: url("https://db.onlinewebfonts.com/t/2d5ddebe9739a037dea229634e3dab4f.eot");
+  src: url("https://db.onlinewebfonts.com/t/2d5ddebe9739a037dea229634e3dab4f.eot?#iefix")format("embedded-opentype"),
     url("https://db.onlinewebfonts.com/t/2d5ddebe9739a037dea229634e3dab4f.woff2")format("woff2"),
     url("https://db.onlinewebfonts.com/t/2d5ddebe9739a037dea229634e3dab4f.woff")format("woff"),
     url("https://db.onlinewebfonts.com/t/2d5ddebe9739a037dea229634e3dab4f.ttf")format("truetype"),
     url("https://db.onlinewebfonts.com/t/2d5ddebe9739a037dea229634e3dab4f.svg#Mark W1G")format("svg");
+}
+
+@font-face {
+  font-family: 'Graphyne Display';
+  src: url('/Graftyne-Display-Med-ExtraCond.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
 }
 
 
@@ -62,7 +69,7 @@
 }
 
 :root {
-  --font-display:   Doto, monospace;
+  --font-display: Doto, monospace;
   --font-display-weight: 900;
   --font-display-weight-bold: 800;
   --font-mono: 'SF Mono', monospace;
