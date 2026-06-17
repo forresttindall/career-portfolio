@@ -1,20 +1,18 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const BLACK = '#111111';
-const WHITE = '#E2E2E0';
+const BLACK = '#FFFFFF';
+const WHITE = '#111111';
 const BORDER = 'var(--color-border)';
 
 const ITEMS = [
   { src: '/images/device-1.PNG', tag: 'Product Design', maxWidth: 640 },
-  { src: '/images/IMG_4027-3.webp', tag: 'Street Photography', maxWidth: 560 },
+  { src: '/images/IMG_4027-3.webp', tag: 'Personal Work', maxWidth: 560 },
   { src: '/images/worm primary.JPG', tag: 'Art Print', maxWidth: 600 },
-  { src: '/images/chess.webp', tag: 'Street Photography', maxWidth: 580 },
   { src: '/images/device-2.PNG', tag: 'Product Design', maxWidth: 640 },
   { src: '/images/network.jpg', tag: 'Development Project', maxWidth: 700 },
-  { src: '/images/P3221595.jpg', tag: 'Street Photography', maxWidth: 600 },
+  { src: '/images/P3221595.jpg', tag: 'Personal Work', maxWidth: 600 },
   { src: '/images/pilot micro new.png', tag: 'Art Print', maxWidth: 560 },
-  { src: '/images/gun.webp', tag: 'Street Photography', maxWidth: 600 },
   { src: '/images/look see 2.JPG', tag: 'Art Print', maxWidth: 680 },
   { src: '/images/bar.jpg', tag: 'Film Studies', maxWidth: 560 },
   { src: '/images/shell.jpg', tag: 'Film Studies', maxWidth: 640 },

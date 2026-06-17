@@ -1151,6 +1151,10 @@ function App() {
                               hover: { opacity: 1 },
                             }}
                           >
+                            <div className="home-project-layer__media-overlay-panels" aria-hidden="true">
+                              <div className="home-project-layer__media-overlay-panel home-project-layer__media-overlay-panel--main" />
+                              <div className="home-project-layer__media-overlay-panel home-project-layer__media-overlay-panel--side" />
+                            </div>
                             <div className="home-project-layer__view-chip">View</div>
                           </motion.div>
                         </motion.div>
