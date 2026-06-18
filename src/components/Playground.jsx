@@ -44,7 +44,7 @@ const Playground = () => {
           </div>
           <div style={{ height: 1, background: BORDER, marginTop: 'var(--spacing-sm)' }} />
           <div className="small-text" style={{ marginTop: 'var(--spacing-md)', maxWidth: 860, opacity: 0.9, color: UI_LIGHT }}>
-            A space for visual experiments, technical prototypes, and Boise-based creative studies. This is where the workflow begins—testing shaders, exploring typography, and documenting life in the Treasure Valley.
+            A creative study across design, development, art, and photography. This is where ideas are tested, prototypes take shape, visuals are refined, and everyday observations turn into finished work.
           </div>
         </div>
       </section>
