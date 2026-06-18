@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import DecryptText from './DecryptText';
+import ProjectNarrative from './ProjectNarrative';
 
 const BLACK = 'var(--color-bg)';
 const WHITE = 'var(--color-text)';
@@ -13,37 +14,38 @@ const CONTINUITY_IMAGES = [
   { src: '/images/continuity/Cotton%20Totebag%20Mockup.webp', alt: 'Continuity totebag mockup' },
 ];
 
+const CONTINUITY_NARRATIVE = {
+  meta: ['LOCATION( Boise, ID / Remote )', 'ROLE( Lead Product Designer + Brand Strategist )', 'TECH( Figma, React, Framer Motion, GSAP )'],
+  sections: [
+    {
+      label: 'Context',
+      text: 'Continuity was conceived as a software-facing brand and product system that needed to communicate seamless persistence from first glance to product interaction.',
+    },
+    {
+      label: 'Problem',
+      text: 'The challenge was making the experience feel structural and trustworthy without becoming cold, static, or difficult to navigate through more complex workflows.',
+    },
+    {
+      label: 'Process',
+      text: 'I developed the visual language in Figma, translated that logic into a React build, and used motion studies to test how the interface could reinforce the idea of continuity.',
+    },
+    {
+      label: 'Proposal',
+      text: 'The proposal focused on a minimalist grid system, restrained motion feedback, and a digital identity that made performance and clarity feel like part of the brand.',
+    },
+    {
+      label: 'Result',
+      text: 'The final outcome tied brand, interface, and motion into one cohesive product story built to earn trust and feel modern on the web.',
+    },
+  ],
+};
+
 const ContinuityProject = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [readMoreOpen, setReadMoreOpen] = useState(false);
   const [loadedBySrc, setLoadedBySrc] = useState({});
-
-  useEffect(() => {
-    if (readMoreOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.classList.add('wim-info-open');
-    } else {
-      document.body.style.overflow = '';
-      document.body.classList.remove('wim-info-open');
-    }
-    const handleNavClick = (ev) => {
-      const el = ev.target.closest('.site-nav__menu-toggle');
-      if (readMoreOpen && el) {
-        ev.preventDefault();
-        ev.stopPropagation();
-        setReadMoreOpen(false);
-      }
-    };
-    document.addEventListener('click', handleNavClick, true);
-    return () => {
-      document.body.style.overflow = '';
-      document.body.classList.remove('wim-info-open');
-      document.removeEventListener('click', handleNavClick, true);
-    };
-  }, [readMoreOpen]);
 
   useEffect(() => {
     const adjustRowHeights = () => {
@@ -97,91 +99,6 @@ const ContinuityProject = () => {
           </h1>
         </div>
       </section>
-
-      <button
-        type="button"
-        className="wim-readmore"
-        aria-label="Read more"
-        onClick={() => setReadMoreOpen(true)}
-      >
-        <div className="wim-readmore__track">
-          {Array.from({ length: 24 }).map((_, i) => (
-            <span key={i} className="wim-readmore__item small-text">
-              READ MORE •
-            </span>
-          ))}
-        </div>
-      </button>
-
-      {readMoreOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="continuity-overlay"
-          onClick={() => setReadMoreOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(0,0,0,0.55)',
-            backdropFilter: 'blur(26px)',
-            WebkitBackdropFilter: 'blur(26px)',
-            zIndex: 390,
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            overflowY: 'auto',
-            padding: '60px 20px'
-          }}
-        >
-          <motion.div
-            initial={{ y: 12, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 12, opacity: 0 }}
-            className="continuity-overlay__inner"
-            onClick={(ev) => ev.stopPropagation()}
-            style={{
-              position: 'relative',
-              width: 'min(820px, calc(100% - 40px))',
-              borderRadius: 16,
-              background: 'rgba(17, 17, 17, 0.92)',
-              backdropFilter: 'blur(22px)',
-              WebkitBackdropFilter: 'blur(22px)',
-              border: '1px solid var(--color-border)',
-              padding: 'var(--spacing-xl) var(--spacing-lg)',
-              color: 'var(--color-text)',
-              marginTop: 'auto',
-              marginBottom: 'auto'
-            }}
-          >
-            <div className="small-text" style={{ marginBottom: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
-              CONTINUITY •
-            </div>
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)' }}>LOCATION</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Boise, ID / Remote</div>
-            
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>ROLE</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Lead Product Designer & Brand Strategist</div>
-            
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>TECH</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Figma, React, Framer Motion, GSAP</div>
-            
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Identity system, application UI/UX design, motion systems, and digital brand guidelines.</div>
-            
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
-            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
-              Continuity was designed to represent the concept of seamless persistence in software. For this Boise-based tech project, we focused on building a visual system that feels structural yet fluid.
-              <br /><br />
-              We developed a minimalist grid system in Figma that translated directly into a high-performance React application. The motion design system, powered by Framer Motion, provides subtle feedback loops that enhance the user's sense of "continuity" while navigating complex workflows.
-            </div>
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
-            <div className="small-text" style={{ marginTop: 8, textTransform: 'none', lineHeight: 1.5 }}>
-              A unified brand and product experience designed for the modern web—where performance is a feature and design is the bridge to trust.
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
 
       <section style={{ padding: 'var(--spacing-md) 10px var(--spacing-xxl)' }}>
         <div style={{ height: 1, background: 'var(--color-border)', marginLeft: -10, marginRight: -10 }} />
@@ -240,6 +157,7 @@ const ContinuityProject = () => {
           </div>
         </div>
       </section>
+      <ProjectNarrative eyebrow="CONTINUITY" meta={CONTINUITY_NARRATIVE.meta} sections={CONTINUITY_NARRATIVE.sections} />
     </motion.div>
   );
 };

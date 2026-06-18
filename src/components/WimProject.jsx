@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import DecryptText from './DecryptText';
+import ProjectNarrative from './ProjectNarrative';
 
 const BLACK = 'var(--color-bg)';
 const WHITE = 'var(--color-text)';
@@ -17,37 +18,38 @@ const WIM_IMAGES =
   
 ];
 
+const WIM_NARRATIVE = {
+  meta: ['ROLE( Product Designer + Brand Designer )', 'SCOPE( Identity System, Software App UI/UX Design )'],
+  sections: [
+    {
+      label: 'Context',
+      text: "WIM needed a brand and product experience that could feel as precise and efficient as the warehouse software behind it.",
+    },
+    {
+      label: 'Problem',
+      text: "The system had to stay legible in high-intensity field conditions while still presenting the company as a credible logistics technology leader.",
+    },
+    {
+      label: 'Process',
+      text: "I built the direction around the idea of clarity in chaos, refining the identity, testing recognition across apparel and fleet graphics, and shaping the UI for rugged mobile use.",
+    },
+    {
+      label: 'Proposal',
+      text: "The solution centered on a bold geometric brand system paired with high-contrast interface patterns that made key interactions easier to read and faster to act on.",
+    },
+    {
+      label: 'Result',
+      text: "The final system unified identity and software into one visual language that scales from small digital icons to uniforms and large-format applications.",
+    },
+  ],
+};
+
 const WimProject = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [readMoreOpen, setReadMoreOpen] = useState(false);
   const [loadedBySrc, setLoadedBySrc] = useState({});
-
-  useEffect(() => {
-    if (readMoreOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.classList.add('wim-info-open');
-    } else {
-      document.body.style.overflow = '';
-      document.body.classList.remove('wim-info-open');
-    }
-    const handleNavClick = (ev) => {
-      const el = ev.target.closest('.site-nav__menu-toggle');
-      if (readMoreOpen && el) {
-        ev.preventDefault();
-        ev.stopPropagation();
-        setReadMoreOpen(false);
-      }
-    };
-    document.addEventListener('click', handleNavClick, true);
-    return () => {
-      document.body.style.overflow = '';
-      document.body.classList.remove('wim-info-open');
-      document.removeEventListener('click', handleNavClick, true);
-    };
-  }, [readMoreOpen]);
 
   useEffect(() => {
     const adjustRowHeights = () => {
@@ -101,85 +103,6 @@ const WimProject = () => {
           </h1>
         </div>
       </section>
-
-      <button
-        type="button"
-        className="wim-readmore"
-        aria-label="Read more"
-        onClick={() => setReadMoreOpen(true)}
-      >
-        <div className="wim-readmore__track">
-          {Array.from({ length: 24 }).map((_, i) => (
-            <span key={i} className="wim-readmore__item small-text">
-              READ MORE •
-            </span>
-          ))}
-        </div>
-      </button>
-
-      {readMoreOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="wim-overlay"
-          onClick={() => setReadMoreOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(0,0,0,0.55)',
-            backdropFilter: 'blur(26px)',
-            WebkitBackdropFilter: 'blur(26px)',
-            zIndex: 390,
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            overflowY: 'auto',
-            padding: '60px 20px'
-          }}
-        >
-          <motion.div
-            initial={{ y: 12, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 12, opacity: 0 }}
-            className="wim-overlay__inner"
-            onClick={(ev) => ev.stopPropagation()}
-            style={{
-              position: 'relative',
-              width: 'min(820px, calc(100% - 40px))',
-              borderRadius: 16,
-              background: 'rgba(17, 17, 17, 0.92)',
-              backdropFilter: 'blur(22px)',
-              WebkitBackdropFilter: 'blur(22px)',
-              border: '1px solid var(--color-border)',
-              padding: 'var(--spacing-xl) var(--spacing-lg)',
-              color: 'var(--color-text)',
-              marginTop: 'auto',
-              marginBottom: 'auto'
-            }}
-          >
-            <div className="small-text" style={{ marginBottom: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
-              WAREHOUSE INTELLIGENCE •
-            </div>
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)' }}>ROLE</div>
-            <div className="small-text" style={{ marginTop: 8 }}>BRAND + IDENTITY DESIGN</div>
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
-            <div className="small-text" style={{ marginTop: 8 }}>IDENTITY SYSTEM, SOFTWARE APP UI/UX DESIGN</div>
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
-            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
-              The Warehouse Intelligence Management (WIM) system required a visual identity that felt as precise and efficient as the software it represents. Our approach centered on the concept of 'Clarity in Chaos'—developing a bold, geometric system that remains legible in high-intensity warehouse environments.
-              <br /><br />
-              We re-engineered the core brand assets to prioritize immediate recognition, specifically for field use and apparel application. The software UI/UX was designed with a focus on high-contrast interaction patterns, ensuring ease of use on rugged mobile devices under varied lighting conditions.
-              <br /><br />
-              The resulting system is a cohesive blend of utility and identity, providing a unified visual language that scales from microscopic digital icons to large-scale fleet graphics. Every element—from the custom typeface weight to the high-visibility safety shirt suite—was meticulously crafted to support WIM's position as a leader in logistics technology.
-            </div>
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
-            <div className="small-text" style={{ marginTop: 8, textTransform: 'none' }}>
-              WAREHOUSE INTELLIGENCE BRAND SYSTEM AND UNIFORM SUITE—BUILT FOR CLARITY, RECOGNITION, AND APPLICATION ACROSS APPAREL AND FIELD USE.
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
 
       <section style={{ padding: 'var(--spacing-md) 10px var(--spacing-xxl)' }}>
         <div style={{ height: 1, background: 'var(--color-border)', marginLeft: -10, marginRight: -10 }} />
@@ -238,6 +161,7 @@ const WimProject = () => {
           </div>
         </div>
       </section>
+      <ProjectNarrative eyebrow="WAREHOUSE INTELLIGENCE" meta={WIM_NARRATIVE.meta} sections={WIM_NARRATIVE.sections} />
     </motion.div>
   );
 };

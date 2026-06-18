@@ -1421,16 +1421,31 @@ function App() {
                       <div className="studio-practice__copy">
                         <div className="studio-practice__team-meta" style={{ marginBottom: 'var(--spacing-md)', alignSelf: 'start', justifySelf: 'start', textAlign: 'left' }}>
                           <div className="studio-practice__team-name">Forrest Tindall</div>
-                          <div className="studio-practice__team-role">UI/UX Designer / Fullstack Creative</div>
+                          <div className="studio-practice__team-role">UI/UX Designer / Product Designer</div>
                         </div>
-                        <div className="small-text" style={{ maxWidth: '640px', textTransform: 'uppercase', lineHeight: 1.55 }}>
-                          I’m a design-first fullstack creative focused on building clean, thoughtful digital experiences. My work spans UI/UX, graphic design, photography, and modern frontend development, combining visual design with technical execution. I currently design on a freelance basis with a retainer contract with Electric Fun and others, creating website layouts, UI systems, and brand-aligned digital experiences in Figma, Affinity and Adobe Creative Suite.
+                        <div className="small-text" style={{ maxWidth: '640px', lineHeight: 1.6 }}>
+                          I am a UI/UX and product designer who builds. My path into tech started in blue-collar work, an environment that taught me how to solve practical, real-world problems under pressure. Today, I apply that same grounded, no-nonsense work ethic to digital products, translating complex user needs into clean, functional interfaces and production-ready code.
                         </div>
-                        <div className="small-text" style={{ maxWidth: '640px', marginTop: 'var(--spacing-md)', textTransform: 'uppercase', lineHeight: 1.55 }}>
-                          My path started with building products from scratch, beginning with Tindall Knives, a global ecommerce brand I created in 2012. From design and photography to marketing and operations, I learned how to build cohesive visual systems and user experiences that support real business outcomes. Since then, I have launched and led multiple creative and technical ventures, refining a multidisciplinary approach that blends design, UX thinking, frontend development, and product strategy. My toolkit includes UI/UX design, Figma, Affinity, Adobe Creative Suite, JavaScript, Typescript, React, Node.js, Vite, Bun, Python, SQL, and modern design systems. I bring an end-to-end perspective that begins with intentional design and continues through clear and efficient execution.
+                        <div className="small-text" style={{ maxWidth: '640px', marginTop: 'var(--spacing-md)', lineHeight: 1.6 }}>
+                          Based in Boise, Idaho, I operate across the entire product lifecycle, bridging the gap between high-fidelity visual systems and technical implementation.
                         </div>
-                        <div className="small-text" style={{ maxWidth: '640px', marginTop: 'var(--spacing-md)', textTransform: 'uppercase', lineHeight: 1.55 }}>
-                          If you’re creating something new or elevating your digital presence, I’d love to connect.
+                        <div className="small-text" style={{ maxWidth: '640px', marginTop: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
+                          Focus Areas
+                        </div>
+                        <div className="small-text" style={{ maxWidth: '640px', marginTop: '10px', lineHeight: 1.6 }}>
+                          Product &amp; UI/UX Design: Systems thinking, high-fidelity prototyping, and interface design in Figma.
+                        </div>
+                        <div className="small-text" style={{ maxWidth: '640px', marginTop: '10px', lineHeight: 1.6 }}>
+                          Visual System Design: Building brand identity systems and UI/UX design systems that stay consistent across products and touchpoints.
+                        </div>
+                        <div className="small-text" style={{ maxWidth: '640px', marginTop: '10px', lineHeight: 1.6 }}>
+                          Front-End Development: Translating complex layouts into clean, semantic code from scratch.
+                        </div>
+                        <div className="small-text" style={{ maxWidth: '640px', marginTop: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
+                          Outside the Screen
+                        </div>
+                        <div className="small-text" style={{ maxWidth: '640px', marginTop: '10px', lineHeight: 1.6 }}>
+                          When I&apos;m not designing or coding, I&apos;m usually behind an analog rangefinder camera. I have a deep interest in street photography and run a local film photography club in Boise.
                         </div>
                       </div>
 
@@ -1496,7 +1511,7 @@ function App() {
       </AnimatePresence>
       <SiteFooter
         onContactClick={openContact}
-        reserveRightRail={activeCaseStudy === 'bac' || activeCaseStudy === 'on'}
+        reserveRightRail={activeCaseStudy === 'bac'}
       />
       <Analytics />
     </div>

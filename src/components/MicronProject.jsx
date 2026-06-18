@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import DecryptText from './DecryptText';
+import ProjectNarrative from './ProjectNarrative';
 
 const BLACK = 'var(--color-bg)';
 const WHITE = 'var(--color-text)';
@@ -12,37 +13,38 @@ const MICRON_IMAGES = [
   { src: '/images/level.webp', alt: 'Micron level and floor identification signage' },
 ];
 
+const MICRON_NARRATIVE = {
+  meta: ['LOCATION( Boise, ID )', 'ROLE( Lead Environmental Graphic Designer )', 'TECH( Adobe Illustrator, CAD, Industrial Production Standards )'],
+  sections: [
+    {
+      label: 'Context',
+      text: "Micron's Boise expansion needed a signage system that could support a large, high-performance workplace while aligning with the facility's clean architectural language.",
+    },
+    {
+      label: 'Problem',
+      text: 'The core challenge was balancing strict ADA compliance and wayfinding clarity with the visual expectations of a modern, highly technical environment.',
+    },
+    {
+      label: 'Process',
+      text: 'I mapped the signage requirements, designed the system around legibility and durability, and worked through how each sign type would integrate with the building materials and circulation paths.',
+    },
+    {
+      label: 'Proposal',
+      text: 'The proposal was a unified environmental graphics system that made navigation easier, kept compliance intact, and maintained a restrained, high-tech aesthetic throughout the campus.',
+    },
+    {
+      label: 'Result',
+      text: 'The final wayfinding package delivered a clearer and more accessible experience for employees while giving the facility a consistent signage language from lobby markers to stair and restroom identification.',
+    },
+  ],
+};
+
 const MicronProject = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [readMoreOpen, setReadMoreOpen] = useState(false);
   const [loadedBySrc, setLoadedBySrc] = useState({});
-
-  useEffect(() => {
-    if (readMoreOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.classList.add('wim-info-open');
-    } else {
-      document.body.style.overflow = '';
-      document.body.classList.remove('wim-info-open');
-    }
-    const handleNavClick = (ev) => {
-      const el = ev.target.closest('.site-nav__menu-toggle');
-      if (readMoreOpen && el) {
-        ev.preventDefault();
-        ev.stopPropagation();
-        setReadMoreOpen(false);
-      }
-    };
-    document.addEventListener('click', handleNavClick, true);
-    return () => {
-      document.body.style.overflow = '';
-      document.body.classList.remove('wim-info-open');
-      document.removeEventListener('click', handleNavClick, true);
-    };
-  }, [readMoreOpen]);
 
   useEffect(() => {
     const adjustRowHeights = () => {
@@ -96,91 +98,6 @@ const MicronProject = () => {
           </h1>
         </div>
       </section>
-
-      <button
-        type="button"
-        className="wim-readmore"
-        aria-label="Read more"
-        onClick={() => setReadMoreOpen(true)}
-      >
-        <div className="wim-readmore__track">
-          {Array.from({ length: 24 }).map((_, i) => (
-            <span key={i} className="wim-readmore__item small-text">
-              READ MORE •
-            </span>
-          ))}
-        </div>
-      </button>
-
-      {readMoreOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="continuity-overlay"
-          onClick={() => setReadMoreOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(0,0,0,0.55)',
-            backdropFilter: 'blur(26px)',
-            WebkitBackdropFilter: 'blur(26px)',
-            zIndex: 390,
-            display: 'flex',
-            alignItems: 'flex-start',
-            justifyContent: 'center',
-            overflowY: 'auto',
-            padding: '60px 20px'
-          }}
-        >
-          <motion.div
-            initial={{ y: 12, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 12, opacity: 0 }}
-            className="continuity-overlay__inner"
-            onClick={(ev) => ev.stopPropagation()}
-            style={{
-              position: 'relative',
-              width: 'min(820px, calc(100% - 40px))',
-              borderRadius: 16,
-              background: 'rgba(17, 17, 17, 0.92)',
-              backdropFilter: 'blur(22px)',
-              WebkitBackdropFilter: 'blur(22px)',
-              border: '1px solid var(--color-border)',
-              padding: 'var(--spacing-xl) var(--spacing-lg)',
-              color: 'var(--color-text)',
-              marginTop: 'auto',
-              marginBottom: 'auto'
-            }}
-          >
-            <div className="small-text" style={{ marginBottom: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
-              MICRON •
-            </div>
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)' }}>LOCATION</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Boise, ID</div>
-            
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>ROLE</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Lead Environmental Graphic Designer</div>
-            
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>TECH</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Adobe Illustrator, CAD, Industrial Production Standards</div>
-            
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>SCOPE</div>
-            <div className="small-text" style={{ marginTop: 8 }}>Environmental Graphics, ADA Compliance, Signage Systems, Wayfinding.</div>
-            
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>STRATEGY & DESIGN</div>
-            <div className="small-text" style={{ marginTop: 12, lineHeight: 1.6, textTransform: 'none', maxWidth: 680 }}>
-              The Micron expansion in Boise required a signage system that balanced strict ADA compliance with the high-tech, minimalist aesthetic of the new facility. We designed a comprehensive wayfinding strategy that guides thousands of employees through complex industrial and office environments.
-              <br /><br />
-              Every sign—from lobby identification to stairwell level indicators—was engineered for clarity, durability, and perfect integration with the building's physical materials.
-            </div>
-            <div className="small-text" style={{ color: 'var(--color-text)', fontWeight: 'var(--font-mono-weight-bold)', marginTop: 'var(--spacing-lg)' }}>PROJECT SUMMARY</div>
-            <div className="small-text" style={{ marginTop: 8, textTransform: 'none', lineHeight: 1.5 }}>
-              A unified environmental signage system for Micron's Boise headquarters, prioritizing accessibility and technical precision.
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
 
       <section style={{ padding: 'var(--spacing-md) 10px var(--spacing-xxl)' }}>
         <div style={{ height: 1, background: 'var(--color-border)', marginLeft: -10, marginRight: -10 }} />
@@ -239,6 +156,7 @@ const MicronProject = () => {
           </div>
         </div>
       </section>
+      <ProjectNarrative eyebrow="MICRON" meta={MICRON_NARRATIVE.meta} sections={MICRON_NARRATIVE.sections} />
     </motion.div>
   );
 };
