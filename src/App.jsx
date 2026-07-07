@@ -1296,14 +1296,29 @@ function App() {
               </div>
 
               <div className="resume-timeline" role="list">
-                {WORK_HISTORY.map((item) => (
-                  <div key={`${item.year}-${item.company}-${item.role}`} className="resume-item" role="listitem">
-                    <div className="resume-rail" aria-hidden="true">
-                      <div className={`resume-dot${item.current ? ' is-current' : ''}`} />
+                {WORK_HISTORY.map((item, index) => (
+                  <div
+                    key={`${item.year}-${item.company}-${item.role}`}
+                    className={`resume-item${index % 2 === 1 ? ' is-lower' : ' is-upper'}`}
+                    role="listitem"
+                  >
+                    <div className="resume-connector" aria-hidden="true">
+                      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <line
+                          x1="50"
+                          y1="50"
+                          x2={index % 2 === 1 ? '56' : '44'}
+                          y2={index % 2 === 1 ? '67' : '33'}
+                        />
+                      </svg>
                     </div>
+                    <div className="resume-rail" aria-hidden="true" />
                     <div className="resume-content">
                       <div className="resume-top">
-                        <div className="resume-company">{item.company}</div>
+                        <div className="resume-company">
+                          <span className={`resume-name-dot${item.current ? ' is-current' : ''}`} aria-hidden="true" />
+                          <span>{item.company}</span>
+                        </div>
                         <div className="resume-year">
                           {item.current ? 'CURRENT' : item.year}
                         </div>
@@ -1446,7 +1461,7 @@ function App() {
                           Outside the Screen
                         </div>
                         <div className="small-text" style={{ maxWidth: '640px', marginTop: '10px', lineHeight: 1.6 }}>
-                          When I&apos;m not designing or coding, I&apos;m usually behind an analog rangefinder camera. I have a deep interest in street photography and run a local film photography club in Boise.
+                          When I&apos;m not designing or coding, I&apos;m usually behind an analog rangefinder camera. I have a deep interest in street photography and run Boise Analog Club in Boise.
                         </div>
                       </div>
 
@@ -1454,7 +1469,7 @@ function App() {
                         <div className="studio-practice__team-grid">
                           <div className="studio-practice__team-card">
                             <div className="studio-practice__team-image">
-                              <img src="/images/newphotome.JPG" alt="Forrest Tindall" loading="lazy" decoding="async" />
+                              <img src="/images/menew.JPG" alt="Forrest Tindall" loading="lazy" decoding="async" />
                             </div>
                           </div>
                         </div>
