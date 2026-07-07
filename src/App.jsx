@@ -3,7 +3,7 @@ import { motion, AnimatePresence, useAnimationFrame, useMotionValue, useReducedM
 import { ArrowUpRight, CopySimple } from '@phosphor-icons/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import BoiseAnalogClubCaseStudy from './components/BoiseAnalogClubCaseStudy';
-import OpenNetizenProject from './components/OpenNetizenProject';
+import KnwnLocalProject from './components/KnwnLocalProject';
 import Contact from './components/Contact';
 import RicochetProject from './components/RicochetProject';
 import MicronProject from './components/MicronProject';
@@ -38,6 +38,17 @@ const INDEX01_PROJECTS = [
     sideOffset: 'clamp(2rem, 7vw, 5rem)',
   },
   {
+    id: 'knwnlocal',
+    titleLines: ['Knwnlocal'],
+    scope: 'Scope(UI/UX Design, Development)',
+    primaryImage: '/images/knwnlocal%202.png',
+    primaryAlt: 'KnwnLocal CMS and editing workflow screenshot',
+    secondaryImage: '/images/knwnlocal.png',
+    secondaryAlt: 'KnwnLocal marketing site screenshot',
+    secondaryFallbackImage: '/images/knwnlocal%202.png',
+    sideOffset: 'clamp(3rem, 8vw, 6rem)',
+  },
+  {
     id: 'continuity',
     titleLines: ['Continuity'],
     scope: 'Scope(Identity, App UI/UX Design)',
@@ -47,16 +58,6 @@ const INDEX01_PROJECTS = [
     secondaryAlt: 'Continuity app',
     secondaryFallbackImage: '/images/continuity/TSHIRT%20MOCKUP.webp',
     sideOffset: 'clamp(2rem, 7vw, 5rem)',
-  },
-  {
-    id: 'on',
-    titleLines: ['Open Netizen'],
-    scope: 'Scope(Identity, Visual System)',
-    primaryImage: '/images/OPEN NETIZEN CARD.jpg',
-    primaryAlt: 'Open Netizen brand card',
-    secondaryImage: '/images/OPEN NETIZEN WEBSITE MOCKUP.jpg',
-    secondaryAlt: 'Open Netizen website mockup',
-    sideOffset: 'clamp(3rem, 8vw, 6rem)',
   },
   {
     id: 'micron',
@@ -289,9 +290,8 @@ const FOOTER_CAROUSEL_IMAGES = [
   { src: '/images/bac gen x soft club.png', alt: 'Boise Analog footer carousel image' },
   { src: '/images/device-1.PNG', alt: 'Playground footer carousel image' },
   { src: '/images/pilot micro new.png', alt: 'Art print footer carousel image' },
-  { src: '/images/OPEN NETIZEN CARD.jpg', alt: 'Open Netizen footer carousel image' },
-  { src: '/images/OPEN NETIZEN WEBSITE MOCKUP.jpg', alt: 'Open Netizen footer carousel image' },
-  { src: '/images/OPEN NETIZEN.jpg', alt: 'Open Netizen footer carousel image' },
+  { src: '/images/knwnlocal.png', alt: 'KnwnLocal footer carousel image' },
+  { src: '/images/knwnlocal%202.png', alt: 'KnwnLocal footer carousel image' },
   { src: '/images/continuity/screens.webp', alt: 'Continuity screens footer carousel image' },
   { src: '/images/continuity/app.webp', alt: 'Continuity app footer carousel image' },
   { src: '/images/continuity/continuity%20logo.webp', alt: 'Continuity logo footer carousel image' },
@@ -726,7 +726,7 @@ function App() {
     pendingHomeScrollRestoreRef.current = true;
     if (id === 'wim') navigate('/wim');
     else if (id === 'continuity') navigate('/continuity');
-    else if (id === 'on') navigate('/open-netizen');
+    else if (id === 'knwnlocal') navigate('/knwnlocal');
     else if (id === 'bac') navigate('/boise-analog-club');
     else if (id === 'ricochet') navigate('/ricochet');
     else if (id === 'micron') navigate('/micron');
@@ -786,7 +786,7 @@ function App() {
       navigate('/', { replace: true });
     }
     else if (pathname === '/continuity') setActiveCaseStudy('continuity');
-    else if (pathname === '/open-netizen') setActiveCaseStudy('on');
+    else if (pathname === '/knwnlocal') setActiveCaseStudy('knwnlocal');
     else if (pathname === '/boise-analog-club') setActiveCaseStudy('bac');
     else if (pathname === '/ricochet') setActiveCaseStudy('ricochet');
     else if (pathname === '/micron') setActiveCaseStudy('micron');
@@ -1028,8 +1028,8 @@ function App() {
           <ContinuityProject key="continuity" />
         ) : activeCaseStudy === 'bac' ? (
           <BoiseAnalogClubCaseStudy key="bac" />
-        ) : activeCaseStudy === 'on' ? (
-          <OpenNetizenProject key="on" />
+        ) : activeCaseStudy === 'knwnlocal' ? (
+          <KnwnLocalProject key="knwnlocal" />
         ) : activeCaseStudy === 'ricochet' ? (
           <RicochetProject key="ricochet" />
         ) : activeCaseStudy === 'micron' ? (
