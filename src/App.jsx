@@ -275,7 +275,8 @@ const testimonials = [
 ];
 
 const WORK_HISTORY = [
-  { year: '2026', company: 'Electric Fun', role: 'UI/UX Designer', current: true },
+  { year: '2026', company: 'MOX Collective', role: 'UI/UX Designer', current: true },
+  { year: '2026', company: 'Electric Fun', role: 'UI/UX Designer' },
   { year: '2026', company: 'CMYK Graphics', role: 'Graphic Designer' },
   { year: '2025', company: 'Superbase', role: 'UI/UX Designer' },
   { year: '2022', company: 'Creationbase', role: 'Visual Designer' },
