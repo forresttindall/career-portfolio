@@ -192,8 +192,8 @@ const KnwnLocalProject = () => {
         }
 
         .knwnlocal-frame {
-          height: auto;
           position: relative;
+          height: auto;
         }
 
         .knwnlocal-skeleton {
