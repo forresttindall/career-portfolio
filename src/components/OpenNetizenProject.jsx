@@ -7,10 +7,10 @@ const BLACK = 'var(--color-bg)';
 const WHITE = 'var(--color-text)';
 
 const OPEN_NETIZEN_IMAGES = [
-  { src: '/images/OPEN NETIZEN CARD.jpg', alt: 'Open Netizen card mockup' },
-  { src: '/images/OPEN NETIZEN WEBSITE MOCKUP.jpg', alt: 'Open Netizen website mockup' },
-  { src: '/images/OPEN NETIZEN.jpg', alt: 'Open Netizen identity mockup' },
-  { src: '/images/sign mockup open netizen.png', alt: 'Open Netizen signage mockup' },
+  { src: '/images/OPEN NETIZEN CARD.webp', alt: 'Open Netizen card mockup' },
+  { src: '/images/OPEN NETIZEN WEBSITE MOCKUP.webp', alt: 'Open Netizen website mockup' },
+  { src: '/images/OPEN NETIZEN.webp', alt: 'Open Netizen identity mockup' },
+  { src: '/images/sign mockup open netizen.webp', alt: 'Open Netizen signage mockup' },
 
 ];
 

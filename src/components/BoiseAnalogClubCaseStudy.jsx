@@ -287,7 +287,7 @@ const BoiseAnalogClubCaseStudy = () => {
         }}>
           <div style={{ width: '100%', height: '100%' }}>
             <img
-              src="/images/analogmockup 2.png"
+              src="/images/analogmockup 2.webp"
               alt="Boise Analog Club Background"
               style={{
                 width: '100%',
@@ -386,7 +386,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 </div>
                 <div style={{ width: isMobile ? "100%" : "clamp(84px, 10vw, 140px)", maxWidth: isMobile ? 220 : undefined, aspectRatio: "1/1", border: `1px solid ${GRAY2}`, overflow: "hidden", background: WHITE, flex: "0 0 auto" }}>
                   <img
-                    src="/images/analog2.png"
+                    src="/images/analog2.webp"
                     alt="Boise Analog Club mark"
                     style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
                   />
@@ -457,7 +457,7 @@ const BoiseAnalogClubCaseStudy = () => {
                   width: '100%',
                 }}>
                   <img
-                    src="/images/analog2.png"
+                    src="/images/analog2.webp"
                     alt="Boise Analog Club mark"
                     style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }}
                   />
@@ -527,8 +527,8 @@ const BoiseAnalogClubCaseStudy = () => {
                 width: "100%"
               }}>
                 {[
-                  { kind: "img", src: "/images/analog.png", alt: "Boise Analog Club mark variation 01" },
-                  { kind: "img", src: "/images/analog2.png", alt: "Boise Analog Club mark variation 02" },
+                  { kind: "img", src: "/images/analog.webp", alt: "Boise Analog Club mark variation 01" },
+                  { kind: "img", src: "/images/analog2.webp", alt: "Boise Analog Club mark variation 02" },
                   { kind: "impact", label: "ANALOG" },
                 ].map((item, idx) => (
                   <div key={item.kind === "img" ? item.src : `impact-${idx}`} style={{
@@ -706,7 +706,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: GRAY1, letterSpacing: 2, marginBottom: 24 }}>5.1 — GRAIN</p>
                 <div style={{ border: `1px solid ${GRAY2}`, overflow: "hidden", background: PAGE_BG }}>
                   <img
-                    src="/images/IMG_5153.JPG"
+                    src="/images/IMG_5153.webp"
                     alt="Grain reference"
                     style={{ width: "100%", height: isMobile ? "var(--bac-elements-media-h-mobile)" : "var(--bac-elements-media-h)", objectFit: "cover", display: "block", filter: "grayscale(100%) contrast(1.1)" }}
                   />
@@ -719,7 +719,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: GRAY1, letterSpacing: 2, marginBottom: 24 }}>5.2 — PAPER TEXTURES</p>
                 <div style={{ border: `1px solid ${GRAY2}`, overflow: "hidden", background: PAGE_BG }}>
                   <img
-                    src="/images/paper.jpg"
+                    src="/images/paper.webp"
                     alt="Paper texture"
                     style={{ width: "100%", height: isMobile ? "var(--bac-elements-media-h-mobile)" : "var(--bac-elements-media-h)", objectFit: "var(--bac-elements-media-fit)", display: "block" }}
                   />
@@ -742,12 +742,12 @@ const BoiseAnalogClubCaseStudy = () => {
 
             <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: 1, background: GRAY2 }}>
               {[
-                { src: "/images/IMG_3141.JPG", label: "00" },
-                { src: "/images/IMG_5153.JPG", label: "01" },
-                { src: "/images/P2201155.jpg", label: "02" },
-                { src: "/images/IMG_3145 2.JPG", label: "03" },
-                { src: "/images/IMG_2418 4.jpg", label: "04" },
-                { src: "/images/IMG_1679.JPG", label: "05" },
+                { src: "/images/IMG_3141.webp", label: "00" },
+                { src: "/images/IMG_5153.webp", label: "01" },
+                { src: "/images/P2201155.webp", label: "02" },
+                { src: "/images/IMG_3145 2.webp", label: "03" },
+                { src: "/images/IMG_2418 4.webp", label: "04" },
+                { src: "/images/IMG_1679.webp", label: "05" },
               ].map((img) => (
                 <div key={img.src} style={{ background: PAGE_BG, position: "relative", overflow: "hidden", aspectRatio: "1 / 1" }}>
                   <img src={img.src} alt={`Boise Analog Club imagery ${img.label}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block", filter: "grayscale(100%) contrast(1.1)" }} />
@@ -776,7 +776,7 @@ const BoiseAnalogClubCaseStudy = () => {
               <div style={{ background: PAGE_BG, border: `1px solid ${GRAY2}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
                 <div style={isMobile ? { position: "relative", width: "100%", aspectRatio: "4 / 5", overflow: "hidden" } : { position: "relative", width: "100%", aspectRatio: "var(--bac-layout-media-ar)", overflow: "hidden" }}>
                   <img
-                    src="/images/BAC january.png"
+                    src="/images/BAC january.webp"
                     alt="Meetup flyer layout example"
                     style={isMobile ? { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block" } : { width: "100%", height: "100%", objectFit: "var(--bac-app-media-fit)", objectPosition: "center", display: "block" }}
                   />
@@ -790,7 +790,7 @@ const BoiseAnalogClubCaseStudy = () => {
               <div style={{ background: PAGE_BG, border: `1px solid ${GRAY2}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
                 <div style={isMobile ? { position: "relative", width: "100%", aspectRatio: "4 / 5", overflow: "hidden" } : { position: "relative", width: "100%", aspectRatio: "var(--bac-layout-media-ar)", overflow: "hidden" }}>
                   <img
-                    src="/images/propagranda 3.png"
+                    src="/images/propagranda 3.webp"
                     alt="Promotional social post layout example"
                     style={isMobile ? { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block" } : { width: "100%", height: "100%", objectFit: "var(--bac-app-media-fit)", objectPosition: "center", display: "block" }}
                   />
@@ -834,7 +834,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 <div style={{ background: PAGE_BG, border: `1px solid ${GRAY2}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
                   <div style={isMobile ? { position: "relative", width: "100%", aspectRatio: "4 / 5", overflow: "hidden" } : { position: "relative", width: "100%", aspectRatio: "var(--bac-layout-media-ar)", overflow: "hidden" }}>
                     <img
-                      src="/images/BAC march 2026.png"
+                      src="/images/BAC march 2026.webp"
                       alt="Boise Analog Club flyer application"
                       style={isMobile ? { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block" } : { width: "100%", height: "100%", objectFit: "var(--bac-application-media-fit)", objectPosition: "center", display: "block" }}
                     />
@@ -848,7 +848,7 @@ const BoiseAnalogClubCaseStudy = () => {
                 <div style={{ background: PAGE_BG, border: `1px solid ${GRAY2}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
                   <div style={isMobile ? { position: "relative", width: "100%", aspectRatio: "4 / 5", overflow: "hidden" } : { position: "relative", width: "100%", aspectRatio: "var(--bac-layout-media-ar)", overflow: "hidden" }}>
                     <img
-                      src="/images/bac 2.png"
+                      src="/images/bac 2.webp"
                       alt="Boise Analog Club social application"
                       style={isMobile ? { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", display: "block" } : { width: "100%", height: "100%", objectFit: "var(--bac-application-media-fit)", objectPosition: "center", display: "block" }}
                     />

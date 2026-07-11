@@ -6,11 +6,11 @@ const BLACK = '#FFFFFF';
 const WHITE = '#111111';
 
 const WORKSHARP_IMAGES = [
-  { src: '/images/worksharp/_DSC6969.jpg', alt: 'Worksharp + Drill Doctor commercial editorial photography' },
-  { src: '/images/worksharp/_DSC7142.jpg', alt: 'Worksharp + Drill Doctor commercial editorial photography' },
+  { src: '/images/worksharp/_DSC6969.webp', alt: 'Worksharp + Drill Doctor commercial editorial photography' },
+  { src: '/images/worksharp/_DSC7142.webp', alt: 'Worksharp + Drill Doctor commercial editorial photography' },
   { src: '/images/worksharp/_DSC6814.webp', alt: 'Worksharp + Drill Doctor commercial editorial photography' },
   { src: '/images/worksharp/_DSC6908.webp', alt: 'Worksharp + Drill Doctor commercial editorial photography' },
-  { src: '/images/worksharp/IMG_3004.jpg', alt: 'Worksharp + Drill Doctor commercial editorial photography' },
+  { src: '/images/worksharp/IMG_3004.webp', alt: 'Worksharp + Drill Doctor commercial editorial photography' },
 ];
 
 const WorksharpProject = () => {

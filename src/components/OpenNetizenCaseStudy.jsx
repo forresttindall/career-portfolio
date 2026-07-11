@@ -105,11 +105,11 @@ function PageHeader({ number, title, isMobile }) {
 function LogoMark({ size = 80, color = WHITE, bg = BLUE }) {
   // Use exact PNG file names as requested by the user
   const logoSrc = 
-    color === BRAND_BLACK || color === 'black' || color === '#000000' || color === '#111111' ? '/images/open netizen logo black.png' :
-    color === BLUE || color === 'blue' || color === '#172EFF' ? '/images/open netizen logo blue.png' :
-    color === BRAND_GRAY_MID || color === 'gray medium' || color === '#676767' ? '/images/open netizen logo gray medium.png' :
-    color === BRAND_GRAY_DARK || color === 'gray dark' || color === '#353535' ? '/images/open netizen logo gray dark.png' :
-    '/images/open netizen logo white.png';
+    color === BRAND_BLACK || color === 'black' || color === '#000000' || color === '#111111' ? '/images/open netizen logo black.webp' :
+    color === BLUE || color === 'blue' || color === '#172EFF' ? '/images/open netizen logo blue.webp' :
+    color === BRAND_GRAY_MID || color === 'gray medium' || color === '#676767' ? '/images/open netizen logo gray medium.webp' :
+    color === BRAND_GRAY_DARK || color === 'gray dark' || color === '#353535' ? '/images/open netizen logo gray dark.webp' :
+    '/images/open netizen logo white.webp';
 
   return (
     <div style={{
@@ -311,7 +311,7 @@ const OpenNetizenCaseStudy = () => {
             }}
           >
             <img 
-              src="/images/OPEN NETIZEN CARD.jpg" 
+              src="/images/OPEN NETIZEN CARD.webp" 
               alt="Open Netizen Background" 
               style={{
                 width: '100%',
@@ -373,7 +373,7 @@ const OpenNetizenCaseStudy = () => {
                 </div>
                 <div style={{ width: isMobile ? "100%" : "clamp(84px, 10vw, 140px)", maxWidth: isMobile ? 220 : undefined, aspectRatio: "1/1", border: `1px solid ${GRAY2}`, overflow: "hidden", background: BLACK, flex: "0 0 auto" }}>
                   <img
-                    src="/images/OPEN NETIZEN.jpg"
+                    src="/images/OPEN NETIZEN.webp"
                     alt="Open Netizen preview"
                     style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
                   />
@@ -720,12 +720,12 @@ const OpenNetizenCaseStudy = () => {
 
             <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2, 1fr)" : "repeat(3, 1fr)", gap: 1, background: GRAY2 }}>
               {[
-                { src: "/images/open netizen background.jpg", label: "00" },
-                { src: "/images/photo1.jpg", label: "01" },
-                { src: "/images/photo2.jpg", label: "02" },
-                { src: "/images/photo3.jpg", label: "03" },
-                { src: "/images/photo4.jpg", label: "04" },
-                { src: "/images/photo5.jpg", label: "05" },
+                { src: "/images/open netizen background.webp", label: "00" },
+                { src: "/images/photo1.webp", label: "01" },
+                { src: "/images/photo2.webp", label: "02" },
+                { src: "/images/photo3.webp", label: "03" },
+                { src: "/images/photo4.webp", label: "04" },
+                { src: "/images/photo5.webp", label: "05" },
               ].map((img) => (
                 <div key={img.src} style={{ background: PAGE_BG, position: "relative", overflow: "hidden", aspectRatio: "1 / 1" }}>
                   <img src={img.src} alt={`Open Netizen imagery ${img.label}`} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
@@ -879,7 +879,7 @@ const OpenNetizenCaseStudy = () => {
                 <div style={{ background: PAGE_BG, border: `1px solid ${GRAY2}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
                   <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", background: BLACK, overflow: "hidden" }}>
                     <img
-                      src="/images/sign mockup open netizen.png"
+                      src="/images/sign mockup open netizen.webp"
                       alt="Open Netizen signage mockup"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
                     />
@@ -893,7 +893,7 @@ const OpenNetizenCaseStudy = () => {
                 <div style={{ background: PAGE_BG, border: `1px solid ${GRAY2}`, overflow: "hidden", display: "flex", flexDirection: "column" }}>
                   <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", background: BLACK, overflow: "hidden" }}>
                     <img
-                      src="/images/OPEN NETIZEN.jpg"
+                      src="/images/OPEN NETIZEN.webp"
                       alt="Open Netizen advertising application"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
                     />
@@ -907,7 +907,7 @@ const OpenNetizenCaseStudy = () => {
                 <div style={{ background: PAGE_BG, border: `1px solid ${GRAY2}`, overflow: "hidden", display: "flex", flexDirection: "column", gridColumn: isMobile ? undefined : "1 / -1" }}>
                   <div style={{ position: "relative", width: "100%", aspectRatio: "1 / 1", background: BLACK, overflow: "hidden" }}>
                     <img
-                      src="/images/OPEN NETIZEN WEBSITE MOCKUP.jpg"
+                      src="/images/OPEN NETIZEN WEBSITE MOCKUP.webp"
                       alt="Open Netizen website mockup"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
                     />
@@ -921,7 +921,7 @@ const OpenNetizenCaseStudy = () => {
                 <div style={{ background: PAGE_BG, border: `1px solid ${GRAY2}`, overflow: "hidden", display: "flex", flexDirection: "column", gridColumn: isMobile ? undefined : "1 / -1" }}>
                   <div style={{ position: "relative", width: "100%", aspectRatio: "7 / 4", background: BLACK, overflow: "hidden" }}>
                     <img
-                      src="/images/OPEN NETIZEN CARD.jpg"
+                      src="/images/OPEN NETIZEN CARD.webp"
                       alt="Open Netizen business card"
                       style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center", display: "block" }}
                     />

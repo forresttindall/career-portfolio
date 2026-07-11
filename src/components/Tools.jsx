@@ -380,7 +380,7 @@ function Tools() {
   const paperPreviewMountRef = useRef(null);
   const paperExportMountRef = useRef(null);
   const [paperExportActive, setPaperExportActive] = useState(false);
-  const [paperImageUrl, setPaperImageUrl] = useState('/images/creationbase logo new png.png');
+  const [paperImageUrl, setPaperImageUrl] = useState('/images/creationbase logo new png.webp');
 
   const [framePresetId, setFramePresetId] = useState(FRAME_PRESETS[0].id);
   const preset = useMemo(() => FRAME_PRESETS.find((p) => p.id === framePresetId) || FRAME_PRESETS[0], [framePresetId]);

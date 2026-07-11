@@ -7,8 +7,8 @@ const BLACK = 'var(--color-bg)';
 const WHITE = 'var(--color-text)';
 
 const KNWNLOCAL_IMAGES = [
-  { src: '/images/knwnlocal.png', alt: 'KnwnLocal homepage and editorial layout' },
-  { src: '/images/knwnlocal%202.png', alt: 'KnwnLocal AI editing and content workflow interface' },
+  { src: '/images/knwnlocal%20mockup.webp', alt: 'KnwnLocal homepage and editorial layout' },
+  { src: '/images/knwnlocal%202.webp', alt: 'KnwnLocal AI editing and content workflow interface' },
 ];
 
 const KNWNLOCAL_NARRATIVE = {
@@ -108,7 +108,7 @@ const KnwnLocalProject = () => {
         <div style={{ height: 1, background: 'var(--color-border)', marginLeft: -10, marginRight: -10 }} />
         <div>
           <div className="small-text" style={{ marginTop: 'var(--spacing-sm)', marginBottom: 20 }}>
-            <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>REAL ESATE KNWN</span>
+            <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>REAL ESTATE KNWN</span>
             <span style={{ margin: '0 14px' }}>•</span>
             <span style={{ marginLeft: 14 }}>SCOPE( UI/UX DESIGN, DEVELOPMENT )</span>
           </div>
@@ -167,7 +167,7 @@ const KnwnLocalProject = () => {
         </div>
       </section>
 
-      <ProjectNarrative eyebrow="REAL ESATE KNWN" meta={KNWNLOCAL_NARRATIVE.meta} sections={KNWNLOCAL_NARRATIVE.sections} />
+      <ProjectNarrative eyebrow="REAL ESTATE KNWN" meta={KNWNLOCAL_NARRATIVE.meta} sections={KNWNLOCAL_NARRATIVE.sections} />
 
       <style>{`
         .knwnlocal-rows {

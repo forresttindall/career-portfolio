@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useMemo, useLayoutEffect } from 'react';
 import { motion, AnimatePresence, useAnimationFrame, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
 import { ArrowUpRight, CopySimple } from '@phosphor-icons/react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import BoiseAnalogClubCaseStudy from './components/BoiseAnalogClubCaseStudy';
+import BoiseAnalogClubProject from './components/BoiseAnalogClubProject';
 import KnwnLocalProject from './components/KnwnLocalProject';
 import Contact from './components/Contact';
 import RicochetProject from './components/RicochetProject';
@@ -27,6 +27,28 @@ const HERO_AVAILABILITY = {
 };
 const INDEX01_PROJECTS = [
   {
+    id: 'bac',
+    titleLines: ['Boise', 'Analog Club'],
+    scope: 'Scope(Brand, Website, Campaign Assets)',
+    primaryImage: '/images/new%20mockeup.webp',
+    primaryAlt: 'Boise Analog Club campaign mockup',
+    secondaryImage: '/images/analog%20new%20mobile.webp',
+    secondaryAlt: 'Boise Analog Club mobile website mockup',
+    secondaryFallbackImage: '/images/bac%20july%202026.webp',
+    sideOffset: 'clamp(3rem, 8vw, 6rem)',
+  },
+  {
+    id: 'knwnlocal',
+    titleLines: ['KnwnLocal'],
+    scope: 'Scope(UI/UX Design, Development)',
+    primaryImage: '/images/knwnlocal%20mockup.webp',
+    primaryAlt: 'KnwnLocal marketing site screenshot',
+    secondaryImage: '/images/knwnlocal%202.webp',
+    secondaryAlt: 'KnwnLocal CMS and editing workflow screenshot',
+    secondaryFallbackImage: '/images/knwnlocal%20mockup.webp',
+    sideOffset: 'clamp(3rem, 8vw, 6rem)',
+  },
+  {
     id: 'wim',
     titleLines: ['WIM'],
     scope: 'Scope(Identity, App UI/UX Design)',
@@ -36,17 +58,6 @@ const INDEX01_PROJECTS = [
     secondaryAlt: 'WIM software mockup',
     secondaryFallbackImage: '/images/wim HAT MOCKUP.webp',
     sideOffset: 'clamp(2rem, 7vw, 5rem)',
-  },
-  {
-    id: 'knwnlocal',
-    titleLines: ['Knwnlocal'],
-    scope: 'Scope(UI/UX Design, Development)',
-    primaryImage: '/images/knwnlocal%202.png',
-    primaryAlt: 'KnwnLocal CMS and editing workflow screenshot',
-    secondaryImage: '/images/knwnlocal.png',
-    secondaryAlt: 'KnwnLocal marketing site screenshot',
-    secondaryFallbackImage: '/images/knwnlocal%202.png',
-    sideOffset: 'clamp(3rem, 8vw, 6rem)',
   },
   {
     id: 'continuity',
@@ -166,6 +177,20 @@ const SiteFooter = ({
 
 const projects = [
   {
+    title: "Boise Analog Club",
+    category: "UI/UX + Product Design",
+    image: "/images/new%20mockeup.webp",
+    description: "Website design and campaign landing page direction",
+    year: "2026"
+  },
+  {
+    title: "KnwnLocal",
+    category: "UI/UX + Product Design",
+    image: "/images/knwnlocal%20mockup.webp",
+    description: "Marketing site design and content workflow interface",
+    year: "2026"
+  },
+  {
     title: "Wim Software",
     category: "UI/UX Design",
     image: "/images/wim software.webp",
@@ -175,14 +200,14 @@ const projects = [
   {
     title: "Amore",
     category: "UI/UX Design & Dev",
-    image: "/images/amore mockup.png",
+    image: "/images/amore mockup.webp",
     description: "Restaurant website design in figma and dev in REACT",
     year: "2025"
   },
   {
     title: "Clearfeed",
     category: "UI/UX Design & Dev",
-    image: "/images/clearfeed.png",
+    image: "/images/clearfeed.webp",
     description: "Desktop application design in figma and dev in ELECTRON",
     year: "2025"
   },
@@ -208,7 +233,7 @@ const graphicDesign = [
  {
     title: "Alias Zine",
     category: "Brand Identity",
-    image: "/images/gif.gif",
+    image: "/images/gif.webp",
     description: "Logo Design, Animation Design",
     year: "2025"
   },
@@ -225,7 +250,7 @@ const graphicDesign = [
   {
     title: "Creationbase",
     category: "Asset Design",
-    image: "/images/FUTURE SOUNDS MOCKUP.png",
+    image: "/images/FUTURE SOUNDS MOCKUP.webp",
     description: "Digital assets for launch campaign.",
     year: "2025"
   },
@@ -253,14 +278,14 @@ const graphicDesign = [
 const testimonials = [
   {
     name: "Lori Tindall",
-    image: "/images/lori.jpg",
+    image: "/images/lori.webp",
     stars: "★★★★★",
     headline: "FIVE STARS!!!",
     text: "I put off rebranding my business and building out a new website because I just didn't have the time or inclination to do it all myself. Working with Forrest was easy and fun because he was able to draw information out of me that helped make the design and layout reflect my values. He also built elements into my website that gets it ranked higher in search engines and it gets noticed."
   },
   {
     name: "Jackie Beauchaine",
-    image: "/images/jackie.jpg",
+    image: "/images/jackie.webp",
     stars: "★★★★★",
     headline: "I couldn't be happier!",
     text: "Forrest did a fantastic job on my website. It's now ranking higher on Google and bringing in more business. He gave my site the professional look I always wanted!"
@@ -285,14 +310,14 @@ const WORK_HISTORY = [
 
 const FOOTER_CAROUSEL_IMAGES = [
   { src: '/images/ricochet mockup.webp', alt: 'Ricochet footer carousel image' },
-  { src: '/images/amore mockup.png', alt: 'Amore footer carousel image' },
-  { src: '/images/clearfeed.png', alt: 'Clearfeed footer carousel image' },
-  { src: '/images/gif.gif', alt: 'Graphic design footer carousel image' },
-  { src: '/images/bac gen x soft club.png', alt: 'Boise Analog footer carousel image' },
-  { src: '/images/device-1.PNG', alt: 'Playground footer carousel image' },
-  { src: '/images/pilot micro new.png', alt: 'Art print footer carousel image' },
-  { src: '/images/knwnlocal.png', alt: 'KnwnLocal footer carousel image' },
-  { src: '/images/knwnlocal%202.png', alt: 'KnwnLocal footer carousel image' },
+  { src: '/images/amore mockup.webp', alt: 'Amore footer carousel image' },
+  { src: '/images/clearfeed.webp', alt: 'Clearfeed footer carousel image' },
+  { src: '/images/gif.webp', alt: 'Graphic design footer carousel image' },
+  { src: '/images/bac gen x soft club.webp', alt: 'Boise Analog footer carousel image' },
+  { src: '/images/device-1.webp', alt: 'Playground footer carousel image' },
+  { src: '/images/pilot micro new.webp', alt: 'Art print footer carousel image' },
+  { src: '/images/knwnlocal.webp', alt: 'KnwnLocal footer carousel image' },
+  { src: '/images/knwnlocal%202.webp', alt: 'KnwnLocal footer carousel image' },
   { src: '/images/continuity/screens.webp', alt: 'Continuity screens footer carousel image' },
   { src: '/images/continuity/app.webp', alt: 'Continuity app footer carousel image' },
   { src: '/images/continuity/continuity%20logo.webp', alt: 'Continuity logo footer carousel image' },
@@ -815,7 +840,7 @@ function App() {
   }, [location.pathname, navigate]);
 
   const headerColor = UI_LIGHT;
-  const headerLogoSrc = '/images/new logo.png';
+  const headerLogoSrc = '/images/new logo.webp';
   const mobileNavBg = 'rgba(0, 0, 0, 0.62)';
   const reduceMotion = useReducedMotion();
   const { scrollY } = useScroll();
@@ -1028,7 +1053,7 @@ function App() {
         ) : activeCaseStudy === 'continuity' ? (
           <ContinuityProject key="continuity" />
         ) : activeCaseStudy === 'bac' ? (
-          <BoiseAnalogClubCaseStudy key="bac" />
+          <BoiseAnalogClubProject key="bac" />
         ) : activeCaseStudy === 'knwnlocal' ? (
           <KnwnLocalProject key="knwnlocal" />
         ) : activeCaseStudy === 'ricochet' ? (
@@ -1130,6 +1155,13 @@ function App() {
                         <motion.div className="home-project-layer__media" whileHover="hover">
                           <div className="home-project-layer__media-main">
                             <img
+                              src={project.primaryImage}
+                              alt={project.primaryAlt}
+                              className="home-project-layer__image"
+                            />
+                          </div>
+                          <div className="home-project-layer__media-side">
+                            <img
                               src={project.secondaryImage}
                               alt={project.secondaryAlt}
                               className="home-project-layer__image"
@@ -1137,13 +1169,6 @@ function App() {
                                 ev.currentTarget.onerror = null;
                                 ev.currentTarget.src = project.secondaryFallbackImage || project.primaryImage;
                               }}
-                            />
-                          </div>
-                          <div className="home-project-layer__media-side">
-                            <img
-                              src={project.primaryImage}
-                              alt={project.primaryAlt}
-                              className="home-project-layer__image"
                             />
                           </div>
                           <motion.div
@@ -1469,7 +1494,7 @@ function App() {
                         <div className="studio-practice__team-grid">
                           <div className="studio-practice__team-card">
                             <div className="studio-practice__team-image">
-                              <img src="/images/menew.JPG" alt="Forrest Tindall" loading="lazy" decoding="async" />
+                              <img src="/images/menew.webp" alt="Forrest Tindall" loading="lazy" decoding="async" />
                             </div>
                           </div>
                         </div>

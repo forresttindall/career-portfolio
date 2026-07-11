@@ -6,18 +6,18 @@ const UI_LIGHT = 'var(--color-text)';
 const BORDER = 'var(--color-border)';
 
 const ITEMS = [
-  { src: '/images/device-1.PNG', tag: 'Product Design', maxWidth: 640 },
+  { src: '/images/device-1.webp', tag: 'Product Design', maxWidth: 640 },
   { src: '/images/IMG_4027-3.webp', tag: 'Street Photography', maxWidth: 560 },
-  { src: '/images/worm primary.JPG', tag: 'Art Print', maxWidth: 600 },
-  { src: '/images/device-2.PNG', tag: 'Product Design', maxWidth: 640 },
-  { src: '/images/network.jpg', tag: 'Development Project', maxWidth: 700 },
-  { src: '/images/P3221595.jpg', tag: 'Street Photography', maxWidth: 600 },
+  { src: '/images/worm primary.webp', tag: 'Art Print', maxWidth: 600 },
+  { src: '/images/device-2.webp', tag: 'Product Design', maxWidth: 640 },
+  { src: '/images/network.webp', tag: 'Development Project', maxWidth: 700 },
+  { src: '/images/P3221595.webp', tag: 'Street Photography', maxWidth: 600 },
   { src: '/images/gun.webp', tag: 'Street Photography', maxWidth: 560 },
   { src: '/images/chess.webp', tag: 'Street Photography', maxWidth: 640 },
-  { src: '/images/pilot micro new.png', tag: 'Art Print', maxWidth: 560 },
-  { src: '/images/look see 2.JPG', tag: 'Art Print', maxWidth: 680 },
-  { src: '/images/bar.jpg', tag: 'Film Studies', maxWidth: 560 },
-  { src: '/images/shell.jpg', tag: 'Film Studies', maxWidth: 640 },
+  { src: '/images/pilot micro new.webp', tag: 'Art Print', maxWidth: 560 },
+  { src: '/images/look see 2.webp', tag: 'Art Print', maxWidth: 680 },
+  { src: '/images/bar.webp', tag: 'Film Studies', maxWidth: 560 },
+  { src: '/images/shell.webp', tag: 'Film Studies', maxWidth: 640 },
 ];
 
 const Playground = () => {

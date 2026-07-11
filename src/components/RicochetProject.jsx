@@ -119,7 +119,7 @@ const RicochetProject = () => {
           <div className="ricochet-ui-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 'var(--spacing-md)', marginTop: 'var(--spacing-xl)' }}>
             <div style={{ border: `1px solid ${GRAY2}`, overflow: 'hidden' }}>
               <img
-                src="/images/Hourly Sales.PNG"
+                src="/images/Hourly Sales.webp"
                 alt="Ricochet UI elements — store summary and hourly sales"
                 style={{ width: '100%', height: 'auto', display: 'block' }}
                 loading="lazy"
@@ -128,7 +128,7 @@ const RicochetProject = () => {
             </div>
             <div style={{ border: `1px solid ${GRAY2}`, overflow: 'hidden' }}>
               <img
-                src="/images/Exportable tables.PNG"
+                src="/images/Exportable tables.webp"
                 alt="Ricochet UI elements — payout history table and inventory chart"
                 style={{ width: '100%', height: 'auto', display: 'block' }}
                 loading="lazy"
