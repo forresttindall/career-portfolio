@@ -1303,6 +1303,16 @@ ul {
   background: transparent;
 }
 
+.home-project-layer:last-child {
+  min-height: calc(100vh - 10px);
+}
+
+.home-project-layer:last-child .home-project-layer__sticky {
+  position: relative;
+  top: auto;
+  min-height: auto;
+}
+
 .home-project-layer + .home-project-layer {
   margin-top: -100vh;
 }
@@ -1811,6 +1821,10 @@ ul {
 
   .home-project-layer {
     min-height: 170vh;
+  }
+
+  .home-project-layer:last-child {
+    min-height: calc(100vh - 10px);
   }
 
   .home-project-layer + .home-project-layer {
