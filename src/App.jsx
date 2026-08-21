@@ -18,8 +18,7 @@ const UI_LIGHT = 'var(--color-text)';
 const UI_DARK = 'var(--color-bg)';
 const HOME_SECTION_DIVIDER = '1px solid var(--color-border)';
 const HOME_HERO_TITLE_LINES = [
-  'Designing products that ship.',
-  'Clear UX. Real business impact.',
+  'Senior designer building brands, interfaces, and systems.',
 ];
 const HERO_AVAILABILITY = {
   label: 'Available',
@@ -300,12 +299,13 @@ const testimonials = [
 ];
 
 const WORK_HISTORY = [
+  { year: '2026', company: 'Foundway', role: 'Senior Designer', current: true },
   { year: '2026', company: 'MOX Collective', role: 'UI/UX Designer', current: true },
+    { year: '2022', company: 'Creationbase', role: 'Creative Director', current: true },
   { year: '2026', company: 'Electric Fun', role: 'UI/UX Designer' },
   { year: '2026', company: 'CMYK Graphics', role: 'Graphic Designer' },
   { year: '2025', company: 'Superbase', role: 'UI/UX Designer' },
-  { year: '2022', company: 'Creationbase', role: 'Visual Designer' },
-  { year: '2019', company: 'Ramboll', role: 'Junior Frontend Engineer' },
+
 ];
 
 const FOOTER_CAROUSEL_IMAGES = [
@@ -528,16 +528,16 @@ function App() {
       const maxLineWidth = Math.max(...lineWidths);
       if (!Number.isFinite(maxLineWidth) || maxLineWidth <= 0) return;
 
-      const safety = 0.92;
+      const safety = 0.97;
       const scale = (availableWidth / maxLineWidth) * safety;
       if (scale >= 1) {
         setHeroTitleFontSizePx(null);
         return;
       }
 
-      const minPx = 22;
+      const minPx = 60;
       const targetPx = Math.floor(baseSize * scale);
-      const next = Math.max(minPx, Math.min(baseSize, targetPx));
+      const next = Math.max(minPx, Math.min(baseSize * 1.6, targetPx));
       setHeroTitleFontSizePx((prev) => (prev === next ? prev : next));
     };
 
@@ -1103,11 +1103,11 @@ function App() {
                         <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall</span>
                         <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: 'var(--color-text)', display: 'inline-block', flex: '0 0 auto' }} />
                       </div>
-                      <div className="home-hero__meta-bottom">(PRODUCT DESIGNER + UI/UX DESIGNER)</div>
+                      <div className="home-hero__meta-bottom">Senior Designer</div>
                     </div>
                     <div className="home-hero__identity-mobile">
                       <div style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall •</div>
-                      <div>(PRODUCT DESIGNER + UI/UX DESIGNER)</div>
+                      <div>Senior Designer</div>
                     </div>
                   </div>
                   <div className="small-text home-hero__services home-hero__meta-col" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, textAlign: 'center', fontWeight: 'var(--font-mono-weight-bold)' }}>
@@ -1324,7 +1324,7 @@ function App() {
                 {WORK_HISTORY.map((item, index) => (
                   <div
                     key={`${item.year}-${item.company}-${item.role}`}
-                    className={`resume-item${index % 2 === 1 ? ' is-lower' : ' is-upper'}`}
+                    className={`resume-item${index % 2 === 0 ? ' is-lower' : ' is-upper'}`}
                     role="listitem"
                   >
                     <div className="resume-connector" aria-hidden="true">
@@ -1332,8 +1332,8 @@ function App() {
                         <line
                           x1="50"
                           y1="50"
-                          x2={index % 2 === 1 ? '56' : '44'}
-                          y2={index % 2 === 1 ? '67' : '33'}
+                          x2={index % 2 === 0 ? '56' : '44'}
+                          y2={index % 2 === 0 ? '67' : '33'}
                         />
                       </svg>
                     </div>
@@ -1462,7 +1462,7 @@ function App() {
                       <div className="studio-practice__copy">
                         <div className="studio-practice__team-meta" style={{ marginBottom: 'var(--spacing-md)', alignSelf: 'start', justifySelf: 'start', textAlign: 'left' }}>
                           <div className="studio-practice__team-name">Forrest Tindall</div>
-                          <div className="studio-practice__team-role">UI/UX Designer / Product Designer</div>
+                          <div className="studio-practice__team-role">Senior Designer / UI/UX</div>
                         </div>
                         <div className="small-text" style={{ maxWidth: '640px', lineHeight: 1.6 }}>
                           I am a UI/UX and product designer who builds. My path into tech started in blue-collar work, an environment that taught me how to solve practical, real-world problems under pressure. Today, I apply that same grounded, no-nonsense work ethic to digital products, translating complex user needs into clean, functional interfaces and production-ready code.
@@ -1494,7 +1494,7 @@ function App() {
                         <div className="studio-practice__team-grid">
                           <div className="studio-practice__team-card">
                             <div className="studio-practice__team-image">
-                              <img src="/images/menew.webp" alt="Forrest Tindall" loading="lazy" decoding="async" />
+                              <img src="/images/new-2.JPG" alt="Forrest Tindall" loading="lazy" decoding="async" />
                             </div>
                           </div>
                         </div>
