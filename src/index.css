@@ -1112,7 +1112,7 @@ ul {
   font-family: var(--font-display);
   font-weight: var(--font-display-weight) !important;
   font-synthesis: weight;
-  font-size: 200px;
+  font-size: 224px;
   line-height: 0.95;
   text-transform: uppercase;
   letter-spacing: -0.05em;
@@ -1163,73 +1163,181 @@ ul {
   line-height: 1.2;
 }
 
-@media (min-width: 1400px) and (max-height: 1100px) and (min-aspect-ratio: 4/3) {
+@media (min-width: 1400px) and (max-height: 1600px) and (min-aspect-ratio: 4/3) {
   :root {
     --home-hero-min-h: 80vh;
   }
 
   .home-hero__title {
-    font-size: 220px;
+    font-size: 272px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .home-hero__title {
+    font-size: 256px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .home-hero__title {
+    font-size: 296px;
+  }
+}
+
+@media (min-width: 2240px) {
+  .home-hero__title {
+    font-size: 332px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .home-hero__title {
+    font-size: 368px;
   }
 }
 
 @media (max-width: 1600px) {
   .home-hero__title {
-    font-size: 180px;
+    font-size: 200px;
   }
 }
 
 @media (max-width: 1440px) {
   .home-hero__title {
-    font-size: 160px;
+    font-size: 180px;
   }
 }
 
 @media (max-width: 1280px) {
   .home-hero__title {
-    font-size: 140px;
+    font-size: 156px;
   }
 }
 
 @media (max-width: 1024px) {
   .home-hero__title {
-    font-size: 116px;
+    font-size: 130px;
   }
 }
 
 @media (max-width: 860px) {
   .home-hero__title {
-    font-size: 92px;
+    font-size: 104px;
   }
 }
 
 @media (max-width: 639px) {
   .home-hero__title {
-    font-size: 70px;
+    font-size: 80px;
   }
 }
 
 @media (max-width: 420px) {
   .home-hero__title {
-    font-size: 52px;
+    font-size: 60px;
   }
 }
 
 @media (orientation: portrait) and (min-height: 1100px) {
   .home-hero__title {
-    font-size: 156px;
+    font-size: 200px;
   }
 }
 
 @media (max-aspect-ratio: 4/3) and (min-width: 640px) {
   .home-hero__title {
-    font-size: clamp(110px, 13vw, 220px);
+    font-size: clamp(140px, 16vw, 308px);
   }
 }
 
 @media (max-aspect-ratio: 3/4) and (min-width: 640px) {
   .home-hero__title {
-    font-size: clamp(140px, 17vw, 280px);
+    font-size: clamp(180px, 21vw, 380px);
+  }
+}
+
+.project-hero__title {
+  font-family: var(--font-display);
+  font-weight: var(--font-display-weight) !important;
+  font-synthesis: weight;
+  font-size: 160px;
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.05em;
+  white-space: normal;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  hyphens: none;
+}
+
+.project-hero__title-line {
+  white-space: normal;
+}
+
+@media (min-width: 1400px) and (max-height: 1100px) and (min-aspect-ratio: 4/3) {
+  .project-hero__title {
+    font-size: 180px;
+  }
+}
+
+@media (max-width: 1600px) {
+  .project-hero__title {
+    font-size: 148px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .project-hero__title {
+    font-size: 132px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .project-hero__title {
+    font-size: 116px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .project-hero__title {
+    font-size: 96px;
+  }
+}
+
+@media (max-width: 860px) {
+  .project-hero__title {
+    font-size: 76px;
+  }
+}
+
+@media (max-width: 639px) {
+  .project-hero__title {
+    font-size: 56px;
+  }
+}
+
+@media (max-width: 420px) {
+  .project-hero__title {
+    font-size: 42px;
+  }
+}
+
+@media (orientation: portrait) and (min-height: 1100px) {
+  .project-hero__title {
+    font-size: 128px;
+  }
+}
+
+@media (max-aspect-ratio: 4/3) and (min-width: 640px) {
+  .project-hero__title {
+    font-size: clamp(92px, 10.5vw, 180px);
+  }
+}
+
+@media (max-aspect-ratio: 3/4) and (min-width: 640px) {
+  .project-hero__title {
+    font-size: clamp(112px, 14vw, 220px);
   }
 }
 
@@ -2139,7 +2247,7 @@ body.wim-info-open .site-nav__menu-label::after {
 .wim-row--single .wim-card { flex: 1 1 auto; }
 
 @media (max-width: 700px) {
-  .wim-page .home-hero__title {
+  .wim-page .project-hero__title {
     max-width: 100%;
     white-space: normal;
     overflow-wrap: anywhere;

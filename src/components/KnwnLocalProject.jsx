@@ -96,9 +96,9 @@ const KnwnLocalProject = () => {
     >
       <section data-header-theme="light" style={{ position: 'relative', overflow: 'hidden', background: BLACK, color: WHITE }}>
         <div style={{ minHeight: '42vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: 'var(--spacing-lg)', padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-sm)', position: 'relative', zIndex: 1 }}>
-          <h1 className="home-hero__title" style={{ marginBottom: 'auto' }}>
+          <h1 className="project-hero__title" style={{ marginBottom: 'auto' }}>
             <div style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-              <DecryptText as="span" text="REAL ESTATE KNWN" trigger="mount" delay={200} duration={900} />
+              <DecryptText as="span" text="KNWNLOCAL" trigger="mount" delay={200} duration={900} />
             </div>
           </h1>
         </div>
@@ -108,7 +108,7 @@ const KnwnLocalProject = () => {
         <div style={{ height: 1, background: 'var(--color-border)', marginLeft: -10, marginRight: -10 }} />
         <div>
           <div className="small-text" style={{ marginTop: 'var(--spacing-sm)', marginBottom: 20 }}>
-            <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>REAL ESTATE KNWN</span>
+            <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>KNWNLOCAL</span>
             <span style={{ margin: '0 14px' }}>•</span>
             <span style={{ marginLeft: 14 }}>SCOPE( UI/UX DESIGN, DEVELOPMENT )</span>
           </div>
@@ -167,7 +167,7 @@ const KnwnLocalProject = () => {
         </div>
       </section>
 
-      <ProjectNarrative eyebrow="REAL ESTATE KNWN" meta={KNWNLOCAL_NARRATIVE.meta} sections={KNWNLOCAL_NARRATIVE.sections} />
+      <ProjectNarrative eyebrow="KNWNLOCAL" meta={KNWNLOCAL_NARRATIVE.meta} sections={KNWNLOCAL_NARRATIVE.sections} />
 
       <style>{`
         .knwnlocal-rows {
@@ -254,7 +254,7 @@ const KnwnLocalProject = () => {
         .knwnlocal-row--single .knwnlocal-card { flex: 1 1 auto; }
 
         @media (max-width: 700px) {
-          .knwnlocal-page .home-hero__title {
+          .knwnlocal-page .project-hero__title {
             max-width: 100%;
             white-space: normal;
             overflow-wrap: anywhere;

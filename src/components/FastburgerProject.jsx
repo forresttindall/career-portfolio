@@ -95,7 +95,7 @@ const FastburgerProject = () => {
     >
       <section data-header-theme="light" style={{ position: 'relative', overflow: 'hidden', background: BLACK, color: WHITE }}>
         <div style={{ minHeight: '42vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: 'var(--spacing-lg)', padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-sm)', position: 'relative', zIndex: 1 }}>
-          <h1 className="home-hero__title" style={{ marginBottom: 'auto' }}>
+          <h1 className="project-hero__title" style={{ marginBottom: 'auto' }}>
             <div style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
               <DecryptText as="span" text="QUALITY BURGERS," trigger="mount" delay={200} duration={900} />
             </div>
@@ -407,7 +407,7 @@ const FastburgerProject = () => {
             flex-direction: column;
             align-items: flex-start;
           }
-          .fastburger-page .home-hero__title {
+          .fastburger-page .project-hero__title {
             max-width: 100%;
             white-space: normal;
             overflow-wrap: anywhere;

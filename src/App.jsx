@@ -450,7 +450,8 @@ const ProjectModal = ({ project, onClose }) => {
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const heroTitleRef = useRef(null);
-  const [heroTitleFontSizePx, setHeroTitleFontSizePx] = useState(null);
+  const lastValidHeroFontSizePxRef = useRef(0);
+  const [heroTitleFontSizePx, setHeroTitleFontSizePx] = useState(0);
   const [, setHeaderTheme] = useState(() => {
     if (typeof window === 'undefined' || !window.location) return 'light';
     const p = window.location.pathname;
@@ -474,7 +475,6 @@ function App() {
 
   useLayoutEffect(() => {
     if (location.pathname !== '/') {
-      setHeroTitleFontSizePx(null);
       return;
     }
 
@@ -482,7 +482,53 @@ function App() {
     if (!el) return;
 
     let raf = 0;
+    let raf2 = 0;
     let ro = null;
+    let timer = 0;
+    let timer2 = 0;
+    let retryCount = 0;
+    let pendingGrow = 0;
+    const MAX_RETRIES = 32;
+    const GROW_CONFIRM_MS = 220;
+
+    const lastValid = lastValidHeroFontSizePxRef.current;
+    if (lastValid > 0 && el.style) {
+      el.style.fontSize = `${lastValid}px`;
+      setHeroTitleFontSizePx(lastValid);
+    }
+
+    const commit = (candidatePx, baseSize) => {
+      const maxAllowedPx = Number.isFinite(baseSize) && baseSize > 0
+        ? Math.floor(baseSize)
+        : Number.MAX_SAFE_INTEGER;
+      const capped = Math.min(candidatePx, maxAllowedPx);
+      const prevCommitted = lastValidHeroFontSizePxRef.current;
+      if (capped > prevCommitted && prevCommitted > 0) {
+        const ratio = capped / prevCommitted;
+        if (ratio > 1.05) {
+          if (pendingGrow && pendingGrow !== capped) {
+            if (timer2) window.clearTimeout(timer2);
+          }
+          if (!pendingGrow || pendingGrow !== capped) {
+            pendingGrow = capped;
+            timer2 = window.setTimeout(() => {
+              pendingGrow = 0;
+              timer2 = 0;
+              lastValidHeroFontSizePxRef.current = capped;
+              setHeroTitleFontSizePx((p) => (p === capped ? p : capped));
+            }, GROW_CONFIRM_MS);
+          }
+          return;
+        }
+      }
+      if (timer2) {
+        window.clearTimeout(timer2);
+        timer2 = 0;
+        pendingGrow = 0;
+      }
+      lastValidHeroFontSizePxRef.current = capped;
+      setHeroTitleFontSizePx((p) => (p === capped ? p : capped));
+    };
 
     const compute = () => {
       const node = heroTitleRef.current;
@@ -501,44 +547,76 @@ function App() {
       node.style.fontSize = prevInlineSize;
 
       const availableWidth = node.clientWidth;
-      if (!Number.isFinite(baseSize) || baseSize <= 0 || !availableWidth) return;
+      if (!Number.isFinite(baseSize) || baseSize <= 0 || !availableWidth) {
+        if (retryCount < MAX_RETRIES) {
+          retryCount += 1;
+          scheduleRetry();
+        }
+        return;
+      }
 
       const canvas = document.createElement('canvas');
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
 
-      ctx.font = `${fontStyle} ${fontVariant} ${fontWeight} ${baseSize}px ${fontFamily}`;
-
-      const letterSpacingNum = Number.parseFloat(letterSpacingValue);
-      const letterSpacingPx =
-        Number.isFinite(letterSpacingNum) && letterSpacingValue.endsWith('em')
-          ? letterSpacingNum * baseSize
-          : (Number.isFinite(letterSpacingNum) ? letterSpacingNum : 0);
-
-      const lineWidths = HOME_HERO_TITLE_LINES.map((line) => {
+      const measureLineAt = (sizePx, line) => {
+        ctx.font = `${fontStyle} ${fontVariant} ${fontWeight} ${sizePx}px ${fontFamily}`;
         const t =
           textTransform === 'uppercase'
             ? String(line).toUpperCase()
             : String(line);
+        const letterSpacingNum = Number.parseFloat(letterSpacingValue);
+        const letterSpacingPx =
+          Number.isFinite(letterSpacingNum) && letterSpacingValue.endsWith('em')
+            ? letterSpacingNum * sizePx
+            : (Number.isFinite(letterSpacingNum) ? letterSpacingNum : 0);
         const measured = ctx.measureText(t).width;
         const extra = Math.max(0, t.length - 1) * letterSpacingPx;
         return measured + extra;
-      });
+      };
 
-      const maxLineWidth = Math.max(...lineWidths);
-      if (!Number.isFinite(maxLineWidth) || maxLineWidth <= 0) return;
+      const fitsAt = (sizePx, safety) => {
+        for (let i = 0; i < HOME_HERO_TITLE_LINES.length; i += 1) {
+          const w = measureLineAt(sizePx, HOME_HERO_TITLE_LINES[i]);
+          if (w > availableWidth * safety) return false;
+        }
+        return true;
+      };
 
-      const safety = 0.97;
-      const scale = (availableWidth / maxLineWidth) * safety;
-      if (scale >= 1) {
-        setHeroTitleFontSizePx(null);
-        return;
+      const safety = 0.985;
+      const minPx = 72;
+      let candidatePx;
+      if (fitsAt(baseSize, safety)) {
+        let lo = baseSize;
+        let hi = Math.ceil(baseSize * 1.8);
+        for (let i = 0; i < 20; i += 1) {
+          const mid = (lo + hi) / 2;
+          if (fitsAt(mid, safety)) {
+            lo = mid;
+          } else {
+            hi = mid;
+          }
+          if (hi - lo < 0.25) break;
+        }
+        candidatePx = Math.floor(lo);
+      } else {
+        let lo = minPx;
+        let hi = baseSize;
+        for (let i = 0; i < 20; i += 1) {
+          const mid = (lo + hi) / 2;
+          if (fitsAt(mid, safety)) {
+            lo = mid;
+          } else {
+            hi = mid;
+          }
+          if (hi - lo < 0.25) break;
+        }
+        candidatePx = Math.floor(lo);
       }
 
-      const minPx = 60;
-      const targetPx = Math.floor(baseSize * scale);
-      const next = Math.max(minPx, Math.min(baseSize * 1.6, targetPx));
-      setHeroTitleFontSizePx((prev) => (prev === next ? prev : next));
+      const next = Math.max(minPx, candidatePx);
+      commit(next, baseSize);
+      retryCount = 0;
     };
 
     const schedule = () => {
@@ -549,19 +627,45 @@ function App() {
       });
     };
 
+    const scheduleRetry = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        compute();
+      });
+    };
+
+    const scheduleDoubleRaf = () => {
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        raf2 = requestAnimationFrame(() => {
+          raf2 = 0;
+          compute();
+        });
+      });
+    };
+
     schedule();
+    scheduleDoubleRaf();
 
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(schedule).catch(() => {});
+      document.fonts.ready.then(scheduleDoubleRaf).catch(() => {});
     }
 
-    ro = new ResizeObserver(schedule);
+    timer = window.setTimeout(schedule, 200);
+
+    ro = new ResizeObserver(scheduleDoubleRaf);
     ro.observe(el);
-    window.addEventListener('resize', schedule);
+    window.addEventListener('resize', scheduleDoubleRaf);
 
     return () => {
       if (raf) cancelAnimationFrame(raf);
-      window.removeEventListener('resize', schedule);
+      if (raf2) cancelAnimationFrame(raf2);
+      if (timer) window.clearTimeout(timer);
+      if (timer2) window.clearTimeout(timer2);
+      pendingGrow = 0;
+      window.removeEventListener('resize', scheduleDoubleRaf);
       if (ro) ro.disconnect();
     };
   }, [location.pathname]);
@@ -1076,7 +1180,7 @@ function App() {
                   fontFamily: 'var(--font-display)', fontWeight: 'var(--font-display-weight)', 
                   fontSynthesis: 'weight',
                   marginBottom: 'auto',
-                  fontSize: heroTitleFontSizePx ? `${heroTitleFontSizePx}px` : undefined,
+                  fontSize: heroTitleFontSizePx > 0 ? `${heroTitleFontSizePx}px` : undefined,
                 }}>
                   <div className="home-hero__title-line" style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
                     <DecryptText as="span" text={HOME_HERO_TITLE_LINES[0]} trigger="mount" delay={200} duration={900} />

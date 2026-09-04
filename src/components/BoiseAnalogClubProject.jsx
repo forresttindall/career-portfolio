@@ -98,7 +98,7 @@ const BoiseAnalogClubProject = () => {
     >
       <section data-header-theme="dark" style={{ position: 'relative', overflow: 'hidden', background: BLACK, color: WHITE }}>
         <div style={{ minHeight: '42vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: 'var(--spacing-lg)', padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-sm)', position: 'relative', zIndex: 1 }}>
-          <h1 className="home-hero__title" style={{ marginBottom: 'auto' }}>
+          <h1 className="project-hero__title" style={{ marginBottom: 'auto' }}>
             <div style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
               <DecryptText as="span" text="BOISE ANALOG CLUB" trigger="mount" delay={200} duration={900} />
             </div>
@@ -256,7 +256,7 @@ const BoiseAnalogClubProject = () => {
         .boise-analog-row--single .boise-analog-card { flex: 1 1 auto; }
 
         @media (max-width: 700px) {
-          .boise-analog-page .home-hero__title {
+          .boise-analog-page .project-hero__title {
             max-width: 100%;
             white-space: normal;
             overflow-wrap: anywhere;

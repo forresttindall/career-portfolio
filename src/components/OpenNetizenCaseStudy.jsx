@@ -338,7 +338,7 @@ const OpenNetizenCaseStudy = () => {
               <p style={{ fontFamily: "'SF Mono', monospace", fontSize: 11, color: BRAND_WHITE, letterSpacing: 2, margin: "0 0 14px", textTransform: "uppercase" }}>
                 FREE THE WEB
               </p>
-              <h1 className="home-hero__title" style={{ margin: 0, color: BRAND_WHITE }}>
+              <h1 className="project-hero__title" style={{ margin: 0, color: BRAND_WHITE }}>
                 <div style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
                   <DecryptText as="span" text="OPEN" trigger="mount" delay={200} duration={900} />
                 </div>
