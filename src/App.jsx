@@ -10,6 +10,7 @@ import MicronProject from './components/MicronProject';
 import Playground from './components/Playground';
 import WimProject from './components/WimProject';
 import ContinuityProject from './components/ContinuityProject';
+import CreationbaseProject from './components/CreationbaseProject';
 import DecryptText from './components/DecryptText';
 import Schema from './components/Schema';
 import { Analytics } from '@vercel/analytics/react';
@@ -25,6 +26,17 @@ const HERO_AVAILABILITY = {
   color: '#5FE37C',
 };
 const INDEX01_PROJECTS = [
+  {
+    id: 'creationbase',
+    titleLines: ['Creationbase'],
+    scope: 'Scope(Brand Identity, UI/UX, Creative Direction)',
+    primaryImage: '/images/Creationbase%20T-shirt%20Mockup.webp',
+    primaryAlt: 'Creationbase t-shirt mockup',
+    secondaryImage: '/images/creationbase%20website%20consultancy.webp',
+    secondaryAlt: 'Creationbase website consultancy mockup',
+    secondaryFallbackImage: '/images/creationbase%20logo%20new%20png.webp',
+    sideOffset: 'clamp(3rem, 8vw, 6rem)',
+  },
   {
     id: 'bac',
     titleLines: ['Boise', 'Analog Club'],
@@ -176,6 +188,13 @@ const SiteFooter = ({
 
 const projects = [
   {
+    title: "Creationbase",
+    category: "Brand Identity + UI/UX + Creative Direction",
+    image: "/images/creationbase%20website%20consultancy.webp",
+    description: "Strategic creation consultancy — www.creationbase.io",
+    year: "2026"
+  },
+  {
     title: "Boise Analog Club",
     category: "UI/UX + Product Design",
     image: "/images/new%20mockeup.webp",
@@ -197,11 +216,11 @@ const projects = [
     year: "2026"
   },
   {
-    title: "Amore",
+    title: "Arrowleaf",
     category: "UI/UX Design & Dev",
-    image: "/images/amore mockup.webp",
-    description: "Restaurant website design in figma and dev in REACT",
-    year: "2025"
+    image: "/images/arrowleaf2.webp",
+    description: "Website design in figma and dev in REACT",
+    year: "2024"
   },
   {
     title: "Clearfeed",
@@ -209,13 +228,6 @@ const projects = [
     image: "/images/clearfeed.webp",
     description: "Desktop application design in figma and dev in ELECTRON",
     year: "2025"
-  },
-  {
-    title: "Arrowleaf",
-    category: "UI/UX Design & Dev",
-    image: "/images/arrowleaf2.webp",
-    description: "Website design in figma and dev in REACT",
-    year: "2024"
   },
 ];
 
@@ -329,6 +341,10 @@ const FOOTER_CAROUSEL_IMAGES = [
   { src: '/images/wim safety shirt.webp', alt: 'WIM safety shirt mockup footer carousel image' },
   { src: '/images/wim truck mockup.webp', alt: 'WIM truck mockup footer carousel image' },
   { src: '/images/wim HAT MOCKUP.webp', alt: 'WIM hat mockup footer carousel image' },
+  { src: '/images/creationbase%20website%20consultancy.webp', alt: 'Creationbase website consultancy footer carousel image' },
+  { src: '/images/Creationbase%20T-shirt%20Mockup.webp', alt: 'Creationbase t-shirt mockup footer carousel image' },
+  { src: '/images/creationbase%20A-Board%20Mockup.webp', alt: 'Creationbase A-Board mockup footer carousel image' },
+  { src: '/images/creationbase%20consultacy%20mockup%202.webp', alt: 'Creationbase studio display footer carousel image' },
 ];
 
 const ProjectModal = ({ project, onClose }) => {
@@ -854,7 +870,8 @@ function App() {
     homeScrollYRef.current = y;
     sessionStorage.setItem('homeScrollY', String(y));
     pendingHomeScrollRestoreRef.current = true;
-    if (id === 'wim') navigate('/wim');
+    if (id === 'creationbase') navigate('/creationbase');
+    else if (id === 'wim') navigate('/wim');
     else if (id === 'continuity') navigate('/continuity');
     else if (id === 'knwnlocal') navigate('/knwnlocal');
     else if (id === 'bac') navigate('/boise-analog-club');
@@ -910,7 +927,8 @@ function App() {
 
   useEffect(() => {
     const pathname = location.pathname;
-    if (pathname === '/wim') setActiveCaseStudy('wim');
+    if (pathname === '/creationbase') setActiveCaseStudy('creationbase');
+    else if (pathname === '/wim') setActiveCaseStudy('wim');
     else if (pathname === '/fastburger') {
       setActiveCaseStudy(null);
       navigate('/', { replace: true });
@@ -1152,6 +1170,8 @@ function App() {
       >
         {activeCaseStudy === 'contact' ? (
           <Contact key="contact" />
+        ) : activeCaseStudy === 'creationbase' ? (
+          <CreationbaseProject key="creationbase" />
         ) : activeCaseStudy === 'wim' ? (
           <WimProject key="wim" />
         ) : activeCaseStudy === 'continuity' ? (

@@ -48,11 +48,20 @@ const MicronProject = () => {
 
   useEffect(() => {
     const adjustRowHeights = () => {
+      const isMobile = window.matchMedia('(max-width: 700px)').matches;
+      const maxRowH = Math.round(Math.max(480, Math.min(820, window.innerHeight * 0.72)));
+      const maxSingleRowH = Math.round(Math.max(580, Math.min(980, window.innerHeight * 0.82)));
       const rows = Array.from(document.querySelectorAll('.wim-row'));
       rows.forEach((row) => {
         const frames = Array.from(row.querySelectorAll('.wim-frame'));
         const imgs = Array.from(row.querySelectorAll('.wim-frame img'));
         if (frames.length !== imgs.length || frames.length === 0) return;
+        if (isMobile) {
+          frames.forEach((frame) => {
+            frame.style.height = '';
+          });
+          return;
+        }
         const heights = imgs.map((img, idx) => {
           const frame = frames[idx];
           const w = frame.getBoundingClientRect().width;
@@ -61,9 +70,12 @@ const MicronProject = () => {
           const ratio = naturalH / naturalW;
           return Math.max(0, Math.round(w * ratio));
         });
+        const single = row.classList.contains('wim-row--single');
+        const maxCap = single ? maxSingleRowH : maxRowH;
         const minH = Math.min(...heights);
+        const targetH = Math.min(Math.max(minH, Math.round(maxCap * 0.72)), maxCap);
         frames.forEach((frame) => {
-          frame.style.height = `${minH}px`;
+          frame.style.height = `${targetH}px`;
         });
       });
     };
@@ -93,7 +105,7 @@ const MicronProject = () => {
         <div style={{ minHeight: '42vh', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: 'var(--spacing-lg)', padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-sm)', position: 'relative', zIndex: 1 }}>
           <h1 className="project-hero__title" style={{ marginBottom: 'auto' }}>
             <div style={{ overflow: 'hidden', paddingBottom: '0.1em' }}>
-              <DecryptText as="span" text="ACCESSIBLE BY DESIGN" trigger="mount" delay={200} duration={900} />
+              <DecryptText as="span" text="Micron" trigger="mount" delay={200} duration={900} />
             </div>
           </h1>
         </div>
