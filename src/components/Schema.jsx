@@ -23,8 +23,8 @@ const Schema = ({ type = 'Organization', data = {} }) => {
       return {
         ...base,
         "@type": "Person",
-        "jobTitle": "UI/UX Designer",
-        "description": "Forrest Tindall is a UI/UX designer and fullstack creative focused on clean digital experiences, brand-aligned interfaces, and modern frontend development.",
+        "jobTitle": "Senior UI/UX, Product, and Brand Designer",
+        "description": "Forrest Tindall is a Senior UI/UX, Product, and Brand Designer building clean digital experiences, product interfaces, and brand systems end-to-end.",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Design Services",
@@ -41,16 +41,16 @@ const Schema = ({ type = 'Organization', data = {} }) => {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Frontend Development",
-                "description": "Modern frontend implementation for fast, polished, brand-aligned digital experiences."
+                "name": "Product Design",
+                "description": "End-to-end product design spanning discovery, flows, high-fidelity UI, and design systems."
               }
             },
             {
               "@type": "Offer",
               "itemOffered": {
                 "@type": "Service",
-                "name": "Brand and Visual Design",
-                "description": "Brand-aligned visual systems spanning UI, graphic design, layout, and digital presentation."
+                "name": "Brand and Identity",
+                "description": "Brand identity systems and visual language that stay consistent across digital and physical touchpoints."
               }
             }
           ]
@@ -129,18 +129,18 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         }
       });
     } else if (type === 'Organization' || type === 'LocalBusiness') {
-      document.title = 'Forrest Tindall — UI/UX Designer';
+      document.title = 'Forrest Tindall — Senior Designer';
       
       const defaults = [
-        { name: 'description', content: 'Forrest Tindall is a UI/UX designer and fullstack creative focused on clean digital experiences, brand-aligned interfaces, and modern frontend development.' },
-        { property: 'og:title', content: 'Forrest Tindall — UI/UX Designer' },
-        { property: 'og:description', content: 'Forrest Tindall is a UI/UX designer and fullstack creative focused on clean digital experiences, brand-aligned interfaces, and modern frontend development.' },
-        { property: 'og:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
-        { property: 'og:image:secure_url', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' },
-        { property: 'og:url', content: 'https://www.creationbase.io/' },
-        { name: 'twitter:title', content: 'Forrest Tindall — UI/UX Designer' },
-        { name: 'twitter:description', content: 'Forrest Tindall is a UI/UX designer and fullstack creative focused on clean digital experiences, brand-aligned interfaces, and modern frontend development.' },
-        { name: 'twitter:image', content: 'https://www.creationbase.io/images/socialshare.jpg?v=2' }
+        { name: 'description', content: 'Forrest Tindall is a Senior UI/UX, Product, and Brand Designer building clean digital experiences, product interfaces, and brand systems end-to-end.' },
+        { property: 'og:title', content: 'Forrest Tindall — Senior Designer' },
+        { property: 'og:description', content: 'Forrest Tindall is a Senior UI/UX, Product, and Brand Designer building clean digital experiences, product interfaces, and brand systems end-to-end.' },
+        { property: 'og:image', content: 'https://forresttindall.com/images/socialshare.jpg?v=3' },
+        { property: 'og:image:secure_url', content: 'https://forresttindall.com/images/socialshare.jpg?v=3' },
+        { property: 'og:url', content: 'https://forresttindall.com/' },
+        { name: 'twitter:title', content: 'Forrest Tindall — Senior Designer' },
+        { name: 'twitter:description', content: 'Forrest Tindall is a Senior UI/UX, Product, and Brand Designer building clean digital experiences, product interfaces, and brand systems end-to-end.' },
+        { name: 'twitter:image', content: 'https://forresttindall.com/images/socialshare.jpg?v=3' }
       ];
 
       defaults.forEach(update => {
