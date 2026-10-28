@@ -1,4 +1,6 @@
-const ProjectNarrative = ({ eyebrow, meta = [], sections }) => {
+import { ArrowUpRight } from '@phosphor-icons/react';
+
+const ProjectNarrative = ({ eyebrow, meta = [], sections, ctaHref, ctaLabel = 'View Live Site' }) => {
   const filteredMeta = meta.filter((item) => !String(item).trim().toUpperCase().startsWith('LOCATION('));
 
   return (
@@ -60,6 +62,15 @@ const ProjectNarrative = ({ eyebrow, meta = [], sections }) => {
             </div>
           ))}
         </div>
+
+        {ctaHref && (
+          <div style={{ display: 'flex', justifyContent: 'center', paddingTop: 'var(--spacing-sm)' }}>
+            <a className="newsletter-button" href={ctaHref} target="_blank" rel="noreferrer">
+              {ctaLabel}
+              <ArrowUpRight size={14} weight="thin" aria-hidden="true" />
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

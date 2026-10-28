@@ -69,7 +69,7 @@
 }
 
 :root {
-  --font-display: Doto, monospace;
+  --font-display: space grotesk, Doto, monospace;
   --font-display-weight: 900;
   --font-display-weight-bold: 800;
   --font-mono: 'SF Mono', monospace;

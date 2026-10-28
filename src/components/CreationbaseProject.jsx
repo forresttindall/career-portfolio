@@ -117,16 +117,6 @@ const CreationbaseProject = () => {
           <div className="small-text" style={{ marginTop: 'var(--spacing-sm)', marginBottom: 20 }}>
             <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>CREATIONBASE</span>
             <span> — STRATEGIC CREATION CONSULTANCY</span>
-            <span style={{ marginLeft: 'var(--spacing-md)' }}>
-              <a
-                href="https://www.creationbase.io"
-                target="_blank"
-                rel="noreferrer"
-                style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '3px' }}
-              >
-                WWW.CREATIONBASE.IO
-              </a>
-            </span>
           </div>
           <div className="wim-rows">
             {CREATIONBASE_IMAGES.reduce((rows, img, idx) => {
@@ -179,7 +169,7 @@ const CreationbaseProject = () => {
           </div>
         </div>
       </section>
-      <ProjectNarrative eyebrow="CREATIONBASE" meta={CREATIONBASE_NARRATIVE.meta} sections={CREATIONBASE_NARRATIVE.sections} />
+      <ProjectNarrative eyebrow="CREATIONBASE" meta={CREATIONBASE_NARRATIVE.meta} sections={CREATIONBASE_NARRATIVE.sections} ctaHref="https://www.creationbase.io" />
     </motion.div>
   );
 };

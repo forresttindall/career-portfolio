@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useLayoutEffect } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo, useLayoutEffect } from 'react';
 import { motion, AnimatePresence, useAnimationFrame, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
 import { ArrowUpRight, CopySimple } from '@phosphor-icons/react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -7,6 +7,7 @@ import KnwnLocalProject from './components/KnwnLocalProject';
 import Contact from './components/Contact';
 import RicochetProject from './components/RicochetProject';
 import MicronProject from './components/MicronProject';
+import PhotographyProject from './components/PhotographyProject';
 import Playground from './components/Playground';
 import WimProject from './components/WimProject';
 import ContinuityProject from './components/ContinuityProject';
@@ -19,13 +20,25 @@ const UI_LIGHT = 'var(--color-text)';
 const UI_DARK = 'var(--color-bg)';
 const HOME_SECTION_DIVIDER = '1px solid var(--color-border)';
 const HOME_HERO_TITLE_LINES = [
-  'Senior designer building brands, interfaces, and systems.',
+  'Senior UI/UX designer',
+  'engineering interfaces and systems.',
 ];
 const HERO_AVAILABILITY = {
   label: 'Available',
   color: '#5FE37C',
 };
 const INDEX01_PROJECTS = [
+  {
+    id: 'photography',
+    titleLines: ['Photography', 'Portfolio'],
+    scope: 'Scope(UI/UX Design, Web Design, Development)',
+    primaryImage: '/images/1.webp',
+    primaryAlt: 'Photography portfolio website design',
+    secondaryImage: '/images/2.webp',
+    secondaryAlt: 'Photography portfolio website layout',
+    secondaryFallbackImage: '/images/3.webp',
+    sideOffset: 'clamp(3rem, 8vw, 6rem)',
+  },
   {
     id: 'creationbase',
     titleLines: ['Creationbase'],
@@ -79,16 +92,6 @@ const INDEX01_PROJECTS = [
     secondaryImage: '/images/continuity/app.webp',
     secondaryAlt: 'Continuity app',
     secondaryFallbackImage: '/images/continuity/TSHIRT%20MOCKUP.webp',
-    sideOffset: 'clamp(2rem, 7vw, 5rem)',
-  },
-  {
-    id: 'micron',
-    titleLines: ['Micron'],
-    scope: 'Scope(Environmental Signage, ADA Systems)',
-    primaryImage: '/images/bathroom.webp',
-    primaryAlt: 'Micron bathroom ADA signage',
-    secondaryImage: '/images/lobby.webp',
-    secondaryAlt: 'Micron lobby environmental signage',
     sideOffset: 'clamp(2rem, 7vw, 5rem)',
   },
 ];
@@ -311,11 +314,11 @@ const testimonials = [
 ];
 
 const WORK_HISTORY = [
-  { year: '2026', company: 'Foundway', role: 'Senior Designer', current: true },
-  { year: '2026', company: 'MOX Collective', role: 'UI/UX Designer', current: true },
-    { year: '2022', company: 'Creationbase', role: 'Creative Director', current: true },
+  { year: '2026', company: 'Likuid Studios', role: 'Design Engineer', current: true },
+  { year: '2026', company: 'MOX Collective', role: 'Senior UI/UX Designer', current: true },
+  { year: '2022', company: 'Creationbase', role: 'Creative Director', current: true },
+  { year: '2026', company: 'Foundway', role: 'Senior Designer' },
   { year: '2026', company: 'Electric Fun', role: 'UI/UX Designer' },
-  { year: '2026', company: 'CMYK Graphics', role: 'Graphic Designer' },
   { year: '2025', company: 'Superbase', role: 'UI/UX Designer' },
 
 ];
@@ -466,6 +469,11 @@ const ProjectModal = ({ project, onClose }) => {
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
   const heroTitleRef = useRef(null);
+  const [heroTitleEl, setHeroTitleEl] = useState(null);
+  const setHeroTitleNode = useCallback((node) => {
+    heroTitleRef.current = node;
+    setHeroTitleEl(node);
+  }, []);
   const lastValidHeroFontSizePxRef = useRef(0);
   const [heroTitleFontSizePx, setHeroTitleFontSizePx] = useState(0);
   const [, setHeaderTheme] = useState(() => {
@@ -684,7 +692,7 @@ function App() {
       window.removeEventListener('resize', scheduleDoubleRaf);
       if (ro) ro.disconnect();
     };
-  }, [location.pathname]);
+  }, [location.pathname, heroTitleEl]);
 
   useEffect(() => {
     setMobileNavOpen(false);
@@ -877,6 +885,7 @@ function App() {
     else if (id === 'bac') navigate('/boise-analog-club');
     else if (id === 'ricochet') navigate('/ricochet');
     else if (id === 'micron') navigate('/micron');
+    else if (id === 'photography') navigate('/photography');
     else if (id === 'playground') navigate('/playground');
   };
 
@@ -938,6 +947,7 @@ function App() {
     else if (pathname === '/boise-analog-club') setActiveCaseStudy('bac');
     else if (pathname === '/ricochet') setActiveCaseStudy('ricochet');
     else if (pathname === '/micron') setActiveCaseStudy('micron');
+    else if (pathname === '/photography') setActiveCaseStudy('photography');
     else if (pathname === '/playground') setActiveCaseStudy('playground');
     else if (pathname === '/contact') setActiveCaseStudy('contact');
     else if (
@@ -951,7 +961,6 @@ function App() {
       pathname.startsWith('/material-lab/') ||
       pathname === '/tools' ||
       pathname.startsWith('/tools/') ||
-      pathname === '/photography' ||
       pathname === '/gallery' ||
       pathname === '/worksharp'
     ) {
@@ -1184,6 +1193,8 @@ function App() {
           <RicochetProject key="ricochet" />
         ) : activeCaseStudy === 'micron' ? (
           <MicronProject key="micron" />
+        ) : activeCaseStudy === 'photography' ? (
+          <PhotographyProject key="photography" />
         ) : activeCaseStudy === 'playground' ? (
           <Playground key="playground" />
         ) : (
@@ -1196,7 +1207,7 @@ function App() {
             {/* Hero */}
             <section data-header-theme="light" style={{ position: 'relative', overflow: 'hidden', background: UI_DARK, color: UI_LIGHT, borderBottom: HOME_SECTION_DIVIDER }}>
               <div style={{ minHeight: 'var(--home-hero-min-h)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: 'var(--spacing-lg)', padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-sm)', position: 'relative', zIndex: 1 }}>
-                <h1 className="home-hero__title" ref={heroTitleRef} style={{ 
+                <h1 className="home-hero__title" ref={setHeroTitleNode} style={{ 
                   fontFamily: 'var(--font-display)', fontWeight: 'var(--font-display-weight)', 
                   fontSynthesis: 'weight',
                   marginBottom: 'auto',
@@ -1227,11 +1238,11 @@ function App() {
                         <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall</span>
                         <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: 'var(--color-text)', display: 'inline-block', flex: '0 0 auto' }} />
                       </div>
-                      <div className="home-hero__meta-bottom">Senior Designer</div>
+                      <div className="home-hero__meta-bottom">Senior Design Engineer</div>
                     </div>
                     <div className="home-hero__identity-mobile">
                       <div style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall •</div>
-                      <div>Senior Designer</div>
+                      <div>Senior Design Engineer</div>
                     </div>
                   </div>
                   <div className="small-text home-hero__services home-hero__meta-col" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2, textAlign: 'center', fontWeight: 'var(--font-mono-weight-bold)' }}>
@@ -1586,13 +1597,13 @@ function App() {
                       <div className="studio-practice__copy">
                         <div className="studio-practice__team-meta" style={{ marginBottom: 'var(--spacing-md)', alignSelf: 'start', justifySelf: 'start', textAlign: 'left' }}>
                           <div className="studio-practice__team-name">Forrest Tindall</div>
-                          <div className="studio-practice__team-role">Senior Designer / UI/UX</div>
+                          <div className="studio-practice__team-role">Senior UI/UX Designer / Design Engineer / Creative Director</div>
                         </div>
                         <div className="small-text" style={{ maxWidth: '640px', lineHeight: 1.6 }}>
-                          I am a UI/UX and product designer who builds. My path into tech started in blue-collar work, an environment that taught me how to solve practical, real-world problems under pressure. Today, I apply that same grounded, no-nonsense work ethic to digital products, translating complex user needs into clean, functional interfaces and production-ready code.
+                          I am a Senior UI/UX designer and design engineer who builds. My path into tech started in blue-collar work, an environment that taught me how to solve practical, real-world problems under pressure. Today, I apply that same grounded, no-nonsense work ethic to digital products, translating complex user needs into clean, functional interfaces and production-ready code.
                         </div>
                         <div className="small-text" style={{ maxWidth: '640px', marginTop: 'var(--spacing-md)', lineHeight: 1.6 }}>
-                          Based in Boise, Idaho, I operate across the entire product lifecycle, bridging the gap between high-fidelity visual systems and technical implementation.
+                          Based in Boise, Idaho, I operate across the entire product lifecycle, bridging the gap between high-fidelity visual systems and technical implementation. Alongside my client and product work, I am the Creative Director of Creationbase, my own design and development studio where I lead brand, product, and front-end work end to end.
                         </div>
                         <div className="small-text" style={{ maxWidth: '640px', marginTop: 'var(--spacing-lg)', fontWeight: 'var(--font-mono-weight-bold)' }}>
                           Focus Areas
@@ -1662,6 +1673,38 @@ function App() {
                             </div>
                             <div className="small-text" style={{ marginTop: 'var(--spacing-sm)', opacity: 0.85 }}>
                               Experiments in design, art, development, and image-making.
+                            </div>
+                          </div>
+                          <div className="passion-projects-item passion-projects-item--full">
+                            <div className="flex" style={{ justifyContent: 'space-between', alignItems: 'baseline', gap: 'var(--spacing-md)' }}>
+                              <div className="small-text">PHOTOGRAPHY</div>
+                              <motion.a
+                                href="https://www.forresttindall.art"
+                                target="_blank"
+                                rel="noreferrer"
+                                whileHover={{ opacity: 0.7 }}
+                                style={{
+                                  background: 'none',
+                                  border: 'none',
+                                  padding: 0,
+                                  cursor: 'pointer',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: 'var(--spacing-sm)',
+                                  fontFamily: 'var(--font-mono)',
+                                  fontWeight: 'var(--font-mono-weight)',
+                                  fontSize: 'var(--fs-sm)',
+                                  textTransform: 'uppercase',
+                                  color: UI_LIGHT,
+                                  textDecoration: 'none',
+                                }}
+                              >
+                                [VIEW]
+                                <ArrowUpRight size={20} weight="thin" aria-hidden="true" focusable="false" />
+                              </motion.a>
+                            </div>
+                            <div className="small-text" style={{ marginTop: 'var(--spacing-sm)', opacity: 0.85 }}>
+                              Analog and street photography portfolio.
                             </div>
                           </div>
                         </div>

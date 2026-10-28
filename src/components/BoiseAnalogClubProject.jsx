@@ -169,7 +169,7 @@ const BoiseAnalogClubProject = () => {
         </div>
       </section>
 
-      <ProjectNarrative eyebrow="BOISE ANALOG CLUB" meta={BOISE_ANALOG_CLUB_NARRATIVE.meta} sections={BOISE_ANALOG_CLUB_NARRATIVE.sections} />
+      <ProjectNarrative eyebrow="BOISE ANALOG CLUB" meta={BOISE_ANALOG_CLUB_NARRATIVE.meta} sections={BOISE_ANALOG_CLUB_NARRATIVE.sections} ctaHref="https://www.boiseanalogclub.com" />
 
       <style>{`
         .boise-analog-rows {
