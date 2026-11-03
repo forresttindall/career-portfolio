@@ -14,7 +14,7 @@ const MICRON_IMAGES = [
 ];
 
 const MICRON_NARRATIVE = {
-  meta: ['LOCATION( Boise, ID )', 'ROLE( Lead Environmental Graphic Designer )', 'TECH( Adobe Illustrator, CAD, Industrial Production Standards )'],
+  meta: ['ROLE( Lead Environmental Graphic Designer )', 'TECH( Adobe Illustrator, CAD, Industrial Production Standards )'],
   sections: [
     {
       label: 'Context',
@@ -27,10 +27,6 @@ const MICRON_NARRATIVE = {
     {
       label: 'Process',
       text: 'I mapped the signage requirements, designed the system around legibility and durability, and worked through how each sign type would integrate with the building materials and circulation paths.',
-    },
-    {
-      label: 'Proposal',
-      text: 'The proposal was a unified environmental graphics system that made navigation easier, kept compliance intact, and maintained a restrained, high-tech aesthetic throughout the campus.',
     },
     {
       label: 'Result',

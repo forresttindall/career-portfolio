@@ -13,9 +13,8 @@ const VOZEY_IMAGES = [
 
 const VOZEY_NARRATIVE = {
   meta: [
-    'LOCATION( Boise, ID / Remote )',
     'ROLE( Lead UI/UX Designer )',
-    'TECH( Framer, Design System, Prototyping )',
+    'TECH( Framer )',
   ],
   sections: [
     {
@@ -29,10 +28,6 @@ const VOZEY_NARRATIVE = {
     {
       label: 'Process',
       text: 'As lead UI/UX designer I mapped the episode lifecycle, defined the interface hierarchy, and built the core screens and interaction patterns in Framer.',
-    },
-    {
-      label: 'Proposal',
-      text: 'The proposal centered on a calm, restrained interface: clear episode states, a consistent component system, and motion used only where it reinforced what the software was doing.',
     },
     {
       label: 'Result',

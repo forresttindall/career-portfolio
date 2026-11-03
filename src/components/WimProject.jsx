@@ -19,7 +19,7 @@ const WIM_IMAGES =
 ];
 
 const WIM_NARRATIVE = {
-  meta: ['ROLE( Product Designer + Brand Designer )', 'SCOPE( Identity System, Software App UI/UX Design )'],
+  meta: ['ROLE( Lead Product Designer )', 'TECH( Trae, React, Vercel )'],
   sections: [
     {
       label: 'Context',
@@ -32,10 +32,6 @@ const WIM_NARRATIVE = {
     {
       label: 'Process',
       text: "I built the direction around the idea of clarity in chaos, refining the identity, testing recognition across apparel and fleet graphics, and shaping the UI for rugged mobile use.",
-    },
-    {
-      label: 'Proposal',
-      text: "The solution centered on a bold geometric brand system paired with high-contrast interface patterns that made key interactions easier to read and faster to act on.",
     },
     {
       label: 'Result',

@@ -13,9 +13,8 @@ const KNWNLOCAL_IMAGES = [
 
 const KNWNLOCAL_NARRATIVE = {
   meta: [
-    'ROLE( UI/UX Designer + Developer )',
-    'SCOPE( Marketing Website, Design System, CMS Editing Workflow )',
-    'TECH( Next.js, Tailwind CSS, Sanity, Claude API, Vercel )',
+    'ROLE( Lead Design Engineer )',
+    'TECH( Next.js, Sanity, Claude API, Tailwind, Vercel )',
   ],
   sections: [
     {
@@ -29,10 +28,6 @@ const KNWNLOCAL_NARRATIVE = {
     {
       label: 'Process',
       text: 'I redesigned the UI/UX around reusable marketing sections, established design-system rules for layout and voice, and mapped those constraints into an AI-assisted content editing workflow.',
-    },
-    {
-      label: 'Proposal',
-      text: 'The solution paired a refreshed Next.js marketing site with Sanity content modeling, Claude AI-assisted editing, and a publishing flow that can generate structured updates and send them live.',
     },
     {
       label: 'Result',

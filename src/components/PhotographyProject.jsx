@@ -14,7 +14,7 @@ const PHOTOGRAPHY_IMAGES = [
 ];
 
 const PHOTOGRAPHY_NARRATIVE = {
-  meta: ['ROLE( UI/UX Designer + Design Engineer )', 'SCOPE( Web Design, Development )'],
+  meta: ['ROLE( Lead UI/UX Designer )', 'TECH( Framer )'],
   sections: [
     {
       label: 'Context',
@@ -27,10 +27,6 @@ const PHOTOGRAPHY_NARRATIVE = {
     {
       label: 'Process',
       text: 'I designed and built the experience end to end — layout, type system, image grid, and navigation — then implemented it with performance-focused front-end code.',
-    },
-    {
-      label: 'Proposal',
-      text: 'The direction centered on a minimal, editorial layout that lets full-bleed photographs carry the page, supported by restrained interface elements and considered motion.',
     },
     {
       label: 'Result',

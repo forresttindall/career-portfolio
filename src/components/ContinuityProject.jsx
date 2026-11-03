@@ -15,7 +15,7 @@ const CONTINUITY_IMAGES = [
 ];
 
 const CONTINUITY_NARRATIVE = {
-  meta: ['LOCATION( Boise, ID / Remote )', 'ROLE( Lead Product Designer + Brand Strategist )', 'TECH( Figma, React, Framer Motion, GSAP )'],
+  meta: ['ROLE( Lead Product Designer + Brand Strategist )', 'TECH( Figma, React, Framer Motion, GSAP )'],
   sections: [
     {
       label: 'Context',
@@ -28,10 +28,6 @@ const CONTINUITY_NARRATIVE = {
     {
       label: 'Process',
       text: 'I developed the visual language in Figma, translated that logic into a React build, and used motion studies to test how the interface could reinforce the idea of continuity.',
-    },
-    {
-      label: 'Proposal',
-      text: 'The proposal focused on a minimalist grid system, restrained motion feedback, and a digital identity that made performance and clarity feel like part of the brand.',
     },
     {
       label: 'Result',

@@ -15,7 +15,7 @@ const OPEN_NETIZEN_IMAGES = [
 ];
 
 const OPEN_NETIZEN_NARRATIVE = {
-  meta: ['LOCATION( Boise, ID / Remote )', 'ROLE( Lead Brand Strategist, UI/UX Designer + Full-Stack Developer )', 'TECH( Figma, Adobe CC, React, Vite, Framer Motion )'],
+  meta: ['ROLE( Lead Brand Strategist, UI/UX Designer + Full-Stack Developer )', 'TECH( Figma, Adobe CC, React, Vite, Framer Motion )'],
   sections: [
     {
       label: 'Context',
@@ -28,10 +28,6 @@ const OPEN_NETIZEN_NARRATIVE = {
     {
       label: 'Process',
       text: 'I used the 4 Cs framework to connect the brand to the history of the open web, clarify the message, shape trust through accessible design, and build the site around intuitive interactions.',
-    },
-    {
-      label: 'Proposal',
-      text: 'The proposal combined a more authoritative identity system with a high-performance, thumb-friendly website that could serve as both a source of truth and an action-oriented hub.',
     },
     {
       label: 'Result',

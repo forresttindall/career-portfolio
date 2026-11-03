@@ -14,7 +14,7 @@ const CREATIONBASE_IMAGES = [
 ];
 
 const CREATIONBASE_NARRATIVE = {
-  meta: ['LOCATION( Boise, ID / Remote )', 'ROLE( Founder — Brand Identity, UI/UX, Creative Direction )', 'TECH( Figma, React, Framer Motion )'],
+  meta: ['ROLE( Design Engineer, Brand Designer )', 'TECH( Figma, React, Framer Motion )'],
   sections: [
     {
       label: 'Context',
@@ -27,10 +27,6 @@ const CREATIONBASE_NARRATIVE = {
     {
       label: 'Process',
       text: 'I developed the visual identity system in parallel with the website structure, treating the UI as both a delivery medium and a brand surface. Motion, typography, and asset behavior were prototyped together rather than siloed into separate deliverables.',
-    },
-    {
-      label: 'Proposal',
-      text: 'The proposal centered on a minimalist but high-contrast typographic system, a tight motion vocabulary, and a set of modular brand assets (apparel, signage, collateral) that prove the identity works at every physical and digital scale.',
     },
     {
       label: 'Result',

@@ -15,9 +15,8 @@ const BOISE_ANALOG_CLUB_IMAGES = [
 
 const BOISE_ANALOG_CLUB_NARRATIVE = {
   meta: [
-    'ROLE( Brand Designer + UI/UX Designer + Developer )',
-    'SCOPE( Identity, Website, Newsletter, Event Promotion )',
-    'TECH( Figma, React, Vite, Framer Motion )',
+    'ROLE( Lead Design Engineer, Brand Designer )',
+    'TECH( Trae, React )',
   ],
   sections: [
     {
@@ -31,10 +30,6 @@ const BOISE_ANALOG_CLUB_NARRATIVE = {
     {
       label: 'Process',
       text: 'I developed a sharper visual system, designed campaign and editorial assets, and translated that direction into a responsive website built to promote events and keep the club visible between drops.',
-    },
-    {
-      label: 'Proposal',
-      text: 'The solution combined a flexible identity, social and newsletter-ready promotional assets, and a mobile-friendly site that could highlight programming, reinforce tone, and grow the audience over time.',
     },
     {
       label: 'Result',
