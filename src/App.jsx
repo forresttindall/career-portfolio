@@ -14,12 +14,36 @@ import ContinuityProject from './components/ContinuityProject';
 import VozeyProject from './components/VozeyProject';
 import CreationbaseProject from './components/CreationbaseProject';
 import DecryptText from './components/DecryptText';
+import ActivityCalendar from './components/ActivityCalendar';
+import TechIcon from './components/TechIcon';
 import Schema from './components/Schema';
 import { Analytics } from '@vercel/analytics/react';
 
 const UI_LIGHT = 'var(--color-text)';
 const UI_DARK = 'var(--color-bg)';
 const HOME_SECTION_DIVIDER = '1px solid var(--color-border)';
+const TECH_STACK = [
+  'Figma',
+  'Framer',
+  'Trae',
+  'Claude',
+  'Adobe',
+  'Affinity',
+  'React',
+  'Next.js',
+  'Sanity',
+  'Node',
+  'Vite',
+  'Bun',
+  'Framer Motion',
+  'Vercel',
+  'TypeScript',
+  'Tailwind',
+  'Three.js',
+  'Electron',
+  'Firebase',
+  'Stripe',
+];
 const HOME_HERO_TITLE_LINES = [
   'Senior UI/UX designer',
   'engineering interfaces and systems.',
@@ -1461,7 +1485,7 @@ function App() {
               </div>
             </section>
 
-            <section id="resume" style={{ padding: 'var(--spacing-xxl) var(--spacing-md)', background: UI_DARK, color: UI_LIGHT }}>
+            <section id="resume" style={{ padding: 'var(--spacing-xxl) var(--spacing-md)', paddingBottom: 'calc(var(--spacing-xxl) + var(--spacing-lg))', background: UI_DARK, color: UI_LIGHT }}>
               <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
                 <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
                   <DecryptText as="span" text="RESUME" trigger="inView" duration={800} />
@@ -1506,6 +1530,23 @@ function App() {
               </div>
 
               <div style={{ marginTop: 'var(--spacing-xl)' }}>
+                <span className="small-text" style={{ display: 'block', marginBottom: 'var(--spacing-md)' }}>GITHUB</span>
+                <ActivityCalendar />
+              </div>
+
+              <div style={{ marginTop: 'var(--spacing-xl)' }}>
+                <span className="small-text" style={{ display: 'block', marginBottom: 'var(--spacing-md)' }}>TECH STACK</span>
+                <div className="tech-stack">
+                  {TECH_STACK.map((tech) => (
+                    <div key={tech} style={{ display: 'flex', alignItems: 'center', gap: '10px', minWidth: 0 }}>
+                      <TechIcon name={tech} size={16} />
+                      <span style={{ overflowWrap: 'anywhere' }}>{tech}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div style={{ marginTop: 'calc(var(--spacing-xxl) + var(--spacing-lg))' }}>
                 <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
                   <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
                     <DecryptText as="span" text="TESTIMONIALS" trigger="inView" duration={800} />
@@ -1515,7 +1556,7 @@ function App() {
 
                 <div style={{
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(300px, 100%), 1fr))',
                   gap: 'var(--spacing-lg)',
                   alignItems: 'start',
                 }}>

@@ -2409,7 +2409,26 @@ body.wim-info-open .site-nav__menu-label::after {
   overflow-wrap: anywhere;
 }
 
-@media (max-width: 700px) {
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--spacing-md);
+  font-family: var(--font-mono);
+  font-weight: var(--font-mono-weight);
+  font-size: clamp(12px, 1.05vw, 16px);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 639px) {
+  .tech-stack {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-sm);
+  }
+}
+
+@media (max-width: 860px) {
   .resume-timeline {
     grid-template-columns: 1fr;
     gap: 0;
