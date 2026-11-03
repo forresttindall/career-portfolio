@@ -1722,6 +1722,38 @@ function App() {
                               Analog and street photography portfolio.
                             </div>
                           </div>
+                          <div className="passion-projects-item passion-projects-item--full">
+                            <div className="flex" style={{ justifyContent: 'space-between', alignItems: 'baseline', gap: 'var(--spacing-md)' }}>
+                              <div className="small-text">BOISE ANALOG CLUB</div>
+                              <motion.a
+                                href="https://www.boiseanalogclub.com"
+                                target="_blank"
+                                rel="noreferrer"
+                                whileHover={{ opacity: 0.7 }}
+                                style={{
+                                  background: 'none',
+                                  border: 'none',
+                                  padding: 0,
+                                  cursor: 'pointer',
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  gap: 'var(--spacing-sm)',
+                                  fontFamily: 'var(--font-mono)',
+                                  fontWeight: 'var(--font-mono-weight)',
+                                  fontSize: 'var(--fs-sm)',
+                                  textTransform: 'uppercase',
+                                  color: UI_LIGHT,
+                                  textDecoration: 'none',
+                                }}
+                              >
+                                [VIEW]
+                                <ArrowUpRight size={20} weight="thin" aria-hidden="true" focusable="false" />
+                              </motion.a>
+                            </div>
+                            <div className="small-text" style={{ marginTop: 'var(--spacing-sm)', opacity: 0.85 }}>
+                              Boise film photography community, events, and print zines.
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
