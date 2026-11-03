@@ -16,7 +16,7 @@ const BOISE_ANALOG_CLUB_IMAGES = [
 const BOISE_ANALOG_CLUB_NARRATIVE = {
   meta: [
     'ROLE( Lead Design Engineer, Brand Designer )',
-    'TECH( Trae, React, Vercel )',
+    'TECH( Figma, Trae, React, Vercel )',
   ],
   sections: [
     {

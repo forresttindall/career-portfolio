@@ -14,7 +14,7 @@ const KNWNLOCAL_IMAGES = [
 const KNWNLOCAL_NARRATIVE = {
   meta: [
     'ROLE( Lead Design Engineer )',
-    'TECH( Next.js, Sanity, Claude API, Tailwind, Vercel )',
+    'TECH( Figma, Trae, Next.js, Sanity, Claude API, Tailwind, Vercel )',
   ],
   sections: [
     {

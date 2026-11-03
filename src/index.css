@@ -608,10 +608,6 @@ ul {
   gap: 0;
 }
 
-.footer-shell--tracker {
-  padding-right: calc(var(--spacing-md) + 280px) !important;
-}
-
 .footer-top {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
@@ -761,10 +757,6 @@ ul {
     width: 100%;
   }
 
-  .footer-shell--tracker {
-    padding-right: var(--spacing-md) !important;
-  }
-
   .footer-top {
     grid-template-columns: 1fr;
   }
@@ -776,12 +768,6 @@ ul {
 
   .contact-grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 1100px) {
-  .footer-shell--tracker {
-    padding-right: var(--spacing-md) !important;
   }
 }
 

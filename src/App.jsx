@@ -99,7 +99,6 @@ const INDEX01_PROJECTS = [
 
 const SiteFooter = ({
   onContactClick,
-  reserveRightRail = false,
 }) => {
   const [emailCopied, setEmailCopied] = useState(false);
   const shuffledFooterImages = useMemo(() => {
@@ -133,7 +132,7 @@ const SiteFooter = ({
       transition={{ duration: 0.8 }}
       style={{ position: 'relative', overflow: 'hidden', background: UI_DARK }}
     >
-      <div className={`footer-shell${reserveRightRail ? ' footer-shell--tracker' : ''}`} style={{ padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-xxl)', minHeight: '80vh', position: 'relative', zIndex: 1 }}>
+      <div className="footer-shell" style={{ padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-xxl)', minHeight: '80vh', position: 'relative', zIndex: 1 }}>
         <div className="footer-top">
           <div className="footer-cta">
             <div>
@@ -1764,10 +1763,7 @@ function App() {
           </motion.div>
         )}
       </AnimatePresence>
-      <SiteFooter
-        onContactClick={openContact}
-        reserveRightRail={activeCaseStudy === 'bac'}
-      />
+      <SiteFooter onContactClick={openContact} />
       <Analytics />
     </div>
   );

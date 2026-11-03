@@ -14,7 +14,7 @@ const CREATIONBASE_IMAGES = [
 ];
 
 const CREATIONBASE_NARRATIVE = {
-  meta: ['ROLE( Design Engineer, Brand Designer )', 'TECH( Figma, React, Framer Motion )'],
+  meta: ['ROLE( Design Engineer, Brand Designer )', 'TECH( Figma, Trae, React, Framer Motion, Vercel )'],
   sections: [
     {
       label: 'Context',

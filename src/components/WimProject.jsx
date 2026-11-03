@@ -19,7 +19,7 @@ const WIM_IMAGES =
 ];
 
 const WIM_NARRATIVE = {
-  meta: ['ROLE( Lead Product Designer )', 'TECH( Trae, React, Vercel )'],
+  meta: ['ROLE( Lead Product Designer )', 'TECH( Figma, Trae, React, Vercel )'],
   sections: [
     {
       label: 'Context',
