@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback, useMemo, useLayoutEffect } from 'react';
 import { motion, AnimatePresence, useAnimationFrame, useMotionValue, useReducedMotion, useScroll, useSpring, useTransform, useVelocity } from 'framer-motion';
-import { ArrowUpRight, CopySimple } from '@phosphor-icons/react';
+import { ArrowUpRight, CopySimple, GithubLogo } from '@phosphor-icons/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import BoiseAnalogClubProject from './components/BoiseAnalogClubProject';
 import KnwnLocalProject from './components/KnwnLocalProject';
@@ -11,6 +11,7 @@ import PhotographyProject from './components/PhotographyProject';
 import Playground from './components/Playground';
 import WimProject from './components/WimProject';
 import ContinuityProject from './components/ContinuityProject';
+import VozeyProject from './components/VozeyProject';
 import CreationbaseProject from './components/CreationbaseProject';
 import DecryptText from './components/DecryptText';
 import Schema from './components/Schema';
@@ -84,14 +85,14 @@ const INDEX01_PROJECTS = [
     sideOffset: 'clamp(2rem, 7vw, 5rem)',
   },
   {
-    id: 'continuity',
-    titleLines: ['Continuity'],
-    scope: 'Scope(Identity, App UI/UX Design)',
-    primaryImage: '/images/continuity/screens.webp',
-    primaryAlt: 'Continuity screens',
-    secondaryImage: '/images/continuity/app.webp',
-    secondaryAlt: 'Continuity app',
-    secondaryFallbackImage: '/images/continuity/TSHIRT%20MOCKUP.webp',
+    id: 'vozey',
+    titleLines: ['Vozey'],
+    scope: 'Scope(Product UI/UX, Design System, Prototyping)',
+    primaryImage: '/images/Vozey/vozey-2.webp',
+    primaryAlt: 'Vozey podcast production software interface',
+    secondaryImage: '/images/Vozey/vozey-2-copy.webp',
+    secondaryAlt: 'Vozey product screens',
+    secondaryFallbackImage: '/images/Vozey/vozey-2.webp',
     sideOffset: 'clamp(2rem, 7vw, 5rem)',
   },
 ];
@@ -145,6 +146,15 @@ const SiteFooter = ({
                   <CopySimple size={14} weight="regular" aria-hidden="true" />
                   {emailCopied ? 'Email Copied' : 'Copy Email Address'}
                 </button>
+                <a
+                  className="newsletter-button newsletter-button--outline footer-cta__secondary"
+                  href="https://github.com/forresttindall"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <GithubLogo size={14} weight="regular" aria-hidden="true" />
+                  GitHub
+                </a>
               </div>
             </div>
           </div>
@@ -154,6 +164,7 @@ const SiteFooter = ({
               <li><a href="/contact" onClick={(ev) => { ev.preventDefault(); onContactClick(); }}>CONTACT FORM</a></li>
               <li><a href="https://instagram.com/creationbase.io" target="_blank" rel="noreferrer">INSTAGRAM</a></li>
               <li><a href="https://www.linkedin.com/company/creationbaseio/" target="_blank" rel="noreferrer">LINKEDIN</a></li>
+              <li><a href="https://github.com/forresttindall" target="_blank" rel="noreferrer">GITHUB</a></li>
             </ul>
           </div>
         </div>
@@ -881,6 +892,7 @@ function App() {
     if (id === 'creationbase') navigate('/creationbase');
     else if (id === 'wim') navigate('/wim');
     else if (id === 'continuity') navigate('/continuity');
+    else if (id === 'vozey') navigate('/vozey');
     else if (id === 'knwnlocal') navigate('/knwnlocal');
     else if (id === 'bac') navigate('/boise-analog-club');
     else if (id === 'ricochet') navigate('/ricochet');
@@ -943,6 +955,7 @@ function App() {
       navigate('/', { replace: true });
     }
     else if (pathname === '/continuity') setActiveCaseStudy('continuity');
+    else if (pathname === '/vozey') setActiveCaseStudy('vozey');
     else if (pathname === '/knwnlocal') setActiveCaseStudy('knwnlocal');
     else if (pathname === '/boise-analog-club') setActiveCaseStudy('bac');
     else if (pathname === '/ricochet') setActiveCaseStudy('ricochet');
@@ -1185,6 +1198,8 @@ function App() {
           <WimProject key="wim" />
         ) : activeCaseStudy === 'continuity' ? (
           <ContinuityProject key="continuity" />
+        ) : activeCaseStudy === 'vozey' ? (
+          <VozeyProject key="vozey" />
         ) : activeCaseStudy === 'bac' ? (
           <BoiseAnalogClubProject key="bac" />
         ) : activeCaseStudy === 'knwnlocal' ? (

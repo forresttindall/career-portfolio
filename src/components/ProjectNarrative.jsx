@@ -54,7 +54,9 @@ const ProjectNarrative = ({ eyebrow, meta = [], sections, ctaHref, ctaLabel = 'V
                   margin: 0,
                   color: 'var(--color-text-muted)',
                   lineHeight: 1.6,
-                  fontSize: 'var(--fs-md)',
+                  fontFamily: 'var(--font-mono)',
+                  textTransform: 'uppercase',
+                  fontSize: 'var(--fs-sm)',
                 }}
               >
                 {section.text}
