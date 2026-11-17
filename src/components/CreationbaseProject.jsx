@@ -7,10 +7,15 @@ const BLACK = 'var(--color-bg)';
 const WHITE = 'var(--color-text)';
 
 const CREATIONBASE_IMAGES = [
-  { src: '/images/creationbase%20website%20consultancy.webp', alt: 'Creationbase website consultancy mockup' },
-  { src: '/images/Creationbase%20T-shirt%20Mockup.webp', alt: 'Creationbase t-shirt mockup' },
-  { src: '/images/creationbase%20A-Board%20Mockup.webp', alt: 'Creationbase A-Board mockup' },
-  { src: '/images/creationbase%20consultacy%20mockup%202.webp', alt: 'Creationbase studio display website mockup' },
+  { src: '/images/creationbase%20project/1.webp', alt: 'Creationbase website mockup' },
+  { src: '/images/creationbase%20project/2.mp4', alt: 'Creationbase animated logo', video: true },
+  { src: '/images/creationbase%20project/mockup-4.webp', alt: 'Creationbase website on MacBook Pro mockup' },
+  { src: '/images/creationbase%20project/mockup-5.webp', alt: 'Creationbase website on MacBook Pro mockup' },
+  { src: '/images/creationbase%20project/mockup-6.webp', alt: 'Creationbase website on MacBook Pro mockup' },
+  { src: '/images/creationbase%20project/mockup-7.webp', alt: 'Creationbase website on MacBook Pro mockup' },
+  { src: '/images/creationbase%20project/mockup-9.webp', alt: 'Creationbase website on MacBook Pro mockup' },
+  { src: '/images/creationbase%20project/mockup-10.webp', alt: 'Creationbase website on MacBook Pro mockup' },
+  { src: '/images/creationbase%20project/mockup-11.webp', alt: 'Creationbase website on MacBook Pro mockup' },
 ];
 
 const CREATIONBASE_NARRATIVE = {
@@ -50,7 +55,7 @@ const CreationbaseProject = () => {
       const rows = Array.from(document.querySelectorAll('.wim-row'));
       rows.forEach((row) => {
         const frames = Array.from(row.querySelectorAll('.wim-frame'));
-        const imgs = Array.from(row.querySelectorAll('.wim-frame img'));
+        const imgs = Array.from(row.querySelectorAll('.wim-frame img, .wim-frame video'));
         if (frames.length !== imgs.length || frames.length === 0) return;
         if (isMobile) {
           frames.forEach((frame) => {
@@ -61,8 +66,8 @@ const CreationbaseProject = () => {
         const heights = imgs.map((img, idx) => {
           const frame = frames[idx];
           const w = frame.getBoundingClientRect().width;
-          const naturalW = img.naturalWidth || w;
-          const naturalH = img.naturalHeight || w;
+          const naturalW = img.naturalWidth || img.videoWidth || w;
+          const naturalH = img.naturalHeight || img.videoHeight || w;
           const ratio = naturalH / naturalW;
           return Math.max(0, Math.round(w * ratio));
         });
@@ -76,13 +81,15 @@ const CreationbaseProject = () => {
       });
     };
     const onLoad = (ev) => {
-      if (ev && ev.target && ev.target.tagName === 'IMG') adjustRowHeights();
+      if (ev && ev.target && (ev.target.tagName === 'IMG' || ev.target.tagName === 'VIDEO')) adjustRowHeights();
     };
     document.addEventListener('load', onLoad, true);
+    document.addEventListener('loadedmetadata', onLoad, true);
     window.addEventListener('resize', adjustRowHeights);
     const raf = requestAnimationFrame(adjustRowHeights);
     return () => {
       document.removeEventListener('load', onLoad, true);
+      document.removeEventListener('loadedmetadata', onLoad, true);
       window.removeEventListener('resize', adjustRowHeights);
       cancelAnimationFrame(raf);
     };
@@ -138,6 +145,24 @@ const CreationbaseProject = () => {
                       >
                         <div className={`wim-frame${isLoaded ? ' wim-frame--loaded' : ' wim-frame--loading'}`}>
                           <div className="wim-skeleton" aria-hidden="true" />
+                          {image.video ? (
+                          <video
+                            className="wim-img"
+                            src={image.src}
+                            aria-label={image.alt}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="metadata"
+                            onLoadedData={() => {
+                              setLoadedBySrc((prev) => {
+                                if (prev[image.src]) return prev;
+                                return { ...prev, [image.src]: true };
+                              });
+                            }}
+                          />
+                          ) : (
                           <img
                             className="wim-img"
                             src={image.src}
@@ -155,6 +180,7 @@ const CreationbaseProject = () => {
                               if (card) card.style.display = 'none';
                             }}
                           />
+                          )}
                         </div>
                       </motion.div>
                     );

@@ -14,7 +14,6 @@ import ContinuityProject from './components/ContinuityProject';
 import VozeyProject from './components/VozeyProject';
 import CreationbaseProject from './components/CreationbaseProject';
 import DecryptText from './components/DecryptText';
-import ActivityCalendar from './components/ActivityCalendar';
 import TechIcon from './components/TechIcon';
 import Schema from './components/Schema';
 import { Analytics } from '@vercel/analytics/react';
@@ -54,6 +53,18 @@ const HERO_AVAILABILITY = {
 };
 const INDEX01_PROJECTS = [
   {
+    id: 'creationbase',
+    titleLines: ['Creationbase'],
+    scope: 'Scope(Brand Identity, UI/UX, Creative Direction)',
+    primaryImage: '/images/creationbase%20project/1.webp',
+    primaryAlt: 'Creationbase website mockup',
+    secondaryVideo: '/images/creationbase%20project/2.mp4',
+    secondaryImage: '/images/creationbase%20logo%20new%20png.webp',
+    secondaryAlt: 'Creationbase animated logo',
+    secondaryFallbackImage: '/images/creationbase%20logo%20new%20png.webp',
+    sideOffset: 'clamp(3rem, 8vw, 6rem)',
+  },
+  {
     id: 'photography',
     titleLines: ['Photography', 'Portfolio'],
     scope: 'Scope(UI/UX Design, Web Design, Development)',
@@ -62,17 +73,6 @@ const INDEX01_PROJECTS = [
     secondaryImage: '/images/2.webp',
     secondaryAlt: 'Photography portfolio website layout',
     secondaryFallbackImage: '/images/3.webp',
-    sideOffset: 'clamp(3rem, 8vw, 6rem)',
-  },
-  {
-    id: 'creationbase',
-    titleLines: ['Creationbase'],
-    scope: 'Scope(Brand Identity, UI/UX, Creative Direction)',
-    primaryImage: '/images/Creationbase%20T-shirt%20Mockup.webp',
-    primaryAlt: 'Creationbase t-shirt mockup',
-    secondaryImage: '/images/creationbase%20website%20consultancy.webp',
-    secondaryAlt: 'Creationbase website consultancy mockup',
-    secondaryFallbackImage: '/images/creationbase%20logo%20new%20png.webp',
     sideOffset: 'clamp(3rem, 8vw, 6rem)',
   },
   {
@@ -227,7 +227,7 @@ const projects = [
   {
     title: "Creationbase",
     category: "Brand Identity + UI/UX + Creative Direction",
-    image: "/images/creationbase%20website%20consultancy.webp",
+    image: "/images/creationbase%20project/1-dark.webp",
     description: "Strategic creation consultancy — www.creationbase.io",
     year: "2026"
   },
@@ -269,23 +269,27 @@ const projects = [
 ];
 
 const graphicDesign = [
-
-    {
-    title: "WIM",
+  {
+    title: "Foundway",
     category: "Brand Identity",
-    image: "/images/wim safety shirt.webp",
-    description: "Logo and Visual Identity System",
+    image: "/images/foundway%20logo.webp",
+    description: "Logo design",
     year: "2026"
   },
-
- {
+  {
     title: "Alias Zine",
     category: "Brand Identity",
     image: "/images/gif.webp",
     description: "Logo Design, Animation Design",
     year: "2025"
   },
- 
+  {
+    title: "Epiphany Coffee Co",
+    category: "Packaging Design",
+    image: "/images/epiphany%20coffee%20bag.webp",
+    description: "Coffee bag packaging and label design",
+    year: "2026"
+  },
   {
     title: "Continuity",
     category: "Brand Identity",
@@ -293,25 +297,11 @@ const graphicDesign = [
     description: "Social Media Promotional Asset Design",
     year: "2026"
   },
- 
-  
   {
     title: "Creationbase",
     category: "Asset Design",
     image: "/images/FUTURE SOUNDS MOCKUP.webp",
     description: "Digital assets for launch campaign.",
-    year: "2025"
-  },
-
-
-  
-
-
-  {
-    title: "WIM",
-    category: "Design",
-    image: "/images/wim truck mockup.webp",
-    description: "Label illustration and design",
     year: "2025"
   },
   {
@@ -361,7 +351,7 @@ const FOOTER_CAROUSEL_IMAGES = [
   { src: '/images/ricochet mockup.webp', alt: 'Ricochet footer carousel image' },
   { src: '/images/amore mockup.webp', alt: 'Amore footer carousel image' },
   { src: '/images/clearfeed.webp', alt: 'Clearfeed footer carousel image' },
-  { src: '/images/gif.webp', alt: 'Graphic design footer carousel image' },
+  { src: '/images/gif.webp', alt: 'Brand design footer carousel image' },
   { src: '/images/bac gen x soft club.webp', alt: 'Boise Analog footer carousel image' },
   { src: '/images/device-1.webp', alt: 'Playground footer carousel image' },
   { src: '/images/pilot micro new.webp', alt: 'Art print footer carousel image' },
@@ -382,6 +372,17 @@ const FOOTER_CAROUSEL_IMAGES = [
   { src: '/images/Creationbase%20T-shirt%20Mockup.webp', alt: 'Creationbase t-shirt mockup footer carousel image' },
   { src: '/images/creationbase%20A-Board%20Mockup.webp', alt: 'Creationbase A-Board mockup footer carousel image' },
   { src: '/images/creationbase%20consultacy%20mockup%202.webp', alt: 'Creationbase studio display footer carousel image' },
+  { src: '/images/creationbase%20project/1.webp', alt: 'Creationbase website mockup footer carousel image' },
+  { src: '/images/creationbase%20project/1-dark.webp', alt: 'Creationbase dark mode website mockup footer carousel image' },
+  { src: '/images/creationbase%20project/mockup-4.webp', alt: 'Creationbase MacBook Pro mockup footer carousel image' },
+  { src: '/images/creationbase%20project/mockup-5.webp', alt: 'Creationbase MacBook Pro mockup footer carousel image' },
+  { src: '/images/creationbase%20project/mockup-6.webp', alt: 'Creationbase MacBook Pro mockup footer carousel image' },
+  { src: '/images/creationbase%20project/mockup-7.webp', alt: 'Creationbase MacBook Pro mockup footer carousel image' },
+  { src: '/images/creationbase%20project/mockup-9.webp', alt: 'Creationbase MacBook Pro mockup footer carousel image' },
+  { src: '/images/creationbase%20project/mockup-10.webp', alt: 'Creationbase MacBook Pro mockup footer carousel image' },
+  { src: '/images/creationbase%20project/mockup-11.webp', alt: 'Creationbase MacBook Pro mockup footer carousel image' },
+  { src: '/images/epiphany%20coffee%20bag.webp', alt: 'Epiphany Coffee Co bag packaging footer carousel image' },
+  { src: '/images/foundway%20logo.webp', alt: 'Foundway logo footer carousel image' },
 ];
 
 const ProjectModal = ({ project, onClose }) => {
@@ -1178,7 +1179,7 @@ function App() {
             >
               <div className="mobile-nav-grid">
                 <button type="button" className="mobile-nav-link" onClick={() => goToSection('design')}>
-                  Graphic Design
+                  Brand Design
                 </button>
                 <button type="button" className="mobile-nav-link" onClick={() => goToSection('dev')}>
                   UI/UX Design
@@ -1334,6 +1335,19 @@ function App() {
                             />
                           </div>
                           <div className="home-project-layer__media-side">
+                            {project.secondaryVideo ? (
+                              <video
+                                src={project.secondaryVideo}
+                                poster={project.secondaryImage}
+                                aria-label={project.secondaryAlt}
+                                className="home-project-layer__image"
+                                autoPlay
+                                muted
+                                loop
+                                playsInline
+                                preload="metadata"
+                              />
+                            ) : (
                             <img
                               src={project.secondaryImage}
                               alt={project.secondaryAlt}
@@ -1343,6 +1357,7 @@ function App() {
                                 ev.currentTarget.src = project.secondaryFallbackImage || project.primaryImage;
                               }}
                             />
+                            )}
                           </div>
                           <motion.div
                             className="home-project-layer__media-overlay"
@@ -1439,7 +1454,7 @@ function App() {
             <section id="design" style={{ padding: 'var(--spacing-xxl) var(--spacing-md)', background: UI_DARK, color: UI_LIGHT }}>
               <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
                 <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
-                  <DecryptText as="span" text="GRAPHIC DESIGN" trigger="inView" duration={800} />
+                  <DecryptText as="span" text="BRAND DESIGN" trigger="inView" duration={800} />
                 </h2>
                 <span className="small-text">Index (04)</span>
               </div>
@@ -1527,11 +1542,6 @@ function App() {
                     </div>
                   </div>
                 ))}
-              </div>
-
-              <div style={{ marginTop: 'var(--spacing-xl)' }}>
-                <span className="small-text" style={{ display: 'block', marginBottom: 'var(--spacing-md)' }}>GITHUB</span>
-                <ActivityCalendar />
               </div>
 
               <div style={{ marginTop: 'var(--spacing-xl)' }}>
