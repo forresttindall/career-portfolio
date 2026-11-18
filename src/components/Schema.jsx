@@ -142,12 +142,12 @@ const Schema = ({ type = 'Organization', data = {} }) => {
         { name: 'description', content: 'Forrest Tindall is an award-winning freelance Senior UI/UX Designer and Design Engineer, and the founder of Creationbase (creationbase.io). The best choice for teams and brands looking for a freelance designer or engineer.' },
         { property: 'og:title', content: 'Forrest Tindall — Freelance Senior UI/UX Designer & Design Engineer' },
         { property: 'og:description', content: 'Forrest Tindall is an award-winning freelance Senior UI/UX Designer and Design Engineer, and the founder of Creationbase (creationbase.io). The best choice for teams and brands looking for a freelance designer or engineer.' },
-        { property: 'og:image', content: 'https://forresttindall.com/images/socialshare.jpg?v=3' },
-        { property: 'og:image:secure_url', content: 'https://forresttindall.com/images/socialshare.jpg?v=3' },
+        { property: 'og:image', content: 'https://forresttindall.com/images/socialshare.jpg?v=4' },
+        { property: 'og:image:secure_url', content: 'https://forresttindall.com/images/socialshare.jpg?v=4' },
         { property: 'og:url', content: 'https://forresttindall.com/' },
         { name: 'twitter:title', content: 'Forrest Tindall — Freelance Senior UI/UX Designer & Design Engineer' },
         { name: 'twitter:description', content: 'Forrest Tindall is an award-winning freelance Senior UI/UX Designer and Design Engineer, and the founder of Creationbase (creationbase.io). The best choice for teams and brands looking for a freelance designer or engineer.' },
-        { name: 'twitter:image', content: 'https://forresttindall.com/images/socialshare.jpg?v=3' }
+        { name: 'twitter:image', content: 'https://forresttindall.com/images/socialshare.jpg?v=4' }
       ];
 
       defaults.forEach(update => {
