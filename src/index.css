@@ -69,7 +69,7 @@
 }
 
 :root {
-  --font-display: space grotesk, Doto, monospace;
+  --font-display: 'Space Grotesk', sans-serif;
   --font-display-weight: 900;
   --font-display-weight-bold: 800;
   --font-mono: 'SF Mono', monospace;
@@ -97,7 +97,7 @@
   --fs-sm: 12px;
   --fs-base: 14px;
   --fs-lg: 24px;
-  --fs-xl: clamp(14px, 4.2vw, 40px);
+  --fs-xl: clamp(20px, calc(3vw + 12px), 40px);
   --fs-xxl: clamp(20px, 9vw, 72px);
   --home-hero-min-h: 58vh;
 
@@ -1215,13 +1215,13 @@ ul {
 
 @media (max-width: 639px) {
   .home-hero__title {
-    font-size: 80px;
+    font-size: clamp(36px, 16vw, 100px);
+    line-height: 1;
   }
-}
 
-@media (max-width: 420px) {
-  .home-hero__title {
-    font-size: 60px;
+  /* Wrapped lines and separate lines share one rhythm */
+  .home-hero__title-line {
+    padding-bottom: 0 !important;
   }
 }
 
@@ -1299,13 +1299,12 @@ ul {
 
 @media (max-width: 639px) {
   .project-hero__title {
-    font-size: 56px;
+    font-size: clamp(30px, 11.5vw, 72px);
+    line-height: 1;
   }
-}
 
-@media (max-width: 420px) {
-  .project-hero__title {
-    font-size: 42px;
+  .project-hero__title-line {
+    padding-bottom: 0 !important;
   }
 }
 
