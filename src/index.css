@@ -1358,7 +1358,8 @@ ul {
 .uiux-card {
   border-radius: 12px;
   overflow: hidden;
-  background: var(--color-surface);
+  background: var(--color-bg);
+  cursor: pointer;
   min-width: 0;
 }
 
@@ -1366,7 +1367,8 @@ ul {
   height: auto;
 }
 
-.uiux-frame img {
+.uiux-frame img,
+.uiux-frame video {
   width: 100%;
   height: 100%;
   display: block;
@@ -1393,7 +1395,8 @@ ul {
   .uiux-row--single .uiux-card {
     flex: 0 0 auto;
   }
-  .uiux-frame img {
+  .uiux-frame img,
+  .uiux-frame video {
     height: auto;
   }
 }

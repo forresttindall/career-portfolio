@@ -16,6 +16,7 @@ import CreationbaseProject from './components/CreationbaseProject';
 import DecryptText from './components/DecryptText';
 import TechIcon from './components/TechIcon';
 import Schema from './components/Schema';
+import LazyVideo from './components/LazyVideo';
 import GrainBackdrop from './components/GrainBackdrop';
 import CursorTag from './components/CursorTag';
 import CursorHint from './components/CursorHint';
@@ -100,17 +101,6 @@ const INDEX01_PROJECTS = [
     secondaryAlt: 'KnwnLocal CMS and editing workflow screenshot',
     secondaryFallbackImage: '/images/knwnlocal%20mockup.webp',
     sideOffset: 'clamp(3rem, 8vw, 6rem)',
-  },
-  {
-    id: 'wim',
-    titleLines: ['WIM'],
-    scope: 'Scope(Identity, App UI/UX Design)',
-    primaryImage: '/images/wim truck mockup.webp',
-    primaryAlt: 'WIM truck mockup',
-    secondaryImage: '/images/wim software.webp',
-    secondaryAlt: 'WIM software mockup',
-    secondaryFallbackImage: '/images/wim HAT MOCKUP.webp',
-    sideOffset: 'clamp(2rem, 7vw, 5rem)',
   },
   {
     id: 'vozey',
@@ -237,10 +227,10 @@ const projects = [
     year: "2026"
   },
   {
-    title: "Boise Analog Club",
+    title: "Vozey",
     category: "UI/UX + Product Design",
-    image: "/images/new%20mockeup.webp",
-    description: "Website design and campaign landing page direction",
+    image: "/images/vozey-ipad.webp",
+    description: "Website design for an on-demand podcast production service",
     year: "2026"
   },
   {
@@ -258,17 +248,17 @@ const projects = [
     year: "2026"
   },
   {
-    title: "Arrowleaf",
-    category: "UI/UX Design & Dev",
-    image: "/images/arrowleaf2.webp",
-    description: "Website design in figma and dev in REACT",
-    year: "2024"
+    title: "Amore",
+    category: "UI/UX + Product Design",
+    image: "/images/1.webp",
+    description: "Restaurant website design and prototyping in Figma",
+    year: "2025"
   },
   {
     title: "Clearfeed",
-    category: "UI/UX Design & Dev",
-    image: "/images/clearfeed.webp",
-    description: "Desktop application design in figma and dev in ELECTRON",
+    category: "UI/UX + Product Design",
+    image: "/images/clearfeed.png",
+    description: "Desktop application design and product workflows in Figma",
     year: "2025"
   },
 ];
@@ -277,36 +267,16 @@ const graphicDesign = [
   {
     title: "Foundway",
     category: "Brand Identity",
-    image: "/images/foundway%20logo.webp",
-    description: "Logo design",
+    image: "/images/foundway.webp",
+    description: "Brand Identity System",
     year: "2026"
   },
   {
     title: "Alias Zine",
     category: "Brand Identity",
-    image: "/images/gif.webp",
+    image: "/images/analogix.mp4",
+    poster: "/images/analogix-poster.webp",
     description: "Logo Design, Animation Design",
-    year: "2025"
-  },
-  {
-    title: "Epiphany Coffee Co",
-    category: "Packaging Design",
-    image: "/images/epiphany%20coffee%20bag.webp",
-    description: "Coffee bag packaging and label design",
-    year: "2026"
-  },
-  {
-    title: "Continuity",
-    category: "Brand Identity",
-    image: "/images/continuity/screens.webp",
-    description: "Social Media Promotional Asset Design",
-    year: "2026"
-  },
-  {
-    title: "Creationbase",
-    category: "Asset Design",
-    image: "/images/FUTURE SOUNDS MOCKUP.webp",
-    description: "Digital assets for launch campaign.",
     year: "2025"
   },
   {
@@ -315,6 +285,29 @@ const graphicDesign = [
     image: "/images/continuity/TSHIRT MOCKUP.webp",
     description: "Promotional Poster Design",
     year: "2025"
+  },
+  {
+    title: "Fathom",
+    category: "Brand Identity",
+    image: "/images/fathom.mp4",
+    poster: "/images/fathom-poster.webp",
+    description: "Logo Design, Animation Design",
+    year: "2026"
+  },
+  {
+    title: "Continuity",
+    category: "Brand Identity",
+    image: "/images/continuity.mp4",
+    poster: "/images/continuity-poster.webp",
+    description: "Logo Design, Animation Design",
+    year: "2025"
+  },
+  {
+    title: "Epiphany Coffee Co",
+    category: "Brand Identity",
+    image: "/images/bag brand mockup 3.png",
+    description: "Coffee packaging and label design",
+    year: "2026"
   }
 ];
 
@@ -467,16 +460,24 @@ const ProjectModal = ({ project, onClose }) => {
         </div>
         <div style={{ position: 'relative', width: '100%', height: '100%', display: 'flex', justifyContent: 'center' }}>
           <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', maxWidth: '100%' }}>
-            <img 
-              src={project.image} 
-              alt={project.title}
-              style={{ 
-                maxWidth: '100%', 
-                maxHeight: '80vh', 
-                objectFit: 'contain',
-                display: 'block'
-              }} 
-            />
+            {/\.mp4$/i.test(project.image) ? (
+              <video
+                src={project.image}
+                poster={project.poster}
+                aria-label={project.title}
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain', display: 'block' }}
+              />
+            ) : (
+              <img
+                src={project.image}
+                alt={project.title}
+                style={{ maxWidth: '100%', maxHeight: '80vh', objectFit: 'contain', display: 'block' }}
+              />
+            )}
             <div className="home-project-layer__meta" style={{ marginTop: 'var(--spacing-md)', color: UI_LIGHT, padding: 0 }}>
               <div className="home-project-layer__copy">
                 <h3
@@ -788,14 +789,15 @@ function App() {
           });
           return;
         }
-        const imgs = Array.from(row.querySelectorAll('.uiux-frame img'));
+        // Media can be an <img> or a looping <video>; both report natural size.
+        const imgs = Array.from(row.querySelectorAll('.uiux-frame img, .uiux-frame video'));
         if (frames.length !== imgs.length) return;
         const isSingle = row.classList.contains('uiux-row--single');
         const heights = imgs.map((img, idx) => {
           const frame = frames[idx];
           const w = frame.getBoundingClientRect().width;
-          const naturalW = img.naturalWidth || w;
-          const naturalH = img.naturalHeight || w;
+          const naturalW = img.naturalWidth || img.videoWidth || w;
+          const naturalH = img.naturalHeight || img.videoHeight || w;
           const ratio = naturalH / naturalW;
           return Math.max(0, Math.round(w * ratio));
         });
@@ -807,13 +809,15 @@ function App() {
       });
     };
     const onLoad = (ev) => {
-      if (ev && ev.target && ev.target.tagName === 'IMG') adjustRowHeights();
+      if (ev && ev.target && (ev.target.tagName === 'IMG' || ev.target.tagName === 'VIDEO')) adjustRowHeights();
     };
     document.addEventListener('load', onLoad, true);
+    document.addEventListener('loadedmetadata', onLoad, true);
     window.addEventListener('resize', adjustRowHeights);
     const raf = requestAnimationFrame(adjustRowHeights);
     return () => {
       document.removeEventListener('load', onLoad, true);
+      document.removeEventListener('loadedmetadata', onLoad, true);
       window.removeEventListener('resize', adjustRowHeights);
       cancelAnimationFrame(raf);
     };
@@ -1446,16 +1450,20 @@ function App() {
                           onClick={() => setSelectedProject(project)}
                         >
                           <div className="uiux-frame">
-                            <img
-                              src={project.image}
-                              alt={project.title}
-                              loading="lazy"
-                              decoding="async"
-                              onError={(ev) => {
-                                const card = ev.currentTarget.closest('.uiux-card');
-                                if (card) card.style.display = 'none';
-                              }}
-                            />
+                            {/\.mp4$/i.test(project.image) ? (
+                              <LazyVideo src={project.image} poster={project.poster} alt={project.title} />
+                            ) : (
+                              <img
+                                src={project.image}
+                                alt={project.title}
+                                loading="lazy"
+                                decoding="async"
+                                onError={(ev) => {
+                                  const card = ev.currentTarget.closest('.uiux-card');
+                                  if (card) card.style.display = 'none';
+                                }}
+                              />
+                            )}
                           </div>
                         </motion.div>
                       ))}
@@ -1486,7 +1494,7 @@ function App() {
                     <div key={`design-row-${rIdx}`} className={rowClass}>
                       {row.map((project) => (
                         <motion.div
-                          key={project.title}
+                          key={project.image}
                           className="uiux-card"
                           initial={{ opacity: 0, y: 50 }}
                           whileInView={{ opacity: 1, y: 0 }}
@@ -1495,16 +1503,20 @@ function App() {
                           onClick={() => setSelectedProject(project)}
                         >
                           <div className="uiux-frame">
-                            <img
-                              src={project.image}
-                              alt={project.title}
-                              loading="lazy"
-                              decoding="async"
-                              onError={(ev) => {
-                                const card = ev.currentTarget.closest('.uiux-card');
-                                if (card) card.style.display = 'none';
-                              }}
-                            />
+                            {/\.mp4$/i.test(project.image) ? (
+                              <LazyVideo src={project.image} poster={project.poster} alt={project.title} />
+                            ) : (
+                              <img
+                                src={project.image}
+                                alt={project.title}
+                                loading="lazy"
+                                decoding="async"
+                                onError={(ev) => {
+                                  const card = ev.currentTarget.closest('.uiux-card');
+                                  if (card) card.style.display = 'none';
+                                }}
+                              />
+                            )}
                           </div>
                         </motion.div>
                       ))}
