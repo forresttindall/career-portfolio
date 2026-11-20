@@ -899,31 +899,30 @@ ul {
   text-align: right;
 }
 
+/* Cross cursor. White drawn in "difference" mode inverts whatever is under it, so it always contrasts:
+   light on dark areas, dark on light ones. */
 .cursor-follower {
   position: fixed;
   left: 0;
   top: 0;
-  width: 22px;
-  height: 22px;
-  margin-left: -11px;
-  margin-top: -11px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.45);
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  margin-top: -9px;
   pointer-events: none;
   z-index: 1200;
-  backdrop-filter: blur(30px);
-  -webkit-backdrop-filter: blur(30px);
+  mix-blend-mode: difference;
 }
 
+.cursor-follower::before,
 .cursor-follower::after {
   content: '';
   position: absolute;
-  inset: -10px;
-  border-radius: inherit;
-  background: rgba(255, 255, 255, 0.08);
-  filter: blur(10px);
-  opacity: 0.7;
+  background: #ffffff;
 }
+
+.cursor-follower::before { left: 0; right: 0; top: 50%; height: 1.5px; margin-top: -0.75px; }
+.cursor-follower::after { top: 0; bottom: 0; left: 50%; width: 1.5px; margin-left: -0.75px; }
 
 .mobile-nav-toggle {
   display: none;
@@ -982,6 +981,8 @@ ul {
 }
 
 .mobile-nav-panel__inner {
+  position: relative;
+  z-index: 1;
   min-height: 100vh;
   width: min(520px, calc(100% - 24px));
   margin: 0 auto;
@@ -1529,6 +1530,39 @@ ul {
   justify-content: center;
 }
 
+/* Sections with a GrainBackdrop as their first child: lift the content above the band. */
+.grain-section > :not(.grain-backdrop) {
+  position: relative;
+  z-index: 1;
+}
+
+/* VIEW tag that trails the pointer inside a homepage card (CursorTag): mono caps on a flat grey
+   block, square corners. Solid, so the photo under the card doesn't show through. */
+.cursor-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  padding: 6px 10px;
+  background: #2b2b2b;
+  color: #9a9a9a;
+  font-family: var(--font-mono);
+  font-weight: var(--font-mono-weight);
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Cursor hints (CursorHint: boasts, buttons, links) follow the whole window, above everything. */
+.cursor-tag--hint {
+  position: fixed;
+  z-index: 1199;
+  transition: opacity 0.15s ease;
+}
+
 .home-project-layer__meta {
   display: flex;
   align-items: baseline;
@@ -1946,6 +1980,16 @@ ul {
   }
 
   .home-project-layer__media-side {
+    display: none;
+  }
+
+  /* One image here, so one darken panel to match it. */
+  .home-project-layer__media-overlay-panels {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .home-project-layer__media-overlay-panel--side {
     display: none;
   }
 

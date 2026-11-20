@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useIntroDone } from '../intro';
 
 const CHARSET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&*+-=?<>[]{}';
 
@@ -38,6 +39,8 @@ export default function DecryptText({
   const timeoutRef = useRef(null);
   const intervalRef = useRef(null);
   const hasAnimatedInViewRef = useRef(false);
+  // Hold every decrypt until the homepage load intro has finished (immediately true when it doesn't play).
+  const introDone = useIntroDone();
 
   const clearTimers = useCallback(() => {
     if (timeoutRef.current) {
@@ -85,12 +88,12 @@ export default function DecryptText({
   }, [text]);
 
   useEffect(() => {
-    if (trigger !== 'mount') return undefined;
+    if (trigger !== 'mount' || !introDone) return undefined;
 
     timeoutRef.current = window.setTimeout(runAnimation, delay);
 
     return clearTimers;
-  }, [clearTimers, delay, runAnimation, text, trigger]);
+  }, [clearTimers, delay, introDone, runAnimation, text, trigger]);
 
   useEffect(() => {
     if (trigger !== 'manual' || playKey == null) return undefined;
@@ -101,7 +104,7 @@ export default function DecryptText({
   }, [clearTimers, delay, playKey, runAnimation, text, trigger]);
 
   useEffect(() => {
-    if (trigger !== 'inView') return undefined;
+    if (trigger !== 'inView' || !introDone) return undefined;
     const node = elementRef.current;
     if (!node || hasAnimatedInViewRef.current) return undefined;
 
@@ -121,7 +124,7 @@ export default function DecryptText({
       observer.disconnect();
       clearTimers();
     };
-  }, [clearTimers, delay, runAnimation, text, threshold, trigger]);
+  }, [clearTimers, delay, introDone, runAnimation, text, threshold, trigger]);
 
   useEffect(() => () => clearTimers(), [clearTimers]);
 

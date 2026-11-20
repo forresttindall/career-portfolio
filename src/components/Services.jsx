@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from 'react';
 import { motion } from 'framer-motion';
+import GrainBackdrop from './GrainBackdrop';
 import { useNavigate } from 'react-router-dom';
 import { ArrowUpRight } from '@phosphor-icons/react';
 
@@ -52,8 +53,9 @@ const Services = () => {
       style={{ background: BLACK, color: WHITE, minHeight: '100vh' }}
       role="main"
     >
-      <section style={{ padding: 'var(--spacing-xxl) var(--spacing-md) var(--spacing-xl)', borderBottom: '1px solid var(--color-border)' }}>
-        <div className="container" style={{ maxWidth: 1200 }}>
+      <section style={{ position: 'relative', overflow: 'hidden', padding: 'var(--spacing-xxl) var(--spacing-md) var(--spacing-xl)', borderBottom: '1px solid var(--color-border)' }}>
+        <GrainBackdrop rotation={160} speed={1} fadeBottom />
+        <div className="container" style={{ maxWidth: 1200, position: 'relative', zIndex: 1 }}>
           <header className="flex" style={{ justifyContent: 'space-between', alignItems: 'baseline', gap: 'var(--spacing-md)' }}>
             <h1 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0 }}>SERVICES</h1>
             <div className="small-text" style={{ color: GRAY1 }}>INDEX (03)</div>

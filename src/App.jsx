@@ -16,6 +16,10 @@ import CreationbaseProject from './components/CreationbaseProject';
 import DecryptText from './components/DecryptText';
 import TechIcon from './components/TechIcon';
 import Schema from './components/Schema';
+import GrainBackdrop from './components/GrainBackdrop';
+import CursorTag from './components/CursorTag';
+import CursorHint from './components/CursorHint';
+import IntroLoader from './components/IntroLoader';
 import { Analytics } from '@vercel/analytics/react';
 
 const UI_LIGHT = 'var(--color-text)';
@@ -156,6 +160,7 @@ const SiteFooter = ({
       transition={{ duration: 0.8 }}
       style={{ position: 'relative', overflow: 'hidden', background: UI_DARK }}
     >
+      <GrainBackdrop rotation={20} speed={1} fadeTop />
       <div className="footer-shell" style={{ padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-xxl)', minHeight: '80vh', position: 'relative', zIndex: 1 }}>
         <div className="footer-top">
           <div className="footer-cta">
@@ -196,7 +201,7 @@ const SiteFooter = ({
           <div className="footer-marquee__track footer-marquee__track--reverse">
             {[...Array(20)].map((_, index) => (
               <span key={index} className="footer-marquee__text-item small-text">
-                FORREST TINDALL •
+                <span data-boast>FORREST TINDALL</span> •
               </span>
             ))}
           </div>
@@ -1097,6 +1102,7 @@ function App() {
   return (
     <div className="app">
       <Schema type="LocalBusiness" />
+      <IntroLoader />
       {cursorEnabled && (
          <motion.div
            aria-hidden="true"
@@ -1104,6 +1110,7 @@ function App() {
            style={{ x: cursorXSpring, y: cursorYSpring }}
          />
        )}
+      {cursorEnabled && <CursorHint />}
       <motion.header 
         className="site-header"
         data-mobile-nav-open={mobileNavOpen ? 'true' : 'false'}
@@ -1169,6 +1176,8 @@ function App() {
             onClick={() => setMobileNavOpen(false)}
             style={{ background: mobileNavBg, color: headerColor }}
           >
+            {/* Same moving grain as the hero, filling the open menu. */}
+            <GrainBackdrop rotation={160} speed={1} />
             <motion.div
               className="mobile-nav-panel__inner"
               initial={{ y: 16, opacity: 0 }}
@@ -1245,6 +1254,7 @@ function App() {
           >
             {/* Hero */}
             <section data-header-theme="light" style={{ position: 'relative', overflow: 'hidden', background: UI_DARK, color: UI_LIGHT, borderBottom: HOME_SECTION_DIVIDER }}>
+              <GrainBackdrop rotation={160} speed={1} fadeBottom />
               <div style={{ minHeight: 'var(--home-hero-min-h)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', gap: 'var(--spacing-lg)', padding: 'var(--spacing-md) var(--spacing-md) var(--spacing-sm)', position: 'relative', zIndex: 1 }}>
                 <h1 className="home-hero__title" ref={setHeroTitleNode} style={{ 
                   fontFamily: 'var(--font-display)', fontWeight: 'var(--font-display-weight)', 
@@ -1274,13 +1284,13 @@ function App() {
                   <div className="small-text home-hero__identity" style={{ fontSize: 'var(--fs-sm)', lineHeight: 1.2 }}>
                     <div className="home-hero__identity-desktop home-hero__meta-col">
                       <div className="home-hero__meta-top">
-                        <span style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall</span>
+                        <span data-boast style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall</span>
                         <span style={{ width: '8px', height: '8px', borderRadius: '999px', background: 'var(--color-text)', display: 'inline-block', flex: '0 0 auto' }} />
                       </div>
                       <div className="home-hero__meta-bottom">Senior Design Engineer</div>
                     </div>
                     <div className="home-hero__identity-mobile">
-                      <div style={{ fontWeight: 'var(--font-mono-weight-bold)' }}>Forrest Tindall •</div>
+                      <div style={{ fontWeight: 'var(--font-mono-weight-bold)' }}><span data-boast>Forrest Tindall</span> •</div>
                       <div>Senior Design Engineer</div>
                     </div>
                   </div>
@@ -1369,7 +1379,11 @@ function App() {
                               <div className="home-project-layer__media-overlay-panel home-project-layer__media-overlay-panel--main" />
                               <div className="home-project-layer__media-overlay-panel home-project-layer__media-overlay-panel--side" />
                             </div>
-                            <div className="home-project-layer__view-chip">View</div>
+                            {cursorEnabled ? (
+                              <CursorTag label="View" within=".home-project-layer__media" />
+                            ) : (
+                              <div className="home-project-layer__view-chip">View</div>
+                            )}
                           </motion.div>
                         </motion.div>
                         <div className="home-project-layer__meta">
@@ -1500,7 +1514,8 @@ function App() {
               </div>
             </section>
 
-            <section id="resume" style={{ padding: 'var(--spacing-xxl) var(--spacing-md)', paddingBottom: 'calc(var(--spacing-xxl) + var(--spacing-lg))', background: UI_DARK, color: UI_LIGHT }}>
+            <section id="resume" className="grain-section" style={{ position: 'relative', overflow: 'hidden', padding: 'var(--spacing-xxl) var(--spacing-md)', paddingBottom: 'calc(var(--spacing-xxl) + var(--spacing-lg))', background: UI_DARK, color: UI_LIGHT }}>
+              <GrainBackdrop rotation={300} speed={1} fadeTop fadeBottom />
               <div className="flex" style={{ justifyContent: 'space-between', marginBottom: 'var(--spacing-xl)', alignItems: 'baseline', paddingBottom: 'var(--spacing-sm)', borderBottom: HOME_SECTION_DIVIDER }}>
                 <h2 className="section-title" style={{ fontSize: 'var(--fs-xl)', marginBottom: 0, color: UI_LIGHT }}>
                   <DecryptText as="span" text="RESUME" trigger="inView" duration={800} />
