@@ -2,16 +2,15 @@ import { useEffect, useRef, useState } from 'react';
 import GrainBackdrop from './GrainBackdrop';
 import { finishIntro, introActive } from '../intro';
 
-// Homepage load intro: a dark, moving grain screen that types my name and a made-up dictionary entry,
-// holds for a beat, then fades to the page, which is when the hero title decrypts. Ported from the
+// Homepage load intro: a dark, moving grain screen that types my name and a dictionary-style entry for
+// it, holds for a beat, then fades to the page, which is when the hero title decrypts. Ported from the
 // Creationbase site.
 // Plays once per session (see src/intro.js). A click, tap or key press skips it.
 
 const WORD = 'FORREST TINDALL';
 const LINES = [
-  'for·rest tin·dall  |  /ˈfɔːr.ɪst ˈtɪn.dəl/  |  noun (designer)',
-  '1. Senior UI/UX designer who engineers interfaces and systems.',
-  '2. See also: your next hire.',
+  'for·rest tin·dall  |  /ˈfɔːr.ɪst ˈtɪn.dəl/  |  noun',
+  '1. Senior Design Engineer.',
 ];
 
 const WORD_MS = 55; // per letter of the wordmark
