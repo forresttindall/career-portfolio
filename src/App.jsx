@@ -1367,8 +1367,13 @@ function App() {
                               alt={project.secondaryAlt}
                               className="home-project-layer__image"
                               onError={(ev) => {
-                                ev.currentTarget.onerror = null;
-                                ev.currentTarget.src = project.secondaryFallbackImage || project.primaryImage;
+                                // Swap to the fallback once. React keeps calling this handler on every
+                                // error (clearing .onerror doesn't detach it), so without this guard a
+                                // failing fallback re-requests itself in a tight loop (~600/s).
+                                const img = ev.currentTarget;
+                                if (img.dataset.fallbackTried) return;
+                                img.dataset.fallbackTried = '1';
+                                img.src = project.secondaryFallbackImage || project.primaryImage;
                               }}
                             />
                             )}
